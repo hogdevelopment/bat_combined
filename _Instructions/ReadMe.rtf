@@ -1,0 +1,262 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;\f4\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red170\green13\blue145;\red92\green38\blue153;
+\red0\green116\blue0;\red63\green110\blue116;\red28\green0\blue207;\red46\green13\blue110;\red38\green71\blue75;
+\red13\green96\blue1;\red235\green235\blue235;\red16\green60\blue192;\red196\green26\blue22;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww26980\viewh14880\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 Instructions\
+\
+1. Open Xcode and open the Xcode project file in the repo\
+2. Run project (build) and you will see build errors as per the screen grab named 'xcode_1'\
+3. Visit Google Maps SDK Site for IOS ({\field{\*\fldinst{HYPERLINK "https://developers.google.com/maps/documentation/ios/"}}{\fldrslt https://developers.google.com/maps/documentation/ios/}})\
+4. Read the page for an over site\
+5. Download or follow link and then download the SDK as a zip\
+6. Unzip the SDK\
+7. Open the project explorer in Xcode (top left of Xcode - folder icon)\
+8. Open the Frameworks folder and look for file called GoogleMaps.framework and GoogleMaps.bundle. Delete the files by moving them to trash\
+9. From the Unzipped SDK folder drag the file called GoogleMap.framework to the Frameworks folder in xCode. 
+\f1\fs26 \cf2 When prompted, select 
+\b Copy items into destination group's folder
+\b0 .\
+10, Right Click on the GoogleMap.Framework file you copied to xCode and select show in finder\
+11, Open GoogleMap.Framework folder and then Resources folder. In Resources folder you should see a file called GoogleMaps.bundle. Copy that file to 
+\f0\fs24 \cf0 the Frameworks folder in xCode. 
+\f1\fs26 \cf2 When prompted, select 
+\b Copy items into destination group's folder
+\b0 .\
+ 13, Run the application in Emulator ignore any AFHttpClient warnings. (Read the section on \'93Showing map in Emulator\'94)\
+\
+
+\f0\fs24 \cf0 \
+\
+\
+\
+[\
+\
+BespokeLocationV2.xcodeproj/project.xcworkspace/xcuserdata/richardmax.xcuserdatad/UserInterfaceState.xcuserstate - this folder must be committed - it is bespoke too the user\
+\
+]\
+\
+\
+\
+
+\f1\b\fs26 \cf2 \ul \ulc2 Showing map in Emulator\
+\
+
+\b0 \ulnone 1, If you run the map in emulator and you cannot see any map. Select debug > Location > Custom Location from the emulator menu\
+2, In the Custom Location box enter 47.37 into the Latitude box and 8.54 into the Longitude box.\
+3, Stop emulator and run the app from xCode again. Now you should see the map pointing to Zurich\
+
+\f0\fs24 \cf0 \
+\
+
+\b \ul Showing map on Phone\
+\
+
+\b0 \ulnone 1, To show the map on phone you will need a device provisioned for development at https://developer.apple.com (
+\b  You need to be a registered member of iOS Development Program
+\b0 )\
+2, Go into xCode and open BespokeLocationV2 folder.\
+3, Open the file called ViewController.m \
+4, Look for these lines of code:\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f2\fs22 \cf0 \CocoaLigature0 - (\cf3 void\cf0 )locationManager:(\cf4 CLLocationManager\cf0  *)manager didUpdateLocations:(\cf4 NSArray\cf0  *)locations\{\
+    \
+    \cf5 // Our Current Location is updated there.\cf0 \
+    \cf5 // If we want to continous update then remove the if statement\cf0 \
+    \cf5 // Don't forget you may reach the max daily calls the foursquare api.\cf0 \
+    \cf3 if\cf0  (\cf6 CurrentLocationlat\cf0  < \cf7 .0001\cf0 ) \{\
+        \cf4 CLLocation\cf0  *currentLocation = [locations \cf8 lastObject\cf0 ];\
+        \cf5 // TODO : make this from a defined variable\cf0 \
+        \cf6 CurrentLocationlat\cf0  = currentLocation.\cf4 coordinate\cf0 .\cf4 latitude\cf0 ;\
+        \cf6 CurrentLocationlng\cf0  = currentLocation.\cf4 coordinate\cf0 .\cf4 longitude\cf0 ;\
+        [\cf3 self\cf0  \cf9 GetDataFromDatabase\cf0 ];\
+    \}\
+    \
+\}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1 \
+5, Change 
+\f2\fs22 \CocoaLigature0 currentLocation.\cf4 coordinate\cf0 .\cf4 latitude to 47.37 and \cf0 currentLocation.\cf4 coordinate\cf0 .\cf4 longitude\cf0  8.54 (
+\f3\b Remember to remove after testing as this should not end up in production
+\f2\b0 )
+\f0\fs24 \CocoaLigature1 \
+\
+6, Save and run the application on Phone\
+\
+\
+
+\b \ul Additional Information:\
+\
+\pard\pardeftab720\sa325
+
+\f1\b0\fs44 \cf2 \ulnone The Google Maps API Key
+\f0\b\fs24 \cf0 \ul \ulc0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \ulc0 \
+
+\b0 \ulnone 1, For using google Map API an API key is needed. You may need to change the key to the one created on your google account\
+2, Follow the instruction in https://developers.google.com/maps/documentation/ios/start#getting_the_google_maps_sdk_for_ios  under the section name \'93The Google Maps API Key\'94 find an extract from the page below\
+\pard\pardeftab720\sa325
+
+\f1\fs44 \cf2 \
+\pard\pardeftab720\sa390
+
+\fs26 \cf2 Using an API key enables you to monitor your application's Maps API usage, and ensures that Google can contact you about your application if necessary. The key is free, you can use it with any of your applications that call the Maps API, and it supports an unlimited number of users. You obtain a Maps API key from the Google APIs Console by providing your application's bundle identifier. Once you have the key, you add it to your 
+\f4 \cf10 AppDelegate
+\f1 \cf2  as described below.\
+\
+\pard\pardeftab720\sa345
+
+\b\fs34 \cf2 //______________Extract From Google _________________________________//\
+\pard\pardeftab720\sa390
+
+\b0\fs26 \cf2 \
+\pard\pardeftab720
+
+\b \cf2 \cb11 Note:
+\b0  Users of the Google Maps Mobile SDK for Business must additionally {\field{\*\fldinst{HYPERLINK "https://developers.google.com/maps/documentation/business/mobile/#the_google_maps_mobile_sdk_for_business_key"}}{\fldrslt \cf12 \ul \ulc12 enable the SDK}} for their API project.\
+\pard\pardeftab720\sa390
+\cf2 \cb1 The {\field{\*\fldinst{HYPERLINK "https://developers.google.com/maps/documentation/ios/urlscheme"}}{\fldrslt \cf12 \ul \ulc12 Google Maps URL scheme}} is available without an API key.\
+\pard\pardeftab720\sa345
+
+\b\fs34 \cf2 Obtaining an API Key\
+\pard\pardeftab720\sa390
+
+\b0\fs26 \cf2 You can obtain a key for your app in the {\field{\*\fldinst{HYPERLINK "https://code.google.com/apis/console/?noredirect"}}{\fldrslt \cf12 \ul \ulc12 Google APIs Console}}.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf2 {\listtext	1.	}Create an API project in the {\field{\*\fldinst{HYPERLINK "https://code.google.com/apis/console/?noredirect"}}{\fldrslt \cf12 \ul \ulc12 Google APIs Console}}.\
+{\listtext	2.	}Select the 
+\b Services
+\b0  pane in your API project, and enable the 
+\i Google Maps SDK for iOS
+\i0 . This displays the {\field{\*\fldinst{HYPERLINK "https://developers.google.com/maps/terms"}}{\fldrslt \cf12 \ul \ulc12 Google Maps Terms of Service}}.\
+{\listtext	3.	}Select the 
+\b API Access
+\b0  pane in the console, and click 
+\b Create new iOS key
+\b0 .\
+{\listtext	4.	}Enter one or more bundle identifiers as listed in your application's .plist file, such as 
+\f4 \cf10 com.example.myapp
+\f1 \cf2 .\
+{\listtext	5.	}Click 
+\b Create
+\b0 .\
+{\listtext	6.	}In the 
+\b API Access
+\b0  page, locate the section 
+\b Key for iOS apps (with bundle identifiers)
+\b0  and note or copy the 40-character 
+\b API key
+\b0 .\
+\pard\pardeftab720\sa390
+\cf2 You should repeat this process for each new application.\
+\
+\pard\pardeftab720\sa345
+
+\b\fs34 \cf2 //______________Extract END _________________________________//
+\f0\b0\fs24 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+3, Open Xcode and look for AppDelegate.m in the BespokeLocationV2 folder\
+4,  the key is on this line of code 
+\f2\fs22 \CocoaLigature0 [\cf4 GMSServices\cf0  \cf8 provideAPIKey\cf0 :\cf13 @\'93XXXXXXXXXXXXX\'94\cf0 ];  replace XXXXXX with you newly created key\
+5,
+\f0\fs24 Run the application (If you cannot see the map then there is something wrong during the creation of the key or the key may be wrong, read the instructions again carefully)
+\f2\fs22 \
+
+\f0\fs24 \CocoaLigature1 \
+\
+\pard\pardeftab720\sa325
+
+\f1\fs44 \cf2 The Google AutoCompete API Key
+\f0\fs24 \cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 1, Read the instructions at https://developers.google.com/places/documentation/#Authentication\
+2, In the Authentication section follow the instructions to create the Google Places API key 
+\f1\fs26 \cf2 as described below.\
+\pard\pardeftab720\sa345
+
+\b\fs34 \cf2 \
+///______________Extract From Google _________________________________//\
+Authentication\
+\pard\pardeftab720\sa390
+
+\b0\fs26 \cf2 The Google Places API uses an API key to identify your application. API keys are managed through the {\field{\*\fldinst{HYPERLINK "https://code.google.com/apis/console/?noredirect"}}{\fldrslt \cf12 \ul \ulc12 Google APIs Console}}. You'll need your own 
+\b \cf2 server API key
+\b0 \cf2  before you can begin using the API. To activate the Places API and create your key:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls2\ilvl0\cf2 {\listtext	1.	}Visit the Google APIs Console at {\field{\*\fldinst{HYPERLINK "https://code.google.com/apis/console/?noredirect"}}{\fldrslt \cf12 \ul \ulc12 https://code.google.com/apis/console}} and log in with your Google account.\
+{\listtext	2.	}A default project called 
+\b API Project
+\b0  is created for you when you first log in to the APIs Console. You can use the project, or create a new one by clicking the 
+\b API Project
+\b0  button at the top of the window and selecting 
+\b Create
+\b0 . {\field{\*\fldinst{HYPERLINK "https://developers.google.com/maps/documentation/business"}}{\fldrslt \cf12 \ul \ulc12 Maps API for Business}} customers must use the API project created for them as part of their Places for Business purchase.\
+{\listtext	3.	}Click the 
+\b Services
+\b0  link in the left-hand navigation panel.\
+{\listtext	4.	}Click the status switch (the on/off button) next to the 
+\b Places API
+\b0  entry. The switch slides to 
+\b ON
+\b0 .\
+{\listtext	5.	}Click 
+\b API Access
+\b0  in the left-hand navigation panel.\
+{\listtext	6.	}Click 
+\b Create new Server key
+\b0 .\
+{\listtext	7.	}Enter one or more server IP addresses if you wish to restrict the servers that can send API requests.\
+{\listtext	8.	}Click 
+\b Create
+\b0 . Your API key appears under the heading 
+\b Key for server apps (with IP locking)
+\b0 .\
+\pard\tx566\pardeftab720
+\cf2 \
+\pard\pardeftab720\sa345
+
+\b\fs34 \cf2 //______________Extract END _________________________________//\
+\pard\tx566\pardeftab720
+
+\b0\fs26 \cf2 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \
+3, Open xCode and look for a file called ViewController.m under BespokeLocationV2 Folder.\
+4, Look for this code\
+\pard\tx529\pardeftab529\pardirnatural
+
+\f2\fs22 \cf4 \CocoaLigature0 UITextField\cf0  *txtSearchField = [\cf6 SearchBar\cf0  \cf8 valueForKey\cf0 :\cf13 @"_searchField"\cf0 ];\
+    \cf6 _autocompleteView\cf0  = [\cf6 TRAutocompleteView\cf0  \cf9 autocompleteViewBindedTo\cf0 :txtSearchField \cf9 usingSource\cf0 :[[\cf6 TRGoogleMapsAutocompleteItemsSource\cf0  \cf8 alloc\cf0 ]\
+                                                                                                 \cf9 initWithMinimumCharactersToTrigger\cf0 :\cf7 1\cf0  \cf9 apiKey\cf0 :\cf13 @\'93XXXXXXXXXXXXXXXXXXXX\'94\cf0 \
+                                                                                                 \cf9 location\cf0 :mylocation] \cf9 cellFactory\cf0 :[[\cf6 TRGoogleMapsAutocompletionCellFactory\cf0  \cf8 alloc\cf0 ]\
+                                                                                                                         \cf9 initWithCellForegroundColor\cf0 :[\cf4 UIColor\cf0  \cf8 whiteColor\cf0 ]\
+                                                                                                                         \cf9 fontSize\cf0 :\cf7 14\cf0 ]\
+                                                        \cf9 presentingIn\cf0 :\cf3 self\cf0 ];\
+    \
+    \cf6 _autocompleteView\cf0 .\cf6 topMargin\cf0  = -\cf7 5\cf0 ;\
+    \cf6 _autocompleteView\cf0 .\cf4 backgroundColor\cf0  = [\cf4 UIColor\cf0  \cf8 colorWithRed\cf0 :\cf7 209.0\cf0 /\cf7 255.0\cf0  \cf8 green\cf0 :\cf7 82.0\cf0 /\cf7 255.0\cf0  \cf8 blue\cf0 :\cf7 23.0\cf0 /\cf7 255.0\cf0  \cf8 alpha\cf0 :\cf7 0.9\cf0 ];\
+    \
+    \cf6 _autocompleteView\cf0 .\cf6 didAutocompleteWith\cf0  = ^(\cf3 id\cf0 <\cf6 TRSuggestionItem\cf0 > item)\
+    \{\
+        \cf8 NSLog\cf0 (\cf13 @"Autocompleted with: %@"\cf0 , item.\cf9 completionText\cf0 );\
+        \
+    \};\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 \CocoaLigature1  \
+5, Replace the XXXXXXXXXXX with you newly created api key\
+\
+\
+}
