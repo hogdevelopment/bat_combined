@@ -7,12 +7,16 @@
 */
 
 
-"Settings"          =       "Setări";
-"Feedback"          =       "Feedback";
-"Rate the app"      =       "Evaluați această aplicație";
-"Share the app"     =       "Distribuiți aplicația";
-"About"             =       "Despre";
-"Privacy"           =       "Privat";
+
+"Distance(units)"           =       "Distanță(unitate de măsură)";
+"Feedback"                  =       "Feedback";
+"Help Improve"              =       "Ajută-ne să îmbunătățim";
+"Rate the app"              =       "Evaluați această aplicație";
+"Share the app"             =       "Distribuiți aplicația";
+"About"                     =       "Despre";
+"Privacy"                   =       "Privat";
+"Terms Of Service"          =       "Termeni și condiții";
+
 "Clear filter"      =       "Sterge filtru";
 "Save filter"       =       "Salveaza filtru";
 "Clear filters"     =       "Sterge filtre";

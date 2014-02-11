@@ -7,12 +7,15 @@
 */
 
 
-"Settings"          =       "Settings";
-"Feedback"          =       "Feedback";
-"Rate the app"      =       "Rate the app";
-"Share the app"     =       "Share the app";
-"About"             =       "About";
-"Privacy"           =       "Privacy";
+"Distance(units)"           =       "Distance(units)";
+"Feedback"                  =       "Feedback";
+"Help Improve"              =       "Help Improve";
+"Rate the app"              =       "Rate the app";
+"Share the app"             =       "Share the app";
+"About"                     =       "About";
+"Privacy"                   =       "Privacy";
+"Terms Of Service"          =       "Terms Of Service";
+
 "Clear filter"      =       "Clear filter";
 "Save filter"       =       "Save filter";
 "Clear filters"     =       "Clear filters";

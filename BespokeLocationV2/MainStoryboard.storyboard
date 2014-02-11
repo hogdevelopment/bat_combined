@@ -346,8 +346,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Termeni și condiții" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="orj-rb-6iO">
-                                <rect key="frame" x="91" y="273" width="138" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="orj-rb-6iO">
+                                <rect key="frame" x="137" y="273" width="47" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -368,6 +368,7 @@
         <image name="facebook.png" width="50" height="47"/>
         <image name="foursquare.png" width="200" height="200"/>
         <image name="google-Plus-icon.png" width="220" height="220"/>
+        <image name="menu-icon.png" width="22" height="17"/>
         <image name="menu-icon.png" width="22" height="17"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
