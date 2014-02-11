@@ -1,0 +1,15 @@
+/* 
+  RMNLocalizable.strings
+  BespokeLocationV2
+
+  Created by Chiosa Gabi on 11/02/14.
+  Copyright (c) 2014 Hogarth. All rights reserved.
+*/
+
+
+"Settings"          =       "Setări";
+"Feedback"          =       "Feedback";
+"Rate the app"      =       "Evaluați această aplicație";
+"Share the app"     =       "Distribuiți aplicația";
+"About"             =       "Despre";
+"Privacy"           =       "Privat";

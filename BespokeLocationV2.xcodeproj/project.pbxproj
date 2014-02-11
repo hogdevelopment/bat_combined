@@ -18,6 +18,8 @@
 		0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */; };
 		0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31518A51D6C00E0E513 /* facebook.png */; };
 		5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */; };
+		5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */; };
+		5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB4F318AA5134008CBE2A /* Localizable.strings */; };
 		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
 		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
 		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
@@ -128,6 +130,12 @@
 		0E64B31518A51D6C00E0E513 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserSettingsSideMenuViewController.h; sourceTree = "<group>"; };
 		5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuViewController.m; sourceTree = "<group>"; };
+		5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRecognition.h"; sourceTree = "<group>"; };
+		5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRecognition.m"; sourceTree = "<group>"; };
+		5C6CB4EF18AA50B1008CBE2A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C6CB4F018AA50B1008CBE2A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5C6CB4F218AA5134008CBE2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C6CB4F418AA51B6008CBE2A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
@@ -433,6 +441,16 @@
 			name = "Open Libraries";
 			sourceTree = "<group>";
 		};
+		5C6CB4EC18AA492F008CBE2A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */,
+				5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */,
+				5C6CB4F318AA5134008CBE2A /* Localizable.strings */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		7C04AD10189FC13900AAA15A /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,9 +531,10 @@
 				5C6CB4E718AA4671008CBE2A /* App Manager */,
 				5C6CB4E318AA45F7008CBE2A /* Main */,
 				5C6CB4E518AA4629008CBE2A /* Main View Controllers */,
+				5C6CB4E218AA45E1008CBE2A /* Side Menus */,
+				5C6CB4EC18AA492F008CBE2A /* Categories */,
 				5C6CB4E818AA46B8008CBE2A /* Open Libraries */,
 				5C6CB4E118AA45D9008CBE2A /* Temp */,
-				5C6CB4E218AA45E1008CBE2A /* Side Menus */,
 				5C6CB4E418AA4602008CBE2A /* Miscellaneous */,
 				0E64B31018A51D5100E0E513 /* images */,
 				7C9B2D9C189A684A00071357 /* Images.xcassets */,
@@ -695,6 +714,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ro,
 			);
 			mainGroup = 7C9B2D78189A684A00071357;
 			productRefGroup = 7C9B2D82189A684A00071357 /* Products */;
@@ -733,6 +753,7 @@
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
 				0E07969018A531DB00537FBC /* foursquare.png in Resources */,
+				5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +819,7 @@
 				7C04AD2B189FC15A00AAA15A /* AFXMLRequestOperation.m in Sources */,
 				5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */,
 				7C9B2DFD189A702400071357 /* MBProgressHUD.m in Sources */,
+				5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */,
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
 			);
@@ -822,10 +844,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5C6CB4F318AA5134008CBE2A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C6CB4F218AA5134008CBE2A /* en */,
+				5C6CB4F418AA51B6008CBE2A /* ro */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7C9B2D8D189A684A00071357 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7C9B2D8E189A684A00071357 /* en */,
+				5C6CB4EF18AA50B1008CBE2A /* ro */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -834,6 +866,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7C9B2DAD189A684A00071357 /* en */,
+				5C6CB4F018AA50B1008CBE2A /* ro */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

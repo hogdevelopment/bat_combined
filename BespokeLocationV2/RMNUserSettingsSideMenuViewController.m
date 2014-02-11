@@ -12,10 +12,17 @@
 
 
 @interface RMNUserSettingsSideMenuViewController ()
+{
+    NSMutableArray *buttonsText;
+}
+
+@property (nonatomic, strong) NSMutableArray *buttonsText;
 
 @end
 
 @implementation RMNUserSettingsSideMenuViewController
+
+@synthesize buttonsText =   buttonsText;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,6 +42,16 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    buttonsText = [[NSMutableArray alloc]initWithObjects:
+                     NSLocalizedString(@"Settings",nil),
+                     NSLocalizedString(@"Feedback",nil),
+                     NSLocalizedString(@"Rate the app",nil),
+                     NSLocalizedString(@"Share the app",nil),
+                     NSLocalizedString(@"About",nil),
+                     NSLocalizedString(@"Privacy",nil),
+                     nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,11 +68,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [buttonsText count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,10 +81,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Item %d", indexPath.row];
+    cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -89,6 +105,19 @@
     
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 200;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *tempView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];
+    [tempView setBackgroundColor:[UIColor greenColor]];
+    return tempView;
+}
+
 
 - (MFSideMenuContainerViewController *)menuContainerViewController {
     return (MFSideMenuContainerViewController *)self.parentViewController;

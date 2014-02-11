@@ -11,8 +11,6 @@
 #import "SecondView.h"
 #import "UserDataSingleton.h"
 #import "ViewController.h"
-
-
 #import "MFSideMenuContainerViewController.h"
 
 
@@ -28,13 +26,7 @@
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyDBRlvVVqXgBMieotMc3Jykx0OHa2nUv4Q"];
     [Gigya initWithAPIKey:ApiKey];
-    
-    /*UIViewController * leftSideDrawerViewController = [[SecondView alloc] init];
-    UIViewController * centerViewController = [[ViewController alloc] init];
-    UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
-    
-     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window setRootViewController:navigationController];*/
+   
     
     // If you want to use FourSqaure Database then leave as is. Set to FALSE if you want to use out own Database
 
