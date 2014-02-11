@@ -10,9 +10,8 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-#import <GoogleMaps/GMSAddress.h>
-
 @class GMSReverseGeocodeResponse;
+@class GMSReverseGeocodeResult;
 
 /** GMSGeocoder error codes, embedded in NSError. */
 typedef NS_ENUM(NSInteger, GMSGeocoderErrorCode) {
@@ -24,7 +23,7 @@ typedef NS_ENUM(NSInteger, GMSGeocoderErrorCode) {
 typedef void (^GMSReverseGeocodeCallback)(GMSReverseGeocodeResponse *, NSError *);
 
 /**
- * Exposes a service for reverse geocoding. This maps Earth coordinates (latitude and longitude) to
+ * Exposes a service for reverse geocoding.  This maps Earth coordinates (latitude and longitude) to
  * a collection of addresses near that coordinate.
  */
 @interface GMSGeocoder : NSObject
@@ -44,13 +43,27 @@ typedef void (^GMSReverseGeocodeCallback)(GMSReverseGeocodeResponse *, NSError *
 
 @end
 
+/** A result from a reverse geocode request, containing a human-readable address. */
+@interface GMSReverseGeocodeResult : NSObject<NSCopying>
+
+/** Returns the first line of the address. */
+- (NSString *)addressLine1;
+
+/** Returns the second line of the address. */
+- (NSString *)addressLine2;
+
+@end
+
 /** A collection of results from a reverse geocode request. */
 @interface GMSReverseGeocodeResponse : NSObject<NSCopying>
 
 /** Returns the first result, or nil if no results were available. */
-- (GMSAddress *)firstResult;
+- (GMSReverseGeocodeResult *)firstResult;
 
-/** Returns an array of all the results (contains GMSAddress), including the first result. */
+/**
+ * Returns an array of all the results (contains GMSReverseGeocodeResult), including the first
+ * result.
+ */
 - (NSArray *)results;
 
 @end

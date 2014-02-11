@@ -11,7 +11,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <GoogleMaps/GMSAddress.h>
+
+#define __GMS_AVAILABLE_BUT_DEPRECATED __deprecated
 #import <GoogleMaps/GMSCALayer.h>
 #import <GoogleMaps/GMSCameraPosition.h>
 #import <GoogleMaps/GMSCameraUpdate.h>
@@ -25,6 +26,7 @@
 #import <GoogleMaps/GMSIndoorLevel.h>
 #import <GoogleMaps/GMSMapLayer.h>
 #import <GoogleMaps/GMSMapView+Animation.h>
+#import <GoogleMaps/GMSMapView+Overlays.h>
 #import <GoogleMaps/GMSMapView.h>
 #import <GoogleMaps/GMSMarker.h>
 #import <GoogleMaps/GMSMarkerLayer.h>

@@ -14,12 +14,9 @@
 #import "DetailsTableViewViewController.h"
 #import "AppDelegate.h"
 #import "FourSquareResturant.h"
-// TRAutoCompletes
-#import "TRAutocompleteView.h"
-#import "TRGoogleMapsAutocompleteItemsSource.h"
-#import "TRTextFieldExtensions.h"
-#import "TRGoogleMapsAutocompletionCellFactory.h"
 
+#import "RMNCustomSearchBar.h"
+#import "RMNFiltersScrollView.h"
 #import "MFSideMenuContainerViewController.h"
 
 
@@ -32,10 +29,11 @@
     CLLocationManager *locationManager;
     GMSMapView *mapView_;
     
-    TRAutocompleteView *_autocompleteView;
-
+    RMNCustomSearchBar *customSearchBar;
+    RMNFiltersScrollView *filtersList;
 }
-@synthesize GetData,URL,jsonData,strData,LocationObjects,CurrentLocationlat,CurrentLocationlng,HUD,clctionDetials,pgviewDetails,SearchBar,MenuButton,CollectionDetails ;
+
+@synthesize GetData,URL,jsonData,strData,LocationObjects,CurrentLocationlat,CurrentLocationlng,HUD,clctionDetials,pgviewDetails,MenuButton,CollectionDetails ;
 
 
 - (void)viewDidAppear:(BOOL)animated
@@ -68,20 +66,9 @@
 
     
     
-   // [pgviewDetails addSubview:CollectionDetails];
-    [self.view addSubview:CollectionDetails];
-
-    SearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
-    SearchBar.delegate = self;
-    SearchBar.showsCancelButton = YES;
-    SearchBar.placeholder = @"Search";
-   /*UIView *searchBarView = [[UIView alloc] initWithFrame:[SearchBar bounds]];
-    [searchBarView addSubview:SearchBar];
-    self.navigationItem.titleView = searchBarView;*/
-    // with this the cancel button is not showing
-    self.navigationItem.titleView = SearchBar;
-    
-    
+    // init custom search bar
+    customSearchBar = [[RMNCustomSearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
+    self.navigationItem.titleView = customSearchBar;
     
     
     //Location Manager checks for the user current location. this is IOS api
@@ -116,6 +103,21 @@
          }
      }];
 	
+    CGFloat yForFilsters = 0;
+    
+    // adjust y of list of filters for each iOS version
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1){
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        yForFilsters = self.view.frame.size.height - 50;
+    }
+    else{
+        yForFilsters = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - 50;
+    }
+    
+    // init filtersList
+    filtersList = [[RMNFiltersScrollView alloc] initWithFrame:CGRectMake(0, yForFilsters, 320, 50)];
+    [self.view addSubview:filtersList];
+	
 }
 
 
@@ -132,7 +134,9 @@
      longitude:-0.119824
      zoom:15]; */
     
-    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, 340) camera:camera];
+    // set map size
+    CGFloat heightForMap = filtersList.frame.origin.y - 65;
+    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, heightForMap) camera:camera];
     mapView_.myLocationEnabled = YES;
     //self.view = mapView_;
     [self.view addSubview:mapView_];
@@ -198,26 +202,9 @@
     mylocation.latitude = CurrentLocationlat;
     mylocation.longitude = CurrentLocationlng;
     
-                                                                       
-    UITextField *txtSearchField = [SearchBar valueForKey:@"_searchField"];
-    _autocompleteView = [TRAutocompleteView autocompleteViewBindedTo:txtSearchField usingSource:[[TRGoogleMapsAutocompleteItemsSource alloc]
-                                                                                                 initWithMinimumCharactersToTrigger:1 apiKey:@"AIzaSyAMkoHHFPdaA3ocQmQtWm0LAaIze-V-NUk"
-                                                                                                 location:mylocation] cellFactory:[[TRGoogleMapsAutocompletionCellFactory alloc]
-                                                                                                                         initWithCellForegroundColor:[UIColor whiteColor]
-                                                                                                                         fontSize:14]
-                                                        presentingIn:self];
-    
-    _autocompleteView.topMargin = -5;
-    _autocompleteView.backgroundColor = [UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9];
-    
-    _autocompleteView.didAutocompleteWith = ^(id<TRSuggestionItem> item)
-    {
-        NSLog(@"Autocompleted with: %@", item.completionText);
-        
-    };
-    
-
-    
+    // settings needed for autocomplete feature
+    [customSearchBar setViewController:self];
+    [customSearchBar setLocationCoordinate:mylocation];
 }
 
 
@@ -328,12 +315,12 @@
                      f.Description = Description;
                     
                     
-                     if ([Flag isEqualToString:@"true"] )
-                     
-                     {
-                     
-                     f.Flag = true;
-                     }
+//                     if ([Flag isEqualToString:@"true"] )
+//                     
+//                     {
+//                     
+//                     f.Flag = true;
+//                     }
                     
                      f.PhotoPrefix = PhotoPrefix;
                      f.PhotoSuffix = PhotoSuffix;
@@ -628,53 +615,6 @@
     return CGSizeMake(50, 50);
 }
 
-
-
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
-    if([searchText isEqualToString:@""]){
-        
-        _autocompleteView.hidden = true;
-        
-        //UITextField *txtSearchField = [SearchBar valueForKey:@"_searchField"];
-        [SearchBar  resignFirstResponder];
-        
-    }
-    else {
-        
-        if (_autocompleteView.hidden == true){
-            
-            _autocompleteView.hidden = false;
-            
-        }
-    }
-    
-}
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    
-    return true;
-
-}
-
-
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
-    
-    SearchBar.showsCancelButton = NO;
-    [searchBar resignFirstResponder];
-
-}
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    
-   
-    
-}
-- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar{
-    
-     NSLog(@"Cancel");
-}
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [searchBar resignFirstResponder];
-}
 
 -(void)OpenDraw:(id)sender{
     

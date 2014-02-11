@@ -14,7 +14,7 @@
 #import "CollectionViewCe.h"
 
 
-@interface ViewController : UIViewController<UISearchBarDelegate,CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,UICollectionViewDataSource,UICollectionViewDelegate>{
+@interface ViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,UICollectionViewDataSource,UICollectionViewDelegate>{
     
     
 

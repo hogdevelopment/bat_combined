@@ -140,10 +140,12 @@
 
     calculatedHeight += _contextController.tabBarController.tabBar.frame.size.height; //keyboard is shown over it, need to compensate
 
+#warning change here frame for autocomplete view
     self.frame = CGRectMake(_queryTextField.frame.origin.x,
                             calculatedY,
-                            _queryTextField.frame.size.width,
+                            304,
                             calculatedHeight);
+    
     _table.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
 }
 

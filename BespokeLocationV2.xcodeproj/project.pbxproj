@@ -23,8 +23,6 @@
 		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
 		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
 		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
-		5C8EF39518A9342500FFF0D0 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8EF39418A9342500FFF0D0 /* GoogleMaps.framework */; };
-		5C8EF39718A9343200FFF0D0 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39618A9343200FFF0D0 /* GoogleMaps.bundle */; };
 		5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39A18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m */; };
 		5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39C18A9345700FFF0D0 /* back-arrow.png */; };
 		5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39D18A9345700FFF0D0 /* back-arrow@2x.png */; };
@@ -103,6 +101,10 @@
 		7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB20F75189BCBB500F74E4B /* MapKit.framework */; };
 		7CB20F79189BD5D400F74E4B /* CallGetThereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB20F78189BD5D400F74E4B /* CallGetThereView.m */; };
 		7CB20F7C189BE83800F74E4B /* ImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB20F7B189BE83800F74E4B /* ImagesCell.m */; };
+		E1AC7C0518AA7D630052D608 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */; };
+		E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */; };
+		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
+		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,8 +143,6 @@
 		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		5C8EF38F18A933F000FFF0D0 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
-		5C8EF39418A9342500FFF0D0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		5C8EF39618A9343200FFF0D0 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		5C8EF39818A9344B00FFF0D0 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
 		5C8EF39918A9344B00FFF0D0 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
 		5C8EF39A18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
@@ -272,6 +272,12 @@
 		7CB20F78189BD5D400F74E4B /* CallGetThereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallGetThereView.m; sourceTree = "<group>"; };
 		7CB20F7A189BE83800F74E4B /* ImagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesCell.h; sourceTree = "<group>"; };
 		7CB20F7B189BE83800F74E4B /* ImagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesCell.m; sourceTree = "<group>"; };
+		E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		E1AC7C0818AA7DF30052D608 /* RMNCustomSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNCustomSearchBar.h; sourceTree = "<group>"; };
+		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
+		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
+		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +285,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8EF39518A9342500FFF0D0 /* GoogleMaps.framework in Frameworks */,
+				E1AC7C0518AA7D630052D608 /* GoogleMaps.framework in Frameworks */,
 				7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */,
 				0E64B30518A517BB00E0E513 /* FacebookSDK.framework in Frameworks */,
 				0E64B2F918A501F200E0E513 /* GigyaSDK.framework in Frameworks */,
@@ -384,6 +390,10 @@
 		5C6CB4E418AA4602008CBE2A /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
+				E1AC7C0818AA7DF30052D608 /* RMNCustomSearchBar.h */,
+				E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */,
+				E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */,
+				E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */,
 				7C30D54C18A3B4C700B2144C /* FourSquareResturant.h */,
 				7C30D54D18A3B4C700B2144C /* FourSquareResturant.m */,
 				7C9B309D189AAF7600071357 /* DetailsTableViewViewController.h */,
@@ -500,8 +510,8 @@
 		7C9B2D83189A684A00071357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C8EF39618A9343200FFF0D0 /* GoogleMaps.bundle */,
-				5C8EF39418A9342500FFF0D0 /* GoogleMaps.framework */,
+				E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */,
+				E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */,
 				0E64B30418A517BA00E0E513 /* FacebookSDK.framework */,
 				0E64B2F818A501F200E0E513 /* GigyaSDK.framework */,
 				7CB20F75189BCBB500F74E4B /* MapKit.framework */,
@@ -733,7 +743,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
-				5C8EF39718A9343200FFF0D0 /* GoogleMaps.bundle in Resources */,
+				E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
 				5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */,
@@ -786,6 +796,7 @@
 				0E64B30E18A5183100E0E513 /* LogInView.m in Sources */,
 				5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */,
 				7C9B2E0C189A712F00071357 /* DirectionService.m in Sources */,
+				E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */,
 				7C9B2DD3189A691000071357 /* NSObject+SBJson.m in Sources */,
 				7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */,
 				7C9B2DD9189A691000071357 /* SBJsonStreamWriter.m in Sources */,
@@ -816,6 +827,7 @@
 				7C9B2D91189A684A00071357 /* main.m in Sources */,
 				7C9B2DD7189A691000071357 /* SBJsonStreamParserAdapter.m in Sources */,
 				7C04AD28189FC15A00AAA15A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */,
 				7C04AD2B189FC15A00AAA15A /* AFXMLRequestOperation.m in Sources */,
 				5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */,
 				7C9B2DFD189A702400071357 /* MBProgressHUD.m in Sources */,
@@ -960,6 +972,7 @@
 					/Work/github/ios_locations,
 					"/Work/Hogarth/all\\ new\\ 23:01/location",
 					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
+					/Users/infodesign/Documents/ios/BAT_project/bat_combined,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";
@@ -982,6 +995,7 @@
 					/Work/github/ios_locations,
 					"/Work/Hogarth/all\\ new\\ 23:01/location",
 					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
+					/Users/infodesign/Documents/ios/BAT_project/bat_combined,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";
