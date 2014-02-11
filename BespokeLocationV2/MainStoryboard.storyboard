@@ -22,7 +22,6 @@
         <!--Navigation Controller-->
         <scene sceneID="kge-33-pFe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kti-29-Umo" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navigationControllerWithoutLogin" definesPresentationContext="YES" id="SdA-c6-0Mq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cwP-23-Neg">
                         <autoresizingMask key="autoresizingMask"/>
@@ -31,6 +30,7 @@
                         <segue destination="Jbg-mQ-ZPR" kind="relationship" relationship="rootViewController" id="uC2-Ya-NIU"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kti-29-Umo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1044" y="72"/>
         </scene>
@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="-469" y="72"/>
         </scene>
-        <!--Side Menu View Controller - Left Side Menu-->
+        <!--User Settings Side Menu View Controller - Left Side Menu-->
         <scene sceneID="kdN-f6-SNo">
             <objects>
-                <tableViewController storyboardIdentifier="leftSideMenuViewController" title="Left Side Menu" id="nzI-wh-khC" customClass="SideMenuViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="leftSideMenuViewController" title="Left Side Menu" id="nzI-wh-khC" customClass="RMNUserSettingsSideMenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7CT-mK-GUK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,7 +249,6 @@
         <!--Navigation Controller-->
         <scene sceneID="2MY-nr-cvu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UcJ-RJ-wI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="IP2-hJ-Lrw" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sIL-mm-ntb">
                         <autoresizingMask key="autoresizingMask"/>
@@ -258,6 +257,7 @@
                         <segue destination="7hh-5B-BkI" kind="relationship" relationship="rootViewController" id="uhv-FB-c4L"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UcJ-RJ-wI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="35" y="72"/>
         </scene>
