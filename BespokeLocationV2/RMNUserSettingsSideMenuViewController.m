@@ -8,21 +8,27 @@
 
 #import "RMNUserSettingsSideMenuViewController.h"
 #import "MFSideMenuContainerViewController.h"
+#import "RMNUserSettingsSideMenuCell.h"
+#import "ViewController.h"
 
-
+static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
 
 @interface RMNUserSettingsSideMenuViewController ()
 {
-    NSMutableArray *buttonsText;
+    NSArray         *buttonsText;
+    NSMutableArray  *imagesForCells;
 }
 
-@property (nonatomic, strong) NSMutableArray *buttonsText;
+@property (nonatomic, strong) NSArray           *buttonsText;
+@property (nonatomic, strong) NSMutableArray    *imagesForCells;
 
 @end
 
 @implementation RMNUserSettingsSideMenuViewController
 
-@synthesize buttonsText =   buttonsText;
+@synthesize sideMenuDelegate    =   sideMenuDelegate;
+@synthesize buttonsText         =   buttonsText;
+@synthesize imagesForCells      =   imagesForCells;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,22 +42,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    buttonsText = [[NSMutableArray alloc]initWithObjects:
-                     NSLocalizedString(@"Settings",nil),
-                     NSLocalizedString(@"Feedback",nil),
-                     NSLocalizedString(@"Rate the app",nil),
-                     NSLocalizedString(@"Share the app",nil),
-                     NSLocalizedString(@"About",nil),
-                     NSLocalizedString(@"Privacy",nil),
-                     nil];
-
+    buttonsText     = @[ NSLocalizedString(@"Distance(units)",nil),
+                         NSLocalizedString(@"Feedback",nil),
+                         NSLocalizedString(@"Help Improve",nil),
+                         NSLocalizedString(@"Rate the app",nil),
+                         NSLocalizedString(@"Share the app",nil),
+                         NSLocalizedString(@"About",nil),
+                         NSLocalizedString(@"Privacy",nil),
+                         NSLocalizedString(@"Terms Of Service",nil)];
+    
+    NSArray *imagesLocation;
+    imagesForCells  =   [[NSMutableArray alloc]init];
+    imagesLocation  = @[ @"settingsDummy",
+                         @"settingsDummy",
+                         @"settingsDummy",
+                         @"settingsDummy",
+                         @"settingsDummy",
+                         @"settingsDummy",
+                         @"settingsDummy",
+                         @"settingsDummy"
+                         ];
+    
+    // preload the images and cache them.
+    for (int i = 0; i<[imagesLocation count]; i++)
+    {
+        UIImage *imageDummy = [UIImage imageNamed:[imagesLocation objectAtIndex:i]];
+        [imagesForCells addObject:imageDummy];
+        
+    }
+    
+    
+    // register za custom cell class
+    [self.tableView registerClass:[RMNUserSettingsSideMenuCell class] forCellReuseIdentifier:CellIdentifier];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,14 +106,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    RMNUserSettingsSideMenuCell *cell = (RMNUserSettingsSideMenuCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[RMNUserSettingsSideMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row];
+    [cell.imageViewHolder setImage:[imagesForCells objectAtIndex:indexPath.row]];
+    
+    
     
     return cell;
 }
@@ -95,15 +128,31 @@
 {
     
     
-//    DemoViewController *demoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DemoViewController"];
-//    demoViewController.title = [NSString stringWithFormat:@"Demo #%d-%d", indexPath.section, indexPath.row];
-//    
-//    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
-//    NSArray *controllers = [NSArray arrayWithObject:demoViewController];
-//    navigationController.viewControllers = controllers;
+    //    DemoViewController *demoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DemoViewController"];
+    //    demoViewController.title = [NSString stringWithFormat:@"Demo #%d-%d", indexPath.section, indexPath.row];
+    //
+    //    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+    //    NSArray *controllers = [NSArray arrayWithObject:demoViewController];
+    //    navigationController.viewControllers = controllers;
+    
+    [[self sideMenuDelegate] userDidTouchDown:indexPath.row];
     
     
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    
+    
+    
+    //    ViewController *mainVC=[[ViewController alloc]init];
+    //
+    //    mainVC=[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:NULL]
+    //            instantiateViewControllerWithIdentifier:@"DemoViewController"];
+    //
+    //
+    //    [mainVC performSegueWithIdentifier:@"testSegue" sender:mainVC];
+    
+    
+    
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

@@ -18,7 +18,7 @@
 #import "RMNCustomSearchBar.h"
 #import "RMNFiltersScrollView.h"
 #import "MFSideMenuContainerViewController.h"
-
+#import "RMNUserSettingsSideMenuViewController.h"
 
 @interface ViewController ()
 
@@ -118,6 +118,84 @@
     filtersList = [[RMNFiltersScrollView alloc] initWithFrame:CGRectMake(0, yForFilsters, 320, 50)];
     [self.view addSubview:filtersList];
 	
+    [(RMNUserSettingsSideMenuViewController*)[[self menuContainerViewController]leftMenuViewController] setSideMenuDelegate:self];
+	
+}
+
+- (void) userDidTouchDown:(RMNUserSettingsSideMenuCellType)menuType
+{
+    
+    NSString *segueIdentifier;
+    switch (menuType)
+    {
+            
+        case RMNUserSettingsSideMenuDistance:
+        {
+            NSLog(@"time to load the settings page");
+            segueIdentifier = @"distancePageSegue";
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuFeedback:
+        {
+            NSLog(@"time to load the feedback page");
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuHelpImprove:
+        {
+            NSLog(@"time to load the improve page");
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuRateTheApp:
+        {
+            NSLog(@"time to load the rate system page");
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuShareTheApp:
+        {
+            NSLog(@"time to load the share system page");
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuAbout:
+        {
+            NSLog(@"time to load the about page");
+            segueIdentifier = @"aboutPageSegue";
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuPrivacy:
+        {
+            NSLog(@"time to load the privacy page");
+            segueIdentifier = @"privacyPageSegue";
+            
+            break;
+        }
+        case RMNUserSettingsSideMenuTermsOfService:
+        {
+            NSLog(@"time to load the terms of service");
+            segueIdentifier = @"termsOfServicePageSegue";
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+    if (segueIdentifier)
+    {
+        @try
+        {
+            [self performSegueWithIdentifier:segueIdentifier sender:self];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Segue not found: %@ with segue %@", exception,segueIdentifier);
+        }
+        
+    }
 }
 
 

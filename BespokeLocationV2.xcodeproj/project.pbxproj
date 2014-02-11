@@ -20,6 +20,11 @@
 		5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */; };
 		5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */; };
 		5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB4F318AA5134008CBE2A /* Localizable.strings */; };
+		5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */; };
+		5C6CB51718AA937D008CBE2A /* RMNDistancePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */; };
+		5C6CB51818AA937D008CBE2A /* RMNPrivacyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */; };
+		5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */; };
+		5C6CB51C18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */; };
 		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
 		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
 		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
@@ -138,6 +143,16 @@
 		5C6CB4F018AA50B1008CBE2A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C6CB4F218AA5134008CBE2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5C6CB4F418AA51B6008CBE2A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAboutPageViewController.h; sourceTree = "<group>"; };
+		5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAboutPageViewController.m; sourceTree = "<group>"; };
+		5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNDistancePageViewController.h; sourceTree = "<group>"; };
+		5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNDistancePageViewController.m; sourceTree = "<group>"; };
+		5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNPrivacyPageViewController.h; sourceTree = "<group>"; };
+		5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNPrivacyPageViewController.m; sourceTree = "<group>"; };
+		5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNTermsOfServiceViewController.h; sourceTree = "<group>"; };
+		5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNTermsOfServiceViewController.m; sourceTree = "<group>"; };
+		5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserSettingsSideMenuCell.h; sourceTree = "<group>"; };
+		5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuCell.m; sourceTree = "<group>"; };
 		5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
@@ -373,6 +388,8 @@
 			children = (
 				5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */,
 				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
+				5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */,
+				5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */,
 			);
 			name = "Side Menus";
 			sourceTree = "<group>";
@@ -423,6 +440,14 @@
 				7C9B2E02189A70A100071357 /* SecondView.m */,
 				7C9B2D99189A684A00071357 /* ViewController.h */,
 				7C9B2D9A189A684A00071357 /* ViewController.m */,
+				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
+				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
+				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
+				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
+				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
+				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
+				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
+				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -788,20 +813,24 @@
 				7C9B2DDE189A691000071357 /* SBJsonWriter.m in Sources */,
 				7C9B2E06189A70D500071357 /* DetailsViewController.m in Sources */,
 				7C9B2D95189A684A00071357 /* AppDelegate.m in Sources */,
+				5C6CB51818AA937D008CBE2A /* RMNPrivacyPageViewController.m in Sources */,
 				7C9B309F189AAF7600071357 /* DetailsTableViewViewController.m in Sources */,
 				7C04AD29189FC15A00AAA15A /* AFPropertyListRequestOperation.m in Sources */,
 				7C9B2DDC189A691000071357 /* SBJsonTokeniser.m in Sources */,
 				5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */,
 				7CB20F7C189BE83800F74E4B /* ImagesCell.m in Sources */,
 				0E64B30E18A5183100E0E513 /* LogInView.m in Sources */,
+				5C6CB51C18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m in Sources */,
 				5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */,
 				7C9B2E0C189A712F00071357 /* DirectionService.m in Sources */,
 				E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */,
 				7C9B2DD3189A691000071357 /* NSObject+SBJson.m in Sources */,
 				7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */,
 				7C9B2DD9189A691000071357 /* SBJsonStreamWriter.m in Sources */,
+				5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */,
 				7C04AD2A189FC15A00AAA15A /* AFURLConnectionOperation.m in Sources */,
 				7C9B2DD5189A691000071357 /* SBJsonStreamParser.m in Sources */,
+				5C6CB51718AA937D008CBE2A /* RMNDistancePageViewController.m in Sources */,
 				7C9B2DD4189A691000071357 /* SBJsonParser.m in Sources */,
 				5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */,
 				7C04AD27189FC15A00AAA15A /* AFJSONRequestOperation.m in Sources */,
@@ -810,6 +839,7 @@
 				7C9B2DD8189A691000071357 /* SBJsonStreamParserState.m in Sources */,
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
