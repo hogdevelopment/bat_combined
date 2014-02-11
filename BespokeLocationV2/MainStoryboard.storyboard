@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lcn-ra-HXP">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <scenes>
+        <!--Side Menu Container View Controller-->
+        <scene sceneID="ToQ-sV-PGn">
+            <objects>
+                <viewController storyboardIdentifier="MFSideMenuContainerViewController" id="lcn-ra-HXP" customClass="MFSideMenuContainerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BcP-i4-eqU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vpt-3H-qDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-976" y="-726"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kge-33-pFe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kti-29-Umo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="navigationControllerWithoutLogin" definesPresentationContext="YES" id="SdA-c6-0Mq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cwP-23-Neg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Jbg-mQ-ZPR" kind="relationship" relationship="rootViewController" id="uC2-Ya-NIU"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1044" y="72"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Gyg-m2-NFi">
+            <objects>
+                <viewController storyboardIdentifier="DemoViewController" id="Jbg-mQ-ZPR" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xQc-nS-ebT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RIg-E2-tsh">
+                        <barButtonItem key="leftBarButtonItem" image="menu-icon.png" id="7QE-Km-RCI">
+                            <connections>
+                                <action selector="showLeftMenuPressed:" destination="Jbg-mQ-ZPR" id="s2R-rp-lD3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="menu-icon.png" id="Ejo-qB-AXm">
+                            <connections>
+                                <action selector="showRightMenuPressed:" destination="Jbg-mQ-ZPR" id="2qN-Nr-EpM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="IP2-hJ-Lrw" kind="modal" identifier="loginSegue" animates="NO" id="7yl-dh-AkX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sva-u6-MWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="72"/>
+        </scene>
+        <!--Side Menu View Controller - Left Side Menu-->
+        <scene sceneID="kdN-f6-SNo">
+            <objects>
+                <tableViewController storyboardIdentifier="leftSideMenuViewController" title="Left Side Menu" id="nzI-wh-khC" customClass="SideMenuViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7CT-mK-GUK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="nzI-wh-khC" id="OXT-ty-iaf"/>
+                            <outlet property="delegate" destination="nzI-wh-khC" id="DAL-KD-bUx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eTe-aP-sK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="-726"/>
+        </scene>
+        <!--Side Menu View Controller - Right Side Menu-->
+        <scene sceneID="TIq-bP-9Cb">
+            <objects>
+                <tableViewController storyboardIdentifier="rightSideMenuViewController" title="Right Side Menu" id="NUa-cI-HN4" customClass="SideMenuViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="maD-di-DX8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="NUa-cI-HN4" id="jwR-86-bMd"/>
+                            <outlet property="delegate" destination="NUa-cI-HN4" id="19O-CC-neB"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rDX-gw-JSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="-726"/>
+        </scene>
+        <!--Log In View-->
+        <scene sceneID="Vz5-Bo-Lnq">
+            <objects>
+                <viewController storyboardIdentifier="LogInView" id="7hh-5B-BkI" customClass="LogInView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pp8-go-BeN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ewY-Gg-iT9">
+                                <rect key="frame" x="109" y="293" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnRegister:" destination="7hh-5B-BkI" eventType="touchUpInside" id="OIm-R3-aQu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="male" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QvS-VE-Lcl">
+                                <rect key="frame" x="162" y="244" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first name" minimumFontSize="17" id="DW1-P4-Pcg">
+                                <rect key="frame" x="56" y="86" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7hh-5B-BkI" id="wj9-Wt-PSK"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="re-enter email" minimumFontSize="17" id="Mnr-2A-jOs">
+                                <rect key="frame" x="56" y="200" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7hh-5B-BkI" id="3Og-PG-lR3"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register using " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="veV-61-IDN">
+                                <rect key="frame" x="55" y="404" width="115" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.45337701609999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eKa-Gf-9uY">
+                                <rect key="frame" x="217" y="432" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="foursquare.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnShowList:" destination="7hh-5B-BkI" eventType="touchUpInside" id="Rcn-3m-ZgR"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last name" minimumFontSize="17" id="bLX-ZE-4hx">
+                                <rect key="frame" x="55" y="124" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7hh-5B-BkI" id="bId-5h-x18"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wvf-MB-vzs">
+                                <rect key="frame" x="47" y="432" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="facebook.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnFacebook:" destination="7hh-5B-BkI" eventType="touchUpInside" id="3bk-Va-Sa4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N08-IQ-KcF">
+                                <rect key="frame" x="159" y="432" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="LinkedIn_logo.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnLinkedin:" destination="7hh-5B-BkI" eventType="touchUpInside" id="Hv5-sM-dc3"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="4C9-Xt-vQ7">
+                                <rect key="frame" x="219" y="238" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="swtchValueChanged:" destination="7hh-5B-BkI" eventType="valueChanged" id="RCE-oH-hOM"/>
+                                </connections>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="joF-55-8Or">
+                                <rect key="frame" x="105" y="435" width="45" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="google-Plus-icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnGoogleplus:" destination="7hh-5B-BkI" eventType="touchUpInside" id="Zjf-9X-27g"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="age" minimumFontSize="17" id="qfZ-mQ-lSb">
+                                <rect key="frame" x="56" y="239" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7hh-5B-BkI" id="iqt-fH-TbV"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" id="wgD-lf-Ydi">
+                                <rect key="frame" x="56" y="162" width="217" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7hh-5B-BkI" id="OxT-mK-wv2"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QhW-br-oqF"/>
+                    <connections>
+                        <outlet property="btnFacebook" destination="wvf-MB-vzs" id="zgU-Ag-B0C"/>
+                        <outlet property="btnFoursquare" destination="eKa-Gf-9uY" id="i8V-h9-U0C"/>
+                        <outlet property="btnGoogleplus" destination="joF-55-8Or" id="Iaj-fx-MwM"/>
+                        <outlet property="btnLinkedin" destination="N08-IQ-KcF" id="fOh-Tb-De5"/>
+                        <outlet property="btnRegistrater" destination="ewY-Gg-iT9" id="Y4P-aX-1e0"/>
+                        <outlet property="lblGender" destination="QvS-VE-Lcl" id="GJm-xl-nlb"/>
+                        <outlet property="lblGigya" destination="veV-61-IDN" id="U5u-7h-TTB"/>
+                        <outlet property="swtchGender" destination="4C9-Xt-vQ7" id="xhb-Sj-gqB"/>
+                        <outlet property="txtAge" destination="qfZ-mQ-lSb" id="ExV-C4-eiX"/>
+                        <outlet property="txtEmail" destination="wgD-lf-Ydi" id="2ZU-vX-NMo"/>
+                        <outlet property="txtLastName" destination="bLX-ZE-4hx" id="DmQ-LX-FCm"/>
+                        <outlet property="txtName" destination="DW1-P4-Pcg" id="M2O-Hw-WxS"/>
+                        <outlet property="txtReenterEmail" destination="Mnr-2A-jOs" id="X8o-st-xbr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4e-0g-24R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="581" y="84"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2MY-nr-cvu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UcJ-RJ-wI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController definesPresentationContext="YES" id="IP2-hJ-Lrw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sIL-mm-ntb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7hh-5B-BkI" kind="relationship" relationship="rootViewController" id="uhv-FB-c4L"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="35" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LinkedIn_logo.png" width="512" height="512"/>
+        <image name="facebook.png" width="50" height="47"/>
+        <image name="foursquare.png" width="200" height="200"/>
+        <image name="google-Plus-icon.png" width="220" height="220"/>
+        <image name="menu-icon.png" width="22" height="17"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

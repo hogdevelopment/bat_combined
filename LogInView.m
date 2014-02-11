@@ -48,7 +48,8 @@
 {
     if ([[Gigya session] isValid])
     {
-        [self nextView];
+        NSLog(@"AJUNGE LA GIGIA");
+//        [self nextView];
     }
 }
 
@@ -160,6 +161,7 @@
              else
                  /////// if provider give all detials wanted.. next view will display
                  /////// userInfo is not saved.code here to persist user data
+                 NSLog(@"CEVA LA 164");
                  [self nextView];
              
              
@@ -368,6 +370,7 @@
         [UserDataSingleton userSingleton].age         = _txtAge.      text;
         
         //[self showMessageTitle:@"Succes" withMessage:@"Registration successful"];
+        NSLog(@"374");
         [self nextView];
         // code here to persist data in userInfo dictionary and push to next page
         // [self nextView] can be used to push to next page.
@@ -455,12 +458,28 @@
 // this method will push to next view.
 -(void)nextView
 {
-    ViewController *mainVC=[[ViewController alloc]init];
+//    ViewController *mainVC=[[ViewController alloc]init];
+//    
+//    mainVC=[[UIStoryboard storyboardWithName:@"Main" bundle:NULL]
+//            instantiateViewControllerWithIdentifier:@"MainView"];
+//    
+//    [self presentViewController:mainVC animated:YES completion:nil];
     
-    mainVC=[[UIStoryboard storyboardWithName:@"Main" bundle:NULL]
-            instantiateViewControllerWithIdentifier:@"MainView"];
     
-    [self presentViewController:mainVC animated:YES completion:nil];
+    // ok, assuming at this point that everything has been validated and
+    // I'm ready to return, so just dismiss the navigation controller.
+    // You could use unwind segue in iOS 6, as well.
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"isLoggedIn"];
+    [[RMNManager sharedManager] setIsLoggedIn:YES];
+
+    NSLog(@"%d",[[RMNManager sharedManager]isLoggedIn]);
+
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
 
 

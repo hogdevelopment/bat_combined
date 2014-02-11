@@ -28,14 +28,14 @@
     [super viewDidLoad];
     
     
+//    
+//    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                    [UIColor whiteColor],NSForegroundColorAttributeName,
+//                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     
-    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [UIColor whiteColor],NSForegroundColorAttributeName,
-                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
-    
-    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
-    
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9]];
+//    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
+//    
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9]];
     //[self.navigationController.navigationBar setTranslucent:NO];
     
     self.navigationItem.title = @"Details";

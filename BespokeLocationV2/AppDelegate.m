@@ -12,6 +12,10 @@
 #import "UserDataSingleton.h"
 #import "ViewController.h"
 
+
+#import "MFSideMenuContainerViewController.h"
+
+
 //change API key here
 #define ApiKey @"3_7MqzwGmlHY1SIzdGUKu7u20YiW5oBvzzBCZS7MpahR7_71q88LpaWyusERHsMcuz"
 
@@ -37,6 +41,27 @@
     [UserDataSingleton userSingleton].usingGigya=(BOOL *)YES;
     FoursquareAPI = TRUE;
     //FoursquareAPI = FALSE;
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
+    
+
+    
+    
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigationControllerWithoutLogin"];
+    
+    
+    
+    UIViewController *leftSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"leftSideMenuViewController"];
+    UIViewController *rightSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"rightSideMenuViewController"];
+    
+    [container setLeftMenuViewController:leftSideMenuViewController];
+    [container setRightMenuViewController:rightSideMenuViewController];
+    [container setCenterViewController:navigationController];
+
+    
+    
     return YES;
 }
 

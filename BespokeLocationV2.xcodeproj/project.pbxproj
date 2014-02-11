@@ -10,8 +10,6 @@
 		0E07969018A531DB00537FBC /* foursquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E07968F18A531DB00537FBC /* foursquare.png */; };
 		0E07969318A5334800537FBC /* UserDataSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E07969218A5334800537FBC /* UserDataSingleton.m */; };
 		0E64B2F918A501F200E0E513 /* GigyaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E64B2F818A501F200E0E513 /* GigyaSDK.framework */; };
-		0E64B2FB18A5020900E0E513 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E64B2FA18A5020900E0E513 /* GoogleMaps.framework */; };
-		0E64B2FD18A5020F00E0E513 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B2FC18A5020F00E0E513 /* GoogleMaps.bundle */; };
 		0E64B30518A517BB00E0E513 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E64B30418A517BA00E0E513 /* FacebookSDK.framework */; };
 		0E64B30E18A5183100E0E513 /* LogInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E64B30A18A5183100E0E513 /* LogInView.m */; };
 		0E64B31618A51D6C00E0E513 /* other1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31118A51D6C00E0E513 /* other1.jpg */; };
@@ -19,6 +17,18 @@
 		0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31318A51D6C00E0E513 /* LinkedIn_logo.png */; };
 		0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */; };
 		0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31518A51D6C00E0E513 /* facebook.png */; };
+		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
+		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
+		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
+		5C8EF39518A9342500FFF0D0 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8EF39418A9342500FFF0D0 /* GoogleMaps.framework */; };
+		5C8EF39718A9343200FFF0D0 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39618A9343200FFF0D0 /* GoogleMaps.bundle */; };
+		5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39A18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m */; };
+		5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39C18A9345700FFF0D0 /* back-arrow.png */; };
+		5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39D18A9345700FFF0D0 /* back-arrow@2x.png */; };
+		5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39E18A9345700FFF0D0 /* Default-568h@2x.png */; };
+		5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39F18A9345700FFF0D0 /* menu-icon.png */; };
+		5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */; };
+		5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -34,10 +44,6 @@
 		7C04AD2A189FC15A00AAA15A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD1F189FC15A00AAA15A /* AFURLConnectionOperation.m */; };
 		7C04AD2B189FC15A00AAA15A /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD21189FC15A00AAA15A /* AFXMLRequestOperation.m */; };
 		7C04AD2C189FC15A00AAA15A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD23189FC15A00AAA15A /* UIImageView+AFNetworking.m */; };
-		7C04AD37189FCC2700AAA15A /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD2F189FCC2700AAA15A /* MMDrawerController.m */; };
-		7C04AD38189FCC2700AAA15A /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD32189FCC2700AAA15A /* UIViewController+MMDrawerController.m */; };
-		7C04AD39189FCC2700AAA15A /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD34189FCC2700AAA15A /* MMDrawerBarButtonItem.m */; };
-		7C04AD3A189FCC2700AAA15A /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD36189FCC2700AAA15A /* MMDrawerVisualState.m */; };
 		7C30D54E18A3B4C700B2144C /* FourSquareResturant.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C30D54D18A3B4C700B2144C /* FourSquareResturant.m */; };
 		7C9B2D85189A684A00071357 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9B2D84189A684A00071357 /* Foundation.framework */; };
 		7C9B2D87189A684A00071357 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9B2D86189A684A00071357 /* CoreGraphics.framework */; };
@@ -45,7 +51,6 @@
 		7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C9B2D8D189A684A00071357 /* InfoPlist.strings */; };
 		7C9B2D91189A684A00071357 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B2D90189A684A00071357 /* main.m */; };
 		7C9B2D95189A684A00071357 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B2D94189A684A00071357 /* AppDelegate.m */; };
-		7C9B2D98189A684A00071357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9B2D96189A684A00071357 /* Main.storyboard */; };
 		7C9B2D9B189A684A00071357 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B2D9A189A684A00071357 /* ViewController.m */; };
 		7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9B2D9C189A684A00071357 /* Images.xcassets */; };
 		7C9B2DA4189A684A00071357 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C9B2DA3189A684A00071357 /* XCTest.framework */; };
@@ -112,8 +117,6 @@
 		0E07969118A5334800537FBC /* UserDataSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataSingleton.h; sourceTree = "<group>"; };
 		0E07969218A5334800537FBC /* UserDataSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataSingleton.m; sourceTree = "<group>"; };
 		0E64B2F818A501F200E0E513 /* GigyaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GigyaSDK.framework; sourceTree = "<group>"; };
-		0E64B2FA18A5020900E0E513 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		0E64B2FC18A5020F00E0E513 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		0E64B30418A517BA00E0E513 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		0E64B30918A5183100E0E513 /* LogInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInView.h; sourceTree = "<group>"; };
 		0E64B30A18A5183100E0E513 /* LogInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInView.m; sourceTree = "<group>"; };
@@ -122,6 +125,23 @@
 		0E64B31318A51D6C00E0E513 /* LinkedIn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LinkedIn_logo.png; sourceTree = "<group>"; };
 		0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-Plus-icon.png"; sourceTree = "<group>"; };
 		0E64B31518A51D6C00E0E513 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		5C8EF38F18A933F000FFF0D0 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		5C8EF39418A9342500FFF0D0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		5C8EF39618A9343200FFF0D0 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		5C8EF39818A9344B00FFF0D0 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
+		5C8EF39918A9344B00FFF0D0 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
+		5C8EF39A18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		5C8EF39C18A9345700FFF0D0 /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
+		5C8EF39D18A9345700FFF0D0 /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
+		5C8EF39E18A9345700FFF0D0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C8EF39F18A9345700FFF0D0 /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
+		5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
+		5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNManager.h; sourceTree = "<group>"; };
+		5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNManager.m; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -155,15 +175,6 @@
 		7C04AD21189FC15A00AAA15A /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		7C04AD22189FC15A00AAA15A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		7C04AD23189FC15A00AAA15A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		7C04AD2E189FCC2700AAA15A /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
-		7C04AD2F189FCC2700AAA15A /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
-		7C04AD30189FCC2700AAA15A /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
-		7C04AD31189FCC2700AAA15A /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
-		7C04AD32189FCC2700AAA15A /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
-		7C04AD33189FCC2700AAA15A /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
-		7C04AD34189FCC2700AAA15A /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
-		7C04AD35189FCC2700AAA15A /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
-		7C04AD36189FCC2700AAA15A /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
 		7C30D54C18A3B4C700B2144C /* FourSquareResturant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourSquareResturant.h; sourceTree = "<group>"; };
 		7C30D54D18A3B4C700B2144C /* FourSquareResturant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareResturant.m; sourceTree = "<group>"; };
 		7C9B2D81189A684A00071357 /* BespokeLocationV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BespokeLocationV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,7 +187,6 @@
 		7C9B2D92189A684A00071357 /* BespokeLocationV2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BespokeLocationV2-Prefix.pch"; sourceTree = "<group>"; };
 		7C9B2D93189A684A00071357 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7C9B2D94189A684A00071357 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7C9B2D97189A684A00071357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C9B2D99189A684A00071357 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7C9B2D9A189A684A00071357 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7C9B2D9C189A684A00071357 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -258,6 +268,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8EF39518A9342500FFF0D0 /* GoogleMaps.framework in Frameworks */,
 				7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */,
 				0E64B30518A517BB00E0E513 /* FacebookSDK.framework in Frameworks */,
 				0E64B2F918A501F200E0E513 /* GigyaSDK.framework in Frameworks */,
@@ -265,7 +276,6 @@
 				7C9B2DF4189A69A800071357 /* CoreData.framework in Frameworks */,
 				7C9B2DF2189A699F00071357 /* CoreLocation.framework in Frameworks */,
 				7C9B2DF0189A699500071357 /* CoreText.framework in Frameworks */,
-				0E64B2FB18A5020900E0E513 /* GoogleMaps.framework in Frameworks */,
 				7C9B2DEE189A698A00071357 /* GLKit.framework in Frameworks */,
 				7C9B2DEC189A697F00071357 /* ImageIO.framework in Frameworks */,
 				7C9B2DEA189A697600071357 /* libc++.dylib in Frameworks */,
@@ -299,6 +309,8 @@
 				0E64B31018A51D5100E0E513 /* images */,
 				0E64B30918A5183100E0E513 /* LogInView.h */,
 				0E64B30A18A5183100E0E513 /* LogInView.m */,
+				5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */,
+				5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */,
 				0E07969118A5334800537FBC /* UserDataSingleton.h */,
 				0E07969218A5334800537FBC /* UserDataSingleton.m */,
 			);
@@ -344,26 +356,9 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
-		7C04AD2D189FCC1700AAA15A /* MMDrawerController */ = {
-			isa = PBXGroup;
-			children = (
-				7C04AD2E189FCC2700AAA15A /* MMDrawerController.h */,
-				7C04AD2F189FCC2700AAA15A /* MMDrawerController.m */,
-				7C04AD30189FCC2700AAA15A /* MMDrawerController+Subclass.h */,
-				7C04AD31189FCC2700AAA15A /* UIViewController+MMDrawerController.h */,
-				7C04AD32189FCC2700AAA15A /* UIViewController+MMDrawerController.m */,
-				7C04AD33189FCC2700AAA15A /* MMDrawerBarButtonItem.h */,
-				7C04AD34189FCC2700AAA15A /* MMDrawerBarButtonItem.m */,
-				7C04AD35189FCC2700AAA15A /* MMDrawerVisualState.h */,
-				7C04AD36189FCC2700AAA15A /* MMDrawerVisualState.m */,
-			);
-			name = MMDrawerController;
-			sourceTree = "<group>";
-		};
 		7C9B2D78189A684A00071357 = {
 			isa = PBXGroup;
 			children = (
-				7C04AD2D189FCC1700AAA15A /* MMDrawerController */,
 				7C04AD10189FC13900AAA15A /* AFNetworking */,
 				7CB20F68189BC5B700F74E4B /* TRAutocompleteView */,
 				7C9B30A0189AC4B700071357 /* ASStarRatingView */,
@@ -388,9 +383,9 @@
 		7C9B2D83189A684A00071357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C8EF39618A9343200FFF0D0 /* GoogleMaps.bundle */,
+				5C8EF39418A9342500FFF0D0 /* GoogleMaps.framework */,
 				0E64B30418A517BA00E0E513 /* FacebookSDK.framework */,
-				0E64B2FC18A5020F00E0E513 /* GoogleMaps.bundle */,
-				0E64B2FA18A5020900E0E513 /* GoogleMaps.framework */,
 				0E64B2F818A501F200E0E513 /* GigyaSDK.framework */,
 				7CB20F75189BCBB500F74E4B /* MapKit.framework */,
 				7C9B2DF5189A69B600071357 /* AVFoundation.framework */,
@@ -416,6 +411,19 @@
 		7C9B2D8A189A684A00071357 /* BespokeLocationV2 */ = {
 			isa = PBXGroup;
 			children = (
+				5C8EF39C18A9345700FFF0D0 /* back-arrow.png */,
+				5C8EF39D18A9345700FFF0D0 /* back-arrow@2x.png */,
+				5C8EF39E18A9345700FFF0D0 /* Default-568h@2x.png */,
+				5C8EF39F18A9345700FFF0D0 /* menu-icon.png */,
+				5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */,
+				5C8EF39818A9344B00FFF0D0 /* MFSideMenu.h */,
+				5C8EF39918A9344B00FFF0D0 /* MFSideMenuContainerViewController.h */,
+				5C8EF39A18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m */,
+				5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */,
+				5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */,
+				5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */,
+				5C8EF38F18A933F000FFF0D0 /* SideMenuViewController.h */,
+				5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */,
 				7C30D54C18A3B4C700B2144C /* FourSquareResturant.h */,
 				7C30D54D18A3B4C700B2144C /* FourSquareResturant.m */,
 				7C9B309D189AAF7600071357 /* DetailsTableViewViewController.h */,
@@ -434,7 +442,6 @@
 				7C9B2DFC189A702400071357 /* MBProgressHUD.m */,
 				7C9B2D93189A684A00071357 /* AppDelegate.h */,
 				7C9B2D94189A684A00071357 /* AppDelegate.m */,
-				7C9B2D96189A684A00071357 /* Main.storyboard */,
 				7C9B2E01189A70A100071357 /* SecondView.h */,
 				7C9B2E02189A70A100071357 /* SecondView.m */,
 				7C9B2D99189A684A00071357 /* ViewController.h */,
@@ -631,21 +638,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
+				5C8EF39718A9343200FFF0D0 /* GoogleMaps.bundle in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
+				5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */,
 				0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */,
 				7C9B30AC189AC4EC00071357 /* half_selected_star@2x.png in Resources */,
 				0E64B31618A51D6C00E0E513 /* other1.jpg in Resources */,
+				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
-				7C9B2D98189A684A00071357 /* Main.storyboard in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
+				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
+				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
 				0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */,
+				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
+				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
 				0E07969018A531DB00537FBC /* foursquare.png in Resources */,
-				0E64B2FD18A5020F00E0E513 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,11 +683,12 @@
 				7C9B2E06189A70D500071357 /* DetailsViewController.m in Sources */,
 				7C9B2D95189A684A00071357 /* AppDelegate.m in Sources */,
 				7C9B309F189AAF7600071357 /* DetailsTableViewViewController.m in Sources */,
-				7C04AD38189FCC2700AAA15A /* UIViewController+MMDrawerController.m in Sources */,
 				7C04AD29189FC15A00AAA15A /* AFPropertyListRequestOperation.m in Sources */,
 				7C9B2DDC189A691000071357 /* SBJsonTokeniser.m in Sources */,
+				5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */,
 				7CB20F7C189BE83800F74E4B /* ImagesCell.m in Sources */,
 				0E64B30E18A5183100E0E513 /* LogInView.m in Sources */,
+				5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */,
 				7C9B2E0C189A712F00071357 /* DirectionService.m in Sources */,
 				7C9B2DD3189A691000071357 /* NSObject+SBJson.m in Sources */,
 				7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */,
@@ -683,7 +696,7 @@
 				7C04AD2A189FC15A00AAA15A /* AFURLConnectionOperation.m in Sources */,
 				7C9B2DD5189A691000071357 /* SBJsonStreamParser.m in Sources */,
 				7C9B2DD4189A691000071357 /* SBJsonParser.m in Sources */,
-				7C04AD37189FCC2700AAA15A /* MMDrawerController.m in Sources */,
+				5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */,
 				7C04AD27189FC15A00AAA15A /* AFJSONRequestOperation.m in Sources */,
 				7C9B30A3189AC4CF00071357 /* ASStarRatingView.m in Sources */,
 				7C9B2DD6189A691000071357 /* SBJsonStreamParserAccumulator.m in Sources */,
@@ -691,12 +704,11 @@
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,
-				7C04AD39189FCC2700AAA15A /* MMDrawerBarButtonItem.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
 				7C9B2DDB189A691000071357 /* SBJsonStreamWriterState.m in Sources */,
 				7C04AD2C189FC15A00AAA15A /* UIImageView+AFNetworking.m in Sources */,
-				7C04AD3A189FCC2700AAA15A /* MMDrawerVisualState.m in Sources */,
+				5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */,
 				7C30D54E18A3B4C700B2144C /* FourSquareResturant.m in Sources */,
 				7C9B2E00189A706E00071357 /* databaseItem.m in Sources */,
 				7C9B2DDD189A691000071357 /* SBJsonUTF8Stream.m in Sources */,
@@ -740,14 +752,6 @@
 				7C9B2D8E189A684A00071357 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7C9B2D96189A684A00071357 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C9B2D97189A684A00071357 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		7C9B2DAC189A684A00071357 /* InfoPlist.strings */ = {
@@ -794,7 +798,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
@@ -828,7 +832,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -846,6 +850,7 @@
 					/Users/joseph/Documents/Rubbish/Hogarth/ios_locations,
 					/Work/github/ios_locations,
 					"/Work/Hogarth/all\\ new\\ 23:01/location",
+					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";
@@ -867,6 +872,7 @@
 					/Users/joseph/Documents/Rubbish/Hogarth/ios_locations,
 					/Work/github/ios_locations,
 					"/Work/Hogarth/all\\ new\\ 23:01/location",
+					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";

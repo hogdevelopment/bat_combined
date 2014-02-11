@@ -20,6 +20,7 @@
 #import "TRTextFieldExtensions.h"
 #import "TRGoogleMapsAutocompletionCellFactory.h"
 
+#import "MFSideMenuContainerViewController.h"
 
 
 @interface ViewController ()
@@ -37,41 +38,35 @@
 @synthesize GetData,URL,jsonData,strData,LocationObjects,CurrentLocationlat,CurrentLocationlng,HUD,clctionDetials,pgviewDetails,SearchBar,MenuButton,CollectionDetails ;
 
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
+    NSLog(@"%d",[[RMNManager sharedManager]isLoggedIn]);
+    if (![[RMNManager sharedManager]isLoggedIn])
+    {
+        NSLog(@"CICA nu a trecut de login");
+        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+
+    }
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [UIColor whiteColor],NSForegroundColorAttributeName,
-                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
-    
-    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
-    
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9]];
+//    
+//    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                    [UIColor whiteColor],NSForegroundColorAttributeName,
+//                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
+//    
+//    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
+//    
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9]];
 
        //self.title = @"Map";
 
-   
-    MenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [MenuButton setBackgroundImage:[UIImage imageNamed:@"menu"] forState:UIControlStateNormal];
-    MenuButton.frame= CGRectMake(0.0, 0.0, 40.0, 38.0);
-    [MenuButton addTarget:self action:@selector(OpenDraw:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *menu = [[UIBarButtonItem alloc] initWithCustomView:MenuButton];
-    self.navigationItem.leftBarButtonItem = menu;
     
-    
-    
-     clctionDetials.backgroundColor =[UIColor grayColor];
-   // pgviewDetails = [[UIPageControl alloc] initWithFrame:CGRectMake(141, 407, 37, 37)];
-    
-    // CollectionView
-    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-    CollectionDetails = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 600, 700, 50) collectionViewLayout:layout];
-    [CollectionDetails setDataSource:self];
-    [CollectionDetails setDelegate:self];
-    [CollectionDetails registerClass:[CollectionViewCe class] forCellWithReuseIdentifier:@"Cell"];
-    [CollectionDetails setBackgroundColor:[UIColor grayColor]];
     
    // [pgviewDetails addSubview:CollectionDetails];
     [self.view addSubview:CollectionDetails];
@@ -123,19 +118,19 @@
 	
 }
 
+
+
 -(void)LoadMap{
     
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    BOOL foursquare = appDelegate.FoursquareAPI;
-    
+
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
                                                             longitude:CurrentLocationlng
                                                                  zoom:14];
     
     
-   /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:51.511214
-                                                            longitude:-0.119824
-                                                                 zoom:15]; */
+    /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:51.511214
+     longitude:-0.119824
+     zoom:15]; */
     
     mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, 340) camera:camera];
     mapView_.myLocationEnabled = YES;
@@ -143,6 +138,11 @@
     [self.view addSubview:mapView_];
     
     mapView_.delegate = self;
+
+    
+    
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+     BOOL foursquare = appDelegate.FoursquareAPI;
     
     for (int i = 0; i< LocationObjects.count; i++) {
         
@@ -326,10 +326,15 @@
                      f.Price = Price;
                      f.Rating = Rating;
                      f.Description = Description;
-                     if ([Flag isEqualToString:@"true"] ){
+                    
+                    
+                     if ([Flag isEqualToString:@"true"] )
+                     
+                     {
                      
                      f.Flag = true;
                      }
+                    
                      f.PhotoPrefix = PhotoPrefix;
                      f.PhotoSuffix = PhotoSuffix;
                      f.Categories = Categories;
@@ -509,33 +514,9 @@
     }
 }
 
-/*-(void)toNextScreen:(id)sender{
- 
- 
- if(![NSThread isMainThread])
- {
- dispatch_async(dispatch_get_main_queue(), ^{
- SecondView *sv = [[SecondView  alloc] initWithStyle:UITableViewStyleGrouped];
- 
- //sv.ObjectsToShow = ResturantsObjects;
- sv.Dump = strData;
- [self.navigationController pushViewController:sv animated:YES];
- });
- }
- 
- 
- 
- 
- 
- }*/
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    
-    // Check if we need to start directing user
-    
-    
-}
+
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -704,6 +685,21 @@
     [vcs insertObject:SecondVC atIndex:[vcs count]-1];
     [self.navigationController setViewControllers:vcs animated:NO];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+
+- (MFSideMenuContainerViewController *)menuContainerViewController {
+    return (MFSideMenuContainerViewController *)self.navigationController.parentViewController;
+}
+
+- (IBAction)showLeftMenuPressed:(id)sender {
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
+}
+
+- (IBAction)showRightMenuPressed:(id)sender {
+    [self.menuContainerViewController toggleRightSideMenuCompletion:nil];
 }
 
 
