@@ -25,6 +25,8 @@
 		5C6CB51818AA937D008CBE2A /* RMNPrivacyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */; };
 		5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */; };
 		5C6CB51C18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */; };
+		5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */; };
+		5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */; };
 		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
 		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
 		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
@@ -153,6 +155,8 @@
 		5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNTermsOfServiceViewController.m; sourceTree = "<group>"; };
 		5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserSettingsSideMenuCell.h; sourceTree = "<group>"; };
 		5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuCell.m; sourceTree = "<group>"; };
+		5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsDummy@2x.png"; sourceTree = "<group>"; };
+		5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsDummy.png; sourceTree = "<group>"; };
 		5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */,
+				5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */,
 				0E07968F18A531DB00537FBC /* foursquare.png */,
 				0E64B31118A51D6C00E0E513 /* other1.jpg */,
 				0E64B31218A51D6C00E0E513 /* other.png */,
@@ -768,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
+				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
 				E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
@@ -783,6 +790,7 @@
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
+				5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */,
 				0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */,
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,

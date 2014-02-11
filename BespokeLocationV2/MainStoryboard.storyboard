@@ -369,7 +369,6 @@
         <image name="foursquare.png" width="200" height="200"/>
         <image name="google-Plus-icon.png" width="220" height="220"/>
         <image name="menu-icon.png" width="22" height="17"/>
-        <image name="menu-icon.png" width="22" height="17"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
