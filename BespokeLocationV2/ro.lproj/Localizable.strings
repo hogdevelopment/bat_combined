@@ -16,9 +16,11 @@
 "About"                     =       "Despre";
 "Privacy"                   =       "Privat";
 "Terms Of Service"          =       "Termeni și condiții";
+"Distance"                  =       "Distanță";
+
 
 "Clear filter"      =       "Sterge filtru";
-"Save filter"       =       "Salveaza filtru";
+"Save filter"       =       "Salvează filtru";
 "Clear filters"     =       "Sterge filtre";
 "Hotel Bars"        =       "Baruri in hotel";
 "Bars"              =       "Baruri";
@@ -27,5 +29,8 @@
 "Restaurants"       =       "Restaurante";
 "Lounges"           =       "Lounge-uri";
 "Clubs"             =       "Cluburi";
-"Search"            =       "Cauta";
-"Cancel"            =       "Renunta";
+"Search"            =       "Caută";
+"Cancel"            =       "Renunță";
+
+"Feedback for smoking app"      =      "Feedback ptr aplicație" ;
+"Help/Improve smoking app"      =      "Sugestii/Imbunătățiri" ;

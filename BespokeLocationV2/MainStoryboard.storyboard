@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -322,17 +322,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="smV-Mf-qD9">
-                                <rect key="frame" x="127" y="273" width="67" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISTANCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="smV-Mf-qD9">
+                                <rect key="frame" x="20" y="90" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.40979751275510201" green="0.40979751275510201" blue="0.40979751275510201" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distanceButtsBg.png" id="7f6-HH-Kmo">
+                                <rect key="frame" x="0.0" y="113" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xrr-ZM-R3I">
+                                <rect key="frame" x="39" y="120" width="261" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Miles">
+                                    <color key="titleColor" red="0.4990234375" green="0.4990234375" blue="0.4990234375" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseUnitAction:" destination="Y88-4g-2pe" eventType="touchUpInside" id="qZW-FH-hMO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OxP-fQ-lCI">
+                                <rect key="frame" x="39" y="170" width="261" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Kilometres">
+                                    <color key="titleColor" red="0.50296954719387754" green="0.50296954719387754" blue="0.50296954719387754" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseUnitAction:" destination="Y88-4g-2pe" eventType="touchUpInside" id="gBY-IF-urx"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distanceChosenUnit.png" id="czN-Sl-bgn">
+                                <rect key="frame" x="230" y="121" width="57" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.79703443877551017" green="0.79703443877551017" blue="0.79703443877551017" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Y8E-e2-qny"/>
+                    <connections>
+                        <outlet property="kmButt" destination="OxP-fQ-lCI" id="B0C-zY-VtN"/>
+                        <outlet property="milesButt" destination="xrr-ZM-R3I" id="bAU-NO-ZbI"/>
+                        <outlet property="selectedMark" destination="czN-Sl-bgn" id="UR6-SD-H5T"/>
+                        <outlet property="titleLabel" destination="smV-Mf-qD9" id="o65-W0-sO9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQW-L9-Pyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -365,6 +401,8 @@
     </scenes>
     <resources>
         <image name="LinkedIn_logo.png" width="512" height="512"/>
+        <image name="distanceButtsBg.png" width="320" height="100"/>
+        <image name="distanceChosenUnit.png" width="57" height="32"/>
         <image name="facebook.png" width="50" height="47"/>
         <image name="foursquare.png" width="200" height="200"/>
         <image name="google-Plus-icon.png" width="220" height="220"/>

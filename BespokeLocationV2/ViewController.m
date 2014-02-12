@@ -140,11 +140,15 @@
         {
             NSLog(@"time to load the feedback page");
             
+            [self sendFeedback];
+            
             break;
         }
         case RMNUserSettingsSideMenuHelpImprove:
         {
             NSLog(@"time to load the improve page");
+            
+            [self helpAndImprove];
             
             break;
         }
@@ -152,11 +156,15 @@
         {
             NSLog(@"time to load the rate system page");
             
+            [self rateApp];
+            
             break;
         }
         case RMNUserSettingsSideMenuShareTheApp:
         {
             NSLog(@"time to load the share system page");
+            
+            [self shareApp];
             
             break;
         }
@@ -200,82 +208,196 @@
 
 
 
+
+#pragma Methods for Pages in Side Menu - left
+
+- (void) sendFeedback
+{
+#warning pending text for subject and recipient mail
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
+        [mailController setMailComposeDelegate:self];
+        [mailController setSubject:@"Feedback for smoking app"];
+        [mailController setMessageBody:@" " isHTML:NO];
+        [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
+        
+        [self presentViewController:mailController animated:YES completion:NULL];
+    }
+}
+
+
+- (void) helpAndImprove
+{
+#warning pending text for subject and recipient mail
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
+        [mailController setMailComposeDelegate:self];
+        [mailController setSubject:@"Help/Improve smoking app"];
+        [mailController setMessageBody:@" " isHTML:NO];
+        [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
+        
+        [self presentViewController:mailController animated:YES completion:NULL];
+    }
+}
+
+
+- (void) shareApp{
+    
+#warning pending text and/or url to share
+    NSString *text = @"Yes, we are sharing the Smoking app";
+    NSURL *shareUrl = [NSURL URLWithString:@"http://www.google.com"];
+    
+    NSArray *activityItems = @[text, shareUrl];
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc]
+                                                    initWithActivityItems:activityItems
+                                                    applicationActivities:nil];
+    
+    // tell the activity controller which activities should not appear
+    activityController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList];
+    
+    activityController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:activityController
+                       animated:YES completion:nil];
+    
+}
+
+
+- (void) rateApp{
+    
+#warning pending for app identifier from itunes connect
+    SKStoreProductViewController *storeAppController = [[SKStoreProductViewController alloc] init];
+    [storeAppController setDelegate:self];
+    
+    [storeAppController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"641530683"}
+                                  completionBlock:^(BOOL result, NSError *error) {
+                                     
+                                      if (error) {
+                                          NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
+                                      } else {
+                                          [self presentViewController:storeAppController animated:YES completion:nil];
+                                      }
+                                  }
+     ];
+    
+}
+
+#pragma - MFMailComposeViewControllerDelegate Method
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+// maybe we should show an alert to user
+// if the mail was sent or not
+    switch (result) {
+        case MFMailComposeResultCancelled:
+             NSLog(@"Email Cancelled") ;
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Email Saved") ;
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Email Sent") ;
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Email Failed") ;
+            break;
+        default:
+            NSLog(@"Email Not Sent") ;
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+
+}
+
+#pragma - SKStoreProductViewControllerDelegate Method
+
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+#pragma -
+
 -(void)LoadMap{
     
 
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
-                                                            longitude:CurrentLocationlng
-                                                                 zoom:14];
-    
-    
-    /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:51.511214
-     longitude:-0.119824
-     zoom:15]; */
-    
-    // set map size
-    CGFloat heightForMap = filtersList.frame.origin.y - 65;
-    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, heightForMap) camera:camera];
-    mapView_.myLocationEnabled = YES;
-    //self.view = mapView_;
-    [self.view addSubview:mapView_];
-    
-    mapView_.delegate = self;
-
-    
-    
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-     BOOL foursquare = appDelegate.FoursquareAPI;
-    
-    for (int i = 0; i< LocationObjects.count; i++) {
-        
-        if(foursquare == TRUE){
-            
-            FourSquareResturant *r = [LocationObjects objectAtIndex:i];
-            GMSMarker *marker = [[GMSMarker alloc] init];
-            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
-            marker.title = r.name;
-            marker.snippet = r.localAddress;
-            marker.userData = r;
-            
-            marker.map = mapView_;
-
-        }
-        else{
-            
-        databaseItem *r = [LocationObjects objectAtIndex:i];
-        
-            GMSMarker *marker = [[GMSMarker alloc] init];
-            
-            
-            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
-            
-            // NSLog(@"%.2f", marker.position.latitude);
-            
-            marker.title = r.name;
-            marker.snippet = r.localAddress;
-            marker.userData = r;
-            
-            marker.map = mapView_;
-            
-            // NSLog(@"lat = %.4f, lng = %.4f  title = %@ , snippet = %@", marker.position.latitude, marker.position.longitude, r.name,r.localAddress);
-
-        }
-        
-    }
-    
-    [self StopActivity];
-    
-    // Creates a marker in the center of the map.
-    /*GMSMarker *marker = [[GMSMarker alloc] init];
-     marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-     marker.title = @"Sydney";
-     marker.snippet = @"Australia";
-     marker.map = mapView_;*/
-    
-    // Get the textField from the Searchbar
-    // Now listen up.. the guy that wrote this googleplaces wrapper did not implement
-    // the users current location. I have had to add that here. Check the updates I made in the
-    
+//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
+//                                                            longitude:CurrentLocationlng
+//                                                                 zoom:14];
+//    
+//    
+//    /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:51.511214
+//     longitude:-0.119824
+//     zoom:15]; */
+//    
+//    // set map size
+//    CGFloat heightForMap = filtersList.frame.origin.y - 65;
+//    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, heightForMap) camera:camera];
+//    mapView_.myLocationEnabled = YES;
+//    //self.view = mapView_;
+//    [self.view addSubview:mapView_];
+//    
+//    mapView_.delegate = self;
+//
+//    
+//    
+//    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//     BOOL foursquare = appDelegate.FoursquareAPI;
+//    
+//    for (int i = 0; i< LocationObjects.count; i++) {
+//        
+//        if(foursquare == TRUE){
+//            
+//            FourSquareResturant *r = [LocationObjects objectAtIndex:i];
+//            GMSMarker *marker = [[GMSMarker alloc] init];
+//            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
+//            marker.title = r.name;
+//            marker.snippet = r.localAddress;
+//            marker.userData = r;
+//            
+//            marker.map = mapView_;
+//
+//        }
+//        else{
+//            
+//        databaseItem *r = [LocationObjects objectAtIndex:i];
+//        
+//            GMSMarker *marker = [[GMSMarker alloc] init];
+//            
+//            
+//            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
+//            
+//            // NSLog(@"%.2f", marker.position.latitude);
+//            
+//            marker.title = r.name;
+//            marker.snippet = r.localAddress;
+//            marker.userData = r;
+//            
+//            marker.map = mapView_;
+//            
+//            // NSLog(@"lat = %.4f, lng = %.4f  title = %@ , snippet = %@", marker.position.latitude, marker.position.longitude, r.name,r.localAddress);
+//
+//        }
+//        
+//    }
+//    
+//    [self StopActivity];
+//    
+//    // Creates a marker in the center of the map.
+//    /*GMSMarker *marker = [[GMSMarker alloc] init];
+//     marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+//     marker.title = @"Sydney";
+//     marker.snippet = @"Australia";
+//     marker.map = mapView_;*/
+//    
+//    // Get the textField from the Searchbar
+//    // Now listen up.. the guy that wrote this googleplaces wrapper did not implement
+//    // the users current location. I have had to add that here. Check the updates I made in the
+//    
     CLLocationCoordinate2D mylocation;
     mylocation.latitude = CurrentLocationlat;
     mylocation.longitude = CurrentLocationlng;

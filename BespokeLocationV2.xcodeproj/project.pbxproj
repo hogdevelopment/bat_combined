@@ -108,6 +108,12 @@
 		7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB20F75189BCBB500F74E4B /* MapKit.framework */; };
 		7CB20F79189BD5D400F74E4B /* CallGetThereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB20F78189BD5D400F74E4B /* CallGetThereView.m */; };
 		7CB20F7C189BE83800F74E4B /* ImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB20F7B189BE83800F74E4B /* ImagesCell.m */; };
+		E1A9BCFB18AB9F2700944EAD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A9BCFA18AB9F2700944EAD /* MessageUI.framework */; };
+		E1A9BCFD18ABA77200944EAD /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A9BCFC18ABA77200944EAD /* StoreKit.framework */; };
+		E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BCFE18ABC7B300944EAD /* distanceChosenUnit.png */; };
+		E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BCFF18ABC7B300944EAD /* distanceChosenUnit@2x.png */; };
+		E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0018ABC7B300944EAD /* distanceButtsBg.png */; };
+		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
 		E1AC7C0518AA7D630052D608 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */; };
 		E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
@@ -291,6 +297,12 @@
 		7CB20F78189BD5D400F74E4B /* CallGetThereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallGetThereView.m; sourceTree = "<group>"; };
 		7CB20F7A189BE83800F74E4B /* ImagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesCell.h; sourceTree = "<group>"; };
 		7CB20F7B189BE83800F74E4B /* ImagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesCell.m; sourceTree = "<group>"; };
+		E1A9BCFA18AB9F2700944EAD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E1A9BCFC18ABA77200944EAD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E1A9BCFE18ABC7B300944EAD /* distanceChosenUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distanceChosenUnit.png; sourceTree = "<group>"; };
+		E1A9BCFF18ABC7B300944EAD /* distanceChosenUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distanceChosenUnit@2x.png"; sourceTree = "<group>"; };
+		E1A9BD0018ABC7B300944EAD /* distanceButtsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distanceButtsBg.png; sourceTree = "<group>"; };
+		E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distanceButtsBg@2x.png"; sourceTree = "<group>"; };
 		E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		E1AC7C0818AA7DF30052D608 /* RMNCustomSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNCustomSearchBar.h; sourceTree = "<group>"; };
@@ -304,6 +316,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1A9BCFD18ABA77200944EAD /* StoreKit.framework in Frameworks */,
+				E1A9BCFB18AB9F2700944EAD /* MessageUI.framework in Frameworks */,
 				E1AC7C0518AA7D630052D608 /* GoogleMaps.framework in Frameworks */,
 				7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */,
 				0E64B30518A517BB00E0E513 /* FacebookSDK.framework in Frameworks */,
@@ -350,6 +364,10 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E1A9BCFE18ABC7B300944EAD /* distanceChosenUnit.png */,
+				E1A9BCFF18ABC7B300944EAD /* distanceChosenUnit@2x.png */,
+				E1A9BD0018ABC7B300944EAD /* distanceButtsBg.png */,
+				E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */,
 				5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */,
 				5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */,
 				0E07968F18A531DB00537FBC /* foursquare.png */,
@@ -541,6 +559,8 @@
 		7C9B2D83189A684A00071357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1A9BCFC18ABA77200944EAD /* StoreKit.framework */,
+				E1A9BCFA18AB9F2700944EAD /* MessageUI.framework */,
 				E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */,
 				E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */,
 				0E64B30418A517BA00E0E513 /* FacebookSDK.framework */,
@@ -774,6 +794,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
+				E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */,
 				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
 				E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
@@ -785,6 +806,9 @@
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
+				E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */,
+				E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */,
+				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
