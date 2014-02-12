@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // detect current version of app and update the view
+    [self.appVersionLabel setText:[NSString stringWithFormat:@"Version %@",
+                                   [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]]];
 }
 
 - (void)didReceiveMemoryWarning

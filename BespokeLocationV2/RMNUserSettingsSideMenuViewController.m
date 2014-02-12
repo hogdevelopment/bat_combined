@@ -56,11 +56,13 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
                          NSLocalizedString(@"Share the app",nil),
                          NSLocalizedString(@"About",nil),
                          NSLocalizedString(@"Privacy",nil),
-                         NSLocalizedString(@"Terms Of Service",nil)];
+                         NSLocalizedString(@"Terms Of Service",nil),
+                         NSLocalizedString(@"FAQs",nil)];
     
     NSArray *imagesLocation;
     imagesForCells  =   [[NSMutableArray alloc]init];
     imagesLocation  = @[ @"settingsDummy",
+                         @"settingsDummy",
                          @"settingsDummy",
                          @"settingsDummy",
                          @"settingsDummy",

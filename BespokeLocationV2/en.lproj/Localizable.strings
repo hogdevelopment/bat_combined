@@ -16,6 +16,7 @@
 "Privacy"                   =       "Privacy";
 "Terms Of Service"          =       "Terms Of Service";
 "Distance"                  =       "Distance";
+"FAQs"                      =       "FAQs";
 
 
 "Clear filter"      =       "Clear filter";
@@ -34,6 +35,6 @@
 "Feedback for smoking app"      =      "Feedback for smoking app" ;
 "Help/Improve smoking app"      =      "Help/Improve smoking app" ;
 
-"Users filters"     =       "Users filters";
-"Cancel"            =       "Cancel";
-
+"Users filters"             =       "Users filters";
+"Search"                    =       "Search";
+"Cancel"                    =       "Cancel";

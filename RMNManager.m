@@ -10,7 +10,7 @@
 
 @implementation RMNManager
 
-@synthesize isLoggedIn;
+@synthesize isLoggedIn,menuShouldBeOpened;
 
 #pragma mark Singleton Methods
 
@@ -28,8 +28,9 @@
     {
         // load the bool from nsuserdefaults. We don't wanna load
         // the login proceess every time the user starts the app
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        isLoggedIn = [defaults boolForKey:@"isLoggedIn"];
+        NSUserDefaults *defaults    =   [NSUserDefaults standardUserDefaults];
+        isLoggedIn                  =   [defaults boolForKey:@"isLoggedIn"];
+        menuShouldBeOpened          =   NO;
     }
     return self;
 }

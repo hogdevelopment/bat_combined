@@ -11,9 +11,12 @@
 @interface RMNManager : NSObject
 {
     BOOL isLoggedIn;
+    BOOL menuShouldBeOpened;
 }
 
 @property  BOOL isLoggedIn;
+@property  BOOL menuShouldBeOpened;
+
 
 + (id)sharedManager;
 

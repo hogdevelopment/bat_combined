@@ -17,7 +17,8 @@ typedef enum
     RMNUserSettingsSideMenuShareTheApp,
     RMNUserSettingsSideMenuAbout,
     RMNUserSettingsSideMenuPrivacy,
-    RMNUserSettingsSideMenuTermsOfService
+    RMNUserSettingsSideMenuTermsOfService,
+    RMNUserSettingsSideMenuFAQs
     
     
 }RMNUserSettingsSideMenuCellType;

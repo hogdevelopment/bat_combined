@@ -36,18 +36,23 @@
 @synthesize GetData,URL,jsonData,strData,LocationObjects,CurrentLocationlat,CurrentLocationlng,HUD,clctionDetials,pgviewDetails,MenuButton,CollectionDetails ;
 
 
-- (void)viewDidAppear:(BOOL)animated
+
+- (void) viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    if ([[RMNManager sharedManager] menuShouldBeOpened])
+    {
+        [[self menuContainerViewController] toggleLeftSideMenuCompletion:nil];
+        [[RMNManager sharedManager] setMenuShouldBeOpened:NO];
+    }
     
-    
-    NSLog(@"%d",[[RMNManager sharedManager]isLoggedIn]);
     if (![[RMNManager sharedManager]isLoggedIn])
     {
         NSLog(@"CICA nu a trecut de login");
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
-
+        
     }
+    
+    
 }
 
 - (void)viewDidLoad
@@ -188,10 +193,22 @@
             segueIdentifier = @"termsOfServicePageSegue";
             break;
         }
+        case RMNUserSettingsSideMenuFAQs:
+        {
+            NSLog(@"time to load the terms of service");
+            segueIdentifier = @"faqsSegue";
+            break;
+        }
             
         default:
             break;
     }
+    
+    
+    // this will make the main view controller animate to open state
+    // when the user presses back button from a page loaded from the
+    // side menu controller buttons
+    [[RMNManager sharedManager] setMenuShouldBeOpened:YES];
     
     if (segueIdentifier)
     {

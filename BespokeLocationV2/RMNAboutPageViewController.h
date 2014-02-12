@@ -10,4 +10,7 @@
 
 @interface RMNAboutPageViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *appVersionLabel;
+
+
 @end
