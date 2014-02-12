@@ -30,7 +30,9 @@
 "Lounges"           =       "Lounge-uri";
 "Clubs"             =       "Cluburi";
 "Search"            =       "Caută";
-"Cancel"            =       "Renunță";
+
+"Users filters"     =       "Filtrele utilizatorului";
+"Cancel"            =       "Anulează";
 
 "Feedback for smoking app"      =      "Feedback ptr aplicație" ;
 "Help/Improve smoking app"      =      "Sugestii/Imbunătățiri" ;
