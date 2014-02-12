@@ -27,6 +27,15 @@
 		5C6CB51C18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */; };
 		5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */; };
 		5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */; };
+		5C6CB52618AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB52518AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m */; };
+		5C6CB52918AB72BE008CBE2A /* HPSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB52818AB72BE008CBE2A /* HPSearchBar.m */; };
+		5C6CB52C18AB72CC008CBE2A /* CGEnhancedKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB52B18AB72CC008CBE2A /* CGEnhancedKeyboard.m */; };
+		5C6CB53218AB78CD008CBE2A /* RMNFilterSideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB53118AB78CD008CBE2A /* RMNFilterSideMenuCell.m */; };
+		5C6CB53818AB7A2F008CBE2A /* hpSearchBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB53618AB7A2F008CBE2A /* hpSearchBar.png */; };
+		5C6CB53918AB7A2F008CBE2A /* hpSearchBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB53718AB7A2F008CBE2A /* hpSearchBar@2x.png */; };
+		5C6CB53C18AB8207008CBE2A /* RMNFiltersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */; };
+		5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB53D18AB893B008CBE2A /* filterSideMenuHolder.png */; };
+		5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB53E18AB893B008CBE2A /* filterSideMenuHolder@2x.png */; };
 		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
 		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
 		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
@@ -157,6 +166,20 @@
 		5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuCell.m; sourceTree = "<group>"; };
 		5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsDummy@2x.png"; sourceTree = "<group>"; };
 		5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsDummy.png; sourceTree = "<group>"; };
+		5C6CB52418AB71B5008CBE2A /* RMNFiltersSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersSideMenuViewController.h; sourceTree = "<group>"; };
+		5C6CB52518AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersSideMenuViewController.m; sourceTree = "<group>"; };
+		5C6CB52718AB72BD008CBE2A /* HPSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPSearchBar.h; sourceTree = "<group>"; };
+		5C6CB52818AB72BE008CBE2A /* HPSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPSearchBar.m; sourceTree = "<group>"; };
+		5C6CB52A18AB72CC008CBE2A /* CGEnhancedKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEnhancedKeyboard.h; sourceTree = "<group>"; };
+		5C6CB52B18AB72CC008CBE2A /* CGEnhancedKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEnhancedKeyboard.m; sourceTree = "<group>"; };
+		5C6CB53018AB78CD008CBE2A /* RMNFilterSideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFilterSideMenuCell.h; sourceTree = "<group>"; };
+		5C6CB53118AB78CD008CBE2A /* RMNFilterSideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFilterSideMenuCell.m; sourceTree = "<group>"; };
+		5C6CB53618AB7A2F008CBE2A /* hpSearchBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hpSearchBar.png; sourceTree = "<group>"; };
+		5C6CB53718AB7A2F008CBE2A /* hpSearchBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hpSearchBar@2x.png"; sourceTree = "<group>"; };
+		5C6CB53A18AB8207008CBE2A /* RMNFiltersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersCollectionViewController.h; sourceTree = "<group>"; };
+		5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersCollectionViewController.m; sourceTree = "<group>"; };
+		5C6CB53D18AB893B008CBE2A /* filterSideMenuHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filterSideMenuHolder.png; sourceTree = "<group>"; };
+		5C6CB53E18AB893B008CBE2A /* filterSideMenuHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filterSideMenuHolder@2x.png"; sourceTree = "<group>"; };
 		5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
@@ -350,6 +373,10 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5C6CB53D18AB893B008CBE2A /* filterSideMenuHolder.png */,
+				5C6CB53E18AB893B008CBE2A /* filterSideMenuHolder@2x.png */,
+				5C6CB53618AB7A2F008CBE2A /* hpSearchBar.png */,
+				5C6CB53718AB7A2F008CBE2A /* hpSearchBar@2x.png */,
 				5C6CB51D18AA98FC008CBE2A /* settingsDummy@2x.png */,
 				5C6CB51E18AA98FC008CBE2A /* settingsDummy.png */,
 				0E07968F18A531DB00537FBC /* foursquare.png */,
@@ -394,8 +421,11 @@
 			children = (
 				5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */,
 				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
+				5C6CB54418ABA340008CBE2A /* We may use this. Will see on further information */,
 				5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */,
 				5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */,
+				5C6CB53A18AB8207008CBE2A /* RMNFiltersCollectionViewController.h */,
+				5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */,
 			);
 			name = "Side Menus";
 			sourceTree = "<group>";
@@ -490,6 +520,21 @@
 				5C6CB4F318AA5134008CBE2A /* Localizable.strings */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		5C6CB54418ABA340008CBE2A /* We may use this. Will see on further information */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB52418AB71B5008CBE2A /* RMNFiltersSideMenuViewController.h */,
+				5C6CB52518AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m */,
+				5C6CB52718AB72BD008CBE2A /* HPSearchBar.h */,
+				5C6CB52818AB72BE008CBE2A /* HPSearchBar.m */,
+				5C6CB53018AB78CD008CBE2A /* RMNFilterSideMenuCell.h */,
+				5C6CB53118AB78CD008CBE2A /* RMNFilterSideMenuCell.m */,
+				5C6CB52A18AB72CC008CBE2A /* CGEnhancedKeyboard.h */,
+				5C6CB52B18AB72CC008CBE2A /* CGEnhancedKeyboard.m */,
+			);
+			name = "We may use this. Will see on further information";
 			sourceTree = "<group>";
 		};
 		7C04AD10189FC13900AAA15A /* AFNetworking */ = {
@@ -785,13 +830,17 @@
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
+				5C6CB53918AB7A2F008CBE2A /* hpSearchBar@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
+				5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
+				5C6CB53818AB7A2F008CBE2A /* hpSearchBar.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
 				5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */,
 				0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */,
+				5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */,
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
@@ -819,10 +868,12 @@
 				0E07969318A5334800537FBC /* UserDataSingleton.m in Sources */,
 				7C04AD0D189FBC0600AAA15A /* TRGoogleMapsSuggestion.m in Sources */,
 				7C9B2DDE189A691000071357 /* SBJsonWriter.m in Sources */,
+				5C6CB53C18AB8207008CBE2A /* RMNFiltersCollectionViewController.m in Sources */,
 				7C9B2E06189A70D500071357 /* DetailsViewController.m in Sources */,
 				7C9B2D95189A684A00071357 /* AppDelegate.m in Sources */,
 				5C6CB51818AA937D008CBE2A /* RMNPrivacyPageViewController.m in Sources */,
 				7C9B309F189AAF7600071357 /* DetailsTableViewViewController.m in Sources */,
+				5C6CB52C18AB72CC008CBE2A /* CGEnhancedKeyboard.m in Sources */,
 				7C04AD29189FC15A00AAA15A /* AFPropertyListRequestOperation.m in Sources */,
 				7C9B2DDC189A691000071357 /* SBJsonTokeniser.m in Sources */,
 				5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */,
@@ -834,6 +885,7 @@
 				E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */,
 				7C9B2DD3189A691000071357 /* NSObject+SBJson.m in Sources */,
 				7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */,
+				5C6CB53218AB78CD008CBE2A /* RMNFilterSideMenuCell.m in Sources */,
 				7C9B2DD9189A691000071357 /* SBJsonStreamWriter.m in Sources */,
 				5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */,
 				7C04AD2A189FC15A00AAA15A /* AFURLConnectionOperation.m in Sources */,
@@ -841,6 +893,7 @@
 				5C6CB51718AA937D008CBE2A /* RMNDistancePageViewController.m in Sources */,
 				7C9B2DD4189A691000071357 /* SBJsonParser.m in Sources */,
 				5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */,
+				5C6CB52918AB72BE008CBE2A /* HPSearchBar.m in Sources */,
 				7C04AD27189FC15A00AAA15A /* AFJSONRequestOperation.m in Sources */,
 				7C9B30A3189AC4CF00071357 /* ASStarRatingView.m in Sources */,
 				7C9B2DD6189A691000071357 /* SBJsonStreamParserAccumulator.m in Sources */,
@@ -863,6 +916,7 @@
 				7CB20F79189BD5D400F74E4B /* CallGetThereView.m in Sources */,
 				7C9B309C189A985100071357 /* CollectionViewCe.m in Sources */,
 				7C9B2D91189A684A00071357 /* main.m in Sources */,
+				5C6CB52618AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m in Sources */,
 				7C9B2DD7189A691000071357 /* SBJsonStreamParserAdapter.m in Sources */,
 				7C04AD28189FC15A00AAA15A /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */,
