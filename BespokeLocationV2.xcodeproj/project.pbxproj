@@ -47,6 +47,10 @@
 		5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */; };
 		5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0418ABDA6700AF111F /* logoHolder.png */; };
 		5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */; };
+		5CAF8F0A18ACC40200AF111F /* RMNSendFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */; };
+		5CAF8F0D18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */; };
+		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
+		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -203,6 +207,14 @@
 		5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMNManager.m; path = ../RMNManager.m; sourceTree = "<group>"; };
 		5CAF8F0418ABDA6700AF111F /* logoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoHolder.png; sourceTree = "<group>"; };
 		5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoHolder@2x.png"; sourceTree = "<group>"; };
+		5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNSendFeedbackViewController.h; sourceTree = "<group>"; };
+		5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNSendFeedbackViewController.m; sourceTree = "<group>"; };
+		5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNHelpAndImproveViewController.h; sourceTree = "<group>"; };
+		5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNHelpAndImproveViewController.m; sourceTree = "<group>"; };
+		5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNRateAppViewController.h; sourceTree = "<group>"; };
+		5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNRateAppViewController.m; sourceTree = "<group>"; };
+		5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNShareAppViewController.h; sourceTree = "<group>"; };
+		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -502,6 +514,14 @@
 				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
 				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
 				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
+				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
+				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
+				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
+				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
+				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
+				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
+				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
+				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -901,6 +921,7 @@
 				5C6CB52C18AB72CC008CBE2A /* CGEnhancedKeyboard.m in Sources */,
 				7C04AD29189FC15A00AAA15A /* AFPropertyListRequestOperation.m in Sources */,
 				7C9B2DDC189A691000071357 /* SBJsonTokeniser.m in Sources */,
+				5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */,
 				5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */,
 				7CB20F7C189BE83800F74E4B /* ImagesCell.m in Sources */,
 				0E64B30E18A5183100E0E513 /* LogInView.m in Sources */,
@@ -914,7 +935,9 @@
 				7C9B2DD9189A691000071357 /* SBJsonStreamWriter.m in Sources */,
 				5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */,
 				7C04AD2A189FC15A00AAA15A /* AFURLConnectionOperation.m in Sources */,
+				5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */,
 				7C9B2DD5189A691000071357 /* SBJsonStreamParser.m in Sources */,
+				5CAF8F0A18ACC40200AF111F /* RMNSendFeedbackViewController.m in Sources */,
 				5C6CB51718AA937D008CBE2A /* RMNDistancePageViewController.m in Sources */,
 				7C9B2DD4189A691000071357 /* SBJsonParser.m in Sources */,
 				5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */,
@@ -938,6 +961,7 @@
 				7C9B2E03189A70A100071357 /* SecondView.m in Sources */,
 				7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */,
 				7C9B2E09189A70F100071357 /* DirectionsViewController.m in Sources */,
+				5CAF8F0D18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m in Sources */,
 				7CB20F79189BD5D400F74E4B /* CallGetThereView.m in Sources */,
 				7C9B309C189A985100071357 /* CollectionViewCe.m in Sources */,
 				7C9B2D91189A684A00071357 /* main.m in Sources */,

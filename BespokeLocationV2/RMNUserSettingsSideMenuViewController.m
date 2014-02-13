@@ -128,32 +128,16 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Change the selected background view of the cell. since we will
+    // load a different view controller
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
-    //    DemoViewController *demoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DemoViewController"];
-    //    demoViewController.title = [NSString stringWithFormat:@"Demo #%d-%d", indexPath.section, indexPath.row];
-    //
-    //    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
-    //    NSArray *controllers = [NSArray arrayWithObject:demoViewController];
-    //    navigationController.viewControllers = controllers;
-    
+    // tell the side menu controller what row was touched
     [[self sideMenuDelegate] userDidTouchDown:indexPath.row];
     
-    
+    // since we're loading another view controller
+    // the side menu must animate to its closed state
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
-    
-    
-    
-    //    ViewController *mainVC=[[ViewController alloc]init];
-    //
-    //    mainVC=[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:NULL]
-    //            instantiateViewControllerWithIdentifier:@"DemoViewController"];
-    //
-    //
-    //    [mainVC performSegueWithIdentifier:@"testSegue" sender:mainVC];
-    
-    
-    
     
 }
 
