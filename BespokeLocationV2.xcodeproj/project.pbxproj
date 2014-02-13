@@ -449,13 +449,10 @@
 		5C6CB4E218AA45E1008CBE2A /* Side Menus */ = {
 			isa = PBXGroup;
 			children = (
-				5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */,
-				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
+				5CAF8F1618ACF81C00AF111F /* Left Side Menu */,
+				5CAF8F1718ACF82800AF111F /* Right Side Menu */,
+				5CAF8F1418ACF7ED00AF111F /* Side Menu Pages */,
 				5C6CB54418ABA340008CBE2A /* We may use this. Will see on further information */,
-				5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */,
-				5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */,
-				5C6CB53A18AB8207008CBE2A /* RMNFiltersCollectionViewController.h */,
-				5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */,
 			);
 			name = "Side Menus";
 			sourceTree = "<group>";
@@ -506,22 +503,6 @@
 				7C9B2E02189A70A100071357 /* SecondView.m */,
 				7C9B2D99189A684A00071357 /* ViewController.h */,
 				7C9B2D9A189A684A00071357 /* ViewController.m */,
-				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
-				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
-				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
-				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
-				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
-				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
-				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
-				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
-				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
-				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
-				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
-				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
-				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
-				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
-				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
-				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -573,6 +554,57 @@
 				5C6CB52B18AB72CC008CBE2A /* CGEnhancedKeyboard.m */,
 			);
 			name = "We may use this. Will see on further information";
+			sourceTree = "<group>";
+		};
+		5CAF8F1418ACF7ED00AF111F /* Side Menu Pages */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F1518ACF7FB00AF111F /* Left Side Menu */,
+			);
+			name = "Side Menu Pages";
+			sourceTree = "<group>";
+		};
+		5CAF8F1518ACF7FB00AF111F /* Left Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
+				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
+				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
+				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
+				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
+				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
+				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
+				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
+				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
+				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
+				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
+				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
+				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
+				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
+				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
+				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
+			);
+			name = "Left Side Menu";
+			sourceTree = "<group>";
+		};
+		5CAF8F1618ACF81C00AF111F /* Left Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */,
+				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
+				5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */,
+				5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */,
+			);
+			name = "Left Side Menu";
+			sourceTree = "<group>";
+		};
+		5CAF8F1718ACF82800AF111F /* Right Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB53A18AB8207008CBE2A /* RMNFiltersCollectionViewController.h */,
+				5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */,
+			);
+			name = "Right Side Menu";
 			sourceTree = "<group>";
 		};
 		7C04AD10189FC13900AAA15A /* AFNetworking */ = {

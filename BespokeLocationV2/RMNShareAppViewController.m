@@ -40,6 +40,7 @@
     
     // start activity indicator
     [self.activityIndicator startAnimating];
+     [self.activityIndicator setHidden:NO];
     
     // create new dispatch queue in background
     dispatch_queue_t queue = dispatch_queue_create("openActivityIndicatorQueue", NULL);
@@ -54,6 +55,7 @@
                                                         initWithActivityItems:activityItems
                                                         applicationActivities:nil];
         
+#warning THIS WILL CRASH IN < IOS 7. Not a priority now
         // tell the activity controller which activities should not appear
         activityController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList];
         activityController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -62,6 +64,7 @@
         // hide indicator and present it on main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.activityIndicator stopAnimating];
+            [self.activityIndicator setHidden:YES];
             [self presentViewController:activityController
                                   animated:YES completion:nil];
             
