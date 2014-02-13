@@ -31,7 +31,13 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.title = NSLocalizedString(@"Attributes",nil);
+    self.navigationItem.title       =   NSLocalizedString(@"Attributes",nil);
+    UIBarButtonItem *anotherButton  =   [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"favouriteButton"]
+                                                                         style:UIBarButtonItemStylePlain
+                                                                        target:self
+                                                                        action:@selector(favouriteButtonAction:)];
+
+    self.navigationItem.rightBarButtonItem = anotherButton;
     
 #warning Debug only
     attributesKeyPhotos = [[NSMutableArray alloc]init];
@@ -40,7 +46,6 @@
     {
         [attributesKeyPhotos addObject:@"filterSideMenuHolder"];
     }
-
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -51,16 +56,20 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifier = @"Cell";
-    
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    
-    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    recipeImageView.image = [UIImage imageNamed:[attributesKeyPhotos objectAtIndex:indexPath.row]];
+    static NSString *identifier     = @"Cell";
+    UICollectionViewCell *cell      = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    UIImageView *recipeImageView    = (UIImageView *)[cell viewWithTag:100];
+    recipeImageView.image           = [UIImage imageNamed:[attributesKeyPhotos objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
+
+#pragma mark UIButtons action
+- (void) favouriteButtonAction:(id)sender
+{
+    NSLog(@"Favourite Button touched, gently.");
+}
 
 
 - (void)didReceiveMemoryWarning

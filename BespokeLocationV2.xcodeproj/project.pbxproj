@@ -17,6 +17,8 @@
 		0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31318A51D6C00E0E513 /* LinkedIn_logo.png */; };
 		0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */; };
 		0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31518A51D6C00E0E513 /* facebook.png */; };
+		5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97E818AD21E200807404 /* favouriteButton@2x.png */; };
+		5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97E918AD21E200807404 /* favouriteButton.png */; };
 		5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */; };
 		5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */; };
 		5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB4F318AA5134008CBE2A /* Localizable.strings */; };
@@ -164,6 +166,8 @@
 		0E64B31318A51D6C00E0E513 /* LinkedIn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LinkedIn_logo.png; sourceTree = "<group>"; };
 		0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-Plus-icon.png"; sourceTree = "<group>"; };
 		0E64B31518A51D6C00E0E513 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		5C4C97E818AD21E200807404 /* favouriteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favouriteButton@2x.png"; sourceTree = "<group>"; };
+		5C4C97E918AD21E200807404 /* favouriteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favouriteButton.png; sourceTree = "<group>"; };
 		5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserSettingsSideMenuViewController.h; sourceTree = "<group>"; };
 		5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuViewController.m; sourceTree = "<group>"; };
 		5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRecognition.h"; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5C4C97E818AD21E200807404 /* favouriteButton@2x.png */,
+				5C4C97E918AD21E200807404 /* favouriteButton.png */,
 				5CAF8F0418ABDA6700AF111F /* logoHolder.png */,
 				5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */,
 				E1A9BCFE18ABC7B300944EAD /* distanceChosenUnit.png */,
@@ -1008,6 +1014,7 @@
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
+				5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */,
 				5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */,
 				E1A82F0718AD022D00FF9661 /* facebook@2x.png in Resources */,
 				E1A82F0918AD022D00FF9661 /* google-Plus-icon@2x.png in Resources */,
@@ -1021,6 +1028,7 @@
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
+				5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
 				0E07969018A531DB00537FBC /* foursquare.png in Resources */,
 				5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */,

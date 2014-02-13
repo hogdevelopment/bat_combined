@@ -691,6 +691,7 @@
         <image name="google-Plus-icon.png" width="50" height="50"/>
         <image name="logoHolder.png" width="300" height="300"/>
         <image name="menu-icon.png" width="22" height="17"/>
+        <image name="menu-icon.png" width="22" height="17"/>
         <image name="twitterLogo.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
