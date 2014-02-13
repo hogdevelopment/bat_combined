@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -249,13 +249,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O1Q-MK-j6U">
-                                <rect key="frame" x="217" y="432" width="50" height="50"/>
+                                <rect key="frame" x="197" y="433" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="foursquare.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnShowList:" destination="0PK-Id-vDO" eventType="touchUpInside" id="IrG-Kc-UNA"/>
+                                    <action selector="loginWithFoursquare:" destination="0PK-Id-vDO" eventType="touchUpInside" id="8Bm-7T-5cb"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last name" minimumFontSize="17" id="JcO-PF-4en">
@@ -268,23 +268,23 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Rj-iH-Wh4">
-                                <rect key="frame" x="47" y="432" width="50" height="50"/>
+                                <rect key="frame" x="22" y="433" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="facebook.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnFacebook:" destination="0PK-Id-vDO" eventType="touchUpInside" id="JOb-tt-X2q"/>
+                                    <action selector="loginWithFacebook:" destination="0PK-Id-vDO" eventType="touchUpInside" id="F81-ig-sZS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Ge-iI-gbq">
-                                <rect key="frame" x="159" y="432" width="50" height="50"/>
+                                <rect key="frame" x="139" y="433" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="LinkedIn_logo.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLinkedin:" destination="0PK-Id-vDO" eventType="touchUpInside" id="Nq6-ZQ-QnR"/>
+                                    <action selector="loginWithLinkedin:" destination="0PK-Id-vDO" eventType="touchUpInside" id="GfW-lM-sdx"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="D5P-FB-zxX">
@@ -295,13 +295,13 @@
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wxh-pV-Hci">
-                                <rect key="frame" x="105" y="435" width="45" height="42"/>
+                                <rect key="frame" x="80" y="433" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="google-Plus-icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnGoogleplus:" destination="0PK-Id-vDO" eventType="touchUpInside" id="q6e-Um-jEI"/>
+                                    <action selector="loginWithGoogleplus:" destination="0PK-Id-vDO" eventType="touchUpInside" id="V7T-pZ-gbh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="age" minimumFontSize="17" id="ipf-7B-9HR">
@@ -322,6 +322,16 @@
                                     <outlet property="delegate" destination="0PK-Id-vDO" id="aZZ-HZ-2eN"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a6Z-Ox-s2r">
+                                <rect key="frame" x="255" y="433" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="twitterLogo.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginWithTwitter:" destination="0PK-Id-vDO" eventType="touchUpInside" id="xWl-7b-6Tg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -332,6 +342,7 @@
                         <outlet property="btnGoogleplus" destination="wxh-pV-Hci" id="cSH-IO-7PX"/>
                         <outlet property="btnLinkedin" destination="0Ge-iI-gbq" id="3Oa-tq-X8A"/>
                         <outlet property="btnRegistrater" destination="fqW-wi-Z0T" id="LRh-Zl-KSf"/>
+                        <outlet property="btnTwitter" destination="a6Z-Ox-s2r" id="zLZ-wh-s1d"/>
                         <outlet property="lblGender" destination="Y3S-oC-2B8" id="lEp-17-Wws"/>
                         <outlet property="lblGigya" destination="7Ba-pp-ize" id="Jcq-aq-Hfj"/>
                         <outlet property="swtchGender" destination="D5P-FB-zxX" id="kYJ-gx-bYi"/>
@@ -483,7 +494,7 @@
                                 <rect key="frame" x="20" y="82" width="279" height="475"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">YOU CAN NOT SEND A MAIL, SINCE YOU DON'T HAVE A MAIL ACCOUNT SET UP FOR THIS PHONE. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">YOU CAN NOT SEND A MAIL, SINCE YOU DON'T HAVE A MAIL ACCOUNT SET UP FOR THIS PHONE. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -565,7 +576,7 @@
                                 <rect key="frame" x="21" y="80" width="279" height="475"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">YOU CAN NOT SEND A MAIL, SINCE YOU DON'T HAVE A MAIL ACCOUNT SET UP FOR THIS PHONE. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">YOU CAN NOT SEND A MAIL, SINCE YOU DON'T HAVE A MAIL ACCOUNT SET UP FOR THIS PHONE. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -598,7 +609,7 @@
                                 <rect key="frame" x="0.0" y="145" width="320" height="277"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">You can not connectLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">You can not connectLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -621,14 +632,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LinkedIn_logo.png" width="512" height="512"/>
+        <image name="LinkedIn_logo.png" width="50" height="50"/>
         <image name="distanceButtsBg.png" width="320" height="100"/>
         <image name="distanceChosenUnit.png" width="57" height="32"/>
-        <image name="facebook.png" width="50" height="47"/>
-        <image name="foursquare.png" width="200" height="200"/>
-        <image name="google-Plus-icon.png" width="220" height="220"/>
+        <image name="facebook.png" width="50" height="50"/>
+        <image name="foursquare.png" width="50" height="50"/>
+        <image name="google-Plus-icon.png" width="50" height="50"/>
         <image name="logoHolder.png" width="300" height="300"/>
         <image name="menu-icon.png" width="22" height="17"/>
+        <image name="menu-icon.png" width="22" height="17"/>
+        <image name="twitterLogo.png" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
