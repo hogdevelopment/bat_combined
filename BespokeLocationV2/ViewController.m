@@ -18,7 +18,6 @@
 #import "RMNCustomSearchBar.h"
 #import "RMNFiltersScrollView.h"
 #import "MFSideMenuContainerViewController.h"
-#import "RMNUserSettingsSideMenuViewController.h"
 
 @interface ViewController ()
 
@@ -138,6 +137,8 @@
         {
             NSLog(@"time to load the settings page");
             segueIdentifier = @"distancePageSegue";
+#warning DEBUG only. Must move this to its corresponding after side menu header view
+//            segueIdentifier = @"attributesKeySegue";
             
             break;
         }
@@ -173,7 +174,6 @@
             NSLog(@"time to load the share system page");
             
             segueIdentifier = @"shareAppSegue";
-//            [self shareApp];
             
             break;
         }
@@ -228,56 +228,6 @@
 }
 
 
-
-
-- (void) shareApp{
-    
-#warning pending text and/or url to share
-    NSString *text = @"Yes, we are sharing the Smoking app";
-    NSURL *shareUrl = [NSURL URLWithString:@"http://www.google.com"];
-    
-    NSArray *activityItems = @[text, shareUrl];
-    
-    UIActivityViewController *activityController = [[UIActivityViewController alloc]
-                                                    initWithActivityItems:activityItems
-                                                    applicationActivities:nil];
-    
-    // tell the activity controller which activities should not appear
-    activityController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList];
-    
-    activityController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentViewController:activityController
-                       animated:YES completion:nil];
-    
-}
-
-
-- (void) rateApp{
-    
-#warning pending for app identifier from itunes connect
-    SKStoreProductViewController *storeAppController = [[SKStoreProductViewController alloc] init];
-    [storeAppController setDelegate:self];
-    
-    [storeAppController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"641530683"}
-                                  completionBlock:^(BOOL result, NSError *error) {
-                                     
-                                      if (error) {
-                                          NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
-                                      } else {
-                                          [self presentViewController:storeAppController animated:YES completion:nil];
-                                      }
-                                  }
-     ];
-    
-}
-
-
-#pragma - SKStoreProductViewControllerDelegate Method
-
-- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 
 
 #pragma -

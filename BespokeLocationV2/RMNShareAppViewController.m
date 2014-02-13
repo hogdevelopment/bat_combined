@@ -20,6 +20,8 @@
 {
     [super viewWillAppear:animated];
     
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    
     self.navigationItem.hidesBackButton = YES;
     
     

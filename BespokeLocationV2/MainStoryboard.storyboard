@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRD-mJ-enY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-457" y="-523"/>
+            <point key="canvasLocation" x="-857" y="-305"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="efC-Ne-9Sc">
@@ -95,6 +95,7 @@
                         <segue destination="BNE-lx-P9J" kind="push" identifier="helpAndImprovePageSegue" id="Vxb-f7-dPF"/>
                         <segue destination="dQv-tC-IRQ" kind="push" identifier="shareAppSegue" id="4vs-7K-kbc"/>
                         <segue destination="rRn-XY-MNB" kind="push" identifier="rateAppSegue" id="1oG-IU-8xl"/>
+                        <segue destination="bgM-B9-xtc" kind="push" identifier="attributesKeySegue" id="8OS-A4-8br"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aer-QJ-dsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hT9-g2-1Th" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1419" y="693"/>
+            <point key="canvasLocation" x="-1774" y="449"/>
         </scene>
         <!--Distance Page View Controller-->
         <scene sceneID="NMc-5N-ESX">
@@ -480,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gT-eZ-9Q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1" y="-223"/>
+            <point key="canvasLocation" x="-427" y="-305"/>
         </scene>
         <!--Send Feedback View Controller-->
         <scene sceneID="Tfy-Aa-KrF">
@@ -513,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNZ-xX-Ku8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-849" y="693"/>
+            <point key="canvasLocation" x="-1305" y="449"/>
         </scene>
         <!--Share App View Controller-->
         <scene sceneID="Ebn-I6-2KA">
@@ -537,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isV-Cl-4ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-297" y="524"/>
+            <point key="canvasLocation" x="-857" y="449"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5NL-hc-S0h">
@@ -562,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLO-D0-i5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-849" y="-13"/>
+            <point key="canvasLocation" x="-1305" y="-305"/>
         </scene>
         <!--Help And Improve View Controller-->
         <scene sceneID="eR5-Et-yUq">
@@ -595,7 +596,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IyB-fx-p8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1419" y="-13"/>
+            <point key="canvasLocation" x="-1774" y="-305"/>
         </scene>
         <!--Rate App View Controller-->
         <scene sceneID="SyV-ta-Azu">
@@ -628,7 +629,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4v-ku-wdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="524"/>
+            <point key="canvasLocation" x="-427" y="449"/>
+        </scene>
+        <!--Attributes Key View Controller-->
+        <scene sceneID="Zse-yq-Hnv">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="bgM-B9-xtc" customClass="RMNAttributesKeyViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="uzQ-nK-HsC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hhk-hb-UNI">
+                            <size key="itemSize" width="60" height="60"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0WP-cQ-YVF">
+                                <rect key="frame" x="10" y="64" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mGC-rV-slW">
+                                            <rect key="frame" x="16" y="11" width="29" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atribut" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dq1-rL-pPU">
+                                            <rect key="frame" x="-5" y="40" width="70" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="bgM-B9-xtc" id="Y4E-Fq-jQO"/>
+                            <outlet property="delegate" destination="bgM-B9-xtc" id="yLg-TO-2UI"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Cgi-yP-0Nd"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWc-2F-E1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61" y="-311"/>
         </scene>
     </scenes>
     <resources>
@@ -639,7 +690,6 @@
         <image name="foursquare.png" width="50" height="50"/>
         <image name="google-Plus-icon.png" width="50" height="50"/>
         <image name="logoHolder.png" width="300" height="300"/>
-        <image name="menu-icon.png" width="22" height="17"/>
         <image name="menu-icon.png" width="22" height="17"/>
         <image name="twitterLogo.png" width="50" height="50"/>
     </resources>
