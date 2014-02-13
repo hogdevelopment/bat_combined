@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+// use this enumaration
+// for a better read over the
+// buttons which will be touched
+// from the side menu
 typedef enum
 {
     RMNUserSettingsSideMenuDistance,

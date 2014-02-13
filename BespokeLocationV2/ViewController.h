@@ -10,13 +10,12 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import <MessageUI/MessageUI.h>
 #import <StoreKit/StoreKit.h>
 #import "MBProgressHUD.h"
 #import "CollectionViewCe.h"
 
 
-@interface ViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,UICollectionViewDataSource,UICollectionViewDelegate, MFMailComposeViewControllerDelegate, SKStoreProductViewControllerDelegate>{
+@interface ViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,UICollectionViewDataSource,UICollectionViewDelegate, SKStoreProductViewControllerDelegate>{
     
     
 

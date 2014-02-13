@@ -145,7 +145,9 @@
         {
             NSLog(@"time to load the feedback page");
             
-            [self sendFeedback];
+//            [self sendFeedback];
+            
+            segueIdentifier = @"mailPageSegue";
             
             break;
         }
@@ -153,7 +155,7 @@
         {
             NSLog(@"time to load the improve page");
             
-            [self helpAndImprove];
+            segueIdentifier = @"helpAndImprovePageSegue";
             
             break;
         }
@@ -161,7 +163,8 @@
         {
             NSLog(@"time to load the rate system page");
             
-            [self rateApp];
+            segueIdentifier = @"rateAppSegue";
+//            [self rateApp];
             
             break;
         }
@@ -169,7 +172,8 @@
         {
             NSLog(@"time to load the share system page");
             
-            [self shareApp];
+            segueIdentifier = @"shareAppSegue";
+//            [self shareApp];
             
             break;
         }
@@ -226,40 +230,6 @@
 
 
 
-#pragma Methods for Pages in Side Menu - left
-
-- (void) sendFeedback
-{
-#warning pending text for subject and recipient mail
-    if ([MFMailComposeViewController canSendMail]) {
-        
-        MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
-        [mailController setMailComposeDelegate:self];
-        [mailController setSubject:@"Feedback for smoking app"];
-        [mailController setMessageBody:@" " isHTML:NO];
-        [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
-        
-        [self presentViewController:mailController animated:YES completion:NULL];
-    }
-}
-
-
-- (void) helpAndImprove
-{
-#warning pending text for subject and recipient mail
-    if ([MFMailComposeViewController canSendMail]) {
-        
-        MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
-        [mailController setMailComposeDelegate:self];
-        [mailController setSubject:@"Help/Improve smoking app"];
-        [mailController setMessageBody:@" " isHTML:NO];
-        [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
-        
-        [self presentViewController:mailController animated:YES completion:NULL];
-    }
-}
-
-
 - (void) shareApp{
     
 #warning pending text and/or url to share
@@ -301,33 +271,6 @@
     
 }
 
-#pragma - MFMailComposeViewControllerDelegate Method
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
-// maybe we should show an alert to user
-// if the mail was sent or not
-    switch (result) {
-        case MFMailComposeResultCancelled:
-             NSLog(@"Email Cancelled") ;
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"Email Saved") ;
-            break;
-        case MFMailComposeResultSent:
-            NSLog(@"Email Sent") ;
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Email Failed") ;
-            break;
-        default:
-            NSLog(@"Email Not Sent") ;
-            break;
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
-
-}
 
 #pragma - SKStoreProductViewControllerDelegate Method
 
