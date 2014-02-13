@@ -186,7 +186,7 @@
 {
     if (![Gigya session])
     {
-        NSArray *providers = @[ @"facebook",@"googleplus", @"linkedin", @"foursquare"];
+        NSArray *providers = @[ @"facebook",@"googleplus", @"linkedin", @"foursquare", @"twitter"];
     
         [Gigya showLoginProvidersDialogOver:self providers:providers parameters:Nil
                           completionHandler:^(GSUser *user, NSError *error)
@@ -381,17 +381,7 @@
 
 // button actions
 
-- (IBAction)btnShowList:(id)sender
-{
-    //This commented functions can be used to show a list of differet social networking providers
-    /*if (![Gigya session])
-        [self selectFromProviders];
-    else
-        //[self getUserInfo];
-        [self getUserInfoToClass];*/
-    [self fromSelectedProvider:@"foursquare"];
-    
-}
+
 
 - (IBAction)swtchValueChanged:(id)sender
 {
@@ -407,19 +397,37 @@
         _lblGender.text=@"male";
 }
 
--(IBAction)btnFacebook:(id)sender;
+-(IBAction)loginWithFacebook:(id)sender;
 {
     [self fromSelectedProvider:@"facebook"];
 }
 
--(IBAction)btnGoogleplus:(id)sender
+-(IBAction)loginWithGoogleplus:(id)sender
 {
     [self fromSelectedProvider:@"googleplus"];
 }
 
--(IBAction)btnLinkedin:(id)sender
+-(IBAction)loginWithLinkedin:(id)sender
 {
     [self fromSelectedProvider:@"linkedin"];
+}
+
+- (IBAction)loginWithTwitter:(id)sender {
+    
+    [self fromSelectedProvider:@"twitter"];
+
+}
+
+- (IBAction)loginWithFoursquare:(id)sender
+{
+    //This commented functions can be used to show a list of differet social networking providers
+    /*if (![Gigya session])
+     [self selectFromProviders];
+     else
+     //[self getUserInfo];
+     [self getUserInfoToClass];*/
+    [self fromSelectedProvider:@"foursquare"];
+    
 }
 
 //This is used to present next view controller, import view controller which you wanted to present next.

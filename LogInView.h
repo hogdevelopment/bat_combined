@@ -40,18 +40,22 @@
 @property (weak, nonatomic) IBOutlet UIButton     * btnFoursquare;
 
 @property (weak, nonatomic) IBOutlet UILabel      * lblGigya;
+@property (strong, nonatomic) IBOutlet UIButton *btnTwitter;
 
 //Actions
--(IBAction)swtchValueChanged:(id)sender;
+- (IBAction)swtchValueChanged:(id)sender;
 
--(IBAction)btnRegister      :(id)sender;
+- (IBAction)btnRegister      :(id)sender;
 
--(IBAction)btnShowList      :(id)sender;
 
--(IBAction)btnFacebook      :(id)sender;
+- (IBAction)loginWithFoursquare      :(id)sender;
 
--(IBAction)btnGoogleplus    :(id)sender;
+- (IBAction)loginWithFacebook        :(id)sender;
 
--(IBAction)btnLinkedin       :(id)sender;
+- (IBAction)loginWithGoogleplus      :(id)sender;
+
+- (IBAction)loginWithLinkedin        :(id)sender;
+
+- (IBAction)loginWithTwitter         :(id)sender;
 
 @end
