@@ -34,27 +34,31 @@
     [self rateApp];
 }
 
-- (void) rateApp{
-    
+- (void) rateApp
+{
+    [textViewDebug          setHidden:YES];
+    [self.activityIndicator setHidden:NO];
     [self.activityIndicator startAnimating];
-    [textViewDebug setHidden:YES];
+
     
 #warning pending for app identifier from itunes connect
     SKStoreProductViewController *storeAppController = [[SKStoreProductViewController alloc] init];
     
 
     [storeAppController setDelegate:self];
-    
+    storeAppController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
     [storeAppController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"641530683"}
                                   completionBlock:^(BOOL result, NSError *error) {
                                       
                                       if (error) {
                                         
-                                          [self.activityIndicator stopAnimating];
-                                          [textViewDebug setHidden:NO];
-                                          [textViewDebug setText:error.debugDescription];
-//NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
+                                          // 
+                                          [self.activityIndicator   stopAnimating];
+                                          [self.activityIndicator   setHidden:YES];
+                                          [textViewDebug            setHidden:NO];
                                           
+                                          [textViewDebug setText:error.debugDescription];
                                            self.navigationItem.hidesBackButton = NO;
                                       } else
                                       {
@@ -63,11 +67,7 @@
                                       }
                                   }
      ];
-    
-    
-    
 
-    
 
 }
 
@@ -75,8 +75,20 @@
 
 - (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController
 {
+    
+    // if the text view is hidden, we know the
+    // loading was successfull and we must dismiss the
+    // loaded view controller also
+    if ([textViewDebug isHidden])
+    {
+        [self dismissViewControllerAnimated:NO completion:NULL];
+    }
+
+    // send the user back to the side menu controller
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

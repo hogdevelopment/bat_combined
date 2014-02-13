@@ -12,6 +12,7 @@
 
 @interface RMNRateAppViewController : UIViewController<SKStoreProductViewControllerDelegate>
 
+
 @property (nonatomic) IBOutlet UITextView *textViewDebug;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end

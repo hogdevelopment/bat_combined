@@ -38,7 +38,7 @@
         // there's no need for the debug text view
         [self.textViewDebug setHidden:YES];
         
-        [self sendFeedback];
+        [self sendFeedback]; 
     }
 
 }
@@ -54,16 +54,15 @@
     // create new dispatch queue in background
     dispatch_queue_t queue = dispatch_queue_create("openActivityIndicatorQueue", NULL);
     
-    // send initialization of UIActivityViewController in background
+    // send initialization of MFMailComposeViewController in background
     dispatch_async(queue, ^{
-        NSLog(@"AJUNGE UNDE AR TREBUI SA INCARCE");
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         [mailController setMailComposeDelegate:self];
         [mailController setSubject:@"Feedback for smoking app"];
         [mailController setMessageBody:@" " isHTML:NO];
         [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
-        
-        // when UIActivityViewController is finally initialized,
+        [mailController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        // when MFMailComposeViewController is finally initialized,
         // hide indicator and present it on main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             [self presentViewController:mailController animated:NO completion:NULL];
