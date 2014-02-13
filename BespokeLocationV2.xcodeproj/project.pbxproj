@@ -51,6 +51,7 @@
 		5CAF8F0D18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */; };
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
+		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -215,6 +216,8 @@
 		5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNRateAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNShareAppViewController.h; sourceTree = "<group>"; };
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
+		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
+		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -567,22 +570,15 @@
 		5CAF8F1518ACF7FB00AF111F /* Left Side Menu */ = {
 			isa = PBXGroup;
 			children = (
-				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
-				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
-				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
-				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
-				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
-				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
-				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
-				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
-				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
-				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
-				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
-				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
-				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
-				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
-				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
-				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
+				5CAF8F1818AD04C300AF111F /* About Page */,
+				5CAF8F1918AD04CB00AF111F /* Distance Page */,
+				5CAF8F1A18AD04D500AF111F /* Privacy Page */,
+				5CAF8F1B18AD04E300AF111F /* Terms Of Service */,
+				5CAF8F1C18AD04F700AF111F /* Send Feedback  */,
+				5CAF8F1D18AD04FF00AF111F /* Help And Improve */,
+				5CAF8F1E18AD050600AF111F /* Rate App */,
+				5CAF8F1F18AD051000AF111F /* Share App */,
+				5CAF8F2318AD054600AF111F /* Attributes Key */,
 			);
 			name = "Left Side Menu";
 			sourceTree = "<group>";
@@ -605,6 +601,87 @@
 				5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */,
 			);
 			name = "Right Side Menu";
+			sourceTree = "<group>";
+		};
+		5CAF8F1818AD04C300AF111F /* About Page */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
+				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
+			);
+			name = "About Page";
+			sourceTree = "<group>";
+		};
+		5CAF8F1918AD04CB00AF111F /* Distance Page */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
+				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
+			);
+			name = "Distance Page";
+			sourceTree = "<group>";
+		};
+		5CAF8F1A18AD04D500AF111F /* Privacy Page */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
+				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
+			);
+			name = "Privacy Page";
+			sourceTree = "<group>";
+		};
+		5CAF8F1B18AD04E300AF111F /* Terms Of Service */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
+				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
+			);
+			name = "Terms Of Service";
+			sourceTree = "<group>";
+		};
+		5CAF8F1C18AD04F700AF111F /* Send Feedback  */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
+				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
+			);
+			name = "Send Feedback ";
+			sourceTree = "<group>";
+		};
+		5CAF8F1D18AD04FF00AF111F /* Help And Improve */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
+				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
+			);
+			name = "Help And Improve";
+			sourceTree = "<group>";
+		};
+		5CAF8F1E18AD050600AF111F /* Rate App */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
+				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
+			);
+			name = "Rate App";
+			sourceTree = "<group>";
+		};
+		5CAF8F1F18AD051000AF111F /* Share App */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
+				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
+			);
+			name = "Share App";
+			sourceTree = "<group>";
+		};
+		5CAF8F2318AD054600AF111F /* Attributes Key */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */,
+				5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */,
+			);
+			name = "Attributes Key";
 			sourceTree = "<group>";
 		};
 		7C04AD10189FC13900AAA15A /* AFNetworking */ = {
@@ -978,6 +1055,7 @@
 				7C9B30A3189AC4CF00071357 /* ASStarRatingView.m in Sources */,
 				7C9B2DD6189A691000071357 /* SBJsonStreamParserAccumulator.m in Sources */,
 				7C9B2DD8189A691000071357 /* SBJsonStreamParserState.m in Sources */,
+				5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */,
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
