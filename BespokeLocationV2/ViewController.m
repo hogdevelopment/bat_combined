@@ -44,7 +44,7 @@
         [[RMNManager sharedManager] setMenuShouldBeOpened:NO];
     }
     
-    if (![[RMNManager sharedManager]isLoggedIn])
+    if ([[RMNManager sharedManager]isLoggedIn])
     {
         NSLog(@"CICA nu a trecut de login");
         [self performSegueWithIdentifier:@"loginSegue" sender:self];

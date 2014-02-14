@@ -15,4 +15,5 @@
     #import <Foundation/Foundation.h>
     #import "RMNManager.h"
     #import "UIColor+HexRecognition.h"
+    #import "RMNSettings.h"
 #endif
