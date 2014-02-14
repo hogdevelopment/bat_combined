@@ -138,6 +138,13 @@
 		E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
+		E1C617F618AE2A2A00E90E0F /* loginBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F418AE2A2A00E90E0F /* loginBg.png */; };
+		E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F518AE2A2A00E90E0F /* loginBg@2x.png */; };
+		E1C617FA18AE72CD00E90E0F /* okMark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F818AE72CD00E90E0F /* okMark.png */; };
+		E1C617FB18AE72CD00E90E0F /* okMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F918AE72CD00E90E0F /* okMark@2x.png */; };
+		E1C6180118AE7D2A00E90E0F /* RMNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C6180018AE7D2A00E90E0F /* RMNLoginViewController.m */; };
+		E1C6180418AE806500E90E0F /* loginScreenBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C6180218AE806500E90E0F /* loginScreenBg.png */; };
+		E1C6180518AE806500E90E0F /* loginScreenBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C6180318AE806500E90E0F /* loginScreenBg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,6 +365,14 @@
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
 		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
+		E1C617F418AE2A2A00E90E0F /* loginBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBg.png; sourceTree = "<group>"; };
+		E1C617F518AE2A2A00E90E0F /* loginBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBg@2x.png"; sourceTree = "<group>"; };
+		E1C617F818AE72CD00E90E0F /* okMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okMark.png; sourceTree = "<group>"; };
+		E1C617F918AE72CD00E90E0F /* okMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "okMark@2x.png"; sourceTree = "<group>"; };
+		E1C617FF18AE7D2A00E90E0F /* RMNLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNLoginViewController.h; sourceTree = "<group>"; };
+		E1C6180018AE7D2A00E90E0F /* RMNLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNLoginViewController.m; sourceTree = "<group>"; };
+		E1C6180218AE806500E90E0F /* loginScreenBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginScreenBg.png; sourceTree = "<group>"; };
+		E1C6180318AE806500E90E0F /* loginScreenBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginScreenBg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +428,12 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E1C6180218AE806500E90E0F /* loginScreenBg.png */,
+				E1C6180318AE806500E90E0F /* loginScreenBg@2x.png */,
+				E1C617F818AE72CD00E90E0F /* okMark.png */,
+				E1C617F918AE72CD00E90E0F /* okMark@2x.png */,
+				E1C617F418AE2A2A00E90E0F /* loginBg.png */,
+				E1C617F518AE2A2A00E90E0F /* loginBg@2x.png */,
 				5CAF8F0418ABDA6700AF111F /* logoHolder.png */,
 				5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */,
 				E1A9BCFE18ABC7B300944EAD /* distanceChosenUnit.png */,
@@ -515,6 +536,8 @@
 		5C6CB4E518AA4629008CBE2A /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1C617FF18AE7D2A00E90E0F /* RMNLoginViewController.h */,
+				E1C6180018AE7D2A00E90E0F /* RMNLoginViewController.m */,
 				0E64B30918A5183100E0E513 /* LogInView.h */,
 				0E64B30A18A5183100E0E513 /* LogInView.m */,
 				7C9B2E01189A70A100071357 /* SecondView.h */,
@@ -920,14 +943,18 @@
 				7C9B30AC189AC4EC00071357 /* half_selected_star@2x.png in Resources */,
 				0E64B31618A51D6C00E0E513 /* other1.jpg in Resources */,
 				E1A82F0818AD022D00FF9661 /* LinkedIn_logo@2x.png in Resources */,
+				E1C617FA18AE72CD00E90E0F /* okMark.png in Resources */,
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
+				E1C617F618AE2A2A00E90E0F /* loginBg.png in Resources */,
 				E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */,
 				E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */,
 				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
 				5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */,
+				E1C617FB18AE72CD00E90E0F /* okMark@2x.png in Resources */,
+				E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
@@ -936,6 +963,7 @@
 				E1A82F0918AD022D00FF9661 /* google-Plus-icon@2x.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
+				E1C6180518AE806500E90E0F /* loginScreenBg@2x.png in Resources */,
 				5C6CB53818AB7A2F008CBE2A /* hpSearchBar.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
 				5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */,
@@ -946,6 +974,7 @@
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
 				0E07969018A531DB00537FBC /* foursquare.png in Resources */,
+				E1C6180418AE806500E90E0F /* loginScreenBg.png in Resources */,
 				5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1029,6 +1058,7 @@
 				5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */,
 				7C9B2DFD189A702400071357 /* MBProgressHUD.m in Sources */,
 				5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */,
+				E1C6180118AE7D2A00E90E0F /* RMNLoginViewController.m in Sources */,
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
 			);

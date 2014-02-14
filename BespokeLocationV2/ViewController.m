@@ -19,6 +19,7 @@
 #import "RMNFiltersScrollView.h"
 #import "MFSideMenuContainerViewController.h"
 #import "RMNUserSettingsSideMenuViewController.h"
+#import "UIColor+HexRecognition.h"
 
 @interface ViewController ()
 
@@ -65,7 +66,7 @@
 //    
 //    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
 //    
-//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"2980b9"]];
 
        //self.title = @"Map";
 
@@ -284,7 +285,7 @@
 
 -(void)LoadMap{
     
-
+//
 //    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
 //                                                            longitude:CurrentLocationlng
 //                                                                 zoom:14];
@@ -346,18 +347,18 @@
 //    }
 //    
 //    [self StopActivity];
-//    
-//    // Creates a marker in the center of the map.
-//    /*GMSMarker *marker = [[GMSMarker alloc] init];
-//     marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-//     marker.title = @"Sydney";
-//     marker.snippet = @"Australia";
-//     marker.map = mapView_;*/
-//    
-//    // Get the textField from the Searchbar
-//    // Now listen up.. the guy that wrote this googleplaces wrapper did not implement
-//    // the users current location. I have had to add that here. Check the updates I made in the
-//    
+    
+    // Creates a marker in the center of the map.
+    /*GMSMarker *marker = [[GMSMarker alloc] init];
+     marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+     marker.title = @"Sydney";
+     marker.snippet = @"Australia";
+     marker.map = mapView_;*/
+    
+    // Get the textField from the Searchbar
+    // Now listen up.. the guy that wrote this googleplaces wrapper did not implement
+    // the users current location. I have had to add that here. Check the updates I made in the
+    
     CLLocationCoordinate2D mylocation;
     mylocation.latitude = CurrentLocationlat;
     mylocation.longitude = CurrentLocationlng;

@@ -38,3 +38,35 @@
 "Users filters"             =       "Users filters";
 "Search"                    =       "Search";
 "Cancel"                    =       "Cancel";
+
+"Sign up"           =       "Sign up";
+"Get started"       =       "Get started";
+"subtitle text"     =       "subtitle text";
+"Email"             =       "Email";
+"Username"          =       "Username";
+"Date of birth"     =       "Date of birth";
+"Gender"            =       "Gender";
+"Password"          =       "Password";
+"or sign up with"   =       "or sign up with";
+"MM.DD.YYYY"        =       "MM.DD.YYYY";
+"Male"              =       "Male";
+"Female"            =       "Female";
+"Error"             =       "Error";
+"Not needed"        =       "Not needed";
+"Where to Smoke"    =       "Where to Smoke";
+"or Login with"     =       "or Login with";
+"Forgot Password?"  =       "Forgot Password?";
+"Done"              =       "Done";
+
+"Email or password incorrect."              =       "Email or password incorrect.";
+
+
+"There is no user registered with this email."             =       "There is no user registered with this email.";
+"An email was sent to this address."                       =       "An email was sent to this address.";
+
+"All fields should be entered"          =       "All fields should be entered";
+"Please enter a valid email address"    =       "Please enter a valid email address";
+"We are unable to access some of your details. Please fill in the rest of the fields."       =       "We are unable to access some of your details. Please fill in the rest of the fields.";
+"There is no user registered with this informations."             =       "There is no user registered with this informations.";
+
+

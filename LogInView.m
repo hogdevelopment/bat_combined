@@ -10,10 +10,11 @@
 #import "ViewController.h"
 #import "UserDataSingleton.h"
 
+#import "RMNLoginViewController.h"
 
 @interface LogInView ()
 {
-    //UserInfo *objUserInfo;
+    BOOL isUsingSocialService;
 }
 
 @end
@@ -26,9 +27,25 @@
 {
     [super viewDidLoad];
     
-    //_userInfo =[[NSMutableDictionary alloc]init];
+    // change navigation bar aspect
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"2980b9"]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    _swtchGender.onTintColor =[UIColor lightGrayColor];
+    // change color for gender segmented control
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
+    
+    // change registration button design
+    self.btnRegistrater.layer.cornerRadius = 4.0;
+    self.btnRegistrater.layer.borderWidth = 1.0;
+    self.btnRegistrater.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    // set NSLocalizedString for all labels
+    [self setLocalizedStringsForAllTexts];
+
+    // hide password text when typing
+    [self.txtPassword setSecureTextEntry:YES];
+    
+    isUsingSocialService = NO;
     
     if(![UserDataSingleton userSingleton].usingGigya)
     {
@@ -60,19 +77,20 @@
     
 }
 
-///////*****textfield operations
-#pragma mark - Textfield methods
+
+
+#pragma mark - TextField Delegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [_txtAge            resignFirstResponder];
     [_txtEmail          resignFirstResponder];
-    [_txtName           resignFirstResponder];
-    [_txtLastName       resignFirstResponder];
-    [_txtReenterEmail   resignFirstResponder];
+    [_txtUsername       resignFirstResponder];
+    [_txtPassword       resignFirstResponder];
     
     return NO;
 }
+
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -85,20 +103,8 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    //checking whether the email and the reentered email are same
     
-
-    if ( [textField isEqual:_txtReenterEmail] && ![textField.text isEqualToString:@""] &&
-        ![_txtEmail.text isEqualToString:@""])
-    {
-        if (![textField.text isEqualToString:_txtEmail.text])
-        {
-            [textField setTextColor:[UIColor redColor]];
-        }
-    }
 }
-
-////*** end of text field operations
 
 
 
@@ -111,6 +117,7 @@
 
 -(void)getUserInfoToClass
 {
+    isUsingSocialService = YES;
     
     GSRequest *request=[GSRequest requestForMethod:@"socialize.getUserInfo"];
     
@@ -120,13 +127,16 @@
          {
              [UserDataSingleton userSingleton].nickName   = response[ @"nickname"];
              [UserDataSingleton userSingleton].firstName  = response[@"firstName"];
-             [UserDataSingleton userSingleton].lastName   = response[ @"lastName"];
              [UserDataSingleton userSingleton].gender     = response[   @"gender"];
              [UserDataSingleton userSingleton].email      = response[    @"email"];
              [UserDataSingleton userSingleton].age        = response[      @"age"];
              
-             //when birth year available instead of age, finding age from birth year
+             [self fillRegistration];
              
+             self.txtPassword.enabled = NO;
+             self.txtPassword.placeholder = @"Not needed";
+
+             //when birth year available instead of age, finding age from birth year
              if (![UserDataSingleton userSingleton].age && response[@"birthYear"])
              {
                  NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
@@ -135,38 +145,24 @@
                  NSString * birthYear = response[@"birthYear"];
                  
                  int age=(int)([year integerValue]-[birthYear integerValue]);
-                 [UserDataSingleton userSingleton].age=[NSString stringWithFormat:@"%d",age];
-                 
+                 [UserDataSingleton userSingleton].age= [NSString stringWithFormat:@"%d",age];
                  
              }
              
-             if (![UserDataSingleton userSingleton].email     || ![UserDataSingleton userSingleton].nickName  ||
-                 ![UserDataSingleton userSingleton].age       || ![UserDataSingleton userSingleton].firstName ||
-                 ![UserDataSingleton userSingleton].gender    || ![UserDataSingleton userSingleton].lastName)
+             if (![self checkIfRegistrationIsOk])
              {
-                 [self showMessageTitle:@"Sorry"
-                            withMessage:@"We are unable to access some of your details."];
+                 // didn't recieve all the info wanted
+                 [self showMessageTitle:NSLocalizedString(@"Error",nil)
+                            withMessage:NSLocalizedString(@"We are unable to access some of your details. Please fill in the rest of the fields.",nil) ];
                  
-                 [self fillRegistration];
                  [self clearSession    ];
-                 [UserDataSingleton userSingleton].nickName   = nil;
-                 [UserDataSingleton userSingleton].firstName  = nil;
-                 [UserDataSingleton userSingleton].lastName   = nil;
-                 [UserDataSingleton userSingleton].gender     = nil;
-                 [UserDataSingleton userSingleton].email      = nil;
-                 [UserDataSingleton userSingleton].age        = nil;
-
-                 
              }
-             else
-                 /////// if provider give all detials wanted.. next view will display
-                 /////// userInfo is not saved.code here to persist user data
-                 NSLog(@"CEVA LA 164");
+             else{
+                 // the provider gave all the information needed.
+
                  [self nextView];
-             
-             
-             
-         }
+             }
+           }
          else
          {
              NSLog(@"Error while trying to fetch user details");
@@ -175,6 +171,8 @@
      }];
 
 }
+
+
 // this will show a table of with three choices facebook, linkedin, foursquare and googleplus.
 // user can select one provider. if wanto add other social networking sites just add to "providers" array
 // this will redirect to a webpage from there user can login.
@@ -210,7 +208,7 @@
 }
 
 
-//when different providers selcted gigya framework will access the providers account from device,
+//when different providers selected gigya framework will access the providers account from device,
 //if user is already signed in on the device or show sign in page.
 
 -(void)fromSelectedProvider: (NSString *)provider
@@ -249,19 +247,10 @@
     
         if ([UserDataSingleton userSingleton].nickName)
         {
-            _txtName.textColor          = [UIColor blackColor];
-            _txtName.text               = [UserDataSingleton userSingleton].nickName;
+            _txtUsername.textColor          = [UIColor blackColor];
+            _txtUsername.text               = [UserDataSingleton userSingleton].nickName;
         }
-        if ([UserDataSingleton userSingleton].firstName)
-        {
-            _txtName.textColor          = [UIColor blackColor];
-            _txtName.text               = [UserDataSingleton userSingleton].firstName;
-        }
-        if ([UserDataSingleton userSingleton].lastName)
-        {
-            _txtLastName.textColor      = [UIColor blackColor];
-            _txtLastName.text           = [UserDataSingleton userSingleton].lastName;
-        }
+    
         if([UserDataSingleton userSingleton].age)
         {
             _txtAge.textColor           = [UIColor blackColor];
@@ -269,133 +258,84 @@
         }
         if ([UserDataSingleton userSingleton].email)
         {   _txtEmail.textColor         = [UIColor blackColor];
-            _txtReenterEmail.textColor  = [UIColor blackColor];
             _txtEmail.text              = [UserDataSingleton userSingleton].email;
-            _txtReenterEmail.text       = [UserDataSingleton userSingleton].email;
         }
         if ([UserDataSingleton userSingleton].gender)
         {
             if ([[UserDataSingleton userSingleton].gender caseInsensitiveCompare:@"female"] == NSOrderedSame ||
                 [[UserDataSingleton userSingleton].gender caseInsensitiveCompare:@"f"]      == NSOrderedSame)
             {
-                [_swtchGender setOn:YES];
-                _lblGender.text=@"female";
+                [self.genderSgmCtrl setSelectedSegmentIndex:1];
             }
         }
 }
 
 
-//resetting view Component default value
+// resetting views with default value
 -(void)resetView
 {
-    _txtName.text               = @"";
-    _txtLastName.text           = @"";
+    _txtUsername.text           = @"";
     _txtEmail.text              = @"";
-    _txtReenterEmail.text       = @"";
+    _txtPassword.text           = @"";
     _txtAge.text                = @"";
-    _lblGender.text             = @"male";
-    
-    [_swtchGender setOn:FALSE];
     
 }
 
 
-// when register button is pressed it will check text fields are properly entered or not
-// if  any fields are not entered then these fields will shoe red and prompt fill it
 
-#pragma mark - Different button actioins
+#pragma mark - UIButtons actions
 
--(IBAction)btnRegister:(id)sender
-{
+- (IBAction)changeBorderColor:(id)sender {
+    
+    self.btnRegistrater.layer.borderColor    = [UIColor orangeColor].CGColor;
+    self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
+     
+}
+
+- (IBAction)signUpAction:(id)sender {
+    
+#warning just for testing!
+    
+    RMNLoginViewController *loginVC = [[RMNLoginViewController alloc] init];
+    [self.navigationController pushViewController:loginVC animated:YES];
+    
+    return;
+#warning end testing
+    
+    
     [_txtAge            resignFirstResponder];
     [_txtEmail          resignFirstResponder];
-    [_txtName           resignFirstResponder];
-    [_txtLastName       resignFirstResponder];
-    [_txtReenterEmail   resignFirstResponder];
+    [_txtUsername       resignFirstResponder];
+    [_txtPassword       resignFirstResponder];
     
-    if ([_txtName.text isEqualToString:@""]    || [_txtEmail.text isEqualToString:@""]   ||
-        [_txtAge.text isEqualToString:@""]     || [_txtLastName.text isEqualToString:@""]||
-        [_txtReenterEmail.text isEqualToString:@""])
-    {
-        [self showMessageTitle:@"Error" withMessage:@"All fields should be entered"];
-        
-        if([_txtAge.text   isEqualToString: @"" ])
-        {
-            [_txtAge becomeFirstResponder];
-            [_txtAge setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        }
-        
-        if([_txtReenterEmail.text isEqualToString: @"" ])
-        {
-            [_txtReenterEmail becomeFirstResponder];
-            [_txtReenterEmail setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        }
-        
-        if([_txtEmail.text isEqualToString: @"" ])
-        {
-            [_txtEmail becomeFirstResponder];
-            [_txtEmail setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        }
-        
-        if([_txtLastName.text  isEqualToString: @"" ])
-        {
-            [_txtLastName becomeFirstResponder];
-            [_txtLastName setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+    if ([self checkIfRegistrationIsOk]) {
 
-        }
-        
-        if([_txtName.text  isEqualToString: @"" ])
-        {
-            [_txtName becomeFirstResponder];
-            [_txtName setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        }
-    }
-    else if (![_txtEmail.text isEqualToString:_txtReenterEmail.text])
-    {
-        [self showMessageTitle:@"Error" withMessage:@"Email fields should be same"];
-    }
-    else if (![self validateEmail:_txtEmail.text])
-    {
-        [self showMessageTitle:@"Error" withMessage:@"Please enter a valid email address"];
-        [_txtEmail setTextColor:[UIColor redColor]];
-        _txtReenterEmail.text= @"";
-    }
-    else
-    {
-        [UserDataSingleton userSingleton].nickName    = _txtName.     text;
-        [UserDataSingleton userSingleton].firstName   = _txtName.     text;
-        [UserDataSingleton userSingleton].lastName    = _txtLastName. text;
-        [UserDataSingleton userSingleton].gender      = _lblGender.   text;
+        // save user info
+        [UserDataSingleton userSingleton].nickName    = _txtUsername.     text;
+        [UserDataSingleton userSingleton].gender      = self.genderSgmCtrl.selectedSegmentIndex == 0 ? @"male" : @"female";
         [UserDataSingleton userSingleton].email       = _txtEmail.    text;
         [UserDataSingleton userSingleton].age         = _txtAge.      text;
         
+        
+        
+        NSLog(@"gender is %@", [UserDataSingleton userSingleton].gender);
+        
         //[self showMessageTitle:@"Succes" withMessage:@"Registration successful"];
-        NSLog(@"374");
         [self nextView];
         // code here to persist data in userInfo dictionary and push to next page
         // [self nextView] can be used to push to next page.
-        
     }
-    
+    else{
+        
+        self.btnRegistrater.layer.borderColor    = [UIColor lightGrayColor].CGColor;
+        self.btnRegistrater.titleLabel.textColor = [UIColor lightGrayColor];
+    }
 }
 
-// button actions
 
 
 
-- (IBAction)swtchValueChanged:(id)sender
-{
-    [_txtAge            resignFirstResponder];
-    [_txtEmail          resignFirstResponder];
-    [_txtName           resignFirstResponder];
-    [_txtLastName       resignFirstResponder];
-    [_txtReenterEmail   resignFirstResponder];
-    
-    if ([_swtchGender isOn])
-        _lblGender.text=@"female";
-    else
-        _lblGender.text=@"male";
-}
+// sign up with social services
 
 -(IBAction)loginWithFacebook:(id)sender;
 {
@@ -412,33 +352,120 @@
     [self fromSelectedProvider:@"linkedin"];
 }
 
-- (IBAction)loginWithTwitter:(id)sender {
-    
+- (IBAction)loginWithTwitter:(id)sender
+{
     [self fromSelectedProvider:@"twitter"];
-
 }
 
 - (IBAction)loginWithFoursquare:(id)sender
 {
-    //This commented functions can be used to show a list of differet social networking providers
-    /*if (![Gigya session])
-     [self selectFromProviders];
-     else
-     //[self getUserInfo];
-     [self getUserInfoToClass];*/
     [self fromSelectedProvider:@"foursquare"];
-    
 }
 
-//This is used to present next view controller, import view controller which you wanted to present next.
-//find the storyboard name and give a storyboard ID for the next view.
 
-///*****change view controller her****///
+
 
 #pragma mark- Other useful methods
 
+// when sign up button is pressed this method will check if text fields are properly filled or not
+// if any field is not completed then it will turn red
 
-//This method will clear sesstion
+- (void) setLocalizedStringsForAllTexts
+{
+    // screen title
+    [self.navigationItem setTitle:NSLocalizedString(@"Sign up",nil)];
+
+    // labels
+    self.titleForGetStareted.text   = NSLocalizedString(@"Get started",nil);
+    self.subTitle.text              = NSLocalizedString(@"subtitle text",nil);
+    self.emailLabel.text            = NSLocalizedString(@"Email",nil);
+    self.usernameLabel.text         = NSLocalizedString(@"Username",nil);
+    self.birthLabel.text            = NSLocalizedString(@"Date of birth",nil);
+    self.genderLabel.text           = NSLocalizedString(@"Gender",nil);
+    self.passLabel.text             = NSLocalizedString(@"Password",nil);
+    self.serviceSignLabel.text      = NSLocalizedString(@"or sign up with",nil);
+
+    
+    // placeholders for textFields
+    self.txtEmail.placeholder      = NSLocalizedString(@"Email",nil);
+    self.txtUsername.placeholder   = NSLocalizedString(@"Username",nil);
+    self.txtAge.placeholder        = NSLocalizedString(@"MM.DD.YYYY",nil);
+    self.txtPassword.placeholder   = NSLocalizedString(@"Password",nil);
+    
+    // gender segmented control
+    [self.genderSgmCtrl setTitle:NSLocalizedString(@"Male",nil) forSegmentAtIndex:1];
+    [self.genderSgmCtrl setTitle:NSLocalizedString(@"Female",nil) forSegmentAtIndex:1];
+
+    // button title
+    [self.btnRegistrater setTitle:NSLocalizedString(@"Sign up",nil) forState:UIControlStateNormal];
+}
+
+
+- (BOOL) checkIfRegistrationIsOk
+{
+    BOOL isOk = YES;
+    
+    if ([_txtUsername.text isEqualToString:@""]    || [_txtEmail.text isEqualToString:@""]   ||
+        [_txtAge.text isEqualToString:@""] || [_txtPassword.text isEqualToString:@""])
+    {
+        
+        if (!isUsingSocialService) {
+            [self showMessageTitle:NSLocalizedString(@"Error",nil) withMessage:NSLocalizedString(@"All fields should be entered",nil)];
+        }
+        
+        isOk = NO;
+        
+        if([_txtAge.text   isEqualToString: @"" ])
+        {
+            [_txtAge becomeFirstResponder];
+            [_txtAge setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+        }
+        else{
+            self.birthOkMark.alpha = 1;
+        }
+        
+        if([_txtUsername.text isEqualToString: @"" ])
+        {
+            [_txtUsername becomeFirstResponder];
+            [_txtUsername setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+        }
+        else{
+            self.usernameOkMark.alpha = 1;
+        }
+        
+        if([_txtEmail.text isEqualToString: @"" ])
+        {
+            [_txtEmail becomeFirstResponder];
+            [_txtEmail setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+        }
+        else{
+            self.emailOkMark.alpha = 1;
+        }
+        
+        if([_txtPassword.text  isEqualToString: @"" ] && !isUsingSocialService)
+        {
+            [_txtPassword becomeFirstResponder];
+            [_txtPassword setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+        }
+        else if(!isUsingSocialService)
+            {
+                self.passwordOkMark.alpha = 1;
+            }
+    }
+    else if (![self validateEmail:_txtEmail.text])
+    {
+        [self showMessageTitle:NSLocalizedString(@"Error",nil) withMessage:NSLocalizedString(@"Please enter a valid email address",nil)];
+        [_txtEmail setTextColor:[UIColor redColor]];
+        isOk = NO;
+        self.emailOkMark.alpha = 0;
+    }
+    
+    return  isOk;
+}
+
+
+
+//This method will clear session
 -(void)clearSession
 {
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
@@ -454,33 +481,32 @@
     
 }
 
+
+// hide social services butts
 -(void)hideGigya
 {
     _btnFacebook.hidden     = YES;
     _btnGoogleplus.hidden   = YES;
-    _btnLinkedin.hidden     = YES;
     _btnFoursquare.hidden   = YES;
-    _lblGigya.hidden        = YES;
+    _btnTwitter.hidden      = YES;
+    
+//    _btnLinkedin.hidden     = YES;
+
 }
 
-// this method will push to next view.
+// this method will push the next view.
 -(void)nextView
 {
-//    ViewController *mainVC=[[ViewController alloc]init];
-//    
-//    mainVC=[[UIStoryboard storyboardWithName:@"Main" bundle:NULL]
-//            instantiateViewControllerWithIdentifier:@"MainView"];
-//    
-//    [self presentViewController:mainVC animated:YES completion:nil];
-    
-    
     // ok, assuming at this point that everything has been validated and
     // I'm ready to return, so just dismiss the navigation controller.
     // You could use unwind segue in iOS 6, as well.
     
+#warning must save data registration
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:@"isLoggedIn"];
+    [defaults synchronize];
+    
     [[RMNManager sharedManager] setIsLoggedIn:YES];
 
     NSLog(@"%d",[[RMNManager sharedManager]isLoggedIn]);
@@ -491,7 +517,7 @@
 }
 
 
-//To check email is valid or not
+// check if email is valid or not
 -(BOOL) validateEmail:(NSString *)emailString
 {
     BOOL stricterFilter         = YES;
@@ -502,13 +528,13 @@
     return [emailTest evaluateWithObject:emailString];
 }
 
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [_txtAge            resignFirstResponder];
     [_txtEmail          resignFirstResponder];
-    [_txtName           resignFirstResponder];
-    [_txtLastName       resignFirstResponder];
-    [_txtReenterEmail   resignFirstResponder];
+    [_txtUsername       resignFirstResponder];
+    [_txtPassword       resignFirstResponder];
 }
 
 //This is used to show alert views

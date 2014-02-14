@@ -34,7 +34,7 @@
     {
         _nickName       = [[NSString alloc]init];
         _firstName      = [[NSString alloc]init];
-        _lastName       = [[NSString alloc]init];
+        _password       = [[NSString alloc]init];
         _email          = [[NSString alloc]init];
         _age            = [[NSString alloc]init];
         _gender         = [[NSString alloc]init];
