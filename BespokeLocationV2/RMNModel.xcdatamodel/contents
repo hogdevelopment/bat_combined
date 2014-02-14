@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Filters" syncable="YES"/>
+    <entity name="UserInformation" syncable="YES">
+        <attribute name="isRegisteredWithNewAccount" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUsingFacebook" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUsingFoursquare" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUsingGooglePlus" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isUsingTwitter" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserInformation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Filters" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

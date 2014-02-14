@@ -55,7 +55,6 @@
 {
     [self resignFirstResponder];
 
-    NSLog(@"IN SEARCH BAR TRIMITE");
 }
 
 

@@ -13,9 +13,10 @@
 #import <StoreKit/StoreKit.h>
 #import "MBProgressHUD.h"
 #import "CollectionViewCe.h"
+#import "RMNUserSettingsSideMenuViewController.h"
 
 
-@interface ViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,UICollectionViewDataSource,UICollectionViewDelegate, SKStoreProductViewControllerDelegate>{
+@interface ViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,RMNUserSettingsLefttSideMenuDelegate, SKStoreProductViewControllerDelegate>{
     
     
 

@@ -17,6 +17,27 @@
 		0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31318A51D6C00E0E513 /* LinkedIn_logo.png */; };
 		0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */; };
 		0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31518A51D6C00E0E513 /* facebook.png */; };
+		5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97E818AD21E200807404 /* favouriteButton@2x.png */; };
+		5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97E918AD21E200807404 /* favouriteButton.png */; };
+		5C4C97FA18AD34D800807404 /* slide_2_Zurich.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97EC18AD34D800807404 /* slide_2_Zurich.png */; };
+		5C4C97FB18AD34D800807404 /* slide_3_Zurich.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97ED18AD34D800807404 /* slide_3_Zurich.png */; };
+		5C4C97FC18AD34D800807404 /* slide_0_Zurich@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97EE18AD34D800807404 /* slide_0_Zurich@2x.png */; };
+		5C4C97FD18AD34D800807404 /* slide_1_Zurich@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97EF18AD34D800807404 /* slide_1_Zurich@2x.png */; };
+		5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F018AD34D800807404 /* slide_0_Zurich.png */; };
+		5C4C97FF18AD34D800807404 /* NextSlideButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F118AD34D800807404 /* NextSlideButton.png */; };
+		5C4C980018AD34D800807404 /* SkipSlideButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F218AD34D800807404 /* SkipSlideButton@2x.png */; };
+		5C4C980118AD34D800807404 /* NextSlideButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F318AD34D800807404 /* NextSlideButton@2x.png */; };
+		5C4C980218AD34D800807404 /* StartUsingAppFromSlide.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F418AD34D800807404 /* StartUsingAppFromSlide.png */; };
+		5C4C980318AD34D800807404 /* slide_1_Zurich.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F518AD34D800807404 /* slide_1_Zurich.png */; };
+		5C4C980418AD34D800807404 /* slide_2_Zurich@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F618AD34D800807404 /* slide_2_Zurich@2x.png */; };
+		5C4C980518AD34D800807404 /* slide_3_Zurich@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F718AD34D800807404 /* slide_3_Zurich@2x.png */; };
+		5C4C980618AD34D800807404 /* StartUsingAppFromSlide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F818AD34D800807404 /* StartUsingAppFromSlide@2x.png */; };
+		5C4C980718AD34D800807404 /* SkipSlideButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97F918AD34D800807404 /* SkipSlideButton.png */; };
+		5C4C980B18AD362F00807404 /* RMNIntroSlidesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C980A18AD362F00807404 /* RMNIntroSlidesViewController.m */; };
+		5C50C5D518AE54BB00EA169C /* lineSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C50C5D318AE54BB00EA169C /* lineSeparator@2x.png */; };
+		5C50C5D618AE54BB00EA169C /* lineSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C50C5D418AE54BB00EA169C /* lineSeparator.png */; };
+		5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */; };
+		5C50C5DC18AE643C00EA169C /* TSTCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50C5DA18AE643C00EA169C /* TSTCoreData.m */; };
 		5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */; };
 		5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */; };
 		5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB4F318AA5134008CBE2A /* Localizable.strings */; };
@@ -45,12 +66,14 @@
 		5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39F18A9345700FFF0D0 /* menu-icon.png */; };
 		5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */; };
 		5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */; };
+		5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */; };
 		5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0418ABDA6700AF111F /* logoHolder.png */; };
 		5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */; };
 		5CAF8F0A18ACC40200AF111F /* RMNSendFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */; };
 		5CAF8F0D18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */; };
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
+		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -170,6 +193,30 @@
 		0E64B31318A51D6C00E0E513 /* LinkedIn_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LinkedIn_logo.png; sourceTree = "<group>"; };
 		0E64B31418A51D6C00E0E513 /* google-Plus-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google-Plus-icon.png"; sourceTree = "<group>"; };
 		0E64B31518A51D6C00E0E513 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		5C4C97E818AD21E200807404 /* favouriteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favouriteButton@2x.png"; sourceTree = "<group>"; };
+		5C4C97E918AD21E200807404 /* favouriteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favouriteButton.png; sourceTree = "<group>"; };
+		5C4C97EC18AD34D800807404 /* slide_2_Zurich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide_2_Zurich.png; sourceTree = "<group>"; };
+		5C4C97ED18AD34D800807404 /* slide_3_Zurich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide_3_Zurich.png; sourceTree = "<group>"; };
+		5C4C97EE18AD34D800807404 /* slide_0_Zurich@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slide_0_Zurich@2x.png"; sourceTree = "<group>"; };
+		5C4C97EF18AD34D800807404 /* slide_1_Zurich@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slide_1_Zurich@2x.png"; sourceTree = "<group>"; };
+		5C4C97F018AD34D800807404 /* slide_0_Zurich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide_0_Zurich.png; sourceTree = "<group>"; };
+		5C4C97F118AD34D800807404 /* NextSlideButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextSlideButton.png; sourceTree = "<group>"; };
+		5C4C97F218AD34D800807404 /* SkipSlideButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SkipSlideButton@2x.png"; sourceTree = "<group>"; };
+		5C4C97F318AD34D800807404 /* NextSlideButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextSlideButton@2x.png"; sourceTree = "<group>"; };
+		5C4C97F418AD34D800807404 /* StartUsingAppFromSlide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartUsingAppFromSlide.png; sourceTree = "<group>"; };
+		5C4C97F518AD34D800807404 /* slide_1_Zurich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide_1_Zurich.png; sourceTree = "<group>"; };
+		5C4C97F618AD34D800807404 /* slide_2_Zurich@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slide_2_Zurich@2x.png"; sourceTree = "<group>"; };
+		5C4C97F718AD34D800807404 /* slide_3_Zurich@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slide_3_Zurich@2x.png"; sourceTree = "<group>"; };
+		5C4C97F818AD34D800807404 /* StartUsingAppFromSlide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StartUsingAppFromSlide@2x.png"; sourceTree = "<group>"; };
+		5C4C97F918AD34D800807404 /* SkipSlideButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkipSlideButton.png; sourceTree = "<group>"; };
+		5C4C980918AD362F00807404 /* RMNIntroSlidesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNIntroSlidesViewController.h; sourceTree = "<group>"; };
+		5C4C980A18AD362F00807404 /* RMNIntroSlidesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNIntroSlidesViewController.m; sourceTree = "<group>"; };
+		5C50C5D318AE54BB00EA169C /* lineSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineSeparator@2x.png"; sourceTree = "<group>"; };
+		5C50C5D418AE54BB00EA169C /* lineSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineSeparator.png; sourceTree = "<group>"; };
+		5C50C5D718AE587F00EA169C /* RMNSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNSettings.h; sourceTree = "<group>"; };
+		5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMNModel.xcdatamodel; sourceTree = "<group>"; };
+		5C50C5D918AE643C00EA169C /* TSTCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTCoreData.h; sourceTree = "<group>"; };
+		5C50C5DA18AE643C00EA169C /* TSTCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTCoreData.m; sourceTree = "<group>"; };
 		5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserSettingsSideMenuViewController.h; sourceTree = "<group>"; };
 		5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuViewController.m; sourceTree = "<group>"; };
 		5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRecognition.h"; sourceTree = "<group>"; };
@@ -218,6 +265,8 @@
 		5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-icon@2x.png"; path = "BespokeLocationV2/menu-icon@2x.png"; sourceTree = "<group>"; };
 		5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMNManager.h; path = ../RMNManager.h; sourceTree = "<group>"; };
 		5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMNManager.m; path = ../RMNManager.m; sourceTree = "<group>"; };
+		5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNIntroSlideContentViewController.h; sourceTree = "<group>"; };
+		5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNIntroSlideContentViewController.m; sourceTree = "<group>"; };
 		5CAF8F0418ABDA6700AF111F /* logoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoHolder.png; sourceTree = "<group>"; };
 		5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoHolder@2x.png"; sourceTree = "<group>"; };
 		5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNSendFeedbackViewController.h; sourceTree = "<group>"; };
@@ -228,6 +277,8 @@
 		5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNRateAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNShareAppViewController.h; sourceTree = "<group>"; };
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
+		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
+		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -464,6 +515,39 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		5C4C980818AD34DF00807404 /* Slides from the begining of the app */ = {
+			isa = PBXGroup;
+			children = (
+				5C50C5D318AE54BB00EA169C /* lineSeparator@2x.png */,
+				5C50C5D418AE54BB00EA169C /* lineSeparator.png */,
+				5C4C97F718AD34D800807404 /* slide_3_Zurich@2x.png */,
+				5C4C97ED18AD34D800807404 /* slide_3_Zurich.png */,
+				5C4C97F618AD34D800807404 /* slide_2_Zurich@2x.png */,
+				5C4C97EC18AD34D800807404 /* slide_2_Zurich.png */,
+				5C4C97EF18AD34D800807404 /* slide_1_Zurich@2x.png */,
+				5C4C97F518AD34D800807404 /* slide_1_Zurich.png */,
+				5C4C97EE18AD34D800807404 /* slide_0_Zurich@2x.png */,
+				5C4C97F018AD34D800807404 /* slide_0_Zurich.png */,
+				5C4C97F318AD34D800807404 /* NextSlideButton@2x.png */,
+				5C4C97F118AD34D800807404 /* NextSlideButton.png */,
+				5C4C97F818AD34D800807404 /* StartUsingAppFromSlide@2x.png */,
+				5C4C97F418AD34D800807404 /* StartUsingAppFromSlide.png */,
+				5C4C97F218AD34D800807404 /* SkipSlideButton@2x.png */,
+				5C4C97F918AD34D800807404 /* SkipSlideButton.png */,
+			);
+			name = "Slides from the begining of the app";
+			sourceTree = "<group>";
+		};
+		5C50C5DD18AE643F00EA169C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */,
+				5C50C5D918AE643C00EA169C /* TSTCoreData.h */,
+				5C50C5DA18AE643C00EA169C /* TSTCoreData.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		5C6CB4E018AA45C7008CBE2A /* Side Menu Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,6 +586,8 @@
 				5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */,
 				7C9B2D93189A684A00071357 /* AppDelegate.h */,
 				7C9B2D94189A684A00071357 /* AppDelegate.m */,
+				5C50C5D718AE587F00EA169C /* RMNSettings.h */,
+				5C50C5DD18AE643F00EA169C /* Core Data */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -544,6 +630,10 @@
 				7C9B2E02189A70A100071357 /* SecondView.m */,
 				7C9B2D99189A684A00071357 /* ViewController.h */,
 				7C9B2D9A189A684A00071357 /* ViewController.m */,
+				5C4C980918AD362F00807404 /* RMNIntroSlidesViewController.h */,
+				5C4C980A18AD362F00807404 /* RMNIntroSlidesViewController.m */,
+				5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */,
+				5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -608,22 +698,15 @@
 		5CAF8F1518ACF7FB00AF111F /* Left Side Menu */ = {
 			isa = PBXGroup;
 			children = (
-				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
-				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
-				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
-				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
-				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
-				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
-				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
-				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
-				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
-				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
-				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
-				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
-				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
-				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
-				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
-				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
+				5CAF8F1818AD04C300AF111F /* About Page */,
+				5CAF8F1918AD04CB00AF111F /* Distance Page */,
+				5CAF8F1A18AD04D500AF111F /* Privacy Page */,
+				5CAF8F1B18AD04E300AF111F /* Terms Of Service */,
+				5CAF8F1C18AD04F700AF111F /* Send Feedback  */,
+				5CAF8F1D18AD04FF00AF111F /* Help And Improve */,
+				5CAF8F1E18AD050600AF111F /* Rate App */,
+				5CAF8F1F18AD051000AF111F /* Share App */,
+				5CAF8F2318AD054600AF111F /* Attributes Key */,
 			);
 			name = "Left Side Menu";
 			sourceTree = "<group>";
@@ -646,6 +729,87 @@
 				5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */,
 			);
 			name = "Right Side Menu";
+			sourceTree = "<group>";
+		};
+		5CAF8F1818AD04C300AF111F /* About Page */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB50E18AA937D008CBE2A /* RMNAboutPageViewController.h */,
+				5C6CB50F18AA937D008CBE2A /* RMNAboutPageViewController.m */,
+			);
+			name = "About Page";
+			sourceTree = "<group>";
+		};
+		5CAF8F1918AD04CB00AF111F /* Distance Page */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB51018AA937D008CBE2A /* RMNDistancePageViewController.h */,
+				5C6CB51118AA937D008CBE2A /* RMNDistancePageViewController.m */,
+			);
+			name = "Distance Page";
+			sourceTree = "<group>";
+		};
+		5CAF8F1A18AD04D500AF111F /* Privacy Page */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB51218AA937D008CBE2A /* RMNPrivacyPageViewController.h */,
+				5C6CB51318AA937D008CBE2A /* RMNPrivacyPageViewController.m */,
+			);
+			name = "Privacy Page";
+			sourceTree = "<group>";
+		};
+		5CAF8F1B18AD04E300AF111F /* Terms Of Service */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB51418AA937D008CBE2A /* RMNTermsOfServiceViewController.h */,
+				5C6CB51518AA937D008CBE2A /* RMNTermsOfServiceViewController.m */,
+			);
+			name = "Terms Of Service";
+			sourceTree = "<group>";
+		};
+		5CAF8F1C18AD04F700AF111F /* Send Feedback  */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F0818ACC40200AF111F /* RMNSendFeedbackViewController.h */,
+				5CAF8F0918ACC40200AF111F /* RMNSendFeedbackViewController.m */,
+			);
+			name = "Send Feedback ";
+			sourceTree = "<group>";
+		};
+		5CAF8F1D18AD04FF00AF111F /* Help And Improve */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F0B18ACC8BF00AF111F /* RMNHelpAndImproveViewController.h */,
+				5CAF8F0C18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m */,
+			);
+			name = "Help And Improve";
+			sourceTree = "<group>";
+		};
+		5CAF8F1E18AD050600AF111F /* Rate App */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F0E18ACD8B800AF111F /* RMNRateAppViewController.h */,
+				5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */,
+			);
+			name = "Rate App";
+			sourceTree = "<group>";
+		};
+		5CAF8F1F18AD051000AF111F /* Share App */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F1118ACD8C200AF111F /* RMNShareAppViewController.h */,
+				5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */,
+			);
+			name = "Share App";
+			sourceTree = "<group>";
+		};
+		5CAF8F2318AD054600AF111F /* Attributes Key */ = {
+			isa = PBXGroup;
+			children = (
+				5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */,
+				5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */,
+			);
+			name = "Attributes Key";
 			sourceTree = "<group>";
 		};
 		7C04AD10189FC13900AAA15A /* AFNetworking */ = {
@@ -931,15 +1095,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4C980618AD34D800807404 /* StartUsingAppFromSlide@2x.png in Resources */,
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
 				E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */,
 				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
+				5C4C980218AD34D800807404 /* StartUsingAppFromSlide.png in Resources */,
 				E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */,
+				5C4C980718AD34D800807404 /* SkipSlideButton.png in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
 				5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */,
+				5C4C980018AD34D800807404 /* SkipSlideButton@2x.png in Resources */,
 				E1A82F0518AD022D00FF9661 /* twitterLogo@2x.png in Resources */,
 				0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */,
+				5C4C97FF18AD34D800807404 /* NextSlideButton.png in Resources */,
 				7C9B30AC189AC4EC00071357 /* half_selected_star@2x.png in Resources */,
 				0E64B31618A51D6C00E0E513 /* other1.jpg in Resources */,
 				E1A82F0818AD022D00FF9661 /* LinkedIn_logo@2x.png in Resources */,
@@ -950,6 +1119,7 @@
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
 				E1C617F618AE2A2A00E90E0F /* loginBg.png in Resources */,
 				E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */,
+				5C4C980318AD34D800807404 /* slide_1_Zurich.png in Resources */,
 				E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */,
 				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
 				5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */,
@@ -958,24 +1128,34 @@
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
+				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
+				5C4C980118AD34D800807404 /* NextSlideButton@2x.png in Resources */,
+				5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */,
 				5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */,
+				5C50C5D518AE54BB00EA169C /* lineSeparator@2x.png in Resources */,
 				E1A82F0718AD022D00FF9661 /* facebook@2x.png in Resources */,
 				E1A82F0918AD022D00FF9661 /* google-Plus-icon@2x.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
+				5C4C97FD18AD34D800807404 /* slide_1_Zurich@2x.png in Resources */,
 				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
 				E1C6180518AE806500E90E0F /* loginScreenBg@2x.png in Resources */,
 				5C6CB53818AB7A2F008CBE2A /* hpSearchBar.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
+				5C4C980518AD34D800807404 /* slide_3_Zurich@2x.png in Resources */,
 				5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */,
 				0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */,
 				5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */,
+				5C4C97FC18AD34D800807404 /* slide_0_Zurich@2x.png in Resources */,
+				5C4C97FB18AD34D800807404 /* slide_3_Zurich.png in Resources */,
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
+				5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
 				0E07969018A531DB00537FBC /* foursquare.png in Resources */,
 				E1C6180418AE806500E90E0F /* loginScreenBg.png in Resources */,
 				5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */,
+				5C4C97FA18AD34D800807404 /* slide_2_Zurich.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1019,6 +1199,7 @@
 				5C6CB53218AB78CD008CBE2A /* RMNFilterSideMenuCell.m in Sources */,
 				7C9B2DD9189A691000071357 /* SBJsonStreamWriter.m in Sources */,
 				5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */,
+				5C4C980B18AD362F00807404 /* RMNIntroSlidesViewController.m in Sources */,
 				7C04AD2A189FC15A00AAA15A /* AFURLConnectionOperation.m in Sources */,
 				5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */,
 				7C9B2DD5189A691000071357 /* SBJsonStreamParser.m in Sources */,
@@ -1031,10 +1212,13 @@
 				7C9B30A3189AC4CF00071357 /* ASStarRatingView.m in Sources */,
 				7C9B2DD6189A691000071357 /* SBJsonStreamParserAccumulator.m in Sources */,
 				7C9B2DD8189A691000071357 /* SBJsonStreamParserState.m in Sources */,
+				5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */,
+				5C50C5DC18AE643C00EA169C /* TSTCoreData.m in Sources */,
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,
+				5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
 				7C9B2DDB189A691000071357 /* SBJsonStreamWriterState.m in Sources */,
@@ -1060,6 +1244,7 @@
 				5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */,
 				E1C6180118AE7D2A00E90E0F /* RMNLoginViewController.m in Sources */,
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
+				5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
