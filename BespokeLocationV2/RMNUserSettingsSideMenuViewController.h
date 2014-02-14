@@ -14,15 +14,14 @@
 // from the side menu
 typedef enum
 {
-    RMNUserSettingsSideMenuDistance,
+    RMNUserSettingsSideMenuSettings,
     RMNUserSettingsSideMenuFeedback,
-    RMNUserSettingsSideMenuHelpImprove,
     RMNUserSettingsSideMenuRateTheApp,
     RMNUserSettingsSideMenuShareTheApp,
-    RMNUserSettingsSideMenuAbout,
+    RMNUserSettingsSideMenuFAQs,
     RMNUserSettingsSideMenuPrivacy,
-    RMNUserSettingsSideMenuTermsOfService,
-    RMNUserSettingsSideMenuFAQs
+    RMNUserSettingsSideMenuLogout
+
     
     
 }RMNUserSettingsSideMenuCellType;

@@ -49,27 +49,23 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    buttonsText     = @[ NSLocalizedString(@"Distance(units)",nil),
+    buttonsText     = @[ NSLocalizedString(@"Settings",nil),
                          NSLocalizedString(@"Feedback",nil),
-                         NSLocalizedString(@"Help Improve",nil),
                          NSLocalizedString(@"Rate the app",nil),
                          NSLocalizedString(@"Share the app",nil),
-                         NSLocalizedString(@"About",nil),
+                         NSLocalizedString(@"FAQs",nil),
                          NSLocalizedString(@"Privacy",nil),
-                         NSLocalizedString(@"Terms Of Service",nil),
-                         NSLocalizedString(@"FAQs",nil)];
+                         NSLocalizedString(@"Logout",nil)];
     
     NSArray *imagesLocation;
     imagesForCells  =   [[NSMutableArray alloc]init];
-    imagesLocation  = @[ @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy",
-                         @"settingsDummy"
+    imagesLocation  = @[ @"settingsAppIcon",
+                         @"sendFeedbackIcon",
+                         @"rateAppIcon",
+                         @"shareAppIcon",
+                         @"aboutAppIcon",
+                         @"privacyIcon",
+                         @"logoutAppIcon"
                          ];
     
     // preload the images and cache them.
@@ -83,6 +79,13 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     
     // register za custom cell class
     [self.tableView registerClass:[RMNUserSettingsSideMenuCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    // hide the default separator
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    
+    [self.tableView setBackgroundColor:CELL_LIGHT_GRAY];
+    
     
 }
 
@@ -116,8 +119,8 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     }
     
     cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row];
-    [cell.imageViewHolder setImage:[imagesForCells objectAtIndex:indexPath.row]];
-    
+    cell.imageViewHolder.image = [[imagesForCells objectAtIndex:indexPath.row]
+                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
     
     return cell;
@@ -131,7 +134,6 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     //Change the selected background view of the cell. since we will
     // load a different view controller
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     // tell the side menu controller what row was touched
     [[self sideMenuDelegate] userDidTouchDown:indexPath.row];
     
@@ -139,7 +141,14 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     // the side menu must animate to its closed state
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     
+    
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return SIDE_MENU_ROW_HEIGHT;
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -148,7 +157,7 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *tempView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 200)];
+    UIView *tempView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
     [tempView setBackgroundColor:[UIColor greenColor]];
     return tempView;
 }

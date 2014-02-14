@@ -7,16 +7,19 @@
 */
 
 
-"Distance(units)"           =       "Distance(units)";
+"Settings"                  =       "Settings";
 "Feedback"                  =       "Feedback";
-"Help Improve"              =       "Help Improve";
 "Rate the app"              =       "Rate the app";
 "Share the app"             =       "Share the app";
-"About"                     =       "About";
-"Privacy"                   =       "Privacy";
-"Terms Of Service"          =       "Terms Of Service";
-"Distance"                  =       "Distance";
 "FAQs"                      =       "FAQs";
+"Privacy"                   =       "Privacy";
+"Logout"                    =       "Logout";
+
+
+"Distance"                  =       "Distance";
+
+
+
 
 
 "Clear filter"      =       "Clear filter";

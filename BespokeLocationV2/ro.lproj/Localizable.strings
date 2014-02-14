@@ -8,16 +8,20 @@
 
 
 
-"Distance(units)"           =       "Distanță(unitate de măsură)";
+"Settings"                  =       "Setări";
 "Feedback"                  =       "Feedback";
-"Help Improve"              =       "Ajută-ne să îmbunătățim";
 "Rate the app"              =       "Evaluați această aplicație";
 "Share the app"             =       "Distribuiți aplicația";
-"About"                     =       "Despre";
-"Privacy"                   =       "Privat";
-"Terms Of Service"          =       "Termeni și condiții";
-"Distance"                  =       "Distanță";
 "FAQs"                      =       "FAQs";
+"Privacy"                   =       "Privat";
+"Logout"                    =       "Logout";
+
+
+"Distance"                  =       "Distanță";
+
+
+
+
 
 "Clear filter"      =       "Sterge filtru";
 "Save filter"       =       "Salvează filtru";

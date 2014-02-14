@@ -12,6 +12,7 @@
 
 
 
+
 @interface RMNUserSettingsSideMenuCell()
 {
     UIImageView *imageViewHolder;
@@ -26,24 +27,84 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+    if (self)
+    {
+       
+
+        [self.contentView addSubview:[self cellViewIsSelected:NO]];
+        
+         self.selectedBackgroundView =  [self cellViewIsSelected:YES];
+        
         
         // create image holder
         imageViewHolder = [[UIImageView alloc]init];
-        [imageViewHolder setFrame:CGRectMake(10, 0, 30, self.contentView.frame.size.height)];
+        [imageViewHolder setFrame:CGRectMake(20, 0, 30, SIDE_MENU_ROW_HEIGHT)];
         [self.contentView addSubview:imageViewHolder];
-        
         [imageViewHolder setContentMode:UIViewContentModeCenter];
+
         
-#warning DEBUG ONLY. Modify later, when we have design layouts.
-        [imageViewHolder setBackgroundColor:[UIColor purpleColor]];
+
+
+       
         
-  
+        //custom separator line
+        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                             SCREEN_WIDTH, 1)];
+        separatorLineView.backgroundColor = [UIColor whiteColor];
+        [self.contentView addSubview:separatorLineView];
+        
+        
+       
+    
         
         
     }
     return self;
+}
+
+
+- (UIView *) cellViewIsSelected:(BOOL)isSelectedState
+{
+    
+    UIView *cellBackground = [[UIView alloc]initWithFrame:SCREEN_FRAME];
+
+    
+    // draw custom selection view
+    UIView *selectedView = [[UIView alloc]initWithFrame:SCREEN_FRAME];
+    
+    // draw the frame for the little view
+    CGRect littleSelectedViewFrame      = CGRectZero;
+    littleSelectedViewFrame.size.width  = 5;
+    littleSelectedViewFrame.size.height = SIDE_MENU_ROW_HEIGHT;
+    // create the little view
+    UIView *littleSelectedView          = [[UIView alloc]initWithFrame:littleSelectedViewFrame];
+    
+    
+    UIView* topSeparatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                            SCREEN_WIDTH, 2)];
+    
+    if (isSelectedState)
+    {
+        [selectedView       setBackgroundColor:[UIColor whiteColor]];
+        [littleSelectedView setBackgroundColor:CELL_LIGHT_BLUE];
+        [topSeparatorLineView setBackgroundColor:[UIColor whiteColor]];
+
+
+    }
+    else
+    {
+        [selectedView       setBackgroundColor:CELL_LIGHT_GRAY];
+        [littleSelectedView setBackgroundColor:CELL_HEAVY_GRAY];
+        [topSeparatorLineView setBackgroundColor:[UIColor clearColor]];
+
+    }
+
+    
+    [cellBackground addSubview:selectedView];
+    [cellBackground addSubview:littleSelectedView];
+    [cellBackground addSubview:topSeparatorLineView];
+    
+    return cellBackground;
 }
 
 // overwritten this to move the existing text label 50 px to the right
@@ -51,31 +112,32 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
+    self.textLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
+    
     CGSize size = self.bounds.size;
-    CGRect frame = CGRectMake(50.0f, 0.0f, size.width, size.height);
+    CGRect frame = CGRectMake(80.0f, 0.0f, size.width, size.height);
     self.textLabel.frame =  frame;
     self.textLabel.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 
-// overwrite it to obtain the custom colors
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
     
-    if (selected)
+    [super setHighlighted:highlighted animated:animated];
+    
+    if (highlighted)
     {
-        // if selected, the background changes color
-        [self.contentView setBackgroundColor:[UIColor colorWithHexString:@"dddddd"]];
-        
+        [imageViewHolder setTintColor:CELL_LIGHT_BLUE];
+        [self.textLabel setTextColor:CELL_LIGHT_BLUE];
     }
     else
     {
-        // if deselected, the background return to the original color
-        [self.contentView setBackgroundColor:[UIColor colorWithHexString:@"333333"]];
+        [imageViewHolder setTintColor:CELL_DARK_GRAY];
+        [self.textLabel setTextColor:CELL_DARK_GRAY];
     }
-    // Configure the view for the selected state
 }
+
 
 
 @end

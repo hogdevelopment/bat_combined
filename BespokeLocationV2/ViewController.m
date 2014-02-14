@@ -133,7 +133,7 @@
     switch (menuType)
     {
             
-        case RMNUserSettingsSideMenuDistance:
+        case RMNUserSettingsSideMenuSettings:
         {
             NSLog(@"time to load the settings page");
 //            segueIdentifier = @"distancePageSegue";
@@ -149,14 +149,6 @@
 //            [self sendFeedback];
             
             segueIdentifier = @"mailPageSegue";
-            
-            break;
-        }
-        case RMNUserSettingsSideMenuHelpImprove:
-        {
-            NSLog(@"time to load the improve page");
-            
-            segueIdentifier = @"helpAndImprovePageSegue";
             
             break;
         }
@@ -177,13 +169,6 @@
             
             break;
         }
-        case RMNUserSettingsSideMenuAbout:
-        {
-            NSLog(@"time to load the about page");
-            segueIdentifier = @"aboutPageSegue";
-            
-            break;
-        }
         case RMNUserSettingsSideMenuPrivacy:
         {
             NSLog(@"time to load the privacy page");
@@ -191,16 +176,16 @@
             
             break;
         }
-        case RMNUserSettingsSideMenuTermsOfService:
-        {
-            NSLog(@"time to load the terms of service");
-            segueIdentifier = @"termsOfServicePageSegue";
-            break;
-        }
         case RMNUserSettingsSideMenuFAQs:
         {
             NSLog(@"time to load the terms of service");
             segueIdentifier = @"faqsSegue";
+            break;
+        }
+        case RMNUserSettingsSideMenuLogout:
+        {
+            NSLog(@"time to logout");
+            segueIdentifier = @"loginSegue";
             break;
         }
             
