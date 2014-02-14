@@ -36,6 +36,8 @@
 		5C4C980B18AD362F00807404 /* RMNIntroSlidesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C980A18AD362F00807404 /* RMNIntroSlidesViewController.m */; };
 		5C50C5D518AE54BB00EA169C /* lineSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C50C5D318AE54BB00EA169C /* lineSeparator@2x.png */; };
 		5C50C5D618AE54BB00EA169C /* lineSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C50C5D418AE54BB00EA169C /* lineSeparator.png */; };
+		5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */; };
+		5C50C5DC18AE643C00EA169C /* TSTCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50C5DA18AE643C00EA169C /* TSTCoreData.m */; };
 		5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */; };
 		5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */; };
 		5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB4F318AA5134008CBE2A /* Localizable.strings */; };
@@ -205,6 +207,9 @@
 		5C50C5D318AE54BB00EA169C /* lineSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineSeparator@2x.png"; sourceTree = "<group>"; };
 		5C50C5D418AE54BB00EA169C /* lineSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lineSeparator.png; sourceTree = "<group>"; };
 		5C50C5D718AE587F00EA169C /* RMNSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNSettings.h; sourceTree = "<group>"; };
+		5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RMNModel.xcdatamodel; sourceTree = "<group>"; };
+		5C50C5D918AE643C00EA169C /* TSTCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSTCoreData.h; sourceTree = "<group>"; };
+		5C50C5DA18AE643C00EA169C /* TSTCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSTCoreData.m; sourceTree = "<group>"; };
 		5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserSettingsSideMenuViewController.h; sourceTree = "<group>"; };
 		5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserSettingsSideMenuViewController.m; sourceTree = "<group>"; };
 		5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRecognition.h"; sourceTree = "<group>"; };
@@ -515,6 +520,16 @@
 			name = "Slides from the begining of the app";
 			sourceTree = "<group>";
 		};
+		5C50C5DD18AE643F00EA169C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */,
+				5C50C5D918AE643C00EA169C /* TSTCoreData.h */,
+				5C50C5DA18AE643C00EA169C /* TSTCoreData.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		5C6CB4E018AA45C7008CBE2A /* Side Menu Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +569,7 @@
 				7C9B2D93189A684A00071357 /* AppDelegate.h */,
 				7C9B2D94189A684A00071357 /* AppDelegate.m */,
 				5C50C5D718AE587F00EA169C /* RMNSettings.h */,
+				5C50C5DD18AE643F00EA169C /* Core Data */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1173,6 +1189,7 @@
 				7C9B2DD6189A691000071357 /* SBJsonStreamParserAccumulator.m in Sources */,
 				7C9B2DD8189A691000071357 /* SBJsonStreamParserState.m in Sources */,
 				5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */,
+				5C50C5DC18AE643C00EA169C /* TSTCoreData.m in Sources */,
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
@@ -1202,6 +1219,7 @@
 				7C9B2DFD189A702400071357 /* MBProgressHUD.m in Sources */,
 				5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */,
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
+				5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
