@@ -14,6 +14,7 @@
 // from the side menu
 typedef enum
 {
+    RMNUserSettingsSideMenuUserFilters,
     RMNUserSettingsSideMenuSettings,
     RMNUserSettingsSideMenuFeedback,
     RMNUserSettingsSideMenuRateTheApp,

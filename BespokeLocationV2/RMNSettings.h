@@ -34,7 +34,7 @@
 
 
 // cell height
-#define SIDE_MENU_ROW_HEIGHT 50
+#define SIDE_MENU_ROW_HEIGHT 55
 
 // light gray which will be used through the app
 #define CELL_LIGHT_GRAY [UIColor colorWithHexString:@"f6f5f5"]

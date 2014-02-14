@@ -31,6 +31,14 @@
 		5C437F1618AE939200605A8F /* settingsAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F0818AE939200605A8F /* settingsAppIcon@2x.png */; };
 		5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F0918AE939200605A8F /* shareAppIcon.png */; };
 		5C437F1818AE939200605A8F /* shareAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F0A18AE939200605A8F /* shareAppIcon@2x.png */; };
+		5C437F2018AEA46C00605A8F /* editProfileHeaderMenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F1A18AEA46C00605A8F /* editProfileHeaderMenuButton.png */; };
+		5C437F2118AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F1B18AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png */; };
+		5C437F2218AEA46C00605A8F /* favouritesHeaderMenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F1C18AEA46C00605A8F /* favouritesHeaderMenuButton.png */; };
+		5C437F2318AEA46C00605A8F /* favouritesHeaderMenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F1D18AEA46C00605A8F /* favouritesHeaderMenuButton@2x.png */; };
+		5C437F2418AEA46C00605A8F /* filtersHeaderMenuButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F1E18AEA46C00605A8F /* filtersHeaderMenuButton.png */; };
+		5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F1F18AEA46C00605A8F /* filtersHeaderMenuButton@2x.png */; };
+		5C437F2818AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C437F2718AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m */; };
+		5C437F2A18AEA71E00605A8F /* RMNSideMenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C437F2918AEA71E00605A8F /* RMNSideMenuHeaderView.xib */; };
 		5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97E818AD21E200807404 /* favouriteButton@2x.png */; };
 		5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97E918AD21E200807404 /* favouriteButton.png */; };
 		5C4C97FA18AD34D800807404 /* slide_2_Zurich.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4C97EC18AD34D800807404 /* slide_2_Zurich.png */; };
@@ -214,6 +222,15 @@
 		5C437F0818AE939200605A8F /* settingsAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsAppIcon@2x.png"; sourceTree = "<group>"; };
 		5C437F0918AE939200605A8F /* shareAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareAppIcon.png; sourceTree = "<group>"; };
 		5C437F0A18AE939200605A8F /* shareAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shareAppIcon@2x.png"; sourceTree = "<group>"; };
+		5C437F1A18AEA46C00605A8F /* editProfileHeaderMenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editProfileHeaderMenuButton.png; sourceTree = "<group>"; };
+		5C437F1B18AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editProfileHeaderMenuButton@2x.png"; sourceTree = "<group>"; };
+		5C437F1C18AEA46C00605A8F /* favouritesHeaderMenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favouritesHeaderMenuButton.png; sourceTree = "<group>"; };
+		5C437F1D18AEA46C00605A8F /* favouritesHeaderMenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favouritesHeaderMenuButton@2x.png"; sourceTree = "<group>"; };
+		5C437F1E18AEA46C00605A8F /* filtersHeaderMenuButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filtersHeaderMenuButton.png; sourceTree = "<group>"; };
+		5C437F1F18AEA46C00605A8F /* filtersHeaderMenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filtersHeaderMenuButton@2x.png"; sourceTree = "<group>"; };
+		5C437F2618AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNSideMenuHeaderButtonsView.h; sourceTree = "<group>"; };
+		5C437F2718AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNSideMenuHeaderButtonsView.m; sourceTree = "<group>"; };
+		5C437F2918AEA71E00605A8F /* RMNSideMenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNSideMenuHeaderView.xib; sourceTree = "<group>"; };
 		5C4C97E818AD21E200807404 /* favouriteButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favouriteButton@2x.png"; sourceTree = "<group>"; };
 		5C4C97E918AD21E200807404 /* favouriteButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favouriteButton.png; sourceTree = "<group>"; };
 		5C4C97EC18AD34D800807404 /* slide_2_Zurich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slide_2_Zurich.png; sourceTree = "<group>"; };
@@ -492,6 +509,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5C437F1918AEA46C00605A8F /* headerButtons */,
 				5C437EFC18AE939200605A8F /* side menu icons */,
 				5C4C980818AD34DF00807404 /* Slides from the begining of the app */,
 				5C4C97E818AD21E200807404 /* favouriteButton@2x.png */,
@@ -545,6 +563,19 @@
 				5C437F0A18AE939200605A8F /* shareAppIcon@2x.png */,
 			);
 			path = "side menu icons";
+			sourceTree = "<group>";
+		};
+		5C437F1918AEA46C00605A8F /* headerButtons */ = {
+			isa = PBXGroup;
+			children = (
+				5C437F1A18AEA46C00605A8F /* editProfileHeaderMenuButton.png */,
+				5C437F1B18AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png */,
+				5C437F1C18AEA46C00605A8F /* favouritesHeaderMenuButton.png */,
+				5C437F1D18AEA46C00605A8F /* favouritesHeaderMenuButton@2x.png */,
+				5C437F1E18AEA46C00605A8F /* filtersHeaderMenuButton.png */,
+				5C437F1F18AEA46C00605A8F /* filtersHeaderMenuButton@2x.png */,
+			);
+			path = headerButtons;
 			sourceTree = "<group>";
 		};
 		5C4C980818AD34DF00807404 /* Slides from the begining of the app */ = {
@@ -746,6 +777,9 @@
 			children = (
 				5C6CB4DD18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.h */,
 				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
+				5C437F2618AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.h */,
+				5C437F2718AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m */,
+				5C437F2918AEA71E00605A8F /* RMNSideMenuHeaderView.xib */,
 				5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */,
 				5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */,
 			);
@@ -1134,6 +1168,8 @@
 				5C437F1418AE939200605A8F /* sendFeedbackIcon@2x.png in Resources */,
 				E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */,
 				5C437F1318AE939200605A8F /* sendFeedbackIcon.png in Resources */,
+				5C437F2418AEA46C00605A8F /* filtersHeaderMenuButton.png in Resources */,
+				5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */,
 				5C4C980718AD34D800807404 /* SkipSlideButton.png in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
@@ -1142,13 +1178,16 @@
 				E1A82F0518AD022D00FF9661 /* twitterLogo@2x.png in Resources */,
 				0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */,
 				5C4C97FF18AD34D800807404 /* NextSlideButton.png in Resources */,
+				5C437F2218AEA46C00605A8F /* favouritesHeaderMenuButton.png in Resources */,
 				7C9B30AC189AC4EC00071357 /* half_selected_star@2x.png in Resources */,
 				0E64B31618A51D6C00E0E513 /* other1.jpg in Resources */,
 				5C437F1818AE939200605A8F /* shareAppIcon@2x.png in Resources */,
+				5C437F2318AEA46C00605A8F /* favouritesHeaderMenuButton@2x.png in Resources */,
 				E1A82F0818AD022D00FF9661 /* LinkedIn_logo@2x.png in Resources */,
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
+				5C437F2118AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png in Resources */,
 				5C437F0C18AE939200605A8F /* aboutAppIcon@2x.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
 				E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */,
@@ -1161,6 +1200,7 @@
 				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
 				5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */,
 				5C4C980418AD34D800807404 /* slide_2_Zurich@2x.png in Resources */,
+				5C437F2A18AEA71E00605A8F /* RMNSideMenuHeaderView.xib in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
@@ -1176,6 +1216,7 @@
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C4C97FD18AD34D800807404 /* slide_1_Zurich@2x.png in Resources */,
 				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
+				5C437F2018AEA46C00605A8F /* editProfileHeaderMenuButton.png in Resources */,
 				5C50C5D618AE54BB00EA169C /* lineSeparator.png in Resources */,
 				5C437F1518AE939200605A8F /* settingsAppIcon.png in Resources */,
 				5C437F0E18AE939200605A8F /* logoutAppIcon@2x.png in Resources */,
@@ -1257,6 +1298,7 @@
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
+				5C437F2818AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m in Sources */,
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,
 				5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
-
 @interface RMNUserSettingsSideMenuCell : UITableViewCell
+
+
 
 @property (nonatomic, strong) UIImageView *imageViewHolder;
 

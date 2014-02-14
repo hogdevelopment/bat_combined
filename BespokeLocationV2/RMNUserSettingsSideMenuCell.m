@@ -10,27 +10,36 @@
 
 
 
-
-
-
 @interface RMNUserSettingsSideMenuCell()
 {
     UIImageView *imageViewHolder;
+    BOOL isHeader;
 }
+
+@property BOOL isHeader;
 
 @end
 
 @implementation RMNUserSettingsSideMenuCell
 
 @synthesize imageViewHolder =   imageViewHolder;
+@synthesize isHeader        =   isHeader;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style
+    reuseIdentifier:(NSString *)reuseIdentifier
+
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
     {
-       
 
+        if ([reuseIdentifier isEqualToString:@"HeaderCellReuseIdentifier"])
+        {
+            isHeader = YES;
+            NSLog(@"este header");
+        }
+
+        
         [self.contentView addSubview:[self cellViewIsSelected:NO]];
         
          self.selectedBackgroundView =  [self cellViewIsSelected:YES];
@@ -43,19 +52,11 @@
         [imageViewHolder setContentMode:UIViewContentModeCenter];
 
         
-
-
-       
-        
         //custom separator line
         UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,
                                                                              SCREEN_WIDTH, 1)];
         separatorLineView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:separatorLineView];
-        
-        
-       
-    
         
         
     }
@@ -75,7 +76,12 @@
     // draw the frame for the little view
     CGRect littleSelectedViewFrame      = CGRectZero;
     littleSelectedViewFrame.size.width  = 5;
-    littleSelectedViewFrame.size.height = SIDE_MENU_ROW_HEIGHT;
+    
+    int multiplier = (isHeader) ? 2 : 1;
+    
+  
+    littleSelectedViewFrame.size.height = SIDE_MENU_ROW_HEIGHT*multiplier;
+
     // create the little view
     UIView *littleSelectedView          = [[UIView alloc]initWithFrame:littleSelectedViewFrame];
     
@@ -93,7 +99,8 @@
     }
     else
     {
-        [selectedView       setBackgroundColor:CELL_LIGHT_GRAY];
+        
+        [selectedView       setBackgroundColor:(isHeader) ? [UIColor whiteColor] : CELL_LIGHT_GRAY];
         [littleSelectedView setBackgroundColor:CELL_HEAVY_GRAY];
         [topSeparatorLineView setBackgroundColor:[UIColor clearColor]];
 
@@ -137,7 +144,6 @@
         [self.textLabel setTextColor:CELL_DARK_GRAY];
     }
 }
-
 
 
 @end

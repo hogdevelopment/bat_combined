@@ -7,6 +7,7 @@
 */
 
 
+// side menu
 
 "Settings"                  =       "Setări";
 "Feedback"                  =       "Feedback";
@@ -19,8 +20,12 @@
 
 "Distance"                  =       "Distanță";
 
+// header menu from the side menu
+"Favourites"                =       "Favourites";
+"Filters"                   =       "Filters";
+"Edit Profile"              =       "Edit Profile";
 
-
+// filters
 
 
 "Clear filter"      =       "Sterge filtru";
@@ -34,10 +39,11 @@
 "Lounges"           =       "Lounge-uri";
 "Clubs"             =       "Cluburi";
 "Search"            =       "Caută";
-
 "Users filters"     =       "Filtrele utilizatorului";
 "Cancel"            =       "Anulează";
 
+
+// feedback view controller
 "Feedback for smoking app"      =      "Feedback ptr aplicație" ;
 "Help/Improve smoking app"      =      "Sugestii/Imbunătățiri" ;
 

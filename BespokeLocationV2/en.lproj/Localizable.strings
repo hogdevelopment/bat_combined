@@ -7,6 +7,7 @@
 */
 
 
+// side menu
 "Settings"                  =       "Settings";
 "Feedback"                  =       "Feedback";
 "Rate the app"              =       "Rate the app";
@@ -15,32 +16,44 @@
 "Privacy"                   =       "Privacy";
 "Logout"                    =       "Logout";
 
+// header menu from the side menu
+"Favourites"                =       "Favourites";
+"Filters"                   =       "Filters";
+"Edit Profile"              =       "Edit Profile";
 
+
+
+
+// distance view controller
 "Distance"                  =       "Distance";
 
 
 
+// filters
+
+"Clear filter"              =       "Clear filter";
+"Save filter"               =       "Save filter";
+"Clear filters"             =       "Clear filters";
+"Hotel Bars"                =       "Hotel Bars";
+"Bars"                      =       "Bars";
+"Pubs"                      =       "Pubs";
+"Cafes"                     =       "Cafes";
+"Restaurants"               =       "Restaurants";
+"Lounges"                   =       "Lounges";
+"Clubs"                     =       "Clubs";
+"Search"                    =       "Search";
+"Users filters"             =       "Users filters";
+"Cancel"                    =       "Cancel";
 
 
-"Clear filter"      =       "Clear filter";
-"Save filter"       =       "Save filter";
-"Clear filters"     =       "Clear filters";
-"Hotel Bars"        =       "Hotel Bars";
-"Bars"              =       "Bars";
-"Pubs"              =       "Pubs";
-"Cafes"             =       "Cafes";
-"Restaurants"       =       "Restaurants";
-"Lounges"           =       "Lounges";
-"Clubs"             =       "Clubs";
-"Search"            =       "Search";
 
-
+// feedback view controller
 "Feedback for smoking app"      =      "Feedback for smoking app" ;
 "Help/Improve smoking app"      =      "Help/Improve smoking app" ;
 
-"Users filters"             =       "Users filters";
-"Search"                    =       "Search";
-"Cancel"                    =       "Cancel";
+
+
+
 
 
 

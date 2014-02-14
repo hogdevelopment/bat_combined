@@ -11,7 +11,9 @@
 #import "RMNUserSettingsSideMenuCell.h"
 #import "ViewController.h"
 
-static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
+static  NSString *CellIdentifier            = @"CellReuseIdentifier";
+static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
+
 
 @interface RMNUserSettingsSideMenuViewController ()
 {
@@ -69,7 +71,7 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
                          ];
     
     // preload the images and cache them.
-    for (int i = 0; i<[imagesLocation count]; i++)
+    for (int i = 1; i<[imagesLocation count]; i++)
     {
         UIImage *imageDummy = [UIImage imageNamed:[imagesLocation objectAtIndex:i]];
         [imagesForCells addObject:imageDummy];
@@ -110,18 +112,31 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     return [buttonsText count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellIdentifier = (indexPath.row == 0) ? HeaderCellIdentifier : CellIdentifier;
+
     
-    
-    RMNUserSettingsSideMenuCell *cell = (RMNUserSettingsSideMenuCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[RMNUserSettingsSideMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    RMNUserSettingsSideMenuCell *cell = (RMNUserSettingsSideMenuCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil)
+    {
+        
+        cell = [[RMNUserSettingsSideMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row];
-    cell.imageViewHolder.image = [[imagesForCells objectAtIndex:indexPath.row]
-                                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
+    
+    if (indexPath.row == 0)
+    {
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+
+    }
+    else
+    {
+        cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row-1];
+        cell.imageViewHolder.image = [[imagesForCells objectAtIndex:indexPath.row-1]
+                                      imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
     
     return cell;
 }
@@ -141,24 +156,26 @@ static  NSString *CellIdentifier      = @"UserSettingsIdentifier";
     // the side menu must animate to its closed state
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return SIDE_MENU_ROW_HEIGHT;
+   return  (indexPath.row == 0) ? SIDE_MENU_ROW_HEIGHT*2 : SIDE_MENU_ROW_HEIGHT;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 200;
+    return 130;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    
     
     UIView *tempView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    [tempView setBackgroundColor:[UIColor greenColor]];
+    [tempView setBackgroundColor:[UIColor colorWithHexString:@"6f6f6f"]];
     return tempView;
 }
 
