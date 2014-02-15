@@ -10,24 +10,16 @@
 
 @implementation RMNSideMenuHeaderButtonsView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self)
-    {
-        // Initialization code
-    }
-    return self;
-}
+@synthesize headerViewDelegate  =   headerViewDelegate;
+
 
 
 - (void) addInfo
 {
 
-    
-    [self.favouritesLabel setText:NSLocalizedString(@"Favourites",nil)];
-    [self.favouritesLabel setText:NSLocalizedString(@"Filters",nil)];
-    [self.favouritesLabel setText:NSLocalizedString(@"Edit Profile",nil)];
+    [self.favouritesLabel   setText:NSLocalizedString(@"Favourites",nil)];
+    [self.filtersLabel      setText:NSLocalizedString(@"Filters",nil)];
+    [self.editProfileLabel  setText:NSLocalizedString(@"Edit Profile",nil)];
     
 }
 
@@ -40,6 +32,8 @@
 }
 */
 
-- (IBAction)headerMenuButtonsAction:(id)sender {
+- (IBAction)headerMenuButtonsAction:(id)sender
+{
+   [self.headerViewDelegate userTouched:((UIButton*)sender).tag];
 }
 @end

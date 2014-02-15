@@ -10,6 +10,7 @@
 #import "MFSideMenuContainerViewController.h"
 #import "RMNUserSettingsSideMenuCell.h"
 #import "ViewController.h"
+#import "RMNUserPhotoNameView.h"
 
 static  NSString *CellIdentifier            = @"CellReuseIdentifier";
 static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
@@ -19,15 +20,17 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 {
     NSArray         *buttonsText;
     NSMutableArray  *imagesForCells;
+    RMNSideMenuHeaderButtonsView *headerView;
 }
 
 @property (nonatomic, strong) NSArray           *buttonsText;
 @property (nonatomic, strong) NSMutableArray    *imagesForCells;
-
+@property (nonatomic, strong) RMNSideMenuHeaderButtonsView *headerView;
 @end
 
 @implementation RMNUserSettingsSideMenuViewController
 
+@synthesize headerView          =   headerView;
 @synthesize sideMenuDelegate    =   sideMenuDelegate;
 @synthesize buttonsText         =   buttonsText;
 @synthesize imagesForCells      =   imagesForCells;
@@ -51,7 +54,8 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    buttonsText     = @[ NSLocalizedString(@"Settings",nil),
+    buttonsText     = @[ @"emptyBecauseTheFirstCellIsCustom",
+                         NSLocalizedString(@"Settings",nil),
                          NSLocalizedString(@"Feedback",nil),
                          NSLocalizedString(@"Rate the app",nil),
                          NSLocalizedString(@"Share the app",nil),
@@ -61,20 +65,22 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     
     NSArray *imagesLocation;
     imagesForCells  =   [[NSMutableArray alloc]init];
-    imagesLocation  = @[ @"settingsAppIcon",
+    imagesLocation  = @[ @"emptyBecauseTheFirstCellIsCustom",
+                         @"settingsAppIcon",
                          @"sendFeedbackIcon",
                          @"rateAppIcon",
                          @"shareAppIcon",
                          @"aboutAppIcon",
                          @"privacyIcon",
-                         @"logoutAppIcon"
+                         @"logoutAppIcon",
+                         @"emptyBecauseTheFirstCellIsCustom"
                          ];
     
     // preload the images and cache them.
-    for (int i = 1; i<[imagesLocation count]; i++)
+    for (int i = 0; i<[imagesLocation count]; i++)
     {
         UIImage *imageDummy = [UIImage imageNamed:[imagesLocation objectAtIndex:i]];
-        [imagesForCells addObject:imageDummy];
+        [imagesForCells addObject:(imageDummy) ? imageDummy : @""];
         
     }
     
@@ -87,6 +93,13 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     
     
     [self.tableView setBackgroundColor:CELL_LIGHT_GRAY];
+    
+    
+    headerView = [[[NSBundle mainBundle] loadNibNamed:@"RMNSideMenuHeaderView"
+                                                           owner:self
+                                                         options:nil]objectAtIndex:0];
+    [headerView addInfo];
+    [headerView setHeaderViewDelegate:self];
     
     
 }
@@ -129,12 +142,13 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     if (indexPath.row == 0)
     {
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell addSubview:headerView];
 
     }
     else
     {
-        cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row-1];
-        cell.imageViewHolder.image = [[imagesForCells objectAtIndex:indexPath.row-1]
+        cell.textLabel.text = [buttonsText objectAtIndex:indexPath.row];
+        cell.imageViewHolder.image = [[imagesForCells objectAtIndex:indexPath.row]
                                       imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     
@@ -173,10 +187,24 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 {
     
     
+
+    RMNUserPhotoNameView *userHeaderView = [[[NSBundle mainBundle]
+                                      loadNibNamed:@"RMNUserPhotoNameView"
+                                            owner:self
+                                        options:nil]objectAtIndex:0];
     
-    UIView *tempView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
-    [tempView setBackgroundColor:[UIColor colorWithHexString:@"6f6f6f"]];
-    return tempView;
+    [userHeaderView addPic:@"profile"];
+    [userHeaderView addName:@"Chiosa Gabi"];
+    
+
+    return userHeaderView;
+}
+
+
+#pragma mark Header View Delegate
+- (void)userTouched:(RMNSideMenuHeaderButtonType)buttonType
+{
+    [[self sideMenuDelegate]userDidTouchDown:buttonType + [imagesForCells count]-1];
 }
 
 

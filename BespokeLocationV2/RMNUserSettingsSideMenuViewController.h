@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMNSideMenuHeaderButtonsView.h"
 
 // use this enumaration
 // for a better read over the
@@ -21,11 +22,13 @@ typedef enum
     RMNUserSettingsSideMenuShareTheApp,
     RMNUserSettingsSideMenuFAQs,
     RMNUserSettingsSideMenuPrivacy,
-    RMNUserSettingsSideMenuLogout
-
+    RMNUserSettingsSideMenuLogout,
+    RMNUserSettingsSideMenuFavourites,
+    RMNUserSettingsSideMenuFilters,
+    RMNUserSettingsSideMenuEditProfile
     
-    
-}RMNUserSettingsSideMenuCellType;
+}
+RMNUserSettingsSideMenuCellType;
 
 
 // za delegate
@@ -40,7 +43,7 @@ typedef enum
 @end
 
 
-@interface RMNUserSettingsSideMenuViewController : UITableViewController
+@interface RMNUserSettingsSideMenuViewController : UITableViewController<RMNSideMenuButtonsDelegate>
 {
     id <RMNUserSettingsLefttSideMenuDelegate> sideMenuDelegate;
 }

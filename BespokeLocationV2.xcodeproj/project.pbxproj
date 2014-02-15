@@ -96,6 +96,12 @@
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
+		651F37FA18AED58F00449DC7 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651F37F918AED58F00449DC7 /* GoogleMaps.framework */; };
+		651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */; };
+		651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */; };
+		651F380118AEE06000449DC7 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 651F380018AEE06000449DC7 /* profile.png */; };
+		651F380318AEE37C00449DC7 /* RMNUserPhotoNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */; };
+		651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -179,8 +185,6 @@
 		E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BCFF18ABC7B300944EAD /* distanceChosenUnit@2x.png */; };
 		E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0018ABC7B300944EAD /* distanceButtsBg.png */; };
 		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
-		E1AC7C0518AA7D630052D608 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */; };
-		E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
 /* End PBXBuildFile section */
@@ -317,6 +321,14 @@
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
 		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
+		651F37F918AED58F00449DC7 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effects.h"; sourceTree = "<group>"; };
+		651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effects.m"; sourceTree = "<group>"; };
+		651F380018AEE06000449DC7 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNUserPhotoNameView.xib; sourceTree = "<group>"; };
+		651F380418AEE3D700449DC7 /* RMNUserPhotoNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserPhotoNameView.h; sourceTree = "<group>"; };
+		651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserPhotoNameView.m; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -448,8 +460,6 @@
 		E1A9BCFF18ABC7B300944EAD /* distanceChosenUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distanceChosenUnit@2x.png"; sourceTree = "<group>"; };
 		E1A9BD0018ABC7B300944EAD /* distanceButtsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = distanceButtsBg.png; sourceTree = "<group>"; };
 		E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distanceButtsBg@2x.png"; sourceTree = "<group>"; };
-		E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
 		E1AC7C0818AA7DF30052D608 /* RMNCustomSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNCustomSearchBar.h; sourceTree = "<group>"; };
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
@@ -463,7 +473,6 @@
 			files = (
 				E1A9BCFD18ABA77200944EAD /* StoreKit.framework in Frameworks */,
 				E1A9BCFB18AB9F2700944EAD /* MessageUI.framework in Frameworks */,
-				E1AC7C0518AA7D630052D608 /* GoogleMaps.framework in Frameworks */,
 				7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */,
 				0E64B30518A517BB00E0E513 /* FacebookSDK.framework in Frameworks */,
 				0E64B2F918A501F200E0E513 /* GigyaSDK.framework in Frameworks */,
@@ -477,6 +486,7 @@
 				7C9B2DE8189A696400071357 /* libicucore.dylib in Frameworks */,
 				7C9B2DE6189A695700071357 /* libz.dylib in Frameworks */,
 				7C9B2DE4189A694C00071357 /* OpenGLES.framework in Frameworks */,
+				651F37FA18AED58F00449DC7 /* GoogleMaps.framework in Frameworks */,
 				7C9B2DE2189A694400071357 /* QuartzCore.framework in Frameworks */,
 				7C9B2DE0189A693C00071357 /* SystemConfiguration.framework in Frameworks */,
 				7C9B2D87189A684A00071357 /* CoreGraphics.framework in Frameworks */,
@@ -509,6 +519,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				651F380018AEE06000449DC7 /* profile.png */,
 				5C437F1918AEA46C00605A8F /* headerButtons */,
 				5C437EFC18AE939200605A8F /* side menu icons */,
 				5C4C980818AD34DF00807404 /* Slides from the begining of the app */,
@@ -779,6 +790,11 @@
 				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
 				5C437F2618AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.h */,
 				5C437F2718AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m */,
+				651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */,
+				651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */,
+				651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */,
+				651F380418AEE3D700449DC7 /* RMNUserPhotoNameView.h */,
+				651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */,
 				5C437F2918AEA71E00605A8F /* RMNSideMenuHeaderView.xib */,
 				5C6CB51A18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.h */,
 				5C6CB51B18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m */,
@@ -925,10 +941,10 @@
 		7C9B2D83189A684A00071357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */,
+				651F37F918AED58F00449DC7 /* GoogleMaps.framework */,
 				E1A9BCFC18ABA77200944EAD /* StoreKit.framework */,
 				E1A9BCFA18AB9F2700944EAD /* MessageUI.framework */,
-				E1AC7C0618AA7D680052D608 /* GoogleMaps.bundle */,
-				E1AC7C0418AA7D630052D608 /* GoogleMaps.framework */,
 				0E64B30418A517BA00E0E513 /* FacebookSDK.framework */,
 				0E64B2F818A501F200E0E513 /* GigyaSDK.framework */,
 				7CB20F75189BCBB500F74E4B /* MapKit.framework */,
@@ -1129,6 +1145,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Hogarth;
 				TargetAttributes = {
+					7C9B2D80189A684A00071357 = {
+						DevelopmentTeam = 86L9ZFP2BD;
+					};
 					7C9B2DA1189A684A00071357 = {
 						TestTargetID = 7C9B2D80189A684A00071357;
 					};
@@ -1166,7 +1185,6 @@
 				5C437F1018AE939200605A8F /* privacyIcon@2x.png in Resources */,
 				5C4C980218AD34D800807404 /* StartUsingAppFromSlide.png in Resources */,
 				5C437F1418AE939200605A8F /* sendFeedbackIcon@2x.png in Resources */,
-				E1AC7C0718AA7D680052D608 /* GoogleMaps.bundle in Resources */,
 				5C437F1318AE939200605A8F /* sendFeedbackIcon.png in Resources */,
 				5C437F2418AEA46C00605A8F /* filtersHeaderMenuButton.png in Resources */,
 				5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */,
@@ -1195,6 +1213,8 @@
 				5C4C980318AD34D800807404 /* slide_1_Zurich.png in Resources */,
 				5C437F0D18AE939200605A8F /* logoutAppIcon.png in Resources */,
 				5C437F1618AE939200605A8F /* settingsAppIcon@2x.png in Resources */,
+				651F380118AEE06000449DC7 /* profile.png in Resources */,
+				651F380318AEE37C00449DC7 /* RMNUserPhotoNameView.xib in Resources */,
 				E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */,
 				5C437F0B18AE939200605A8F /* aboutAppIcon.png in Resources */,
 				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
@@ -1205,6 +1225,7 @@
 				5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
+				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
 				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
 				5C437F1218AE939200605A8F /* rateAppIcon@2x.png in Resources */,
 				5C4C980118AD34D800807404 /* NextSlideButton@2x.png in Resources */,
@@ -1310,6 +1331,7 @@
 				7C9B2E00189A706E00071357 /* databaseItem.m in Sources */,
 				7C9B2DDD189A691000071357 /* SBJsonUTF8Stream.m in Sources */,
 				7C9B2E03189A70A100071357 /* SecondView.m in Sources */,
+				651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */,
 				7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */,
 				7C9B2E09189A70F100071357 /* DirectionsViewController.m in Sources */,
 				5CAF8F0D18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m in Sources */,
@@ -1319,6 +1341,7 @@
 				5C6CB52618AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m in Sources */,
 				7C9B2DD7189A691000071357 /* SBJsonStreamParserAdapter.m in Sources */,
 				7C04AD28189FC15A00AAA15A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */,
 				E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */,
 				7C04AD2B189FC15A00AAA15A /* AFXMLRequestOperation.m in Sources */,
 				5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */,
@@ -1396,7 +1419,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1415,6 +1439,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "2DF81B75-6FBB-44D5-94AE-0F70632CF10E";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1436,7 +1461,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1448,6 +1474,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
+				PROVISIONING_PROFILE = "2DF81B75-6FBB-44D5-94AE-0F70632CF10E";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1458,6 +1485,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joseph/Documents/Hogarth_Projects/ios_modules/ios_modules/BespokeLocationV2,
@@ -1466,6 +1495,7 @@
 					"/Work/Hogarth/all\\ new\\ 23:01/location",
 					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
 					/Users/infodesign/Documents/ios/BAT_project/bat_combined,
+					"/Users/chiosagabi/Documents/iOS/Bat\\ Project/bat_combined",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";
@@ -1481,6 +1511,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joseph/Documents/Hogarth_Projects/ios_modules/ios_modules/BespokeLocationV2,
@@ -1489,6 +1521,7 @@
 					"/Work/Hogarth/all\\ new\\ 23:01/location",
 					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
 					/Users/infodesign/Documents/ios/BAT_project/bat_combined,
+					"/Users/chiosagabi/Documents/iOS/Bat\\ Project/bat_combined",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";

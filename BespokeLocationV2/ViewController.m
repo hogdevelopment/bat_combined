@@ -136,9 +136,9 @@
         case RMNUserSettingsSideMenuSettings:
         {
             NSLog(@"time to load the settings page");
-//            segueIdentifier = @"distancePageSegue";
+            segueIdentifier = @"distancePageSegue";
 #warning DEBUG only. Must move this to its corresponding after side menu header view
-            segueIdentifier = @"attributesKeySegue";
+//            segueIdentifier = @"attributesKeySegue";
             
             break;
         }
@@ -186,6 +186,21 @@
         {
             NSLog(@"time to logout");
             segueIdentifier = @"loginSegue";
+            break;
+        }
+        case RMNUserSettingsSideMenuFavourites:
+        {
+            NSLog(@"time to favourites");
+            break;
+        }
+        case RMNUserSettingsSideMenuFilters:
+        {
+            NSLog(@"time to filtres");
+            break;
+        }
+        case RMNUserSettingsSideMenuEditProfile:
+        {
+            NSLog(@"time to edit profile");
             break;
         }
             
