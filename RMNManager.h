@@ -12,10 +12,12 @@
 {
     BOOL isLoggedIn;
     BOOL menuShouldBeOpened;
+    BOOL alreadyShownIntro;
 }
 
 @property  BOOL isLoggedIn;
 @property  BOOL menuShouldBeOpened;
+@property  BOOL alreadyShownIntro;
 
 
 + (id)sharedManager;

@@ -8,6 +8,9 @@
 
 #import "RMNLoginViewController.h"
 #import "UserDataSingleton.h"
+#import "TSTCoreData.h"
+
+UserInformationKeyValues selectedService;
 
 @interface RMNLoginViewController ()
 {
@@ -31,9 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    // change navigation bar aspect
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"2980b9"]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
     
     // set NSLocalizedString for all labels
     [self setLocalizedStringsForAllTexts];
@@ -43,6 +44,26 @@
     
     [self.emailTF    setDelegate:self];
     [self.passwordTF setDelegate:self];
+    
+    selectedService = 0;
+    
+    if (!IS_IPHONE_5) {
+        
+        CGRect frameView = self.socialView.frame;
+        frameView.origin.y -= 85;
+        
+        [self.socialView setFrame:frameView];
+    }
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    // change navigation bar aspect
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"2980b9"]];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,10 +105,12 @@
         
         // check in database user registered with social service
         
-        
+        foundUser = [TSTCoreData checkIfIsSavedInCoreDataUserWithUsername:[UserDataSingleton userSingleton].userName andIsRegisteredWithSocialService:selectedService];
     }
     else{
         // check in database user registered with password
+        
+        foundUser = [TSTCoreData checkIfIsSavedInCoreDataUserWithEmail:self.emailTF.text andPassword:self.passwordTF.text];
     }
     
     
@@ -97,7 +120,13 @@
 
 - (void) loadNextScreen
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"isLoggedIn"];
+    [defaults synchronize];
     
+    [[RMNManager sharedManager] setIsLoggedIn:YES];
+    
+    [self dismissViewControllerAnimated:YES completion:NO];
 }
 
 
@@ -132,25 +161,36 @@
     }
     else
     {
-        NSLog(@"You are already signed in using %@",[Gigya session].lastLoginProvider);
+        [self logoutFromSocialService];
+        
+        [self loginWithProvider:provider];
     }
+    
 }
 
-
+- (void) logoutFromSocialService
+{
+    [Gigya logout];
+    [Gigya setSession:Nil];
+    [Gigya setSessionDelegate:nil];
+}
 
 #pragma mark - Getting user information
 -(void)getUserInfoToClass
 {
-
-    GSRequest *request=[GSRequest requestForMethod:@"socialize.getUserInfo"];
+    GSRequest *request = [GSRequest requestForMethod:@"socialize.getUserInfo"];
     
     [request sendWithResponseHandler:^(GSResponse *response, NSError *error)
      {
          if (!error)
          {
-             [UserDataSingleton userSingleton].nickName   = response[ @"nickname"];
+             [UserDataSingleton userSingleton].userName   = response[ @"nickname"];
+             [UserDataSingleton userSingleton].email      = response[ @"email"];
+
+             NSLog(@"Hello, %@    %@", [UserDataSingleton userSingleton].email, [UserDataSingleton userSingleton].userName);
              
-             NSLog(@"Hello, %@", [UserDataSingleton userSingleton].nickName);
+             self.emailTF.text      = @"";
+             self.passwordTF.text   = @"";
              
             if (![self checkIfLoginIsOk])
              {
@@ -171,6 +211,8 @@
 }
 
 
+
+
 #pragma UIButtons methods
 
 - (IBAction)loginAction:(id)sender {
@@ -188,24 +230,29 @@
     }
 }
 
+
 - (IBAction)sendPasswordOnEmail:(id)sender {
     
-    // check if email is in database
-    BOOL foundEmail = NO;
+    // check if account with the provided email is stored in database with a password
     
-    if (!foundEmail) {
+    NSString *password = [TSTCoreData findPasswordForUserRegisteredWithEmail:self.emailTF.text];
+    
+    if (password.length > 0) {
+
+#warning This needs to be done!
+        // here we have to send an email with the password found
+        [self showMessageTitle:NSLocalizedString(@"Done",nil)
+                   withMessage:NSLocalizedString(@"An email was sent to this address.",nil) ];
         
+    }
+    else{
         // couldn't find email in database
         [self showMessageTitle:NSLocalizedString(@"Error",nil)
                    withMessage:NSLocalizedString(@"There is no user registered with this email.",nil) ];
     }
-    else{
-        
-        [self showMessageTitle:NSLocalizedString(@"Done",nil)
-                   withMessage:NSLocalizedString(@"An email was sent to this address.",nil) ];
-    }
     
 }
+
 
 - (IBAction)registerWithSocialService:(UIButton *)sender {
     
@@ -214,15 +261,19 @@
     switch (sender.tag) {
         case 1:
             providerName = @"facebook";
+            selectedService = UserIsUsingFacebook;
             break;
         case 2:
             providerName = @"twitter";
+            selectedService = UserIsUsingTwitter;
             break;
         case 3:
             providerName = @"googleplus";
+            selectedService = UserIsUsingGoogle;
             break;
         case 4:
             providerName = @"foursquare";
+            selectedService = UserIsUsingFoursquare;
             break;
         default:
             break;
@@ -230,6 +281,7 @@
     
     [self loginWithProvider:providerName];
 }
+
 
 
 
@@ -249,4 +301,5 @@
     
     [textField setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
 }
+
 @end

@@ -10,8 +10,10 @@
 #import <GigyaSDK/Gigya.h>
 
 
-@interface LogInView : UIViewController<GSSessionDelegate, UIAlertViewDelegate,UITextFieldDelegate>
+@interface LogInView : UIViewController<GSSessionDelegate, UIAlertViewDelegate,UITextFieldDelegate, UIScrollViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *zaScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewBg;
 
 @property (strong, nonatomic) IBOutlet UILabel *titleForGetStareted;
 @property (strong, nonatomic) IBOutlet UILabel *subTitle;
@@ -50,5 +52,6 @@
 - (IBAction)loginWithLinkedin        :(id)sender;
 
 - (IBAction)changeBorderColor:(id)sender;
+- (IBAction)changeColorToWhite:(id)sender;
 
 @end

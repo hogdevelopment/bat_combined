@@ -10,7 +10,9 @@
 #import "ViewController.h"
 #import "UserDataSingleton.h"
 
+#import "RMNUserInformationCoreData.h"
 #import "RMNLoginViewController.h"
+#import "TSTCoreData.h"
 
 @interface LogInView ()
 {
@@ -37,7 +39,8 @@
     // change registration button design
     self.btnRegistrater.layer.cornerRadius = 4.0;
     self.btnRegistrater.layer.borderWidth = 1.0;
-    self.btnRegistrater.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.btnRegistrater.layer.borderColor    = [UIColor orangeColor].CGColor;
+    self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
     
     // set NSLocalizedString for all labels
     [self setLocalizedStringsForAllTexts];
@@ -51,10 +54,36 @@
     {
         [self hideGigya];
     }
+    
+    [UserDataSingleton userSingleton].isRegisteredWithNewAccount = YES;
+    
+    [self.zaScrollView setDelegate:self];
+    
+    UITapGestureRecognizer *tapG = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignTFs)];
+    [self.imageViewBg setUserInteractionEnabled:YES];
+    [self.imageViewBg addGestureRecognizer:tapG];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    if (IS_IPHONE_5) {
+        
+        self.zaScrollView.scrollEnabled = NO;
+    }
+    else{
+        
+        self.zaScrollView.scrollEnabled = YES;
+        
+        CGRect scrollFrame = self.zaScrollView.frame;
+        scrollFrame.size.height = 480;
+        scrollFrame.origin.y = 0;
+        
+        [self.zaScrollView setFrame:scrollFrame];
+        
+        [self.zaScrollView setContentSize:CGSizeMake(320, 490)];
+    }
+    
     [self resetView];
 }
 
@@ -65,7 +94,6 @@
 {
     if ([[Gigya session] isValid])
     {
-        NSLog(@"AJUNGE LA GIGIA");
 //        [self nextView];
     }
 }
@@ -98,12 +126,15 @@
        [textField setTextColor:[UIColor blackColor]];
     
     [textField setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
+
 }
 
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    
+
 }
 
 
@@ -125,11 +156,15 @@
      {
          if (!error)
          {
-             [UserDataSingleton userSingleton].nickName   = response[ @"nickname"];
-             [UserDataSingleton userSingleton].firstName  = response[@"firstName"];
+             
+             [UserDataSingleton userSingleton].isRegisteredWithNewAccount = NO;
+             
+             [UserDataSingleton userSingleton].userName   = response[ @"nickname"];
              [UserDataSingleton userSingleton].gender     = response[   @"gender"];
              [UserDataSingleton userSingleton].email      = response[    @"email"];
              [UserDataSingleton userSingleton].age        = response[      @"age"];
+             
+             NSLog(@"emial %u", [UserDataSingleton userSingleton].email.length);
              
              [self fillRegistration];
              
@@ -159,7 +194,6 @@
              }
              else{
                  // the provider gave all the information needed.
-
                  [self nextView];
              }
            }
@@ -245,21 +279,29 @@
 {
     [self resetView];
     
-        if ([UserDataSingleton userSingleton].nickName)
+        if ([UserDataSingleton userSingleton].userName)
         {
             _txtUsername.textColor          = [UIColor blackColor];
-            _txtUsername.text               = [UserDataSingleton userSingleton].nickName;
+            _txtUsername.text               = [UserDataSingleton userSingleton].userName;
+            _txtUsername.enabled = NO;
         }
+    
     
         if([UserDataSingleton userSingleton].age)
         {
             _txtAge.textColor           = [UIColor blackColor];
             _txtAge.text                = [UserDataSingleton userSingleton].age;
+            _txtAge.enabled = NO;
         }
-        if ([UserDataSingleton userSingleton].email)
+    
+    
+        if ([UserDataSingleton userSingleton].email.length > 0)
         {   _txtEmail.textColor         = [UIColor blackColor];
             _txtEmail.text              = [UserDataSingleton userSingleton].email;
+            _txtEmail.enabled = NO;
         }
+    
+    
         if ([UserDataSingleton userSingleton].gender)
         {
             if ([[UserDataSingleton userSingleton].gender caseInsensitiveCompare:@"female"] == NSOrderedSame ||
@@ -287,22 +329,18 @@
 
 - (IBAction)changeBorderColor:(id)sender {
     
-    self.btnRegistrater.layer.borderColor    = [UIColor orangeColor].CGColor;
+    self.btnRegistrater.titleLabel.textColor = [UIColor whiteColor];
+    [self.btnRegistrater setBackgroundColor:[UIColor orangeColor]];
+}
+
+- (IBAction)changeColorToWhite:(id)sender {
+    
     self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
-     
+    [self.btnRegistrater setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (IBAction)signUpAction:(id)sender {
-    
-#warning just for testing!
-    
-    RMNLoginViewController *loginVC = [[RMNLoginViewController alloc] init];
-    [self.navigationController pushViewController:loginVC animated:YES];
-    
-    return;
-#warning end testing
-    
-    
+
     [_txtAge            resignFirstResponder];
     [_txtEmail          resignFirstResponder];
     [_txtUsername       resignFirstResponder];
@@ -311,14 +349,15 @@
     if ([self checkIfRegistrationIsOk]) {
 
         // save user info
-        [UserDataSingleton userSingleton].nickName    = _txtUsername.     text;
-        [UserDataSingleton userSingleton].gender      = self.genderSgmCtrl.selectedSegmentIndex == 0 ? @"male" : @"female";
-        [UserDataSingleton userSingleton].email       = _txtEmail.    text;
-        [UserDataSingleton userSingleton].age         = _txtAge.      text;
+        [UserDataSingleton userSingleton].userName    = _txtUsername.text;
+        [UserDataSingleton userSingleton].gender      = _genderSgmCtrl.selectedSegmentIndex == 0 ? @"male" : @"female";
+        [UserDataSingleton userSingleton].email       = _txtEmail.text;
+        [UserDataSingleton userSingleton].age         = _txtAge.text;
         
-        
-        
-        NSLog(@"gender is %@", [UserDataSingleton userSingleton].gender);
+        if ([UserDataSingleton userSingleton].isRegisteredWithNewAccount) {
+            
+            [UserDataSingleton userSingleton].password = _txtPassword.text;
+        }
         
         //[self showMessageTitle:@"Succes" withMessage:@"Registration successful"];
         [self nextView];
@@ -327,8 +366,9 @@
     }
     else{
         
-        self.btnRegistrater.layer.borderColor    = [UIColor lightGrayColor].CGColor;
-        self.btnRegistrater.titleLabel.textColor = [UIColor lightGrayColor];
+        self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
+        [self.btnRegistrater setBackgroundColor:[UIColor whiteColor]];
+        
     }
 }
 
@@ -340,11 +380,22 @@
 -(IBAction)loginWithFacebook:(id)sender;
 {
     [self fromSelectedProvider:@"facebook"];
+    
+    [UserDataSingleton userSingleton].isUsingFacebook   = YES;
+    [UserDataSingleton userSingleton].isUsingFoursquare = NO;
+    [UserDataSingleton userSingleton].isUsingGoogle     = NO;
+    [UserDataSingleton userSingleton].isUsingTwitter    = NO;
+
 }
 
 -(IBAction)loginWithGoogleplus:(id)sender
 {
     [self fromSelectedProvider:@"googleplus"];
+    
+    [UserDataSingleton userSingleton].isUsingFacebook   = NO;
+    [UserDataSingleton userSingleton].isUsingFoursquare = NO;
+    [UserDataSingleton userSingleton].isUsingGoogle     = YES;
+    [UserDataSingleton userSingleton].isUsingTwitter    = NO;
 }
 
 -(IBAction)loginWithLinkedin:(id)sender
@@ -355,20 +406,27 @@
 - (IBAction)loginWithTwitter:(id)sender
 {
     [self fromSelectedProvider:@"twitter"];
+    
+    [UserDataSingleton userSingleton].isUsingFacebook   = NO;
+    [UserDataSingleton userSingleton].isUsingFoursquare = NO;
+    [UserDataSingleton userSingleton].isUsingGoogle     = NO;
+    [UserDataSingleton userSingleton].isUsingTwitter    = YES;
 }
 
 - (IBAction)loginWithFoursquare:(id)sender
 {
     [self fromSelectedProvider:@"foursquare"];
+    
+    [UserDataSingleton userSingleton].isUsingFacebook   = NO;
+    [UserDataSingleton userSingleton].isUsingFoursquare = YES;
+    [UserDataSingleton userSingleton].isUsingGoogle     = NO;
+    [UserDataSingleton userSingleton].isUsingTwitter    = NO;
 }
-
 
 
 
 #pragma mark- Other useful methods
 
-// when sign up button is pressed this method will check if text fields are properly filled or not
-// if any field is not completed then it will turn red
 
 - (void) setLocalizedStringsForAllTexts
 {
@@ -401,16 +459,19 @@
 }
 
 
+// when sign up button is pressed this method will check if text fields are properly filled or not
+// if any field is not completed then it will turn red
 - (BOOL) checkIfRegistrationIsOk
 {
     BOOL isOk = YES;
+    BOOL alreadyShownAlert = NO;
     
     if ([_txtUsername.text isEqualToString:@""]    || [_txtEmail.text isEqualToString:@""]   ||
-        [_txtAge.text isEqualToString:@""] || [_txtPassword.text isEqualToString:@""])
+        [_txtAge.text isEqualToString:@""] )
     {
-        
         if (!isUsingSocialService) {
             [self showMessageTitle:NSLocalizedString(@"Error",nil) withMessage:NSLocalizedString(@"All fields should be entered",nil)];
+            alreadyShownAlert = YES;
         }
         
         isOk = NO;
@@ -442,15 +503,6 @@
             self.emailOkMark.alpha = 1;
         }
         
-        if([_txtPassword.text  isEqualToString: @"" ] && !isUsingSocialService)
-        {
-            [_txtPassword becomeFirstResponder];
-            [_txtPassword setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        }
-        else if(!isUsingSocialService)
-            {
-                self.passwordOkMark.alpha = 1;
-            }
     }
     else if (![self validateEmail:_txtEmail.text])
     {
@@ -459,6 +511,23 @@
         isOk = NO;
         self.emailOkMark.alpha = 0;
     }
+    
+    if (!isUsingSocialService && [_txtPassword.text isEqualToString:@""]) {
+        
+        isOk = NO;
+
+        [_txtPassword becomeFirstResponder];
+        [_txtPassword setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+        
+        if (!alreadyShownAlert) {
+            [self showMessageTitle:NSLocalizedString(@"Error",nil) withMessage:NSLocalizedString(@"All fields should be entered",nil)];
+        }
+    }
+    else if(!isUsingSocialService)
+        {
+            self.passwordOkMark.alpha = 1;
+        }
+    
     
     return  isOk;
 }
@@ -501,16 +570,41 @@
     // I'm ready to return, so just dismiss the navigation controller.
     // You could use unwind segue in iOS 6, as well.
     
-#warning must save data registration
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:@"isLoggedIn"];
     [defaults synchronize];
     
     [[RMNManager sharedManager] setIsLoggedIn:YES];
+    
+    NSLog(@"gata, sa salvam!");
 
-    NSLog(@"%d",[[RMNManager sharedManager]isLoggedIn]);
-
+    NSMutableDictionary *infoUser = [[NSMutableDictionary alloc] init];
+    
+    [infoUser setValue:[UserDataSingleton userSingleton].email
+                forKey:[RMNUserInformationCoreData keyForListValue:UserEmail]];
+    [infoUser setValue:[UserDataSingleton userSingleton].userName
+                forKey:[RMNUserInformationCoreData keyForListValue:UserUsername]];
+    [infoUser setValue:[UserDataSingleton userSingleton].dateOfBirth
+                forKey:[RMNUserInformationCoreData keyForListValue:UserDateOfBirth]];
+    [infoUser setValue:[UserDataSingleton userSingleton].gender
+                forKey:[RMNUserInformationCoreData keyForListValue:UserGender]];
+    [infoUser setValue:[UserDataSingleton userSingleton].password
+                forKey:[RMNUserInformationCoreData keyForListValue:UserPassword]];
+    [infoUser setObject:[NSNumber numberWithBool:[UserDataSingleton userSingleton].isRegisteredWithNewAccount]
+                forKey:[RMNUserInformationCoreData keyForListValue:UserIsRegisteredWithNewAccount]];
+    [infoUser setValue:[NSNumber numberWithBool:[UserDataSingleton userSingleton].isUsingFacebook]
+                forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingFacebook]];
+    [infoUser setValue:[NSNumber numberWithBool:[UserDataSingleton userSingleton].isUsingFoursquare]
+                forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingFoursquare]];
+    [infoUser setValue:[NSNumber numberWithBool:[UserDataSingleton userSingleton].isUsingGoogle]
+                forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingGoogle]];
+    [infoUser setValue:[NSNumber numberWithBool:[UserDataSingleton userSingleton].isUsingTwitter]
+                forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingTwitter]];
+    
+    
+    [TSTCoreData addInformation:infoUser ofType:TSTCoreDataUser];
+    
+    
 //    [self dismissViewControllerAnimated:YES completion:nil];
     
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
@@ -531,6 +625,14 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [_txtAge            resignFirstResponder];
+    [_txtEmail          resignFirstResponder];
+    [_txtUsername       resignFirstResponder];
+    [_txtPassword       resignFirstResponder];
+}
+
+- (void)resignTFs{
+    
     [_txtAge            resignFirstResponder];
     [_txtEmail          resignFirstResponder];
     [_txtUsername       resignFirstResponder];

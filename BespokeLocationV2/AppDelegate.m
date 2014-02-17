@@ -34,7 +34,7 @@
     
     // If you want to use FourSqaure Database then leave as is. Set to FALSE if you want to use out own Database
 
-    [UserDataSingleton userSingleton].usingGigya=(BOOL *)YES;
+    [UserDataSingleton userSingleton].usingGigya = YES;
     FoursquareAPI = TRUE;
     //FoursquareAPI = FALSE;
     
@@ -96,8 +96,8 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"RMNModel" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     return _managedObjectModel;
 }
 

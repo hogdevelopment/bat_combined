@@ -187,6 +187,11 @@
 		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
+		E1B3654218B2077D0060552E /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654118B2077D0060552E /* UserInformation.m */; };
+		E1B3654518B20F480060552E /* RMNUserInformationCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */; };
+		E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */; };
+		E1B3654B18B252EA0060552E /* logoAgeDeclaration.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B3654918B252EA0060552E /* logoAgeDeclaration.png */; };
+		E1B3654C18B252EA0060552E /* logoAgeDeclaration@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */; };
 		E1C617F618AE2A2A00E90E0F /* loginBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F418AE2A2A00E90E0F /* loginBg.png */; };
 		E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F518AE2A2A00E90E0F /* loginBg@2x.png */; };
 		E1C617FA18AE72CD00E90E0F /* okMark.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F818AE72CD00E90E0F /* okMark.png */; };
@@ -471,6 +476,14 @@
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
 		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
+		E1B3654018B2077D0060552E /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
+		E1B3654118B2077D0060552E /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
+		E1B3654318B20F480060552E /* RMNUserInformationCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInformationCoreData.h; sourceTree = "<group>"; };
+		E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserInformationCoreData.m; sourceTree = "<group>"; };
+		E1B3654618B251960060552E /* RMNAgeDeclarationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAgeDeclarationViewController.h; sourceTree = "<group>"; };
+		E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAgeDeclarationViewController.m; sourceTree = "<group>"; };
+		E1B3654918B252EA0060552E /* logoAgeDeclaration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAgeDeclaration.png; sourceTree = "<group>"; };
+		E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoAgeDeclaration@2x.png"; sourceTree = "<group>"; };
 		E1C617F418AE2A2A00E90E0F /* loginBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBg.png; sourceTree = "<group>"; };
 		E1C617F518AE2A2A00E90E0F /* loginBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginBg@2x.png"; sourceTree = "<group>"; };
 		E1C617F818AE72CD00E90E0F /* okMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = okMark.png; sourceTree = "<group>"; };
@@ -534,6 +547,14 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E1B3654918B252EA0060552E /* logoAgeDeclaration.png */,
+				E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */,
+				651F380018AEE06000449DC7 /* profile.png */,
+				5C437F1918AEA46C00605A8F /* headerButtons */,
+				5C437EFC18AE939200605A8F /* side menu icons */,
+				5C4C980818AD34DF00807404 /* Slides from the begining of the app */,
+				5C4C97E818AD21E200807404 /* favouriteButton@2x.png */,
+				5C4C97E918AD21E200807404 /* favouriteButton.png */,
 				E1C6180218AE806500E90E0F /* loginScreenBg.png */,
 				E1C6180318AE806500E90E0F /* loginScreenBg@2x.png */,
 				E1C617F818AE72CD00E90E0F /* okMark.png */,
@@ -631,8 +652,12 @@
 			isa = PBXGroup;
 			children = (
 				5C50C5D818AE643C00EA169C /* RMNModel.xcdatamodel */,
+				E1B3654018B2077D0060552E /* UserInformation.h */,
+				E1B3654118B2077D0060552E /* UserInformation.m */,
 				5C50C5D918AE643C00EA169C /* TSTCoreData.h */,
 				5C50C5DA18AE643C00EA169C /* TSTCoreData.m */,
+				E1B3654318B20F480060552E /* RMNUserInformationCoreData.h */,
+				E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -711,6 +736,8 @@
 		5C6CB4E518AA4629008CBE2A /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1B3654618B251960060552E /* RMNAgeDeclarationViewController.h */,
+				E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */,
 				E1C617FF18AE7D2A00E90E0F /* RMNLoginViewController.h */,
 				E1C6180018AE7D2A00E90E0F /* RMNLoginViewController.m */,
 				0E64B30918A5183100E0E513 /* LogInView.h */,
@@ -1223,6 +1250,7 @@
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
+				E1B3654B18B252EA0060552E /* logoAgeDeclaration.png in Resources */,
 				5C437F2118AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png in Resources */,
 				5C437F0C18AE939200605A8F /* aboutAppIcon@2x.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
@@ -1238,10 +1266,13 @@
 				5C437F0B18AE939200605A8F /* aboutAppIcon.png in Resources */,
 				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
 				5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */,
+				5C4C980418AD34D800807404 /* slide_2_Zurich@2x.png in Resources */,
+				5C437F2A18AEA71E00605A8F /* RMNSideMenuHeaderView.xib in Resources */,
 				E1C617FB18AE72CD00E90E0F /* okMark@2x.png in Resources */,
 				E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */,
+				E1B3654C18B252EA0060552E /* logoAgeDeclaration@2x.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
 				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
@@ -1256,6 +1287,10 @@
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C4C97FD18AD34D800807404 /* slide_1_Zurich@2x.png in Resources */,
 				5C8EF3A318A9345700FFF0D0 /* Default-568h@2x.png in Resources */,
+				5C437F2018AEA46C00605A8F /* editProfileHeaderMenuButton.png in Resources */,
+				5C50C5D618AE54BB00EA169C /* lineSeparator.png in Resources */,
+				5C437F1518AE939200605A8F /* settingsAppIcon.png in Resources */,
+				5C437F0E18AE939200605A8F /* logoutAppIcon@2x.png in Resources */,
 				E1C6180518AE806500E90E0F /* loginScreenBg@2x.png in Resources */,
 				5C6CB53818AB7A2F008CBE2A /* hpSearchBar.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
@@ -1330,6 +1365,7 @@
 				7C04AD27189FC15A00AAA15A /* AFJSONRequestOperation.m in Sources */,
 				7C9B30A3189AC4CF00071357 /* ASStarRatingView.m in Sources */,
 				7C9B2DD6189A691000071357 /* SBJsonStreamParserAccumulator.m in Sources */,
+				E1B3654518B20F480060552E /* RMNUserInformationCoreData.m in Sources */,
 				7C9B2DD8189A691000071357 /* SBJsonStreamParserState.m in Sources */,
 				5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */,
 				5C50C5DC18AE643C00EA169C /* TSTCoreData.m in Sources */,
@@ -1358,6 +1394,7 @@
 				5C6CB52618AB71B5008CBE2A /* RMNFiltersSideMenuViewController.m in Sources */,
 				7C9B2DD7189A691000071357 /* SBJsonStreamParserAdapter.m in Sources */,
 				7C04AD28189FC15A00AAA15A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				E1B3654218B2077D0060552E /* UserInformation.m in Sources */,
 				651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */,
 				E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */,
 				7C04AD2B189FC15A00AAA15A /* AFXMLRequestOperation.m in Sources */,
@@ -1368,6 +1405,7 @@
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
 				5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
+				E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,8 +1475,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1457,7 +1495,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "2DF81B75-6FBB-44D5-94AE-0F70632CF10E";
+				PROVISIONING_PROFILE = "E159F6A9-6FE5-4D04-9CD3-3E702A80FFC9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1479,8 +1517,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1492,7 +1530,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "2DF81B75-6FBB-44D5-94AE-0F70632CF10E";
+				PROVISIONING_PROFILE = "E159F6A9-6FE5-4D04-9CD3-3E702A80FFC9";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1503,8 +1541,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joseph/Documents/Hogarth_Projects/ios_modules/ios_modules/BespokeLocationV2,
@@ -1529,8 +1567,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BOGDAN CHIOSA (P6J599B6Z6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joseph/Documents/Hogarth_Projects/ios_modules/ios_modules/BespokeLocationV2,

@@ -10,7 +10,7 @@
 
 @implementation RMNManager
 
-@synthesize isLoggedIn,menuShouldBeOpened;
+@synthesize isLoggedIn,menuShouldBeOpened, alreadyShownIntro;
 
 #pragma mark Singleton Methods
 
@@ -30,6 +30,8 @@
         // the login proceess every time the user starts the app
         NSUserDefaults *defaults    =   [NSUserDefaults standardUserDefaults];
         isLoggedIn                  =   [defaults boolForKey:@"isLoggedIn"];
+        alreadyShownIntro           =   [defaults boolForKey:@"alreadyShownIntro"];
+
         menuShouldBeOpened          =   NO;
     }
     return self;

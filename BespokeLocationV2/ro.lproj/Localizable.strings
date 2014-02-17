@@ -66,9 +66,13 @@
 "or Login with"     =       "sau inregistreaza-te cu";
 "Forgot Password?"  =       "Ai uitat parola?";
 "Done"              =       "Gata";
+"Register"          =       "Inregistreaza-te";
+
+
 "There is no user registered with this email."             =       "Nu exista user inregistrat cu aceasta adresa de email.";
 "An email was sent to this address."                       =       "Un email a fost trimis la aceasta adresa.";
 "Email or password incorrect."                             =       "Email sau parola incorecta.";
+"I am 18 years old"                                        =       "Am peste 18 ani";
 
 "All fields should be entered"          =       "Toate campurile trebuie completate";
 "Please enter a valid email address"    =       "Te rog adauga o adresa de email valida";

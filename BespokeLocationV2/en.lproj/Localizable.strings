@@ -52,9 +52,6 @@
 "Help/Improve smoking app"      =      "Help/Improve smoking app" ;
 
 
-
-
-
 "Sign up"           =       "Sign up";
 "Get started"       =       "Get started";
 "subtitle text"     =       "subtitle text";
@@ -73,7 +70,9 @@
 "or Login with"     =       "or Login with";
 "Forgot Password?"  =       "Forgot Password?";
 "Done"              =       "Done";
+"Register"          =       "Register";
 
+"I am 18 years old"                         =       "I am 18 years old";
 "Email or password incorrect."              =       "Email or password incorrect.";
 
 
@@ -85,4 +84,5 @@
 "We are unable to access some of your details. Please fill in the rest of the fields."       =       "We are unable to access some of your details. Please fill in the rest of the fields.";
 "There is no user registered with this informations."             =       "There is no user registered with this informations.";
 
-
+// Attributes Key page from left side menu
+"Attributes"                =       "Attributes";
