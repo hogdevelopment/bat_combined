@@ -12,11 +12,18 @@
 {
     BOOL isLoggedIn;
     BOOL menuShouldBeOpened;
+    
+    NSString *profileImageLocation;
+    NSString *userNameText;
+    NSDate   *usersJoiningDate;
 }
 
 @property  BOOL isLoggedIn;
 @property  BOOL menuShouldBeOpened;
 
+@property   NSString *profileImageLocation;
+@property   NSString *userNameText;
+@property   NSDate   *usersJoiningDate;
 
 + (id)sharedManager;
 

@@ -11,6 +11,8 @@
 @implementation RMNManager
 
 @synthesize isLoggedIn,menuShouldBeOpened;
+@synthesize userNameText,profileImageLocation;
+@synthesize usersJoiningDate;
 
 #pragma mark Singleton Methods
 
@@ -30,6 +32,11 @@
         // the login proceess every time the user starts the app
         NSUserDefaults *defaults    =   [NSUserDefaults standardUserDefaults];
         isLoggedIn                  =   [defaults boolForKey:@"isLoggedIn"];
+        // to be changed
+#warning Must load name and image from data base
+        profileImageLocation        =   @"profile";
+        userNameText                =   @"Chiosa Gabi";
+        usersJoiningDate            =   [NSDate date];
         menuShouldBeOpened          =   NO;
     }
     return self;

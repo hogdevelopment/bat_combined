@@ -19,6 +19,9 @@
 		0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E64B31518A51D6C00E0E513 /* facebook.png */; };
 		5C21D0F218B245F500D1996D /* rateAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D0F018B245F500D1996D /* rateAppIcon.png */; };
 		5C21D0F318B245F500D1996D /* rateAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D0F118B245F500D1996D /* rateAppIcon@2x.png */; };
+		5C21D0F618B2556C00D1996D /* RMNEditProfilePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */; };
+		5C21D0FA18B25DD300D1996D /* NSDate+Stringifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D0F918B25DD300D1996D /* NSDate+Stringifier.m */; };
+		5C21D0FD18B27AA800D1996D /* RMNEditProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D0FC18B27AA800D1996D /* RMNEditProfileCell.m */; };
 		5C437F0B18AE939200605A8F /* aboutAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437EFD18AE939200605A8F /* aboutAppIcon.png */; };
 		5C437F0C18AE939200605A8F /* aboutAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437EFE18AE939200605A8F /* aboutAppIcon@2x.png */; };
 		5C437F0D18AE939200605A8F /* logoutAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437EFF18AE939200605A8F /* logoutAppIcon.png */; };
@@ -214,6 +217,12 @@
 		0E64B31518A51D6C00E0E513 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		5C21D0F018B245F500D1996D /* rateAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rateAppIcon.png; sourceTree = "<group>"; };
 		5C21D0F118B245F500D1996D /* rateAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rateAppIcon@2x.png"; sourceTree = "<group>"; };
+		5C21D0F418B2556C00D1996D /* RMNEditProfilePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNEditProfilePageViewController.h; sourceTree = "<group>"; };
+		5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNEditProfilePageViewController.m; sourceTree = "<group>"; };
+		5C21D0F818B25DD300D1996D /* NSDate+Stringifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Stringifier.h"; sourceTree = "<group>"; };
+		5C21D0F918B25DD300D1996D /* NSDate+Stringifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Stringifier.m"; sourceTree = "<group>"; };
+		5C21D0FB18B27AA800D1996D /* RMNEditProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNEditProfileCell.h; sourceTree = "<group>"; };
+		5C21D0FC18B27AA800D1996D /* RMNEditProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNEditProfileCell.m; sourceTree = "<group>"; };
 		5C437EFD18AE939200605A8F /* aboutAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutAppIcon.png; sourceTree = "<group>"; };
 		5C437EFE18AE939200605A8F /* aboutAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aboutAppIcon@2x.png"; sourceTree = "<group>"; };
 		5C437EFF18AE939200605A8F /* logoutAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutAppIcon.png; sourceTree = "<group>"; };
@@ -555,6 +564,17 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		5C21D0F718B2557700D1996D /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5C21D0F418B2556C00D1996D /* RMNEditProfilePageViewController.h */,
+				5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */,
+				5C21D0FB18B27AA800D1996D /* RMNEditProfileCell.h */,
+				5C21D0FC18B27AA800D1996D /* RMNEditProfileCell.m */,
+			);
+			name = "Edit Profile";
+			sourceTree = "<group>";
+		};
 		5C437EFC18AE939200605A8F /* side menu icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,8 +757,12 @@
 		5C6CB4EC18AA492F008CBE2A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */,
+				651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */,
 				5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */,
 				5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */,
+				5C21D0F818B25DD300D1996D /* NSDate+Stringifier.h */,
+				5C21D0F918B25DD300D1996D /* NSDate+Stringifier.m */,
 				5C6CB4F318AA5134008CBE2A /* Localizable.strings */,
 			);
 			name = Categories;
@@ -779,6 +803,7 @@
 				5CAF8F1E18AD050600AF111F /* Rate App */,
 				5CAF8F1F18AD051000AF111F /* Share App */,
 				5CAF8F2318AD054600AF111F /* Attributes Key */,
+				5C21D0F718B2557700D1996D /* Edit Profile */,
 			);
 			name = "Left Side Menu";
 			sourceTree = "<group>";
@@ -790,8 +815,6 @@
 				5C6CB4DE18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m */,
 				5C437F2618AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.h */,
 				5C437F2718AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m */,
-				651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */,
-				651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */,
 				651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */,
 				651F380418AEE3D700449DC7 /* RMNUserPhotoNameView.h */,
 				651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */,
@@ -1295,6 +1318,7 @@
 				5C6CB51C18AA93C1008CBE2A /* RMNUserSettingsSideMenuCell.m in Sources */,
 				5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */,
 				7C9B2E0C189A712F00071357 /* DirectionService.m in Sources */,
+				5C21D0FD18B27AA800D1996D /* RMNEditProfileCell.m in Sources */,
 				E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */,
 				7C9B2DD3189A691000071357 /* NSObject+SBJson.m in Sources */,
 				7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */,
@@ -1318,6 +1342,8 @@
 				5C50C5DC18AE643C00EA169C /* TSTCoreData.m in Sources */,
 				7C04AD0F189FBC0600AAA15A /* TRTextFieldExtensions.m in Sources */,
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				5C21D0F618B2556C00D1996D /* RMNEditProfilePageViewController.m in Sources */,
+				5C21D0FA18B25DD300D1996D /* NSDate+Stringifier.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
 				5C437F2818AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m in Sources */,
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,

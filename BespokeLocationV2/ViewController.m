@@ -166,7 +166,6 @@
             NSLog(@"time to load the share system page");
             
             segueIdentifier = @"shareAppSegue";
-            
             break;
         }
         case RMNUserSettingsSideMenuPrivacy:
@@ -201,6 +200,7 @@
         case RMNUserSettingsSideMenuEditProfile:
         {
             NSLog(@"time to edit profile");
+            segueIdentifier = @"editProfilePageSegue";
             break;
         }
             
@@ -226,9 +226,6 @@
         
     }
 }
-
-
-
 
 #pragma -
 

@@ -205,6 +205,10 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 - (void)userTouched:(RMNSideMenuHeaderButtonType)buttonType
 {
     [[self sideMenuDelegate]userDidTouchDown:buttonType + [imagesForCells count]-1];
+    
+    // since we're loading another view controller
+    // the side menu must animate to its closed state
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 }
 
 
