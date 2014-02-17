@@ -20,6 +20,7 @@
 
 @property  BOOL isLoggedIn;
 @property  BOOL menuShouldBeOpened;
+@property  BOOL alreadyShownIntro;
 
 @property   NSString *profileImageLocation;
 @property   NSString *userNameText;

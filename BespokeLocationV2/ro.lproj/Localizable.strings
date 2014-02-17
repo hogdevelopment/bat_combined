@@ -48,5 +48,33 @@
 "Help/Improve smoking app"      =      "Sugestii/Imbunătățiri" ;
 
 
-// Attributes Key page from left side menu
-"Attributes"                =       "Attribute";
+"Sign up"           =       "Inregistrare";
+"Get started"       =       "Start";
+"subtitle text"     =       "subtitlu";
+"Email"             =       "Email";
+"Username"          =       "Nume utilizator";
+"Date of birth"     =       "Data de nastere";
+"Gender"            =       "Gen";
+"Password"          =       "Parola";
+"or sign up with"   =       "sau inregistreaza-te cu";
+"MM.DD.YYYY"        =       "LL.ZZ.AAAA";
+"Male"              =       "Masculin";
+"Female"            =       "Feminin";
+"Error"             =       "Eroare";
+"Not needed"        =       "Nu e nevoie";
+"Where to Smoke"    =       "Unde sa fumezi";
+"or Login with"     =       "sau inregistreaza-te cu";
+"Forgot Password?"  =       "Ai uitat parola?";
+"Done"              =       "Gata";
+"Register"          =       "Inregistreaza-te";
+
+
+"There is no user registered with this email."             =       "Nu exista user inregistrat cu aceasta adresa de email.";
+"An email was sent to this address."                       =       "Un email a fost trimis la aceasta adresa.";
+"Email or password incorrect."                             =       "Email sau parola incorecta.";
+"I am 18 years old"                                        =       "Am peste 18 ani";
+
+"All fields should be entered"          =       "Toate campurile trebuie completate";
+"Please enter a valid email address"    =       "Te rog adauga o adresa de email valida";
+"We are unable to access some of your details. Please fill in the rest of the fields."             =       "Nu am reusit sa accesam toate informatiile. Te rugam sa completezi campurile ramase.";
+"There is no user registered with this informations."             =       "Acest user nu este inregistrat.";

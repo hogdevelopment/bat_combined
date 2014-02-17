@@ -32,13 +32,21 @@
     self=[super init];
     if(self)
     {
-        _nickName       = [[NSString alloc]init];
-        _firstName      = [[NSString alloc]init];
-        _lastName       = [[NSString alloc]init];
+        _userName       = [[NSString alloc]init];
+        _password       = [[NSString alloc]init];
         _email          = [[NSString alloc]init];
-        _age            = [[NSString alloc]init];
         _gender         = [[NSString alloc]init];
-        _usingGigya     = (bool *)YES;
+        _dateOfBirth    = [[NSDate alloc] init];
+        
+        _age            = [[NSString alloc]init];
+        
+        _usingGigya         = YES;
+        
+        _isRegisteredWithNewAccount = NO;
+        _isUsingFacebook            = NO;
+        _isUsingFoursquare          = NO;
+        _isUsingGoogle              = NO;
+        _isUsingTwitter             = NO;
     }
     return self;
 }

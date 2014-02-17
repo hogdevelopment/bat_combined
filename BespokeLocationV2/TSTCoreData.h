@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RMNUserInformationCoreData.h"
 
 typedef enum
 {
@@ -17,12 +18,25 @@ typedef enum
 
 @interface TSTCoreData : NSObject
 
-#warning not tested
-// prototype to save informations from dictionary to core data
+// save informations from dictionary to core data
 + (void) addInformation:(NSDictionary *)information ofType:(TSTCoreDataEntity)entityType;
 
 
 #warning not implemented
 // only sketch added
 + (void) updateWithInfo:(NSDictionary*)info forEntity:(TSTCoreDataEntity)entityType;
+
+// fetch user data
++(NSMutableArray *)fetchedUserData;
+
+// check if the user with username was registered with social service in Core Data
++ (BOOL) checkIfIsSavedInCoreDataUserWithUsername: (NSString *) username andIsRegisteredWithSocialService: (UserInformationKeyValues ) socialService;
+
+
+// check for user with email and password
++ (BOOL) checkIfIsSavedInCoreDataUserWithEmail: (NSString *) userEmail andPassword: (NSString *)userPassword;
+
+// check if the account with this email was created with a password and return it
++ (NSString *) findPasswordForUserRegisteredWithEmail: (NSString *) userEmail;
+
 @end
