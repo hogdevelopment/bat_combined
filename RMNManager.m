@@ -13,6 +13,7 @@
 @synthesize isLoggedIn,menuShouldBeOpened;
 @synthesize userNameText,profileImageLocation;
 @synthesize usersJoiningDate;
+@synthesize alreadyShownIntro;
 
 #pragma mark Singleton Methods
 
@@ -32,6 +33,9 @@
         // the login proceess every time the user starts the app
         NSUserDefaults *defaults    =   [NSUserDefaults standardUserDefaults];
         isLoggedIn                  =   [defaults boolForKey:@"isLoggedIn"];
+        
+        alreadyShownIntro           =   [defaults boolForKey:@"alreadyShownIntro"];
+        
         // to be changed
 #warning Must load name and image from data base
         profileImageLocation        =   @"profile";
@@ -46,5 +50,5 @@
     // Should never be called, but just here for clarity really.
 }
 
-
+ 
 @end

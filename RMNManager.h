@@ -12,6 +12,7 @@
 {
     BOOL isLoggedIn;
     BOOL menuShouldBeOpened;
+    BOOL alreadyShownIntro;
     
     NSString *profileImageLocation;
     NSString *userNameText;
@@ -29,3 +30,4 @@
 + (id)sharedManager;
 
 @end
+ 
