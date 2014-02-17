@@ -47,7 +47,7 @@
         
         // create image holder
         imageViewHolder = [[UIImageView alloc]init];
-        [imageViewHolder setFrame:CGRectMake(20, 0, 30, SIDE_MENU_ROW_HEIGHT)];
+        [imageViewHolder setFrame:CGRectMake(24, 0, 19, SIDE_MENU_ROW_HEIGHT)];
         [self.contentView addSubview:imageViewHolder];
         [imageViewHolder setContentMode:UIViewContentModeCenter];
 
@@ -75,7 +75,7 @@
     
     // draw the frame for the little view
     CGRect littleSelectedViewFrame      = CGRectZero;
-    littleSelectedViewFrame.size.width  = 5;
+    littleSelectedViewFrame.size.width  = 4;
     
     int multiplier = (isHeader) ? 2 : 1;
     
@@ -122,7 +122,7 @@
     self.textLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:12];
     
     CGSize size = self.bounds.size;
-    CGRect frame = CGRectMake(80.0f, 0.0f, size.width, size.height);
+    CGRect frame = CGRectMake(70.0f, 0.0f, size.width, size.height);
     self.textLabel.frame =  frame;
     self.textLabel.contentMode = UIViewContentModeScaleAspectFit;
 }

@@ -174,7 +174,7 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   return  (indexPath.row == 0) ? SIDE_MENU_ROW_HEIGHT*2 : SIDE_MENU_ROW_HEIGHT;
+   return  (indexPath.row == 0) ? 90 : SIDE_MENU_ROW_HEIGHT;
 }
 
 

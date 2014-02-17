@@ -234,7 +234,7 @@
 
 -(void)LoadMap{
     
-
+    NSLog(@"Harta se incarca");
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
                                                             longitude:CurrentLocationlng
                                                                  zoom:14];
