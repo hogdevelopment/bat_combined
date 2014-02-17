@@ -31,8 +31,8 @@
         [textField setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, 40)];
         [self.contentView addSubview:textField];
         
-        CGEnhancedKeyboard *enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
-        [textField setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+//        CGEnhancedKeyboard *enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
+//        [textField setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
 #warning MUST IMPLEMENT FURTHER HERE
     }
     return self;
