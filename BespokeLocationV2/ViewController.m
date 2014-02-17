@@ -135,12 +135,12 @@
     switch (menuType)
     {
             
-        case RMNUserSettingsSideMenuDistance:
+        case RMNUserSettingsSideMenuSettings:
         {
             NSLog(@"time to load the settings page");
-//            segueIdentifier = @"distancePageSegue";
+            segueIdentifier = @"distancePageSegue";
 #warning DEBUG only. Must move this to its corresponding after side menu header view
-            segueIdentifier = @"attributesKeySegue";
+//            segueIdentifier = @"attributesKeySegue";
             
             break;
         }
@@ -151,14 +151,6 @@
 //            [self sendFeedback];
             
             segueIdentifier = @"mailPageSegue";
-            
-            break;
-        }
-        case RMNUserSettingsSideMenuHelpImprove:
-        {
-            NSLog(@"time to load the improve page");
-            
-            segueIdentifier = @"helpAndImprovePageSegue";
             
             break;
         }
@@ -179,13 +171,6 @@
             
             break;
         }
-        case RMNUserSettingsSideMenuAbout:
-        {
-            NSLog(@"time to load the about page");
-            segueIdentifier = @"aboutPageSegue";
-            
-            break;
-        }
         case RMNUserSettingsSideMenuPrivacy:
         {
             NSLog(@"time to load the privacy page");
@@ -193,16 +178,31 @@
             
             break;
         }
-        case RMNUserSettingsSideMenuTermsOfService:
-        {
-            NSLog(@"time to load the terms of service");
-            segueIdentifier = @"termsOfServicePageSegue";
-            break;
-        }
         case RMNUserSettingsSideMenuFAQs:
         {
             NSLog(@"time to load the terms of service");
             segueIdentifier = @"faqsSegue";
+            break;
+        }
+        case RMNUserSettingsSideMenuLogout:
+        {
+            NSLog(@"time to logout");
+            segueIdentifier = @"loginSegue";
+            break;
+        }
+        case RMNUserSettingsSideMenuFavourites:
+        {
+            NSLog(@"time to favourites");
+            break;
+        }
+        case RMNUserSettingsSideMenuFilters:
+        {
+            NSLog(@"time to filtres");
+            break;
+        }
+        case RMNUserSettingsSideMenuEditProfile:
+        {
+            NSLog(@"time to edit profile");
             break;
         }
             

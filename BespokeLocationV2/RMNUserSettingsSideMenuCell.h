@@ -10,7 +10,8 @@
 
 @interface RMNUserSettingsSideMenuCell : UITableViewCell
 
-@property (nonatomic, strong) UIImageView *imageViewHolder;
 
+
+@property (nonatomic, strong) UIImageView *imageViewHolder;
 
 @end

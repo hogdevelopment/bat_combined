@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMNSideMenuHeaderButtonsView.h"
 
 // use this enumaration
 // for a better read over the
@@ -14,18 +15,20 @@
 // from the side menu
 typedef enum
 {
-    RMNUserSettingsSideMenuDistance,
+    RMNUserSettingsSideMenuUserFilters,
+    RMNUserSettingsSideMenuSettings,
     RMNUserSettingsSideMenuFeedback,
-    RMNUserSettingsSideMenuHelpImprove,
     RMNUserSettingsSideMenuRateTheApp,
     RMNUserSettingsSideMenuShareTheApp,
-    RMNUserSettingsSideMenuAbout,
+    RMNUserSettingsSideMenuFAQs,
     RMNUserSettingsSideMenuPrivacy,
-    RMNUserSettingsSideMenuTermsOfService,
-    RMNUserSettingsSideMenuFAQs
+    RMNUserSettingsSideMenuLogout,
+    RMNUserSettingsSideMenuFavourites,
+    RMNUserSettingsSideMenuFilters,
+    RMNUserSettingsSideMenuEditProfile
     
-    
-}RMNUserSettingsSideMenuCellType;
+}
+RMNUserSettingsSideMenuCellType;
 
 
 // za delegate
@@ -40,7 +43,7 @@ typedef enum
 @end
 
 
-@interface RMNUserSettingsSideMenuViewController : UITableViewController
+@interface RMNUserSettingsSideMenuViewController : UITableViewController<RMNSideMenuButtonsDelegate>
 {
     id <RMNUserSettingsLefttSideMenuDelegate> sideMenuDelegate;
 }

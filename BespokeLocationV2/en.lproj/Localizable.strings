@@ -7,37 +7,53 @@
 */
 
 
-"Distance(units)"           =       "Distance(units)";
+// side menu
+"Settings"                  =       "Settings";
 "Feedback"                  =       "Feedback";
-"Help Improve"              =       "Help Improve";
 "Rate the app"              =       "Rate the app";
 "Share the app"             =       "Share the app";
-"About"                     =       "About";
-"Privacy"                   =       "Privacy";
-"Terms Of Service"          =       "Terms Of Service";
-"Distance"                  =       "Distance";
 "FAQs"                      =       "FAQs";
+"Privacy"                   =       "Privacy";
+"Logout"                    =       "Logout";
+
+// header menu from the side menu
+"Favourites"                =       "Favourites";
+"Filters"                   =       "Filters";
+"Edit Profile"              =       "Edit Profile";
 
 
-"Clear filter"      =       "Clear filter";
-"Save filter"       =       "Save filter";
-"Clear filters"     =       "Clear filters";
-"Hotel Bars"        =       "Hotel Bars";
-"Bars"              =       "Bars";
-"Pubs"              =       "Pubs";
-"Cafes"             =       "Cafes";
-"Restaurants"       =       "Restaurants";
-"Lounges"           =       "Lounges";
-"Clubs"             =       "Clubs";
-"Search"            =       "Search";
 
 
+// distance view controller
+"Distance"                  =       "Distance";
+
+
+
+// filters
+
+"Clear filter"              =       "Clear filter";
+"Save filter"               =       "Save filter";
+"Clear filters"             =       "Clear filters";
+"Hotel Bars"                =       "Hotel Bars";
+"Bars"                      =       "Bars";
+"Pubs"                      =       "Pubs";
+"Cafes"                     =       "Cafes";
+"Restaurants"               =       "Restaurants";
+"Lounges"                   =       "Lounges";
+"Clubs"                     =       "Clubs";
+"Search"                    =       "Search";
+"Users filters"             =       "Users filters";
+"Cancel"                    =       "Cancel";
+
+
+
+// feedback view controller
 "Feedback for smoking app"      =      "Feedback for smoking app" ;
 "Help/Improve smoking app"      =      "Help/Improve smoking app" ;
 
-"Users filters"             =       "Users filters";
-"Search"                    =       "Search";
-"Cancel"                    =       "Cancel";
+
+
+
 
 "Sign up"           =       "Sign up";
 "Get started"       =       "Get started";
