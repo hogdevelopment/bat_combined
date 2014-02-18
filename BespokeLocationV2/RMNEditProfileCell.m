@@ -9,7 +9,7 @@
 #import "RMNEditProfileCell.h"
 
 
-@interface RMNEditProfileCell()<CGEnhancedKeyboardDelegate>
+@interface RMNEditProfileCell()<CGEnhancedKeyboardDelegate, UITextFieldDelegate>
 {
     UITextField *textFieldInput;
     CGEnhancedKeyboard *enhancedKeyboard;
@@ -31,20 +31,29 @@
     {
     
         textFieldInput = [[UITextField alloc]init];
-        [textFieldInput setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, 40)];
+        [textFieldInput setFrame:CGRectMake(10, 0, self.contentView.frame.size.width, 40)];
         [self.contentView addSubview:textFieldInput];
 
 #warning KEYBOARD BUttons not working well. Must fix when rested
         enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
         [enhancedKeyboard setKeyboardToolbarDelegate:self];
         [textFieldInput setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
-
+        [textFieldInput setEnabled:YES];
+        [textFieldInput setDelegate:self];
+        
     }
     return self;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    NSLog(@"VREA S[ INCEAPA CEVA cu %D",indexPathSection);
+    
+    if (indexPathSection == 5)
+    {
+        [textField setSecureTextEntry:YES];
+    }
+    
     [[self keyboardDelegate] userTouchedSection:indexPathSection];
     
 }
@@ -52,18 +61,22 @@
 - (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
 {
 
-     [[self keyboardDelegate] userDidTouchDown:tagType];
-    
     if (tagType == CGEnhancedKeyboardDoneTag)
     {
         // scroll back to top
-         [[self keyboardDelegate] userTouchedSection:0];
+//         [[self keyboardDelegate] userTouchedSection:0];
         [self.contentView endEditing:YES];
+        [[self keyboardDelegate]animateToInitialState];
+    }
+    else
+    {
+        [[self keyboardDelegate] userDidTouchDown:tagType];
     }
     
-   
     
 }
+
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

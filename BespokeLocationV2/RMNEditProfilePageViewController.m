@@ -40,11 +40,43 @@ static NSString *CellIdentifier = @"CellEditProfile";
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        
     }
     return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupMenuBarButtonItems];
+    
+}
+- (void)setupMenuBarButtonItems
+{
+//    self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+    self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem {
+   
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:[UIImage imageNamed:@"bcwdHolderImageBg"] style:UIBarButtonItemStyleBordered
+                              target:self
+                              action:@selector(popViewControllerAnimated:)];
+    
+    [lefty setTitle:@"Back"];
+    
+    return lefty;
+}
+
+//- (UIBarButtonItem *)rightMenuBarButtonItem {
+//    return [[UIBarButtonItem alloc]
+//            initWithImage:[UIImage imageNamed:@"friendsNavigationBarButtonItem.png"] style:UIBarButtonItemStyleBordered
+//            target:self
+//            action:@selector(rightSideMenuButtonPressed:)];
+//}
 
 - (void)viewDidLoad
 {
@@ -79,13 +111,17 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self.tableView registerClass:[RMNEditProfileCell class] forCellReuseIdentifier:CellIdentifier];
 
     
-    sectionsTitles = @[@"Dummy info",
-                       @"Tip locație",
-                       @"Nume locație",
-                       @"Descriere locație",
-                       @"Județ",
-                       @"Localitate"];
+    sectionsTitles = @[@"Name",
+                       @"UserName",
+                       @"Gender",
+                       @"Date of birth",
+                       @"E-mail",
+                       @"Password"];
     
+    [self.tableView setBackgroundColor:[UIColor whiteColor]];
+    self.tableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
+
+     [self.tableView setScrollEnabled:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,19 +144,32 @@ static NSString *CellIdentifier = @"CellEditProfile";
     }
     
     [cell setIndexPathSection:indexPath.row];
-    [cell.textFieldInput setText:[sectionsTitles objectAtIndex:indexPath.row]];
+    [cell.textFieldInput setPlaceholder:[sectionsTitles objectAtIndex:indexPath.row]];
     [cell setKeyboardDelegate:self];
+   
     return cell;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1f;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 200;
+    return 220;
 }
 
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc]init];
+    return view;
+}
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return [[UIView alloc]init];
+    UIView *view = [[UIView alloc]init];
+    return view;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -132,10 +181,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
 {
     switch (tagType) {
            
-        case CGEnhancedKeyboardDoneTag:
-        {
-            [self.tableView reloadData];
-        }
+
         case CGEnhancedKeyboardNextTag:
         {
             currentSection  = (currentSection == [sectionsTitles count]-1) ? 0 : currentSection+1;
@@ -150,25 +196,39 @@ static NSString *CellIdentifier = @"CellEditProfile";
             break;
     }
     
-    NSLog(@"ESTE CU %d",currentSection);
     [self userTouchedSection:currentSection];
 
 }
 
+
+
 - (void)userTouchedSection:(int)section
 {
 
+    [self.tableView setScrollEnabled:YES];
+    
     currentSection = section;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:section inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath
                             atScrollPosition:UITableViewScrollPositionTop
-                                    animated:YES];
+                                    animated:NO];
     
-
+//    NSLog(@"ESTE LA celula %d",section);
     RMNEditProfileCell * cell = (RMNEditProfileCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+   
     [cell.textFieldInput becomeFirstResponder];
     
    
 }
 
+- (void)animateToInitialState
+{
+    currentSection = 0;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:currentSection inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionTop
+                                  animated:YES];
+    
+    [self.tableView setScrollEnabled:NO];
+}
 @end

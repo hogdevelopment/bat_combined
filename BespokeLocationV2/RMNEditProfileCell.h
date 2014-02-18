@@ -19,6 +19,8 @@
 
 - (void)userTouchedSection:(int)section;
 
+- (void)animateToInitialState;
+
 
 @end
 
