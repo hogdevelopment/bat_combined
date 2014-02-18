@@ -105,6 +105,14 @@
 		651F380118AEE06000449DC7 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 651F380018AEE06000449DC7 /* profile.png */; };
 		651F380318AEE37C00449DC7 /* RMNUserPhotoNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */; };
 		651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */; };
+		6532416B18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6532416A18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib */; };
+		6532417118B2E15B0061FE5C /* RMNFavouriteLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532417018B2E15B0061FE5C /* RMNFavouriteLocationView.m */; };
+		6532417718B2E22A0061FE5C /* deleteFromFavouritesLocations.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417218B2E22A0061FE5C /* deleteFromFavouritesLocations.png */; };
+		6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417318B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png */; };
+		6532417918B2E22A0061FE5C /* locationDummyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417418B2E22A0061FE5C /* locationDummyImage.png */; };
+		6532417A18B2E22A0061FE5C /* ratingLocationStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417518B2E22A0061FE5C /* ratingLocationStar.png */; };
+		6532417B18B2E22A0061FE5C /* ratingLocationStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417618B2E22A0061FE5C /* ratingLocationStar@2x.png */; };
+		6532417F18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532417E18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -350,6 +358,16 @@
 		651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNUserPhotoNameView.xib; sourceTree = "<group>"; };
 		651F380418AEE3D700449DC7 /* RMNUserPhotoNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserPhotoNameView.h; sourceTree = "<group>"; };
 		651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserPhotoNameView.m; sourceTree = "<group>"; };
+		6532416A18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNFavouriteLocationView.xib; sourceTree = "<group>"; };
+		6532416F18B2E15B0061FE5C /* RMNFavouriteLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFavouriteLocationView.h; sourceTree = "<group>"; };
+		6532417018B2E15B0061FE5C /* RMNFavouriteLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFavouriteLocationView.m; sourceTree = "<group>"; };
+		6532417218B2E22A0061FE5C /* deleteFromFavouritesLocations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteFromFavouritesLocations.png; sourceTree = "<group>"; };
+		6532417318B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deleteFromFavouritesLocations@2x.png"; sourceTree = "<group>"; };
+		6532417418B2E22A0061FE5C /* locationDummyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locationDummyImage.png; sourceTree = "<group>"; };
+		6532417518B2E22A0061FE5C /* ratingLocationStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ratingLocationStar.png; sourceTree = "<group>"; };
+		6532417618B2E22A0061FE5C /* ratingLocationStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ratingLocationStar@2x.png"; sourceTree = "<group>"; };
+		6532417D18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFavouritesLocationsTablevViewController.h; sourceTree = "<group>"; };
+		6532417E18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFavouritesLocationsTablevViewController.m; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -556,6 +574,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6532417C18B2E2310061FE5C /* Favourite Locations Cell */,
 				E1B3654918B252EA0060552E /* logoAgeDeclaration.png */,
 				E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */,
 				651F380018AEE06000449DC7 /* profile.png */,
@@ -607,6 +626,11 @@
 				5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */,
 				5C21D0FB18B27AA800D1996D /* RMNEditProfileCell.h */,
 				5C21D0FC18B27AA800D1996D /* RMNEditProfileCell.m */,
+				6532416A18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib */,
+				6532416F18B2E15B0061FE5C /* RMNFavouriteLocationView.h */,
+				6532417018B2E15B0061FE5C /* RMNFavouriteLocationView.m */,
+				6532417D18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.h */,
+				6532417E18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m */,
 			);
 			name = "Edit Profile";
 			sourceTree = "<group>";
@@ -959,6 +983,18 @@
 			name = "Attributes Key";
 			sourceTree = "<group>";
 		};
+		6532417C18B2E2310061FE5C /* Favourite Locations Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6532417218B2E22A0061FE5C /* deleteFromFavouritesLocations.png */,
+				6532417318B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png */,
+				6532417418B2E22A0061FE5C /* locationDummyImage.png */,
+				6532417518B2E22A0061FE5C /* ratingLocationStar.png */,
+				6532417618B2E22A0061FE5C /* ratingLocationStar@2x.png */,
+			);
+			name = "Favourite Locations Cell";
+			sourceTree = "<group>";
+		};
 		7C04AD10189FC13900AAA15A /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1274,6 +1310,7 @@
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
+				6532417A18B2E22A0061FE5C /* ratingLocationStar.png in Resources */,
 				E1B3654B18B252EA0060552E /* logoAgeDeclaration.png in Resources */,
 				5C437F2118AEA46C00605A8F /* editProfileHeaderMenuButton@2x.png in Resources */,
 				5C437F0C18AE939200605A8F /* aboutAppIcon@2x.png in Resources */,
@@ -1296,15 +1333,18 @@
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */,
 				E1B3654C18B252EA0060552E /* logoAgeDeclaration@2x.png in Resources */,
+				6532417B18B2E22A0061FE5C /* ratingLocationStar@2x.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
 				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
+				6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */,
 				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
 				5C4C980118AD34D800807404 /* NextSlideButton@2x.png in Resources */,
 				5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */,
 				5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */,
 				5C50C5D518AE54BB00EA169C /* lineSeparator@2x.png in Resources */,
 				E1A82F0718AD022D00FF9661 /* facebook@2x.png in Resources */,
+				6532416B18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib in Resources */,
 				E1A82F0918AD022D00FF9661 /* google-Plus-icon@2x.png in Resources */,
 				5C21D0F218B245F500D1996D /* rateAppIcon.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
@@ -1320,6 +1360,7 @@
 				5C4C980518AD34D800807404 /* slide_3_Zurich@2x.png in Resources */,
 				5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */,
 				0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */,
+				6532417918B2E22A0061FE5C /* locationDummyImage.png in Resources */,
 				5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */,
 				5C4C97FC18AD34D800807404 /* slide_0_Zurich@2x.png in Resources */,
 				5C4C97FB18AD34D800807404 /* slide_3_Zurich.png in Resources */,
@@ -1327,6 +1368,7 @@
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */,
+				6532417718B2E22A0061FE5C /* deleteFromFavouritesLocations.png in Resources */,
 				5C437F0F18AE939200605A8F /* privacyIcon.png in Resources */,
 				0E64B31718A51D6C00E0E513 /* other.png in Resources */,
 				0E07969018A531DB00537FBC /* foursquare.png in Resources */,
@@ -1382,6 +1424,7 @@
 				5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */,
 				7C9B2DD5189A691000071357 /* SBJsonStreamParser.m in Sources */,
 				5CAF8F0A18ACC40200AF111F /* RMNSendFeedbackViewController.m in Sources */,
+				6532417F18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m in Sources */,
 				5C6CB51718AA937D008CBE2A /* RMNDistancePageViewController.m in Sources */,
 				7C9B2DD4189A691000071357 /* SBJsonParser.m in Sources */,
 				5C8EF39B18A9344B00FFF0D0 /* MFSideMenuContainerViewController.m in Sources */,
@@ -1402,6 +1445,7 @@
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,
 				5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,
+				6532417118B2E15B0061FE5C /* RMNFavouriteLocationView.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
 				7C9B2DDB189A691000071357 /* SBJsonStreamWriterState.m in Sources */,
 				7C04AD2C189FC15A00AAA15A /* UIImageView+AFNetworking.m in Sources */,

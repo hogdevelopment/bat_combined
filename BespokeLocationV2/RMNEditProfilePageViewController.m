@@ -15,12 +15,27 @@
 static NSString *CellIdentifier = @"CellEditProfile";
 
 
-@interface RMNEditProfilePageViewController ()
+@interface RMNEditProfilePageViewController ()<RMNEditProfileCellDelegate>
 {
+    int currentSection;
+    BOOL isEditable;
+    NSArray  *sectionsTitles;
+
 }
+
+@property (assign)int   currentSection;
+@property NSArray       *sectionsTitles;
+@property BOOL isEditable;
+
 @end
 
+
+
 @implementation RMNEditProfilePageViewController
+
+@synthesize currentSection  =   currentSection;
+@synthesize sectionsTitles  =   sectionsTitles;
+@synthesize isEditable      =   isEditable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,8 +79,12 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self.tableView registerClass:[RMNEditProfileCell class] forCellReuseIdentifier:CellIdentifier];
 
     
-    
-    
+    sectionsTitles = @[@"Dummy info",
+                       @"Tip locație",
+                       @"Nume locație",
+                       @"Descriere locație",
+                       @"Județ",
+                       @"Localitate"];
     
 }
 
@@ -85,16 +104,71 @@ static NSString *CellIdentifier = @"CellEditProfile";
     {
         
         cell = [[RMNEditProfileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+       
     }
     
-    [cell.textField setText:@"dummy"];
-    
+    [cell setIndexPathSection:indexPath.row];
+    [cell.textFieldInput setText:[sectionsTitles objectAtIndex:indexPath.row]];
+    [cell setKeyboardDelegate:self];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 200;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [[UIView alloc]init];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return [sectionsTitles count];
+}
+
+- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
+{
+    switch (tagType) {
+           
+        case CGEnhancedKeyboardDoneTag:
+        {
+            [self.tableView reloadData];
+        }
+        case CGEnhancedKeyboardNextTag:
+        {
+            currentSection  = (currentSection == [sectionsTitles count]-1) ? 0 : currentSection+1;
+            break;
+        }
+        case CGEnhancedKeyboardPreviousTag:
+        {
+            currentSection  = (currentSection == 0) ? [sectionsTitles count]-1 : currentSection-1;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    NSLog(@"ESTE CU %d",currentSection);
+    [self userTouchedSection:currentSection];
+
+}
+
+- (void)userTouchedSection:(int)section
+{
+
+    currentSection = section;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:section inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                            atScrollPosition:UITableViewScrollPositionTop
+                                    animated:YES];
+    
+
+    RMNEditProfileCell * cell = (RMNEditProfileCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    [cell.textFieldInput becomeFirstResponder];
+    
+   
 }
 
 @end

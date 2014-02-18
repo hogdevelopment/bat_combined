@@ -7,11 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGEnhancedKeyboard.h"
+
+// za delegate
+@protocol RMNEditProfileCellDelegate
+
+// methods sent to delegate
+// so we know what button the
+// user touched
+- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType;
+
+- (void)userTouchedSection:(int)section;
+
+
+@end
+
 
 @interface RMNEditProfileCell : UITableViewCell
+{
+    id <RMNEditProfileCellDelegate> keyboardDelegate;
+    
+}
+@property (nonatomic, strong) id <RMNEditProfileCellDelegate> keyboardDelegate;
 
-
-@property UITextField *textField;
+@property UITextField *textFieldInput;
+@property (assign) int indexPathSection;
 
 
 @end
