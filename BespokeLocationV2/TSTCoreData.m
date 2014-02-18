@@ -50,7 +50,7 @@
     }
     else{
         
-//        NSLog(@"the info stored are: %@", [self fetchedUserData]);
+        NSLog(@"the info stored are: %@", [self fetchedUserData]);
     }
     
     

@@ -19,8 +19,8 @@ typedef enum
     UserIsUsingFacebook                  = 6,
     UserIsUsingTwitter                   = 7,
     UserIsUsingGoogle                    = 8,
-    UserIsUsingFoursquare                = 9
-    
+    UserIsUsingFoursquare                = 9,
+    UserRegistrationDate                 = 10
 }
 UserInformationKeyValues;
 

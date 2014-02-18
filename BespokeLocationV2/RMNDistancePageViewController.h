@@ -9,10 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RMNDistancePageViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIButton *milesButt;
-@property (strong, nonatomic) IBOutlet UIButton *kmButt;
-@property (strong, nonatomic) IBOutlet UIImageView *selectedMark;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
-- (IBAction)chooseUnitAction:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *unitsSgmCtrl;
+
+- (IBAction)changeUnit:(id)sender;
 @end

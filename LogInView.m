@@ -17,6 +17,12 @@
 @interface LogInView ()
 {
     BOOL isUsingSocialService;
+    CGEnhancedKeyboard *enhancedKeyboard;
+    int currentTFIndex;
+    
+    CGPoint pointOfOffset;
+    
+    UIDatePicker *datePicker;
 }
 
 @end
@@ -63,13 +69,52 @@
     [self.imageViewBg setUserInteractionEnabled:YES];
     [self.imageViewBg addGestureRecognizer:tapG];
     
+    
+    // add custom keyboard to textFields
+    enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
+    [enhancedKeyboard setKeyboardToolbarDelegate:self];
+    [enhancedKeyboard setNumberOfTextFields:4];
+    
+    
+    // add custom picker view for date of birth
+    datePicker = [[UIDatePicker alloc] init];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    
+    [datePicker addTarget:self action:@selector(datePickerValueChanged:)
+         forControlEvents:UIControlEventValueChanged];
+    
+    NSDateComponents *componentsBegin = [[NSDateComponents alloc] init];
+    [componentsBegin setDay:1];
+    [componentsBegin setMonth:1];
+    [componentsBegin setYear:1970];
+    NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *componentsMinimum = [[NSDateComponents alloc] init];
+    [componentsMinimum setDay:1];
+    [componentsMinimum setMonth:1];
+    [componentsMinimum setYear:1900];
+    NSCalendar *gregorianMinimum = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    [datePicker setDate:[gregorian dateFromComponents:componentsBegin]];
+    datePicker.minimumDate = [gregorianMinimum dateFromComponents:componentsMinimum];
+    datePicker.maximumDate = [NSDate date];
+    
+    
+    [self.txtAge      setInputView:datePicker];
+    [self.txtEmail    setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+    [self.txtUsername setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+    [self.txtAge      setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+    [self.txtPassword setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+    
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
     if (IS_IPHONE_5) {
         
         self.zaScrollView.scrollEnabled = NO;
+        pointOfOffset = CGPointZero;
     }
     else{
         
@@ -82,6 +127,8 @@
         [self.zaScrollView setFrame:scrollFrame];
         
         [self.zaScrollView setContentSize:CGSizeMake(320, 490)];
+        
+        pointOfOffset = CGPointMake(0, 20);
     }
     
     [self resetView];
@@ -128,7 +175,23 @@
     [textField setValue:[UIColor lightGrayColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
-
+    
+    currentTFIndex = textField.tag;
+    
+    if (currentTFIndex == 4) {
+        
+        if (IS_IPHONE_5) {
+            [self.zaScrollView setContentOffset:CGPointZero animated:YES];
+        }
+        else{
+            CGPoint offsetPoint = CGPointMake(0, 90);
+            [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+        }
+    }
+    
+    if (!IS_IPHONE_5 && currentTFIndex == 3) {
+        [self.zaScrollView setContentOffset:pointOfOffset animated:YES];
+    }
 }
 
 
@@ -137,6 +200,88 @@
 
 }
 
+
+#pragma CGEnhancedKeyboard delegate method
+
+- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
+{
+    UITextField *nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex];
+    
+    switch (tagType) {
+            
+        case CGEnhancedKeyboardPreviousTag:
+            
+            if ( currentTFIndex > 1) {
+                nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex - 1];
+                [nowTF becomeFirstResponder];
+            }
+            
+            break;
+            
+        case CGEnhancedKeyboardNextTag:
+            
+            if ( currentTFIndex < 4) {
+                nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex + 1];
+                [nowTF becomeFirstResponder];
+            }
+            
+            break;
+            
+        case CGEnhancedKeyboardDoneTag:
+            
+            [self resignTFs];
+            
+            break;
+        default:
+            break;
+    }
+
+    
+    if (currentTFIndex == 4) {
+        
+        if (IS_IPHONE_5) {
+            [self.zaScrollView setContentOffset:CGPointZero animated:YES];
+        }
+        else{
+            CGPoint offsetPoint = CGPointMake(0, 90);
+            [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+        }
+    }
+    else{
+        
+        if (!IS_IPHONE_5) {
+            
+            if (currentTFIndex == 3) {
+                [self.zaScrollView setContentOffset:pointOfOffset animated:YES];
+            }
+            else{
+                CGPoint offsetPoint = CGPointMake(0, -64);
+                [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+            }
+        }
+        else{
+            CGPoint offsetPoint = CGPointMake(0, -64);
+            [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+        }
+    
+    }
+    
+    if (tagType == CGEnhancedKeyboardDoneTag) {
+        CGPoint offsetPoint = CGPointMake(0, -64);
+        [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+    }
+}
+
+
+#pragma  UIDatePickerView method
+
+- (void)datePickerValueChanged:(UIDatePicker*) datePickerView{
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateStyle = NSDateFormatterMediumStyle;
+
+    [self.txtAge setText: [df stringFromDate:datePickerView.date]];
+}
 
 
 //This method is used to fetch the user info. and store it in userInfo class
@@ -162,7 +307,7 @@
              [UserDataSingleton userSingleton].userName   = response[ @"nickname"];
              [UserDataSingleton userSingleton].gender     = response[   @"gender"];
              [UserDataSingleton userSingleton].email      = response[    @"email"];
-             [UserDataSingleton userSingleton].age        = response[      @"age"];
+             [UserDataSingleton userSingleton].age        = Nil; //response[      @"age"];
              
              NSLog(@"emial %u", [UserDataSingleton userSingleton].email.length);
              
@@ -172,17 +317,17 @@
              self.txtPassword.placeholder = @"Not needed";
 
              //when birth year available instead of age, finding age from birth year
-             if (![UserDataSingleton userSingleton].age && response[@"birthYear"])
-             {
-                 NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-                 [formatter setDateFormat:@"yyyy"];
-                 NSString * year=[formatter stringFromDate:[NSDate date]];
-                 NSString * birthYear = response[@"birthYear"];
-                 
-                 int age=(int)([year integerValue]-[birthYear integerValue]);
-                 [UserDataSingleton userSingleton].age= [NSString stringWithFormat:@"%d",age];
-                 
-             }
+//             if (![UserDataSingleton userSingleton].age && response[@"birthYear"])
+//             {
+//                 NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+//                 [formatter setDateFormat:@"yyyy"];
+//                 NSString * year=[formatter stringFromDate:[NSDate date]];
+//                 NSString * birthYear = response[@"birthYear"];
+//                 
+//                 int age=(int)([year integerValue]-[birthYear integerValue]);
+//                 [UserDataSingleton userSingleton].age = [NSString stringWithFormat:@"%d",age];
+//                 
+//             }
              
              if (![self checkIfRegistrationIsOk])
              {
@@ -447,7 +592,7 @@
     // placeholders for textFields
     self.txtEmail.placeholder      = NSLocalizedString(@"Email",nil);
     self.txtUsername.placeholder   = NSLocalizedString(@"Username",nil);
-    self.txtAge.placeholder        = NSLocalizedString(@"MM.DD.YYYY",nil);
+    self.txtAge.placeholder        = NSLocalizedString(@"Date of birth",nil);
     self.txtPassword.placeholder   = NSLocalizedString(@"Password",nil);
     
     // gender segmented control
@@ -577,14 +722,20 @@
     [[RMNManager sharedManager] setIsLoggedIn:YES];
     
     NSLog(@"gata, sa salvam!");
-
+    
+    NSDate *birthDate = [[NSDate alloc] init];
+    birthDate = [UserDataSingleton userSingleton].dateOfBirth;
+    NSLog(@"birth is %@", birthDate);
+    birthDate = datePicker.date;
+    NSLog(@"birth from picker is %@", birthDate);
+    
     NSMutableDictionary *infoUser = [[NSMutableDictionary alloc] init];
     
     [infoUser setValue:[UserDataSingleton userSingleton].email
                 forKey:[RMNUserInformationCoreData keyForListValue:UserEmail]];
     [infoUser setValue:[UserDataSingleton userSingleton].userName
                 forKey:[RMNUserInformationCoreData keyForListValue:UserUsername]];
-    [infoUser setValue:[UserDataSingleton userSingleton].dateOfBirth
+    [infoUser setValue:birthDate
                 forKey:[RMNUserInformationCoreData keyForListValue:UserDateOfBirth]];
     [infoUser setValue:[UserDataSingleton userSingleton].gender
                 forKey:[RMNUserInformationCoreData keyForListValue:UserGender]];
@@ -600,7 +751,8 @@
                 forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingGoogle]];
     [infoUser setValue:[NSNumber numberWithBool:[UserDataSingleton userSingleton].isUsingTwitter]
                 forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingTwitter]];
-    
+    [infoUser setValue:[NSDate date]
+                forKey:[RMNUserInformationCoreData keyForListValue:UserRegistrationDate]];
     
     [TSTCoreData addInformation:infoUser ofType:TSTCoreDataUser];
     

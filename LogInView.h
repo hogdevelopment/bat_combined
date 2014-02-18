@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <GigyaSDK/Gigya.h>
+#import "CGEnhancedKeyboard.h"
 
-
-@interface LogInView : UIViewController<GSSessionDelegate, UIAlertViewDelegate,UITextFieldDelegate, UIScrollViewDelegate>
+@interface LogInView : UIViewController<GSSessionDelegate, UIAlertViewDelegate,UITextFieldDelegate, UIScrollViewDelegate, CGEnhancedKeyboardDelegate, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *zaScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBg;

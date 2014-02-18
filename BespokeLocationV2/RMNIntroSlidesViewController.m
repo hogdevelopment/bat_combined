@@ -34,6 +34,7 @@
         NSLog(@"deci este deja logat sau a deja a trecut prin intro!");
         [self performSegueWithIdentifier:@"ageDeclarationSegue" sender:self];
     }
+    
 }
 
 
@@ -103,9 +104,7 @@
     }
     [self.view addSubview:self.customFooter];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"alreadyShownIntro"];
-    [defaults synchronize];
+    
 }
 
 
@@ -227,6 +226,12 @@
         case 1:
         case 2:
         {
+            // when it gets here, it means that the intro was shown
+            // and it won't show again
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:YES forKey:@"alreadyShownIntro"];
+            [defaults synchronize];
+            
              [[self navigationController] setNavigationBarHidden:NO animated:NO];
              [self performSegueWithIdentifier:@"ageDeclarationSegue" sender:self];
             break;

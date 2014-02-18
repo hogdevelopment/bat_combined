@@ -67,6 +67,11 @@
             keyString = @"isUsingTwitter";
             break;
         }
+        case UserRegistrationDate:
+        {
+            keyString = @"registrationDate";
+            break;
+        }
         default:
             break;
     }
