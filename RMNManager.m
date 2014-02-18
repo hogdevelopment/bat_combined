@@ -14,6 +14,7 @@
 @synthesize userNameText,profileImageLocation;
 @synthesize usersJoiningDate;
 @synthesize alreadyShownIntro;
+@synthesize currentUserEmail;
 
 #pragma mark Singleton Methods
 
@@ -35,6 +36,9 @@
         isLoggedIn                  =   [defaults boolForKey:@"isLoggedIn"];
         
         alreadyShownIntro           =   [defaults boolForKey:@"alreadyShownIntro"];
+        
+        currentUserEmail            =   [defaults objectForKey:@"currentLoggedInUserEmail"];
+
         
         // to be changed
 #warning Must load name and image from data base

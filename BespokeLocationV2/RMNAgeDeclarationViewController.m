@@ -87,9 +87,12 @@
     // logout user
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:NO forKey:@"isLoggedIn"];
+    [defaults setObject:Nil forKey:@"currentLoggedInUserEmail"];
+
     [defaults synchronize];
     
     [[RMNManager sharedManager] setIsLoggedIn:NO];
+    [[RMNManager sharedManager] setCurrentUserEmail:Nil];
     
     
     // change design for butts

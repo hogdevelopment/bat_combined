@@ -17,6 +17,8 @@
     NSString *profileImageLocation;
     NSString *userNameText;
     NSDate   *usersJoiningDate;
+    
+    NSString *currentUserEmail;
 }
 
 @property  BOOL isLoggedIn;
@@ -26,6 +28,9 @@
 @property   NSString *profileImageLocation;
 @property   NSString *userNameText;
 @property   NSDate   *usersJoiningDate;
+
+@property   NSString *currentUserEmail;
+
 
 + (id)sharedManager;
 

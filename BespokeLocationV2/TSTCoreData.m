@@ -208,6 +208,40 @@
 
 
 
++ (NSString *) returnEmailForUserWithUsername: (NSString *) username andSocialService: (UserInformationKeyValues ) socialService
+{
+    NSString *foundEmail = @"";
+    
+    AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    
+    // Define our table/entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserInformation" inManagedObjectContext:managedObjectContext];
+    // Setup the fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"username == %@",username];
+    request.resultType = NSDictionaryResultType;
+    
+    NSArray *fetchedObjects;
+    NSError *error;
+    
+    fetchedObjects = [managedObjectContext executeFetchRequest:request error:&error] ;
+    
+    for (id elem in fetchedObjects) {
+        
+        BOOL usingSocialSrv = [[elem valueForKey:[RMNUserInformationCoreData keyForListValue:socialService]] boolValue];
+        
+        if (usingSocialSrv) {
+            foundEmail = [elem valueForKey:[RMNUserInformationCoreData keyForListValue:UserEmail]];
+        }
+    }
+    
+    return foundEmail;
+}
+
+
 + (NSString*)entityNameFor:(TSTCoreDataEntity)entityType
 {
     NSString *entityName;

@@ -213,7 +213,14 @@
             
             if ( currentTFIndex > 1) {
                 nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex - 1];
-                [nowTF becomeFirstResponder];
+                if (nowTF.enabled) {
+                    [nowTF becomeFirstResponder];
+                }
+                else{
+                    currentTFIndex -=1;
+                    [self userDidTouchDown:CGEnhancedKeyboardPreviousTag];
+                }
+                
             }
             
             break;
@@ -222,7 +229,14 @@
             
             if ( currentTFIndex < 4) {
                 nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex + 1];
-                [nowTF becomeFirstResponder];
+                
+                if (nowTF.enabled) {
+                    [nowTF becomeFirstResponder];
+                }
+                else{
+                    currentTFIndex +=1;
+                    [self userDidTouchDown:CGEnhancedKeyboardNextTag];
+                }
             }
             
             break;
@@ -717,9 +731,11 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:@"isLoggedIn"];
+    [defaults setObject:[UserDataSingleton userSingleton].email forKey:@"currentLoggedInUserEmail"];
     [defaults synchronize];
     
     [[RMNManager sharedManager] setIsLoggedIn:YES];
+    [[RMNManager sharedManager] setCurrentUserEmail:[UserDataSingleton userSingleton].email];
     
     NSLog(@"gata, sa salvam!");
     
