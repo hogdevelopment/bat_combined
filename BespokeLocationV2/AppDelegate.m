@@ -58,6 +58,20 @@
 
     
     
+    if (![[RMNManager sharedManager] alreadyShownIntro]) {
+        
+        // app is opened for the first time
+        
+        // time to save to user defaults unit for distance
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:@"kilometers" forKey:@"distanceCurrentUnit"];
+        
+        [defaults synchronize];
+        
+        NSLog(@"app is opened for the first time");
+    }
+    
+    
     return YES;
 }
 

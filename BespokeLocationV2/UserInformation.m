@@ -21,5 +21,6 @@
 @dynamic dateOfBirth;
 @dynamic gender;
 @dynamic password;
+@dynamic registrationDate;
 
 @end

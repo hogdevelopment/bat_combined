@@ -68,6 +68,8 @@
 "Done"              =       "Gata";
 "Register"          =       "Inregistreaza-te";
 
+"Kilometers"          =       "Kilometri";
+"Miles"               =       "Mile";
 
 "There is no user registered with this email."             =       "Nu exista user inregistrat cu aceasta adresa de email.";
 "An email was sent to this address."                       =       "Un email a fost trimis la aceasta adresa.";
