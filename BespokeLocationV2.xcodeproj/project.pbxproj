@@ -26,6 +26,11 @@
 		5C21D10418B37C5500D1996D /* bcwdHolderImageBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D10018B37C5400D1996D /* bcwdHolderImageBg@2x.png */; };
 		5C21D10518B37C5500D1996D /* fwdHolderImageBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D10118B37C5400D1996D /* fwdHolderImageBg.png */; };
 		5C21D10618B37C5500D1996D /* fwdHolderImageBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D10218B37C5400D1996D /* fwdHolderImageBg@2x.png */; };
+		5C21D11218B3A6B000D1996D /* RMNCustomNavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D11118B3A6B000D1996D /* RMNCustomNavButton.m */; };
+		5C21D11518B3AF9900D1996D /* UIView+Convert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D11318B3AF9900D1996D /* UIView+Convert.m */; };
+		5C21D11818B3B86600D1996D /* searchButtonMagnifier.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D11618B3B86600D1996D /* searchButtonMagnifier.png */; };
+		5C21D11918B3B86600D1996D /* searchButtonMagnifier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D11718B3B86600D1996D /* searchButtonMagnifier@2x.png */; };
+		5C21D11C18B3D1F900D1996D /* RMNFAQsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D11B18B3D1F900D1996D /* RMNFAQsViewController.m */; };
 		5C437F0B18AE939200605A8F /* aboutAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437EFD18AE939200605A8F /* aboutAppIcon.png */; };
 		5C437F0C18AE939200605A8F /* aboutAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437EFE18AE939200605A8F /* aboutAppIcon@2x.png */; };
 		5C437F0D18AE939200605A8F /* logoutAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C437EFF18AE939200605A8F /* logoutAppIcon.png */; };
@@ -251,6 +256,14 @@
 		5C21D10018B37C5400D1996D /* bcwdHolderImageBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bcwdHolderImageBg@2x.png"; sourceTree = "<group>"; };
 		5C21D10118B37C5400D1996D /* fwdHolderImageBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fwdHolderImageBg.png; sourceTree = "<group>"; };
 		5C21D10218B37C5400D1996D /* fwdHolderImageBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fwdHolderImageBg@2x.png"; sourceTree = "<group>"; };
+		5C21D11018B3A6B000D1996D /* RMNCustomNavButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNCustomNavButton.h; sourceTree = "<group>"; };
+		5C21D11118B3A6B000D1996D /* RMNCustomNavButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomNavButton.m; sourceTree = "<group>"; };
+		5C21D11318B3AF9900D1996D /* UIView+Convert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convert.m"; sourceTree = "<group>"; };
+		5C21D11418B3AF9900D1996D /* UIView+Convert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convert.h"; sourceTree = "<group>"; };
+		5C21D11618B3B86600D1996D /* searchButtonMagnifier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchButtonMagnifier.png; sourceTree = "<group>"; };
+		5C21D11718B3B86600D1996D /* searchButtonMagnifier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchButtonMagnifier@2x.png"; sourceTree = "<group>"; };
+		5C21D11A18B3D1F900D1996D /* RMNFAQsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFAQsViewController.h; sourceTree = "<group>"; };
+		5C21D11B18B3D1F900D1996D /* RMNFAQsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFAQsViewController.m; sourceTree = "<group>"; };
 		5C437EFD18AE939200605A8F /* aboutAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutAppIcon.png; sourceTree = "<group>"; };
 		5C437EFE18AE939200605A8F /* aboutAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aboutAppIcon@2x.png"; sourceTree = "<group>"; };
 		5C437EFF18AE939200605A8F /* logoutAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoutAppIcon.png; sourceTree = "<group>"; };
@@ -635,6 +648,8 @@
 				5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */,
 				5C21D0FB18B27AA800D1996D /* RMNEditProfileCell.h */,
 				5C21D0FC18B27AA800D1996D /* RMNEditProfileCell.m */,
+				5C21D11018B3A6B000D1996D /* RMNCustomNavButton.h */,
+				5C21D11118B3A6B000D1996D /* RMNCustomNavButton.m */,
 			);
 			name = "Edit Profile";
 			sourceTree = "<group>";
@@ -654,12 +669,23 @@
 		5C21D10718B37C5900D1996D /* Navigation Bar Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				5C21D11618B3B86600D1996D /* searchButtonMagnifier.png */,
+				5C21D11718B3B86600D1996D /* searchButtonMagnifier@2x.png */,
 				5C21D0FF18B37C5400D1996D /* bcwdHolderImageBg.png */,
 				5C21D10018B37C5400D1996D /* bcwdHolderImageBg@2x.png */,
 				5C21D10118B37C5400D1996D /* fwdHolderImageBg.png */,
 				5C21D10218B37C5400D1996D /* fwdHolderImageBg@2x.png */,
 			);
 			name = "Navigation Bar Buttons";
+			sourceTree = "<group>";
+		};
+		5C21D11D18B3D1FD00D1996D /* FAQs */ = {
+			isa = PBXGroup;
+			children = (
+				5C21D11A18B3D1F900D1996D /* RMNFAQsViewController.h */,
+				5C21D11B18B3D1F900D1996D /* RMNFAQsViewController.m */,
+			);
+			name = FAQs;
 			sourceTree = "<group>";
 		};
 		5C437EFC18AE939200605A8F /* side menu icons */ = {
@@ -852,6 +878,8 @@
 		5C6CB4EC18AA492F008CBE2A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5C21D11318B3AF9900D1996D /* UIView+Convert.m */,
+				5C21D11418B3AF9900D1996D /* UIView+Convert.h */,
 				651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */,
 				651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */,
 				5C6CB4E918AA492B008CBE2A /* UIColor+HexRecognition.h */,
@@ -900,6 +928,7 @@
 				5CAF8F2318AD054600AF111F /* Attributes Key */,
 				5C21D0F718B2557700D1996D /* Edit Profile */,
 				5C21D0FE18B3680900D1996D /* Favourite Locations */,
+				5C21D11D18B3D1FD00D1996D /* FAQs */,
 			);
 			name = "Left Side Menu";
 			sourceTree = "<group>";
@@ -1362,6 +1391,7 @@
 				E1C617FB18AE72CD00E90E0F /* okMark@2x.png in Resources */,
 				E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
+				5C21D11818B3B86600D1996D /* searchButtonMagnifier.png in Resources */,
 				5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */,
 				E1B3654C18B252EA0060552E /* logoAgeDeclaration@2x.png in Resources */,
 				6532417B18B2E22A0061FE5C /* ratingLocationStar@2x.png in Resources */,
@@ -1369,6 +1399,7 @@
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
 				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
 				6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */,
+				5C21D11918B3B86600D1996D /* searchButtonMagnifier@2x.png in Resources */,
 				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
 				5C4C980118AD34D800807404 /* NextSlideButton@2x.png in Resources */,
 				5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */,
@@ -1473,10 +1504,12 @@
 				5C21D0F618B2556C00D1996D /* RMNEditProfilePageViewController.m in Sources */,
 				5C21D0FA18B25DD300D1996D /* NSDate+Stringifier.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,
+				5C21D11218B3A6B000D1996D /* RMNCustomNavButton.m in Sources */,
 				5C437F2818AEA4B500605A8F /* RMNSideMenuHeaderButtonsView.m in Sources */,
 				7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */,
 				5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,
+				5C21D11C18B3D1F900D1996D /* RMNFAQsViewController.m in Sources */,
 				6532417118B2E15B0061FE5C /* RMNFavouriteLocationView.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
 				7C9B2DDB189A691000071357 /* SBJsonStreamWriterState.m in Sources */,
@@ -1485,6 +1518,7 @@
 				7C30D54E18A3B4C700B2144C /* FourSquareResturant.m in Sources */,
 				7C9B2E00189A706E00071357 /* databaseItem.m in Sources */,
 				7C9B2DDD189A691000071357 /* SBJsonUTF8Stream.m in Sources */,
+				5C21D11518B3AF9900D1996D /* UIView+Convert.m in Sources */,
 				7C9B2E03189A70A100071357 /* SecondView.m in Sources */,
 				651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */,
 				7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */,
@@ -1577,8 +1611,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1597,7 +1631,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "E159F6A9-6FE5-4D04-9CD3-3E702A80FFC9";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1619,8 +1653,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1632,7 +1666,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "E159F6A9-6FE5-4D04-9CD3-3E702A80FFC9";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1643,8 +1677,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joseph/Documents/Hogarth_Projects/ios_modules/ios_modules/BespokeLocationV2,
@@ -1669,8 +1703,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chiosa Gabriel (ZNDZS6789F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/joseph/Documents/Hogarth_Projects/ios_modules/ios_modules/BespokeLocationV2,

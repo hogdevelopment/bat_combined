@@ -40,6 +40,10 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    
+    [self.navigationItem.leftBarButtonItem  setTintColor:[UIColor whiteColor]];
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor whiteColor]];
+    
     if ([[RMNManager sharedManager] menuShouldBeOpened])
     {
         [[self menuContainerViewController] toggleLeftSideMenuCompletion:nil];
@@ -48,7 +52,6 @@
     
     if (![[RMNManager sharedManager]isLoggedIn])
     {
-        NSLog(@"CICA nu a trecut de login");
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
         
     }
@@ -60,19 +63,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    
-//    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                    [UIColor whiteColor],NSForegroundColorAttributeName,
-//                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
-//    
-//    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
-//    
+
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"2980b9"]];
 
-       //self.title = @"Map";
-
-    
-    
     // init custom search bar
     customSearchBar = [[RMNCustomSearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
     self.navigationItem.titleView = customSearchBar;

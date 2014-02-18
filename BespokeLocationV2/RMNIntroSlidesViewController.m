@@ -238,10 +238,7 @@
              [[self navigationController] setNavigationBarHidden:NO animated:NO];
             
              [self performSegueWithIdentifier:@"ageDeclarationSegue" sender:self];
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:YES forKey:@"alreadyShownIntro"];
-            [defaults synchronize];
+
             break;
         }
 

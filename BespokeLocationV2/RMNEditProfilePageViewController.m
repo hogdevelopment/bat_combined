@@ -11,6 +11,8 @@
 #import "NSDate+Stringifier.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNEditProfileCell.h"
+#import "RMNCustomNavButton.h"
+#import "UserDataSingleton.h"
 
 static NSString *CellIdentifier = @"CellEditProfile";
 
@@ -52,32 +54,53 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [super viewWillAppear:animated];
     [self setupMenuBarButtonItems];
     
+    
+    
 }
+// setup custom left/right menu bar buttons
+// to fit the design
 - (void)setupMenuBarButtonItems
 {
-//    self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+    self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
     self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    
 }
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+
     UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
-                              initWithImage:[UIImage imageNamed:@"bcwdHolderImageBg"] style:UIBarButtonItemStyleBordered
-                              target:self
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
                               action:@selector(popViewControllerAnimated:)];
     
-    [lefty setTitle:@"Back"];
     
     return lefty;
 }
 
-//- (UIBarButtonItem *)rightMenuBarButtonItem {
-//    return [[UIBarButtonItem alloc]
-//            initWithImage:[UIImage imageNamed:@"friendsNavigationBarButtonItem.png"] style:UIBarButtonItemStyleBordered
-//            target:self
-//            action:@selector(rightSideMenuButtonPressed:)];
-//}
 
+- (UIBarButtonItem *)rightMenuBarButtonItem {
+    
+    UIImage*rightyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonForward withTitle:@"Save"];
+    
+    UIBarButtonItem *righty = [[UIBarButtonItem alloc]
+                              initWithImage:rightyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self
+                              action:@selector(saveInformationAndDismissController)];
+    
+    
+    return righty;
+}
+
+- (void)saveInformationAndDismissController
+{
+    
+#warning Must save here information about the user in local database
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

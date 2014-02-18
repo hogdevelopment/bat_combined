@@ -8,37 +8,36 @@
 
 #import "RMNFavouritesLocationsTablevViewController.h"
 #import "RMNFavouriteLocationView.h"
+#import "RMNCustomNavButton.h"
+#import "CGEnhancedKeyboard.h"
 
 
-
+@interface RMNFavouritesLocationsTablevViewController()<CGEnhancedKeyboardDelegate,UISearchBarDelegate>
+{
+    CGEnhancedKeyboard *enhancedToolBar;
+    UISearchBar *navigationSearchBar;
+}
+@end
 
 @implementation RMNFavouritesLocationsTablevViewController
 
 static NSString *CellIdentifier = @"Cell";
 
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (void)viewWillAppear:(BOOL)animated
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewWillAppear:animated];
+    [self setupMenuBarButtonItems];
+    
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"616161"]];
+
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-
-    
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"RMNFavouriteLocationView"
                                                bundle:[NSBundle mainBundle]]
          forCellReuseIdentifier:CellIdentifier];
@@ -86,15 +85,111 @@ static NSString *CellIdentifier = @"Cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-//    RMNFavouriteLocationView *cell = (RMNFavouriteLocationView*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-//    
-//    
-    
     RMNFavouriteLocationView *cell = (RMNFavouriteLocationView*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [cell makeItRound];
     return cell;
 }
 
+
+#pragma mark -- Custom navigation bar buttons
+// setup custom left/right menu bar buttons
+// to fit the design
+- (void)setupMenuBarButtonItems
+{
+    self.navigationItem.rightBarButtonItem  =   [self rightMenuBarButtonItem];
+    self.navigationItem.leftBarButtonItem   =   [self leftMenuBarButtonItem];
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem
+{
+    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+    
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
+                              action:@selector(popViewControllerAnimated:)];
+    
+    [lefty setTintColor:[UIColor whiteColor]];
+    return lefty;
+}
+
+
+- (UIBarButtonItem *)rightMenuBarButtonItem {
+    
+    UIImage*rightyButton = [UIImage imageNamed:@"searchButtonMagnifier"];
+    
+    UIBarButtonItem *righty = [[UIBarButtonItem alloc]
+                               initWithImage:rightyButton
+                               style:UIBarButtonItemStyleBordered
+                               target:self
+                               action:@selector(searchFavouritesLocations)];
+    
+    [righty setTintColor:[UIColor whiteColor]];
+    return righty;
+}
+
+
+#pragma mark CGEnhancedKeyboardTags  delegate
+- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
+{
+    // get the text field from the search bar and dismiss the keyboard
+    UITextField *txfSearchField = [navigationSearchBar valueForKey:@"_searchField"];
+    [txfSearchField resignFirstResponder];
+    
+    
+    // if the text field is empty change the navigation bar button
+    if ([txfSearchField.text length] == 0)
+    {
+        self.navigationItem.rightBarButtonItem  =   [self rightMenuBarButtonItem];
+    }
+    
+}
+
+
+#pragma mark UISearchBar  delegate
+
+- (void)searchFavouritesLocations
+{
+    // init the search bar
+    navigationSearchBar = [[UISearchBar alloc]init];
+    [navigationSearchBar setFrame:CGRectMake(0, 0, 200, 40)];
+    [navigationSearchBar setDelegate:self];
+    
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil]
+     setTextColor:[UIColor colorWithHexString:@"616161"]];
+    
+    
+    
+    
+    // prepare the toolbar for the keyboard
+    enhancedToolBar = [[CGEnhancedKeyboard alloc]init];
+    [enhancedToolBar setKeyboardToolbarDelegate:self];
+    
+    
+    // get the textfield associated with the textfield
+    UITextField *txfSearchField = [navigationSearchBar valueForKey:@"_searchField"];
+    [txfSearchField setInputAccessoryView:[enhancedToolBar getDoneToolbarl]];
+    [txfSearchField setBackgroundColor:[UIColor colorWithHexString:@"e9e9e9"]];
+
+    // set the desired color
+    [[txfSearchField inputAccessoryView] setTintColor:[UIColor whiteColor]];
+    
+    // bring the keyboard
+    [txfSearchField becomeFirstResponder];
+    
+    // return the new bar button item with the search bar attached to it
+    UIBarButtonItem *searchBarItem = [[UIBarButtonItem alloc] initWithCustomView:navigationSearchBar];
+    self.navigationItem.rightBarButtonItem = searchBarItem;
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    UITextField *txfSearchField = [searchBar valueForKey:@"_searchField"];
+    NSLog(@"za dude is searching for %@",[txfSearchField text]);
+}
 
 @end

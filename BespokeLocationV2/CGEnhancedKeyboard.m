@@ -104,6 +104,8 @@
 {
     // tell the app it's time to remove
     // the keyboard
+    NSLog(@"AJUNGE LA DONE DID CLICK");
+    
     if (![self keyboardToolbarDelegate]) return;
     [[self keyboardToolbarDelegate] userDidTouchDown:CGEnhancedKeyboardDoneTag];
 }
