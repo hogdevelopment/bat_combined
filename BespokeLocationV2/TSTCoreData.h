@@ -39,4 +39,8 @@ typedef enum
 // check if the account with this email was created with a password and return it
 + (NSString *) findPasswordForUserRegisteredWithEmail: (NSString *) userEmail;
 
+
+// get email for user with username and social service
++ (NSString *) returnEmailForUserWithUsername: (NSString *) username andSocialService: (UserInformationKeyValues ) socialService;
+
 @end

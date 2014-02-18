@@ -109,7 +109,7 @@ UserInformationKeyValues selectedService;
     }
     else{
         // check in database user registered with password
-        
+        [UserDataSingleton userSingleton].email = self.emailTF.text;
         foundUser = [TSTCoreData checkIfIsSavedInCoreDataUserWithEmail:self.emailTF.text andPassword:self.passwordTF.text];
     }
     
@@ -122,9 +122,16 @@ UserInformationKeyValues selectedService;
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:@"isLoggedIn"];
+    
+    // get the email
+    NSString *theEmail = [TSTCoreData returnEmailForUserWithUsername:[UserDataSingleton userSingleton].userName andSocialService:selectedService];
+    
+    // save the current email to user defaults
+    [defaults setObject:theEmail forKey:@"currentLoggedInUserEmail"];
     [defaults synchronize];
     
     [[RMNManager sharedManager] setIsLoggedIn:YES];
+    [[RMNManager sharedManager] setCurrentUserEmail:theEmail];
     
     [self dismissViewControllerAnimated:YES completion:NO];
 }

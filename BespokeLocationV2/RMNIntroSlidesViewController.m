@@ -230,6 +230,8 @@
             // and it won't show again
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:YES forKey:@"alreadyShownIntro"];
+            [[RMNManager sharedManager] setAlreadyShownIntro:YES];
+            
             [defaults synchronize];
             
              [[self navigationController] setNavigationBarHidden:NO animated:NO];
