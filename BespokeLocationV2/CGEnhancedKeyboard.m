@@ -102,7 +102,6 @@
 
 - (void)doneDidClick:(id)sender
 {
-    NSLog(@"AJUNGE IN DONEDIDCLICK");
     // tell the app it's time to remove
     // the keyboard
     if (![self keyboardToolbarDelegate]) return;

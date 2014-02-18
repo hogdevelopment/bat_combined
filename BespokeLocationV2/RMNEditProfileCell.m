@@ -7,19 +7,22 @@
 //
 
 #import "RMNEditProfileCell.h"
-#import "CGEnhancedKeyboard.h"
 
 
-@interface RMNEditProfilePageViewController
+@interface RMNEditProfileCell()<CGEnhancedKeyboardDelegate>
 {
-    UITextField *textField;
+    UITextField *textFieldInput;
+    CGEnhancedKeyboard *enhancedKeyboard;
+    int indexPathSection;
 }
 
 @end
 
 @implementation RMNEditProfileCell
 
-@synthesize textField   =   textField;
+@synthesize textFieldInput      =   textFieldInput;
+@synthesize keyboardDelegate    =   keyboardDelegate;
+@synthesize indexPathSection    =   indexPathSection;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,19 +30,40 @@
     if (self)
     {
     
-        textField = [[UITextField alloc]init];
-        [textField setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, 40)];
-        [self.contentView addSubview:textField];
-        
-//        CGEnhancedKeyboard *enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
-//        [textField setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
-#warning MUST IMPLEMENT FURTHER HERE
+        textFieldInput = [[UITextField alloc]init];
+        [textFieldInput setFrame:CGRectMake(0, 0, self.contentView.frame.size.width, 40)];
+        [self.contentView addSubview:textFieldInput];
+
+#warning KEYBOARD BUttons not working well. Must fix when rested
+        enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
+        [enhancedKeyboard setKeyboardToolbarDelegate:self];
+        [textFieldInput setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+
     }
     return self;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [[self keyboardDelegate] userTouchedSection:indexPathSection];
+    
+}
 
+- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
+{
 
+     [[self keyboardDelegate] userDidTouchDown:tagType];
+    
+    if (tagType == CGEnhancedKeyboardDoneTag)
+    {
+        // scroll back to top
+         [[self keyboardDelegate] userTouchedSection:0];
+        [self.contentView endEditing:YES];
+    }
+    
+   
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

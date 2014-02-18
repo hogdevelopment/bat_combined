@@ -191,6 +191,7 @@
         }
         case RMNUserSettingsSideMenuFavourites:
         {
+            segueIdentifier = @"favouritesLocationSegue";
             NSLog(@"time to favourites");
             break;
         }
