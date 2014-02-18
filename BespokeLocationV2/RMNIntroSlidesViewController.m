@@ -27,13 +27,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    
+    
+     [[self navigationController] setNavigationBarHidden:![[RMNManager sharedManager] alreadyShownIntro] animated:NO];
     
     if ([[RMNManager sharedManager]isLoggedIn] || [[RMNManager sharedManager] alreadyShownIntro])
     {
+        
         NSLog(@"deci este deja logat sau a deja a trecut prin intro!");
         [self performSegueWithIdentifier:@"ageDeclarationSegue" sender:self];
     }
+
 }
 
 
@@ -103,9 +107,7 @@
     }
     [self.view addSubview:self.customFooter];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"alreadyShownIntro"];
-    [defaults synchronize];
+
 }
 
 
@@ -228,7 +230,12 @@
         case 2:
         {
              [[self navigationController] setNavigationBarHidden:NO animated:NO];
+            
              [self performSegueWithIdentifier:@"ageDeclarationSegue" sender:self];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:YES forKey:@"alreadyShownIntro"];
+            [defaults synchronize];
             break;
         }
 
