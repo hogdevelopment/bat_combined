@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMNFAQsViewController : UIViewController
+@interface RMNFAQsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

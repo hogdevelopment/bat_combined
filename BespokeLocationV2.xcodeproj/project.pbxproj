@@ -108,6 +108,7 @@
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
+		5CF31D8018B4EBE90073909B /* RMNFaqsAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */; };
 		651F37FA18AED58F00449DC7 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651F37F918AED58F00449DC7 /* GoogleMaps.framework */; };
 		651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */; };
 		651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */; };
@@ -371,6 +372,8 @@
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
 		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
+		5CF31D7E18B4EBE90073909B /* RMNFaqsAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFaqsAnswersViewController.h; sourceTree = "<group>"; };
+		5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFaqsAnswersViewController.m; sourceTree = "<group>"; };
 		651F37F918AED58F00449DC7 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effects.h"; sourceTree = "<group>"; };
@@ -910,6 +913,7 @@
 			isa = PBXGroup;
 			children = (
 				5CAF8F1518ACF7FB00AF111F /* Left Side Menu */,
+				5CF31D8118B4EBEC0073909B /* FAQs Answers */,
 			);
 			name = "Side Menu Pages";
 			sourceTree = "<group>";
@@ -1038,6 +1042,15 @@
 				5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */,
 			);
 			name = "Attributes Key";
+			sourceTree = "<group>";
+		};
+		5CF31D8118B4EBEC0073909B /* FAQs Answers */ = {
+			isa = PBXGroup;
+			children = (
+				5CF31D7E18B4EBE90073909B /* RMNFaqsAnswersViewController.h */,
+				5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */,
+			);
+			name = "FAQs Answers";
 			sourceTree = "<group>";
 		};
 		6532417C18B2E2310061FE5C /* Favourite Locations Cell */ = {
@@ -1457,6 +1470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9B2D9B189A684A00071357 /* ViewController.m in Sources */,
+				5CF31D8018B4EBE90073909B /* RMNFaqsAnswersViewController.m in Sources */,
 				0E07969318A5334800537FBC /* UserDataSingleton.m in Sources */,
 				7C04AD0D189FBC0600AAA15A /* TRGoogleMapsSuggestion.m in Sources */,
 				7C9B2DDE189A691000071357 /* SBJsonWriter.m in Sources */,

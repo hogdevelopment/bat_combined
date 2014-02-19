@@ -80,3 +80,36 @@
 "Please enter a valid email address"    =       "Te rog adauga o adresa de email valida";
 "We are unable to access some of your details. Please fill in the rest of the fields."             =       "Nu am reusit sa accesam toate informatiile. Te rugam sa completezi campurile ramase.";
 "There is no user registered with this informations."             =       "Acest user nu este inregistrat.";
+
+
+
+// FAQs questions
+"questionFAQs_0"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_1"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_2"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_3"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_4"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_5"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_6"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_7"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_8"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_9"        =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_10"       =   "Sed ut perspiciatis unde omnis iste?";
+"questionFAQs_11"       =   "Sed ut perspiciatis unde omnis iste?";
+
+
+// FAQs answers
+"answerFAQs_0"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_1"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_2"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_3"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_4"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_5"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_6"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_7"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_8"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_9"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_10"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+"answerFAQs_11"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
+
+"FAQsHeader"    =   "Frequently asked questions";
