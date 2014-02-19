@@ -17,7 +17,9 @@
 static NSString *CellIdentifier = @"CellEditProfile";
 
 
-@interface RMNEditProfilePageViewController ()<RMNEditProfileCellDelegate>
+@interface RMNEditProfilePageViewController ()  <RMNEditProfileCellDelegate,
+                                                UIActionSheetDelegate,
+                                                UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     int currentSection;
     BOOL isEditable;
@@ -259,5 +261,62 @@ static NSString *CellIdentifier = @"CellEditProfile";
                                   animated:YES];
     
     [self.tableView setScrollEnabled:NO];
+}
+
+
+
+
+- (IBAction)changePicture:(id)sender
+{
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select source for profile photo:"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:
+                            @"Take a new photo",
+                            @"Load photo from Camera Roll",
+                            nil];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    
+    
+
+}
+
+#pragma Mark -  UIActionSheet delegate methods
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    
+    switch (buttonIndex) {
+            case 0:
+            {
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                break;
+            }
+            case 1:
+            {
+                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+            }
+            default:
+                break;
+        }
+
+    [self presentViewController:picker animated:YES completion:nil];
+
+}
+
+#pragma Mark - UIImagePickerController delegate methods
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //put code for store image
 }
 @end

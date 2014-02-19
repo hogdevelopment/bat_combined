@@ -30,6 +30,8 @@
     id <RMNEditProfileCellDelegate> keyboardDelegate;
     
 }
+
+
 @property (nonatomic, strong) id <RMNEditProfileCellDelegate> keyboardDelegate;
 
 @property UITextField *textFieldInput;

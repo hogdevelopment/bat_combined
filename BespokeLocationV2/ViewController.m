@@ -228,81 +228,81 @@
 
 -(void)LoadMap{
     
-    NSLog(@"Harta se incarca");
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
-                                                            longitude:CurrentLocationlng
-                                                                 zoom:14];
-    
-    
-    /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:51.511214
-     longitude:-0.119824
-     zoom:15]; */
-    
-    // set map size
-    CGFloat heightForMap = filtersList.frame.origin.y - 65;
-    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, heightForMap) camera:camera];
-    mapView_.myLocationEnabled = YES;
-    //self.view = mapView_;
-    [self.view addSubview:mapView_];
-    
-    mapView_.delegate = self;
-
-    
-    
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-     BOOL foursquare = appDelegate.FoursquareAPI;
-    
-    for (int i = 0; i< LocationObjects.count; i++) {
-        
-        if(foursquare == TRUE){
-            
-            FourSquareResturant *r = [LocationObjects objectAtIndex:i];
-            GMSMarker *marker = [[GMSMarker alloc] init];
-            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
-            marker.title = r.name;
-            marker.snippet = r.localAddress;
-            marker.userData = r;
-            
-            marker.map = mapView_;
-
-        }
-        else{
-            
-        databaseItem *r = [LocationObjects objectAtIndex:i];
-        
-            GMSMarker *marker = [[GMSMarker alloc] init];
-            
-            
-            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
-            
-            // NSLog(@"%.2f", marker.position.latitude);
-            
-            marker.title = r.name;
-            marker.snippet = r.localAddress;
-            marker.userData = r;
-            
-            marker.map = mapView_;
-            
-            // NSLog(@"lat = %.4f, lng = %.4f  title = %@ , snippet = %@", marker.position.latitude, marker.position.longitude, r.name,r.localAddress);
-
-        }
-        
-    }
-    
-    [self StopActivity];
-
-    
-    // Get the textField from the Searchbar
-    // Now listen up.. the guy that wrote this googleplaces wrapper did not implement
-    // the users current location. I have had to add that here. Check the updates I made in the
-    
-    CLLocationCoordinate2D mylocation;
-    mylocation.latitude = CurrentLocationlat;
-    mylocation.longitude = CurrentLocationlng;
-    
-    // settings needed for autocomplete feature
-    [customSearchBar setViewController:self];
-    [customSearchBar setLocationCoordinate:mylocation];
+//    NSLog(@"Harta se incarca");
+//    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:CurrentLocationlat
+//                                                            longitude:CurrentLocationlng
+//                                                                 zoom:14];
+//    
+//    
+//    /* GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:51.511214
+//     longitude:-0.119824
+//     zoom:15]; */
+//    
+//    // set map size
+//    CGFloat heightForMap = filtersList.frame.origin.y - 65;
+//    mapView_ = [GMSMapView mapWithFrame:CGRectMake(0, 65, 320, heightForMap) camera:camera];
+//    mapView_.myLocationEnabled = YES;
+//    //self.view = mapView_;
+//    [self.view addSubview:mapView_];
+//    
+//    mapView_.delegate = self;
+//
+//    
+//    
+//    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//     BOOL foursquare = appDelegate.FoursquareAPI;
+//    
+//    for (int i = 0; i< LocationObjects.count; i++) {
+//        
+//        if(foursquare == TRUE){
+//            
+//            FourSquareResturant *r = [LocationObjects objectAtIndex:i];
+//            GMSMarker *marker = [[GMSMarker alloc] init];
+//            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
+//            marker.title = r.name;
+//            marker.snippet = r.localAddress;
+//            marker.userData = r;
+//            
+//            marker.map = mapView_;
+//
+//        }
+//        else{
+//            
+//        databaseItem *r = [LocationObjects objectAtIndex:i];
+//        
+//            GMSMarker *marker = [[GMSMarker alloc] init];
+//            
+//            
+//            marker.position = CLLocationCoordinate2DMake([r.latitude doubleValue],[r.longitude doubleValue]);
+//            
+//            // NSLog(@"%.2f", marker.position.latitude);
+//            
+//            marker.title = r.name;
+//            marker.snippet = r.localAddress;
+//            marker.userData = r;
+//            
+//            marker.map = mapView_;
+//            
+//            // NSLog(@"lat = %.4f, lng = %.4f  title = %@ , snippet = %@", marker.position.latitude, marker.position.longitude, r.name,r.localAddress);
+//
+//        }
+//        
+//    }
+//    
+//    [self StopActivity];
+//
+//    
+//    // Get the textField from the Searchbar
+//    // Now listen up.. the guy that wrote this googleplaces wrapper did not implement
+//    // the users current location. I have had to add that here. Check the updates I made in the
+//    
+//    CLLocationCoordinate2D mylocation;
+//    mylocation.latitude = CurrentLocationlat;
+//    mylocation.longitude = CurrentLocationlng;
+//    
+//    // settings needed for autocomplete feature
+//    [customSearchBar setViewController:self];
+//    [customSearchBar setLocationCoordinate:mylocation];
 }
 
 -(void)GetDataFromDatabase
