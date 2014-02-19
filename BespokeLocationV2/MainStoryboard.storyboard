@@ -1363,23 +1363,14 @@ LINE 3</string>
         <image name="StartUsingAppFromSlide.png" width="153" height="31"/>
         <image name="distanceButtsBg.png" width="287" height="48"/>
         <image name="facebook.png" width="54" height="55"/>
-        <image name="facebook.png" width="54" height="55"/>
         <image name="foursquare.png" width="55" height="55"/>
-        <image name="foursquare.png" width="55" height="55"/>
-        <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="loginBg.png" width="320" height="503"/>
         <image name="loginScreenBg.png" width="320" height="504"/>
         <image name="logoAgeDeclaration.png" width="139" height="196"/>
         <image name="logoHolder.png" width="300" height="300"/>
         <image name="menu-icon.png" width="22" height="17"/>
-        <image name="menu-icon.png" width="22" height="17"/>
         <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="twitterLogo.png" width="54" height="55"/>
         <image name="twitterLogo.png" width="54" height="55"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

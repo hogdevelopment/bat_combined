@@ -113,3 +113,14 @@
 "answerFAQs_11"      =   "Phasellus eget nulla a metus tristique blandit sit amet at leo. In euismod nulla sem, at bibendum risus ornare ut. Proin arcu nisl, congue et sapien sit amet, interdum lacinia diam. Proin a sapien at sem dapibus tristique. Mauris sagittis, leo non ornare sagittis, arcu lectus tempus leo, vitae convallis sem quam in eros. Nunc et scelerisque mauris. Donec a mollis risus. Fusce convallis erat at sapien adipiscing, sit amet condimentum lacus interdum.";
 
 "FAQsHeader"    =   "Frequently asked questions";
+
+
+// keyboard toolbar button
+"Previous"  =   "Precedentul";
+"Next"      =   "Următorul";
+"Done"      =   "Gata";
+
+
+// custom picker view data
+"Male"      =   "Fufă";
+"Female"    =   "Bulangiu";

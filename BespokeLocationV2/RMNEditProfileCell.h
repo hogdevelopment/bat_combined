@@ -36,4 +36,6 @@
 @property (assign) int indexPathSection;
 
 
+- (void)addPickerStuff;
+
 @end

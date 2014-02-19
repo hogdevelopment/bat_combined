@@ -126,3 +126,16 @@
 
 "FAQsHeader"    =   "Frequently asked questions";
 
+
+
+// keyboard toolbar button
+"Previous"  =   "Previous";
+"Next"      =   "Next";
+"Done"      =   "Done";
+
+
+// custom picker view data
+"Male"      =   "Male";
+"Female"    =   "Female";
+
+

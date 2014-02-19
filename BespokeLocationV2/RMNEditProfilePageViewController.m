@@ -170,6 +170,12 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [cell.textFieldInput setPlaceholder:[sectionsTitles objectAtIndex:indexPath.row]];
     [cell setKeyboardDelegate:self];
    
+    if (indexPath.row == 2 ||
+        indexPath.row == 3)
+    {
+        [cell addPickerStuff];
+    }
+    
     return cell;
 }
 
