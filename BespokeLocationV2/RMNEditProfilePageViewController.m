@@ -18,7 +18,8 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 @interface RMNEditProfilePageViewController ()  <RMNEditProfileCellDelegate,
                                                 UIActionSheetDelegate,
-                                                UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+                                                UIImagePickerControllerDelegate,
+                                                UINavigationControllerDelegate>
 {
     int currentSection;
     BOOL isEditable;

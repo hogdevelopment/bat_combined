@@ -123,6 +123,10 @@
 		6532417A18B2E22A0061FE5C /* ratingLocationStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417518B2E22A0061FE5C /* ratingLocationStar.png */; };
 		6532417B18B2E22A0061FE5C /* ratingLocationStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6532417618B2E22A0061FE5C /* ratingLocationStar@2x.png */; };
 		6532417F18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6532417E18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m */; };
+		65A217B818B56B3D00113F27 /* faqsAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A217B618B56B3D00113F27 /* faqsAppIcon.png */; };
+		65A217B918B56B3D00113F27 /* faqsAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A217B718B56B3D00113F27 /* faqsAppIcon@2x.png */; };
+		65A217BC18B56F1A00113F27 /* logoWhereToSmoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A217BA18B56F1A00113F27 /* logoWhereToSmoke.png */; };
+		65A217BD18B56F1A00113F27 /* logoWhereToSmoke@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65A217BB18B56F1A00113F27 /* logoWhereToSmoke@2x.png */; };
 		7C04AD0A189FBC0600AAA15A /* TRAutocompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */; };
 		7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD01189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m */; };
 		7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AD03189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m */; };
@@ -392,6 +396,10 @@
 		6532417618B2E22A0061FE5C /* ratingLocationStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ratingLocationStar@2x.png"; sourceTree = "<group>"; };
 		6532417D18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFavouritesLocationsTablevViewController.h; sourceTree = "<group>"; };
 		6532417E18B2E4490061FE5C /* RMNFavouritesLocationsTablevViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFavouritesLocationsTablevViewController.m; sourceTree = "<group>"; };
+		65A217B618B56B3D00113F27 /* faqsAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faqsAppIcon.png; sourceTree = "<group>"; };
+		65A217B718B56B3D00113F27 /* faqsAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faqsAppIcon@2x.png"; sourceTree = "<group>"; };
+		65A217BA18B56F1A00113F27 /* logoWhereToSmoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoWhereToSmoke.png; sourceTree = "<group>"; };
+		65A217BB18B56F1A00113F27 /* logoWhereToSmoke@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoWhereToSmoke@2x.png"; sourceTree = "<group>"; };
 		7C04ACFC189FBC0600AAA15A /* TRAutocompleteItemsSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteItemsSource.h; sourceTree = "<group>"; };
 		7C04ACFD189FBC0600AAA15A /* TRAutocompleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRAutocompleteView.h; sourceTree = "<group>"; };
 		7C04ACFE189FBC0600AAA15A /* TRAutocompleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRAutocompleteView.m; sourceTree = "<group>"; };
@@ -598,6 +606,8 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				65A217BA18B56F1A00113F27 /* logoWhereToSmoke.png */,
+				65A217BB18B56F1A00113F27 /* logoWhereToSmoke@2x.png */,
 				5C21D10718B37C5900D1996D /* Navigation Bar Buttons */,
 				6532417C18B2E2310061FE5C /* Favourite Locations Cell */,
 				E1B3654918B252EA0060552E /* logoAgeDeclaration.png */,
@@ -694,6 +704,8 @@
 		5C437EFC18AE939200605A8F /* side menu icons */ = {
 			isa = PBXGroup;
 			children = (
+				65A217B618B56B3D00113F27 /* faqsAppIcon.png */,
+				65A217B718B56B3D00113F27 /* faqsAppIcon@2x.png */,
 				5C21D0F018B245F500D1996D /* rateAppIcon.png */,
 				5C21D0F118B245F500D1996D /* rateAppIcon@2x.png */,
 				5C437EFD18AE939200605A8F /* aboutAppIcon.png */,
@@ -1410,12 +1422,14 @@
 				6532417B18B2E22A0061FE5C /* ratingLocationStar@2x.png in Resources */,
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
+				65A217B818B56B3D00113F27 /* faqsAppIcon.png in Resources */,
 				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
 				6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */,
 				5C21D11918B3B86600D1996D /* searchButtonMagnifier@2x.png in Resources */,
 				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
 				5C4C980118AD34D800807404 /* NextSlideButton@2x.png in Resources */,
 				5C4C97EB18AD21E200807404 /* favouriteButton.png in Resources */,
+				65A217BD18B56F1A00113F27 /* logoWhereToSmoke@2x.png in Resources */,
 				5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */,
 				5C50C5D518AE54BB00EA169C /* lineSeparator@2x.png in Resources */,
 				E1A82F0718AD022D00FF9661 /* facebook@2x.png in Resources */,
@@ -1431,6 +1445,7 @@
 				5C437F1518AE939200605A8F /* settingsAppIcon.png in Resources */,
 				5C437F0E18AE939200605A8F /* logoutAppIcon@2x.png in Resources */,
 				E1C6180518AE806500E90E0F /* loginScreenBg@2x.png in Resources */,
+				65A217BC18B56F1A00113F27 /* logoWhereToSmoke.png in Resources */,
 				5C6CB53818AB7A2F008CBE2A /* hpSearchBar.png in Resources */,
 				7C9B30AE189AC4EC00071357 /* not_selected_star@2x.png in Resources */,
 				5C4C980518AD34D800807404 /* slide_3_Zurich@2x.png in Resources */,
@@ -1442,6 +1457,7 @@
 				5C4C97FB18AD34D800807404 /* slide_3_Zurich.png in Resources */,
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
+				65A217B918B56B3D00113F27 /* faqsAppIcon@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */,
 				6532417718B2E22A0061FE5C /* deleteFromFavouritesLocations.png in Resources */,

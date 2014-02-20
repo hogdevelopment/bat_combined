@@ -200,6 +200,15 @@
             segueIdentifier = @"editProfilePageSegue";
             break;
         }
+        case RMNUserSettingsSideMenuAbout:
+        {
+            segueIdentifier = @"aboutPageSegue";
+            break;
+        }
+        case RMNUserSettingsSideMenuUserFilters:
+        {
+            break;
+        }
             
         default:
             break;
