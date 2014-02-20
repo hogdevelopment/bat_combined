@@ -11,7 +11,6 @@
 #import "NSDate+Stringifier.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNEditProfileCell.h"
-#import "RMNCustomNavButton.h"
 #import "UserDataSingleton.h"
 
 static NSString *CellIdentifier = @"CellEditProfile";
@@ -41,24 +40,20 @@ static NSString *CellIdentifier = @"CellEditProfile";
 @synthesize sectionsTitles  =   sectionsTitles;
 @synthesize isEditable      =   isEditable;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        
-    }
-    return self;
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self setupMenuBarButtonItems];
     
+    self.navigationItem.title = NSLocalizedString(@"Edit Profile",nil);
+
     
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
     
 }
+
+
 // setup custom left/right menu bar buttons
 // to fit the design
 - (void)setupMenuBarButtonItems
@@ -78,6 +73,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
                               target:self.navigationController
                               action:@selector(popViewControllerAnimated:)];
     
+    [lefty setTintColor:[UIColor whiteColor]];
     
     return lefty;
 }
@@ -93,6 +89,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
                               target:self
                               action:@selector(saveInformationAndDismissController)];
     
+    [righty setTintColor:[UIColor whiteColor]];
     
     return righty;
 }

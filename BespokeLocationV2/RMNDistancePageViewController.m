@@ -9,20 +9,50 @@
 #import "RMNDistancePageViewController.h"
 #import "UIColor+HexRecognition.h"
 
+
 @interface RMNDistancePageViewController ()
 
 @end
 
 @implementation RMNDistancePageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    
+    [self.navigationItem setHidesBackButton:YES];
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+    
+    
+    [self setupMenuBarButtonItems];
+    
+    
 }
+
+// setup custom left/right menu bar buttons
+// to fit the design
+- (void)setupMenuBarButtonItems
+{
+    self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem
+{
+    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+    
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
+                              action:@selector(popViewControllerAnimated:)];
+    
+    [lefty setTintColor:[UIColor whiteColor]];
+    return lefty;
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -53,16 +83,6 @@
     }
     
 
-}
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"616161"]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-
-    [self.navigationItem.backBarButtonItem setTintColor:[UIColor whiteColor]];
-    
 }
 
 - (void)didReceiveMemoryWarning

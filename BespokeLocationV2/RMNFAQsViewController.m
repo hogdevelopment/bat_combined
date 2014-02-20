@@ -9,6 +9,7 @@
 #import "RMNFAQsViewController.h"
 #import "RMNFaqsAnswersViewController.h"
 
+
 static NSString *CellIdentifier         = @"CellFAQs";
 static NSString *CellHeaderIdentifier   = @"CellFAQsHeader";
 
@@ -29,6 +30,42 @@ static NSString *CellHeaderIdentifier   = @"CellFAQsHeader";
 
 @synthesize questions   =   questions;
 @synthesize answers     =   answers;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+    
+    self.navigationItem.title = NSLocalizedString(@"FAQs",nil);
+
+    
+    [self setupMenuBarButtonItems];
+}
+
+
+// setup custom left/right menu bar buttons
+// to fit the design
+- (void)setupMenuBarButtonItems
+{
+    self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem {
+    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+    
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
+                              action:@selector(popViewControllerAnimated:)];
+    [lefty setTintColor:[UIColor whiteColor]];
+    
+    return lefty;
+}
+
+
 
 - (void)viewDidLoad
 {

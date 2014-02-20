@@ -912,8 +912,8 @@
 		5CAF8F1418ACF7ED00AF111F /* Side Menu Pages */ = {
 			isa = PBXGroup;
 			children = (
+				5CAF8F2318AD054600AF111F /* Attributes Key */,
 				5CAF8F1518ACF7FB00AF111F /* Left Side Menu */,
-				5CF31D8118B4EBEC0073909B /* FAQs Answers */,
 			);
 			name = "Side Menu Pages";
 			sourceTree = "<group>";
@@ -929,10 +929,10 @@
 				5CAF8F1D18AD04FF00AF111F /* Help And Improve */,
 				5CAF8F1E18AD050600AF111F /* Rate App */,
 				5CAF8F1F18AD051000AF111F /* Share App */,
-				5CAF8F2318AD054600AF111F /* Attributes Key */,
 				5C21D0F718B2557700D1996D /* Edit Profile */,
 				5C21D0FE18B3680900D1996D /* Favourite Locations */,
 				5C21D11D18B3D1FD00D1996D /* FAQs */,
+				5CF31D8118B4EBEC0073909B /* FAQs Answers */,
 			);
 			name = "Left Side Menu";
 			sourceTree = "<group>";

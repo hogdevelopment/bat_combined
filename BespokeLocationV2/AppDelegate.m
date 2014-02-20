@@ -58,6 +58,15 @@
 
     
     
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f]
+                                                            }];
+    
+    
+
+    [[UINavigationBar appearance] setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+    
     if (![[RMNManager sharedManager] alreadyShownIntro]) {
         
         // app is opened for the first time

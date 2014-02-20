@@ -138,4 +138,15 @@
 "Male"      =   "Male";
 "Female"    =   "Female";
 
+//Navigation bar titles
+
+"Edit Filters"      = "Edit Filters";
+"About"             = "About";
+"Feedback"          = "Feedback";
+"Favourites"        = "Favourites";
+"FAQs"              = "FAQs";
+"Privacy Policy"    = "Privacy Policy";
+"Rate the App"      = "Rate the App";
+"Share the App"     = "Share the App";
+
 

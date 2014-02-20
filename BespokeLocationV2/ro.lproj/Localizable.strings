@@ -124,3 +124,13 @@
 // custom picker view data
 "Male"      =   "Fufă";
 "Female"    =   "Bulangiu";
+
+//Navigation bar titles
+
+"Edit Filters"      = "Editează Filtrele";
+"About"             = "Despre";
+"Feedback"          = "Hrănește-mă înapoi";
+"Favourites"        = "Preferate";
+"FAQs"              = "ÎPD-urile";
+"Privacy Policy"    = "Politica din Securitate";
+
