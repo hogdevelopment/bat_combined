@@ -10,11 +10,13 @@
 
 @implementation RMNManager
 
-@synthesize isLoggedIn,menuShouldBeOpened;
-@synthesize userNameText,profileImageLocation;
-@synthesize usersJoiningDate;
-@synthesize alreadyShownIntro;
-@synthesize currentUserEmail;
+@synthesize isLoggedIn              =   isLoggedIn;
+@synthesize menuShouldBeOpened      =   menuShouldBeOpened;
+@synthesize userNameText            =   userNameText;
+@synthesize profileImageLocation    =   profileImageLocation;
+@synthesize usersJoiningDate        =   usersJoiningDate;
+@synthesize alreadyShownIntro       =   alreadyShownIntro;
+@synthesize currentUserEmail        =   currentUserEmail;
 
 #pragma mark Singleton Methods
 

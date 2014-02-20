@@ -11,9 +11,6 @@
 #import "RMNEditFilterTableViewCell.h"
 
 
-
-
-
 @interface RMNEditFiltersViewController ()<CGEnhancedKeyboardDelegate,UISearchBarDelegate>
 {
     CGEnhancedKeyboard *enhancedToolBar;
@@ -164,7 +161,7 @@ static NSString *CellIdentifier = @"Cell";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         //add code here for when you hit delete
         
-        [filtersArray removeObjectAtIndex:indexPath.row];
+        [coreDataFiltersArray removeObjectAtIndex:indexPath.row];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                          withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -227,8 +224,7 @@ static NSString *CellIdentifier = @"Cell";
         self.navigationItem.rightBarButtonItem  =   [self rightMenuBarButtonItem];
         self.navigationItem.title = NSLocalizedString(@"Edit Filters",nil);
         
-        filtersArray = [NSMutableArray arrayWithArray:coreDataFiltersArray];
-        [self.tableView reloadData];
+        [self reloadInfoAndDisplayIt];
 
     }
     
@@ -279,8 +275,19 @@ static NSString *CellIdentifier = @"Cell";
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    if ([searchText length]==0) return;
-    [self searchForString:searchText];
+    // if the user hasn't typed any character or
+    // he deleted everything we must load
+    // all the info back again
+    if ([searchText length]==0)
+    {
+        [self reloadInfoAndDisplayIt];
+    }
+    // search info containing the searched text from
+    // the searchbar
+    else
+    {
+        [self searchForString:searchText];
+    }
 }
 
 
@@ -314,5 +321,14 @@ static NSString *CellIdentifier = @"Cell";
         });
     });
 
+}
+
+#pragma mark - Private helpers
+// use this to bring table view back to initial state
+// with no searced text
+- (void) reloadInfoAndDisplayIt
+{
+    filtersArray = [NSMutableArray arrayWithArray:coreDataFiltersArray];
+    [self.tableView reloadData];
 }
 @end

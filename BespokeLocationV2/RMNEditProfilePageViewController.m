@@ -101,6 +101,9 @@ static NSString *CellIdentifier = @"CellEditProfile";
 #warning Must save here information about the user in local database
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -113,7 +116,14 @@ static NSString *CellIdentifier = @"CellEditProfile";
     
     // add the image
     UIImage *profileImage = [[UIImage imageNamed:[[RMNManager sharedManager]profileImageLocation]] roundedImage];
+    
+
+    
     [[self profileImageHolder]setImage:profileImage];
+
+    
+    NSLog(@"ZA STRING %@",NSStringFromCGRect(self.profileImageHolder.frame));
+    
     
     // set the joined date
     NSDate *joiningDate = [[RMNManager sharedManager]usersJoiningDate];
@@ -144,7 +154,10 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     self.tableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
 
-     [self.tableView setScrollEnabled:NO];
+    [self.tableView setScrollEnabled:NO];
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -311,10 +324,19 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     //put code for store image
+    
+#warning MUST IMPROVE IMAGE LOADING STUFF. Large images will cause main thread freeze. 
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *tempImage = [[info objectForKey:@"UIImagePickerControllerOriginalImage"] roundedImage];
+    self.profileImageHolder.image = tempImage;
+
 }
 @end

@@ -1191,15 +1191,11 @@ LINE 3</string>
         <!--Edit Profile Page View Controller-->
         <scene sceneID="Fcp-jm-9GW">
             <objects>
-                <viewController id="KGn-Lc-ASN" customClass="RMNEditProfilePageViewController" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" id="KGn-Lc-ASN" customClass="RMNEditProfilePageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oTs-w1-eEo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nZx-9B-dls">
-                                <rect key="frame" x="129" y="75" width="63" height="63"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CW8-3N-El7">
                                 <rect key="frame" x="0.0" y="138" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1297,6 +1293,17 @@ LINE 3</string>
                                 <rect key="frame" x="259" y="110" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" id="THd-i8-ktZ">
+                                <rect key="frame" x="129" y="75" width="63" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile.png" id="nZx-9B-dls">
+                                        <rect key="frame" x="0.0" y="0.0" width="63" height="63"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1463,23 +1470,15 @@ LINE 3</string>
         <image name="StartUsingAppFromSlide.png" width="153" height="31"/>
         <image name="distanceButtsBg.png" width="287" height="48"/>
         <image name="facebook.png" width="54" height="55"/>
-        <image name="facebook.png" width="54" height="55"/>
         <image name="foursquare.png" width="55" height="55"/>
-        <image name="foursquare.png" width="55" height="55"/>
-        <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="loginBg.png" width="320" height="503"/>
         <image name="loginScreenBg.png" width="320" height="504"/>
         <image name="logoAgeDeclaration.png" width="139" height="196"/>
         <image name="logoWhereToSmoke.png" width="79" height="79"/>
         <image name="menu-icon.png" width="22" height="17"/>
-        <image name="menu-icon.png" width="22" height="17"/>
         <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="twitterLogo.png" width="54" height="55"/>
+        <image name="profile.png" width="113" height="132"/>
         <image name="twitterLogo.png" width="54" height="55"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
