@@ -23,6 +23,8 @@
     CGPoint pointOfOffset;
     
     UIDatePicker *datePicker;
+    
+    NSMutableArray *availableTFs;
 }
 
 @end
@@ -128,10 +130,14 @@
         
         [self.zaScrollView setContentSize:CGSizeMake(320, 490)];
         
-        pointOfOffset = CGPointMake(0, 20);
+        pointOfOffset = CGPointMake(0, -10);
     }
     
+    availableTFs = [[NSMutableArray alloc] initWithObjects:self.txtEmail, self.txtUsername, self.txtAge, self.txtPassword, nil];
+    currentTFIndex = 0;
+    
     [self resetView];
+    [self clearSession];
 }
 
 //if the user is already signed in using a provider then this page will redirect to the main page
@@ -163,6 +169,9 @@
     [_txtUsername       resignFirstResponder];
     [_txtPassword       resignFirstResponder];
     
+    CGPoint offsetPoint = CGPointMake(0, -64);
+    [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+    
     return NO;
 }
 
@@ -176,82 +185,9 @@
     
     self.btnRegistrater.titleLabel.textColor = [UIColor orangeColor];
     
-    currentTFIndex = textField.tag;
+    currentTFIndex = [availableTFs indexOfObject:textField];
     
-    if (currentTFIndex == 4) {
-        
-        if (IS_IPHONE_5) {
-            [self.zaScrollView setContentOffset:CGPointZero animated:YES];
-        }
-        else{
-            CGPoint offsetPoint = CGPointMake(0, 90);
-            [self.zaScrollView setContentOffset:offsetPoint animated:YES];
-        }
-    }
-    
-    if (!IS_IPHONE_5 && currentTFIndex == 3) {
-        [self.zaScrollView setContentOffset:pointOfOffset animated:YES];
-    }
-}
-
-
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-
-}
-
-
-#pragma CGEnhancedKeyboard delegate method
-
-- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
-{
-    UITextField *nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex];
-    
-    switch (tagType) {
-            
-        case CGEnhancedKeyboardPreviousTag:
-            
-            if ( currentTFIndex > 1) {
-                nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex - 1];
-                if (nowTF.enabled) {
-                    [nowTF becomeFirstResponder];
-                }
-                else{
-                    currentTFIndex -=1;
-                    [self userDidTouchDown:CGEnhancedKeyboardPreviousTag];
-                }
-                
-            }
-            
-            break;
-            
-        case CGEnhancedKeyboardNextTag:
-            
-            if ( currentTFIndex < 4) {
-                nowTF = (UITextField *)[self.zaScrollView viewWithTag:currentTFIndex + 1];
-                
-                if (nowTF.enabled) {
-                    [nowTF becomeFirstResponder];
-                }
-                else{
-                    currentTFIndex +=1;
-                    [self userDidTouchDown:CGEnhancedKeyboardNextTag];
-                }
-            }
-            
-            break;
-            
-        case CGEnhancedKeyboardDoneTag:
-            
-            [self resignTFs];
-            
-            break;
-        default:
-            break;
-    }
-
-    
-    if (currentTFIndex == 4) {
+    if (textField == self.txtPassword) {
         
         if (IS_IPHONE_5) {
             [self.zaScrollView setContentOffset:CGPointZero animated:YES];
@@ -265,7 +201,7 @@
         
         if (!IS_IPHONE_5) {
             
-            if (currentTFIndex == 3) {
+            if (textField == self.txtAge) {
                 [self.zaScrollView setContentOffset:pointOfOffset animated:YES];
             }
             else{
@@ -277,13 +213,59 @@
             CGPoint offsetPoint = CGPointMake(0, -64);
             [self.zaScrollView setContentOffset:offsetPoint animated:YES];
         }
-    
     }
     
-    if (tagType == CGEnhancedKeyboardDoneTag) {
-        CGPoint offsetPoint = CGPointMake(0, -64);
-        [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+
+}
+
+
+#pragma CGEnhancedKeyboard delegate method
+
+- (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
+{
+    UITextField *nowTF = (UITextField *)[availableTFs objectAtIndex:currentTFIndex];
+    
+    switch (tagType) {
+            
+        case CGEnhancedKeyboardPreviousTag:
+            
+            if ( currentTFIndex > 0) {
+                
+                currentTFIndex --;
+                nowTF = (UITextField *)[availableTFs objectAtIndex:currentTFIndex];
+                [nowTF becomeFirstResponder];
+            }
+            
+            break;
+            
+        case CGEnhancedKeyboardNextTag:
+            
+            if ( currentTFIndex < [availableTFs count]-1) {
+                
+                currentTFIndex ++;
+                nowTF = (UITextField *)[availableTFs objectAtIndex:currentTFIndex];
+                [nowTF becomeFirstResponder];
+            }
+            
+            break;
+            
+        case CGEnhancedKeyboardDoneTag:
+            
+            [self resignTFs];
+            
+            CGPoint offsetPoint = CGPointMake(0, -64);
+            [self.zaScrollView setContentOffset:offsetPoint animated:YES];
+            
+            break;
+        default:
+            break;
     }
+    
 }
 
 
@@ -321,28 +303,19 @@
              [UserDataSingleton userSingleton].userName   = response[ @"nickname"];
              [UserDataSingleton userSingleton].gender     = response[   @"gender"];
              [UserDataSingleton userSingleton].email      = response[    @"email"];
-             [UserDataSingleton userSingleton].age        = Nil; //response[      @"age"];
-             
-             NSLog(@"emial %u", [UserDataSingleton userSingleton].email.length);
+             [UserDataSingleton userSingleton].age        = Nil;
+             [UserDataSingleton userSingleton].photoUrl   = response[@"thumbnailURL"];
+
+//             NSLog(@"photoURL = %@", response[@"photoURL"] );
+//             NSLog(@"thumbnailURL = %@", response[@"thumbnailURL"] );
+
+             availableTFs = [[NSMutableArray alloc] initWithObjects:self.txtEmail, self.txtUsername, self.txtAge, self.txtPassword, nil];
              
              [self fillRegistration];
              
              self.txtPassword.enabled = NO;
              self.txtPassword.placeholder = @"Not needed";
 
-             //when birth year available instead of age, finding age from birth year
-//             if (![UserDataSingleton userSingleton].age && response[@"birthYear"])
-//             {
-//                 NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
-//                 [formatter setDateFormat:@"yyyy"];
-//                 NSString * year=[formatter stringFromDate:[NSDate date]];
-//                 NSString * birthYear = response[@"birthYear"];
-//                 
-//                 int age=(int)([year integerValue]-[birthYear integerValue]);
-//                 [UserDataSingleton userSingleton].age = [NSString stringWithFormat:@"%d",age];
-//                 
-//             }
-             
              if (![self checkIfRegistrationIsOk])
              {
                  // didn't recieve all the info wanted
@@ -443,6 +416,7 @@
             _txtUsername.textColor          = [UIColor blackColor];
             _txtUsername.text               = [UserDataSingleton userSingleton].userName;
             _txtUsername.enabled = NO;
+            [availableTFs removeObject:self.txtUsername];
         }
     
     
@@ -451,6 +425,7 @@
             _txtAge.textColor           = [UIColor blackColor];
             _txtAge.text                = [UserDataSingleton userSingleton].age;
             _txtAge.enabled = NO;
+            [availableTFs removeObject:self.txtAge];
         }
     
     
@@ -458,9 +433,11 @@
         {   _txtEmail.textColor         = [UIColor blackColor];
             _txtEmail.text              = [UserDataSingleton userSingleton].email;
             _txtEmail.enabled = NO;
+            [availableTFs removeObject:self.txtEmail];
         }
     
-    
+        [availableTFs removeObject:self.txtPassword];
+
         if ([UserDataSingleton userSingleton].gender)
         {
             if ([[UserDataSingleton userSingleton].gender caseInsensitiveCompare:@"female"] == NSOrderedSame ||
@@ -625,6 +602,7 @@
     BOOL isOk = YES;
     BOOL alreadyShownAlert = NO;
     
+    
     if ([_txtUsername.text isEqualToString:@""]    || [_txtEmail.text isEqualToString:@""]   ||
         [_txtAge.text isEqualToString:@""] )
     {
@@ -661,7 +639,6 @@
         else{
             self.emailOkMark.alpha = 1;
         }
-        
     }
     else if (![self validateEmail:_txtEmail.text])
     {
@@ -671,22 +648,26 @@
         self.emailOkMark.alpha = 0;
     }
     
-    if (!isUsingSocialService && [_txtPassword.text isEqualToString:@""]) {
+    if (isUsingSocialService) {
         
-        isOk = NO;
-
-        [_txtPassword becomeFirstResponder];
-        [_txtPassword setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
-        
-        if (!alreadyShownAlert) {
-            [self showMessageTitle:NSLocalizedString(@"Error",nil) withMessage:NSLocalizedString(@"All fields should be entered",nil)];
-        }
+//        [availableTFs removeObject:self.txtPassword];
     }
-    else if(!isUsingSocialService)
+    else
+        if ([_txtPassword.text isEqualToString:@""]) {
+            
+            isOk = NO;
+            
+            [_txtPassword becomeFirstResponder];
+            [_txtPassword setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+            
+            if (!alreadyShownAlert) {
+                [self showMessageTitle:NSLocalizedString(@"Error",nil) withMessage:NSLocalizedString(@"All fields should be entered",nil)];
+            }
+        }
+        else
         {
             self.passwordOkMark.alpha = 1;
         }
-    
     
     return  isOk;
 }
@@ -696,16 +677,9 @@
 //This method will clear session
 -(void)clearSession
 {
-    [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
-     {
-         if (!error)
-         {
-             [Gigya setSessionDelegate:nil];
-             //[self dismissViewControllerAnimated:YES completion:nil];
-         }
-         else
-             NSLog(@"error");
-     }];
+    [Gigya logout];
+    [Gigya setSession:Nil];
+    [Gigya setSessionDelegate:nil];
     
 }
 
@@ -769,12 +743,12 @@
                 forKey:[RMNUserInformationCoreData keyForListValue:UserIsUsingTwitter]];
     [infoUser setValue:[NSDate date]
                 forKey:[RMNUserInformationCoreData keyForListValue:UserRegistrationDate]];
+    [infoUser setValue:[UserDataSingleton userSingleton].photoUrl
+                forKey:[RMNUserInformationCoreData keyForListValue:UserPhotoURL]];
     
     [TSTCoreData addInformation:infoUser ofType:TSTCoreDataUser];
     
-    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    
+        
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];
 }
 

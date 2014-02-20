@@ -22,5 +22,6 @@
 @dynamic gender;
 @dynamic password;
 @dynamic registrationDate;
+@dynamic photoURL;
 
 @end

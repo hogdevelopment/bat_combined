@@ -22,7 +22,6 @@ typedef enum
 + (void) addInformation:(NSDictionary *)information ofType:(TSTCoreDataEntity)entityType;
 
 
-#warning not implemented
 // only sketch added
 + (void) updateWithInfo:(NSDictionary*)info forEntity:(TSTCoreDataEntity)entityType;
 
@@ -42,5 +41,10 @@ typedef enum
 
 // get email for user with username and social service
 + (NSString *) returnEmailForUserWithUsername: (NSString *) username andSocialService: (UserInformationKeyValues ) socialService;
+
+
+// returns url for profile photo (thumbnail) if available, if not - returns Nil
++ (NSString *) returnPhotoURLForUserWithEmail: (NSString *) userEmail ;
+
 
 @end

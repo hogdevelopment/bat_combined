@@ -72,6 +72,11 @@
             keyString = @"registrationDate";
             break;
         }
+        case UserPhotoURL:
+        {
+            keyString = @"photoURL";
+            break;
+        }
         default:
             break;
     }

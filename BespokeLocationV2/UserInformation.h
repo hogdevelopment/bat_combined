@@ -23,5 +23,5 @@
 @property (nonatomic, retain) NSString * gender;
 @property (nonatomic, retain) NSString * password;
 @property (nonatomic, retain) NSDate   * registrationDate;
-
+@property (nonatomic, retain) NSString * photoURL;
 @end
