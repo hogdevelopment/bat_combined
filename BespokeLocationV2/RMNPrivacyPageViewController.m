@@ -53,7 +53,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    // add rouned cornes to the table
+    self.contentView.layer.cornerRadius = 4;
+    self.contentView.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning

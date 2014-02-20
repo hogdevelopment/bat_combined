@@ -10,4 +10,5 @@
 
 @interface RMNPrivacyPageViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @end
