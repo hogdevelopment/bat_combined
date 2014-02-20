@@ -25,7 +25,9 @@
     
     NSMutableArray *toolbarItems = [[NSMutableArray alloc] init];
     
-    NSArray *elements = [NSArray arrayWithObjects:@"Precedentul", @"Următorul", nil];
+    NSArray *elements = @[NSLocalizedString(@"Previous", nil),
+                          NSLocalizedString(@"Next", nil)];
+    
     UISegmentedControl *leftItems = [[UISegmentedControl alloc] initWithItems:elements];
     
     leftItems.segmentedControlStyle = UISegmentedControlStyleBar;

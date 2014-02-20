@@ -11,13 +11,15 @@
 #import "NSDate+Stringifier.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNEditProfileCell.h"
-#import "RMNCustomNavButton.h"
 #import "UserDataSingleton.h"
 
 static NSString *CellIdentifier = @"CellEditProfile";
 
 
-@interface RMNEditProfilePageViewController ()<RMNEditProfileCellDelegate>
+@interface RMNEditProfilePageViewController ()  <RMNEditProfileCellDelegate,
+                                                UIActionSheetDelegate,
+                                                UIImagePickerControllerDelegate,
+                                                UINavigationControllerDelegate>
 {
     int currentSection;
     BOOL isEditable;
@@ -39,24 +41,20 @@ static NSString *CellIdentifier = @"CellEditProfile";
 @synthesize sectionsTitles  =   sectionsTitles;
 @synthesize isEditable      =   isEditable;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        
-    }
-    return self;
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self setupMenuBarButtonItems];
     
+    self.navigationItem.title = NSLocalizedString(@"Edit Profile",nil);
+
     
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
     
 }
+
+
 // setup custom left/right menu bar buttons
 // to fit the design
 - (void)setupMenuBarButtonItems
@@ -76,6 +74,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
                               target:self.navigationController
                               action:@selector(popViewControllerAnimated:)];
     
+    [lefty setTintColor:[UIColor whiteColor]];
     
     return lefty;
 }
@@ -91,6 +90,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
                               target:self
                               action:@selector(saveInformationAndDismissController)];
     
+    [righty setTintColor:[UIColor whiteColor]];
     
     return righty;
 }
@@ -170,6 +170,12 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [cell.textFieldInput setPlaceholder:[sectionsTitles objectAtIndex:indexPath.row]];
     [cell setKeyboardDelegate:self];
    
+    if (indexPath.row == 2 ||
+        indexPath.row == 3)
+    {
+        [cell addPickerStuff];
+    }
+    
     return cell;
 }
 
@@ -253,5 +259,62 @@ static NSString *CellIdentifier = @"CellEditProfile";
                                   animated:YES];
     
     [self.tableView setScrollEnabled:NO];
+}
+
+
+
+
+- (IBAction)changePicture:(id)sender
+{
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select source for profile photo:"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:
+                            @"Take a new photo",
+                            @"Load photo from Camera Roll",
+                            nil];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+    
+    
+
+}
+
+#pragma Mark -  UIActionSheet delegate methods
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    
+    switch (buttonIndex) {
+            case 0:
+            {
+                picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                break;
+            }
+            case 1:
+            {
+                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+            }
+            default:
+                break;
+        }
+
+    [self presentViewController:picker animated:YES completion:nil];
+
+}
+
+#pragma Mark - UIImagePickerController delegate methods
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    //put code for store image
 }
 @end

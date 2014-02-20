@@ -25,8 +25,11 @@
     {
         self.navigationItem.hidesBackButton = YES;
     }
-    
+
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+
 }
+
 
 - (void)viewDidLoad
 {
@@ -63,6 +66,8 @@
         [mailController setMessageBody:@" " isHTML:NO];
         [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
         [mailController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        [[mailController navigationBar] setTintColor:[UIColor whiteColor]];
+
         // when MFMailComposeViewController is finally initialized,
         // hide indicator and present it on main thread
         dispatch_async(dispatch_get_main_queue(), ^{

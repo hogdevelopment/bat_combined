@@ -30,10 +30,14 @@
     id <RMNEditProfileCellDelegate> keyboardDelegate;
     
 }
+
+
 @property (nonatomic, strong) id <RMNEditProfileCellDelegate> keyboardDelegate;
 
 @property UITextField *textFieldInput;
 @property (assign) int indexPathSection;
 
+
+- (void)addPickerStuff;
 
 @end

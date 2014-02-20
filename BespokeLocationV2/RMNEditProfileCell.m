@@ -9,17 +9,23 @@
 #import "RMNEditProfileCell.h"
 
 
-@interface RMNEditProfileCell()<CGEnhancedKeyboardDelegate, UITextFieldDelegate>
+@interface RMNEditProfileCell()<CGEnhancedKeyboardDelegate, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 {
     UITextField *textFieldInput;
     CGEnhancedKeyboard *enhancedKeyboard;
     int indexPathSection;
+    NSArray     *infos;
+
 }
+
+@property NSArray *infos;
+
 
 @end
 
 @implementation RMNEditProfileCell
 
+@synthesize infos               =   infos;
 @synthesize textFieldInput      =   textFieldInput;
 @synthesize keyboardDelegate    =   keyboardDelegate;
 @synthesize indexPathSection    =   indexPathSection;
@@ -34,7 +40,6 @@
         [textFieldInput setFrame:CGRectMake(10, 0, self.contentView.frame.size.width, 40)];
         [self.contentView addSubview:textFieldInput];
 
-#warning KEYBOARD BUttons not working well. Must fix when rested
         enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
         [enhancedKeyboard setKeyboardToolbarDelegate:self];
         [textFieldInput setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
@@ -45,9 +50,47 @@
     return self;
 }
 
+
+- (void)addPickerStuff
+{
+    
+    switch (indexPathSection)
+    {
+        case 2:
+        {
+            // create the picker view
+            UIPickerView * picker = [UIPickerView new];
+            picker.delegate = self;
+            picker.dataSource = self;
+            picker.showsSelectionIndicator = YES;
+            
+            NSArray *genderInfo = @[NSLocalizedString(@"Male", nil),
+                                    NSLocalizedString(@"Female", nil),];
+
+            infos = genderInfo;
+            [textFieldInput setInputView:picker];
+            break;
+        }
+        case 3:
+        {
+            UIDatePicker *picker = [UIDatePicker new];
+            [textFieldInput setInputView:picker];
+            picker.datePickerMode = UIDatePickerModeDate;
+
+            [picker addTarget:self action:@selector(changedPickerDateValues:)
+                 forControlEvents:UIControlEventValueChanged];
+
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+}
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSLog(@"VREA S[ INCEAPA CEVA cu %D",indexPathSection);
     
     if (indexPathSection == 5)
     {
@@ -63,8 +106,7 @@
 
     if (tagType == CGEnhancedKeyboardDoneTag)
     {
-        // scroll back to top
-//         [[self keyboardDelegate] userTouchedSection:0];
+
         [self.contentView endEditing:YES];
         [[self keyboardDelegate]animateToInitialState];
     }
@@ -83,5 +125,42 @@
 
     // Configure the view for the selected state
 }
+
+
+#pragma MARK - UIPicker View Delegate
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+numberOfRowsInComponent:(NSInteger)component {
+    return [infos count];;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    
+    
+    NSString * title = [infos objectAtIndex:row];
+    return title;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+
+    [textFieldInput setText:[infos objectAtIndex:row ]];
+}
+
+#pragma  UIDatePickerView method
+
+- (void)changedPickerDateValues:(UIDatePicker*) datePickerView{
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateStyle = NSDateFormatterMediumStyle;
+    
+    [textFieldInput setText: [df stringFromDate:datePickerView.date]];
+}
+
+
 
 @end

@@ -8,10 +8,6 @@
 
 #import "RMNSendFeedbackViewController.h"
 
-@interface RMNSendFeedbackViewController ()
-
-@end
-
 @implementation RMNSendFeedbackViewController
 
 - (void) viewWillAppear:(BOOL)animated
@@ -26,7 +22,56 @@
         self.navigationItem.hidesBackButton = YES;
     }
 
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+   
+    
+
+    
 }
+
+// setup custom left/right menu bar buttons
+// to fit the design
+- (void)setupMenuBarButtonItems
+{
+    self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+    self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem {
+    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+    
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
+                              action:@selector(popViewControllerAnimated:)];
+    [lefty setTintColor:[UIColor whiteColor]];
+    
+    
+    return lefty;
+}
+
+
+- (UIBarButtonItem *)rightMenuBarButtonItem {
+    
+    UIImage*rightyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonForward withTitle:@"Save"];
+    
+    UIBarButtonItem *righty = [[UIBarButtonItem alloc]
+                               initWithImage:rightyButton
+                               style:UIBarButtonItemStyleBordered
+                               target:self
+                               action:@selector(saveInformationAndDismissController)];
+    
+    [righty setTintColor:[UIColor whiteColor]];
+    return righty;
+}
+- (void)saveInformationAndDismissController
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -58,10 +103,13 @@
     dispatch_async(queue, ^{
         MFMailComposeViewController *mailController = [[MFMailComposeViewController alloc] init];
         [mailController setMailComposeDelegate:self];
-        [mailController setSubject:@"Feedback for smoking app"];
+        [mailController setSubject:@"Feedback"];
         [mailController setMessageBody:@" " isHTML:NO];
         [mailController setToRecipients:[NSArray arrayWithObjects:@"aurelia.pasat@infodesign.ro", nil]];
         [mailController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+        
+        [[mailController navigationBar] setTintColor:[UIColor whiteColor]];
+       
         // when MFMailComposeViewController is finally initialized,
         // hide indicator and present it on main thread
         dispatch_async(dispatch_get_main_queue(), ^{

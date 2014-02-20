@@ -16,4 +16,5 @@
     #import "RMNManager.h"
     #import "UIColor+HexRecognition.h"
     #import "RMNSettings.h"
+    #import "RMNCustomNavButton.h"
 #endif

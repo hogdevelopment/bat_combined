@@ -33,6 +33,9 @@
 
 
 
+// side menu pages navigation bar color
+#define SIDE_MENU_PAGES_NAVBAR_COLOR [UIColor colorWithHexString:@"616161"]
+
 // cell height
 #define SIDE_MENU_ROW_HEIGHT 47
 

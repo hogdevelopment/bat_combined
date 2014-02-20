@@ -35,14 +35,6 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 @synthesize buttonsText         =   buttonsText;
 @synthesize imagesForCells      =   imagesForCells;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -59,8 +51,9 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
                          NSLocalizedString(@"Feedback",nil),
                          NSLocalizedString(@"Rate the app",nil),
                          NSLocalizedString(@"Share the app",nil),
-                         NSLocalizedString(@"FAQs",nil),
+                         NSLocalizedString(@"About",nil),
                          NSLocalizedString(@"Privacy",nil),
+                         NSLocalizedString(@"FAQs",nil),
                          NSLocalizedString(@"Logout",nil)];
     
     NSArray *imagesLocation;
@@ -72,6 +65,7 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
                          @"shareAppIcon",
                          @"aboutAppIcon",
                          @"privacyIcon",
+                         @"faqsAppIcon",
                          @"logoutAppIcon",
                          @"emptyBecauseTheFirstCellIsCustom"
                          ];

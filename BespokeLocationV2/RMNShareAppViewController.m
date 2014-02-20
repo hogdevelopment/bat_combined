@@ -20,11 +20,14 @@
 {
     [super viewWillAppear:animated];
     
+    self.navigationItem.title = NSLocalizedString(@"Share the App",nil);
+
     
     self.navigationItem.hidesBackButton = YES;
-    
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
     
 }
+
 
 - (void)viewDidLoad
 {

@@ -7,16 +7,63 @@
 //
 
 #import "RMNFAQsViewController.h"
+#import "RMNFaqsAnswersViewController.h"
 
-static NSString *CellIdentifier = @"CellFAQs";
+
+static NSString *CellIdentifier         = @"CellFAQs";
+static NSString *CellHeaderIdentifier   = @"CellFAQsHeader";
 
 
-@interface RMNFAQsViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@interface RMNFAQsViewController ()
+{
+    NSArray *questions;
+    NSArray *answers;
+}
+
+@property NSArray *questions;
+@property NSArray *answers;
 @end
 
 
 @implementation RMNFAQsViewController
+
+@synthesize questions   =   questions;
+@synthesize answers     =   answers;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+    
+    self.navigationItem.title = NSLocalizedString(@"FAQs",nil);
+
+    
+    [self setupMenuBarButtonItems];
+}
+
+
+// setup custom left/right menu bar buttons
+// to fit the design
+- (void)setupMenuBarButtonItems
+{
+    self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem {
+    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+    
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
+                              action:@selector(popViewControllerAnimated:)];
+    [lefty setTintColor:[UIColor whiteColor]];
+    
+    return lefty;
+}
 
 
 
@@ -34,6 +81,40 @@ static NSString *CellIdentifier = @"CellFAQs";
     
     // set a clear background to the table view
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
+    self.tableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
+    
+    
+    
+    questions = @[NSLocalizedString(@"questionFAQs_0",nil),
+                  NSLocalizedString(@"questionFAQs_1",nil),
+                  NSLocalizedString(@"questionFAQs_2",nil),
+                  NSLocalizedString(@"questionFAQs_3",nil),
+                  NSLocalizedString(@"questionFAQs_4",nil),
+                  NSLocalizedString(@"questionFAQs_5",nil),
+                  NSLocalizedString(@"questionFAQs_6",nil),
+                  NSLocalizedString(@"questionFAQs_7",nil),
+                  NSLocalizedString(@"questionFAQs_8",nil),
+                  NSLocalizedString(@"questionFAQs_9",nil),
+                  NSLocalizedString(@"questionFAQs_10",nil),
+                  NSLocalizedString(@"questionFAQs_11",nil)];
+    
+    
+    
+    answers     = @[NSLocalizedString(@"answerFAQs_0",nil),
+                    NSLocalizedString(@"answerFAQs_1",nil),
+                    NSLocalizedString(@"answerFAQs_2",nil),
+                    NSLocalizedString(@"answerFAQs_3",nil),
+                    NSLocalizedString(@"answerFAQs_4",nil),
+                    NSLocalizedString(@"answerFAQs_5",nil),
+                    NSLocalizedString(@"answerFAQs_6",nil),
+                    NSLocalizedString(@"answerFAQs_7",nil),
+                    NSLocalizedString(@"answerFAQs_8",nil),
+                    NSLocalizedString(@"answerFAQs_9",nil),
+                    NSLocalizedString(@"answerFAQs_10",nil),
+                    NSLocalizedString(@"answerFAQs_11",nil)];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,9 +126,11 @@ static NSString *CellIdentifier = @"CellFAQs";
 #pragma mark Table View Delegate
 
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 0.1f;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -57,12 +140,7 @@ static NSString *CellIdentifier = @"CellFAQs";
 
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view    = [[UIView alloc]init];
-    UILabel *label  = [[UILabel alloc]init];
-    [label setFrame:CGRectMake(0, 0, 300, 50)];
-    [label setText:@"Frequently asked questions"];
-    [view addSubview:label];
-    
+    UIView *view = [[UIView alloc]init];
     return view;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -74,24 +152,74 @@ static NSString *CellIdentifier = @"CellFAQs";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    return [questions count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSString *identifier = (indexPath.row == 0) ? CellHeaderIdentifier : CellIdentifier;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (cell == nil)
     {
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+
+
+        [[cell textLabel]setTextColor: [UIColor colorWithHexString:@"5f5f5f"]];
+        
+    }
+    
+    UIFont * font;
+
+    if (indexPath.row == 0)
+    {
+        [[cell textLabel]setText:NSLocalizedString(@"FAQsHeader",nil)];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:14];
+
+    }
+        else
+        {
+            [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+            [[cell textLabel]setText:[questions objectAtIndex:indexPath.row - 1]];
+            font = [UIFont fontWithName:@"HelveticaNeue-Light" size:12];
+        }
+    
+    [cell.textLabel setFont:font];
+
+    return cell;
+
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) return;
+    
+    NSString *segueIdentifier = @"faqsAnswerSegue";
+    if (segueIdentifier)
+    {
+        @try
+        {
+            [self performSegueWithIdentifier:segueIdentifier sender:self];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Segue not found: %@ with segue %@", exception,segueIdentifier);
+        }
         
     }
 
-    
-    [[cell textLabel]setText:@"Custom"];
-    return cell;
+}
 
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"faqsAnswerSegue"]) {
+        RMNFaqsAnswersViewController* detailFAQ = [segue destinationViewController];
+        detailFAQ.question  =   [questions  objectAtIndex:[self.tableView indexPathForSelectedRow].row-1];
+        detailFAQ.answer    =   [answers    objectAtIndex:[self.tableView indexPathForSelectedRow].row-1];
+    }
 }
 @end

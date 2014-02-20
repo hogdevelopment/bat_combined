@@ -8,7 +8,6 @@
 
 #import "RMNFavouritesLocationsTablevViewController.h"
 #import "RMNFavouriteLocationView.h"
-#import "RMNCustomNavButton.h"
 #import "CGEnhancedKeyboard.h"
 
 
@@ -29,7 +28,10 @@ static NSString *CellIdentifier = @"Cell";
     [super viewWillAppear:animated];
     [self setupMenuBarButtonItems];
     
-    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithHexString:@"616161"]];
+    self.navigationItem.title = NSLocalizedString(@"Favourites",nil);
+
+    
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
 
     
 }

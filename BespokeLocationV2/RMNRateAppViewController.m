@@ -17,15 +17,46 @@
 @implementation RMNRateAppViewController
 
 @synthesize textViewDebug   =   textViewDebug;
-- (void) viewWillAppear:(BOOL)animated
+
+- (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-     self.navigationItem.hidesBackButton = YES;
-
+    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+    
+    self.navigationItem.title = NSLocalizedString(@"Rate the App",nil);
 
     
+    [[self navigationItem]setHidesBackButton:YES];
+    [self setupMenuBarButtonItems];
+    
+    
 }
+
+// setup custom left/right menu bar buttons
+// to fit the design
+- (void)setupMenuBarButtonItems
+{
+    self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+    
+}
+
+- (UIBarButtonItem *)leftMenuBarButtonItem
+{
+    
+    UIImage*leftyButton = [RMNCustomNavButton customNavButton:RMNCustomNavButtonBackward withTitle:@"Back"];
+    
+    UIBarButtonItem *lefty = [[UIBarButtonItem alloc]
+                              initWithImage:leftyButton
+                              style:UIBarButtonItemStyleBordered
+                              target:self.navigationController
+                              action:@selector(popViewControllerAnimated:)];
+    
+    [lefty setTintColor:[UIColor whiteColor]];
+    return lefty;
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
