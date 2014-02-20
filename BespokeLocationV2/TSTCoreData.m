@@ -242,6 +242,58 @@
 }
 
 
+
++ (NSString *) returnPhotoURLForUserWithEmail: (NSString *) userEmail
+{
+    NSString *photo = Nil;
+    
+    AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    
+    // Define our table/entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserInformation" inManagedObjectContext:managedObjectContext];
+    // Setup the fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"email == %@",userEmail];
+    request.resultType = NSDictionaryResultType;
+    
+    NSArray *fetchedObjects;
+    NSError *error;
+    
+    fetchedObjects = [[managedObjectContext executeFetchRequest:request error:&error] lastObject];
+    
+    if (fetchedObjects) {
+        
+        photo = [fetchedObjects valueForKey:[RMNUserInformationCoreData keyForListValue:UserPhotoURL]];
+        
+        if (photo.length > 0) {
+            
+            // check if photo is just a placeholder provided by the social service
+            BOOL isPlaceholder = NO;
+            
+            if ([photo rangeOfString:@"default_profile"].location != NSNotFound) {
+                isPlaceholder = YES;
+            }
+            if ([photo rangeOfString:@"photo.jpg"].location != NSNotFound) {
+                isPlaceholder = YES;
+            }
+            if ([photo rangeOfString:@"blank_"].location != NSNotFound) {
+                isPlaceholder = YES;
+            }
+            
+            if (isPlaceholder) {
+                photo = Nil;
+            }
+            
+        }
+    }
+    
+    return photo;
+}
+
+
 + (NSString*)entityNameFor:(TSTCoreDataEntity)entityType
 {
     NSString *entityName;

@@ -23,6 +23,8 @@
 
 @property (nonatomic) BOOL              usingGigya;
 @property (nonatomic,strong) NSString * age;
+@property (nonatomic,strong) NSString * photoUrl;
+
 
 
 

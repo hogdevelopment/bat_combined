@@ -39,6 +39,8 @@
         _dateOfBirth    = [[NSDate alloc] init];
         
         _age            = [[NSString alloc]init];
+        _photoUrl       = [[NSString alloc]init];
+
         
         _usingGigya         = YES;
         
