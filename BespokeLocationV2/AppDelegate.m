@@ -43,7 +43,7 @@
     MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
     
 
-    
+    [container setPanMode:MFSideMenuPanModeNone];
     
     UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigationControllerWithoutLogin"];
     

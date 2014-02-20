@@ -23,7 +23,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
+    
+    self.navigationItem.title = NSLocalizedString(@"FAQs",nil);
     
     [self setupMenuBarButtonItems];
 }

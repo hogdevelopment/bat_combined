@@ -21,7 +21,6 @@
         
         self.layer.cornerRadius = 4;
         self.layer.masksToBounds = YES;
-
         
         
     }
@@ -34,11 +33,7 @@
     self.layer.masksToBounds = YES;
 }
 
--(void)awakeFromNib
-{
-   ;
-//    [self addSubview:self.nibview];
-}
+
 
 - (void)removeLocationAction:(UIButton *)sender
 {
