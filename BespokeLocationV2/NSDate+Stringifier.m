@@ -25,4 +25,18 @@
     return dateString;
 }
 
+-(NSString*)dayMonthYearification
+{
+    NSString * deviceLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSDateFormatter * dateFormatter = [NSDateFormatter new];
+    NSLocale * locale = [[NSLocale alloc] initWithLocaleIdentifier:deviceLanguage];
+    
+    [dateFormatter setDateFormat:@"EEEE dd, yyyy"];
+    [dateFormatter setLocale:locale];
+    
+    NSString * dateString = [dateFormatter stringFromDate:self];
+    
+    return dateString;
+
+}
 @end

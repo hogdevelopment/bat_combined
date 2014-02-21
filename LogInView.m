@@ -304,7 +304,7 @@
              [UserDataSingleton userSingleton].gender     = response[   @"gender"];
              [UserDataSingleton userSingleton].email      = response[    @"email"];
              [UserDataSingleton userSingleton].age        = Nil;
-             [UserDataSingleton userSingleton].photoUrl   = response[@"thumbnailURL"];
+             [UserDataSingleton userSingleton].photoUrl   = response[@"photoURL"];
 
 //             NSLog(@"photoURL = %@", response[@"photoURL"] );
 //             NSLog(@"thumbnailURL = %@", response[@"thumbnailURL"] );
@@ -746,7 +746,13 @@
     [infoUser setValue:[UserDataSingleton userSingleton].photoUrl
                 forKey:[RMNUserInformationCoreData keyForListValue:UserPhotoURL]];
     
+    // if we have everything in place we can save the photo as well
+    // to the phone
+    [RMNUserInfo saveProfileImageWithURL:[UserDataSingleton userSingleton].photoUrl];
+    
     [TSTCoreData addInformation:infoUser ofType:TSTCoreDataUser];
+    
+    
     
         
     [self.navigationController dismissViewControllerAnimated:NO completion:nil];

@@ -61,8 +61,54 @@
 + (void)updateWithInfo:(NSDictionary*)info forEntity:(TSTCoreDataEntity)entityType
 {
     
+    // bring za app delegate instance
+    AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+
+    
+    NSString *entityName = [self entityNameFor:entityType];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:context]];
+    
+    NSString *userEmail = [[RMNManager sharedManager] currentUserEmail];
+    request.predicate   = [NSPredicate predicateWithFormat:@"email == %@",userEmail];
+
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    NSManagedObject* userData = [results lastObject];
+
+    
+    NSArray *keys = [info allKeys];
+
+    // parse the dictionary to update the given values
+    for (NSString *key in keys)
+    {
+
+        [userData setValue:[info objectForKey:key]
+                           forKey:key];
+    }
+    
+    // update and check for errros
+    if(![context save:&error])
+    {
+        //This is a serious error saying the record
+        //could not be saved. Advise the user to
+        //try again or restart the application.
+        NSLog(@"Eroare la update in Core Data");
+        /// TODO - throw an alert, and make the
+        /// user to save it again
+    }
+    else{
+//        NSLog(@"update for photos is done! WITH %@",[self fetchedUserData]);
+
+    }
+
 
 }
+
 
 
 +(NSMutableArray *)fetchedUserData;
@@ -76,7 +122,9 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
     
-    request.resultType = NSDictionaryResultType;
+    NSString *userEmail = [[RMNManager sharedManager] currentUserEmail];
+    request.predicate   = [NSPredicate predicateWithFormat:@"email == %@",userEmail];
+    request.resultType  = NSDictionaryResultType;
     
     
     // Fetch the records and handle an error
@@ -91,7 +139,7 @@
     }
     else
     {
-        // NSLog(@"core data %@,",mutableFetchResults);
+         NSLog(@"core data %@,",mutableFetchResults);
         
     }
     return mutableFetchResults;

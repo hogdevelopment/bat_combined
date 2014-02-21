@@ -100,6 +100,7 @@
 		5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF39F18A9345700FFF0D0 /* menu-icon.png */; };
 		5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */; };
 		5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */; };
+		5CA1ABE518B751C800862468 /* RMNUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1ABE418B751C800862468 /* RMNUserInfo.m */; };
 		5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */; };
 		5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0418ABDA6700AF111F /* logoHolder.png */; };
 		5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */; };
@@ -108,6 +109,7 @@
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
+		5CE2017D18B7B3B0005A6E18 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE2017C18B7B3B0005A6E18 /* profile.png */; };
 		5CEAC81E18B6187A004830D4 /* RMNEditFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAC81D18B6187A004830D4 /* RMNEditFiltersViewController.m */; };
 		5CEAC82118B61986004830D4 /* RMNEditFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82018B61986004830D4 /* RMNEditFilterTableViewCell.xib */; };
 		5CEAC82418B61BEE004830D4 /* filterImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82218B61BEE004830D4 /* filterImage.png */; };
@@ -119,7 +121,6 @@
 		651F37FA18AED58F00449DC7 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651F37F918AED58F00449DC7 /* GoogleMaps.framework */; };
 		651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */; };
 		651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */; };
-		651F380118AEE06000449DC7 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 651F380018AEE06000449DC7 /* profile.png */; };
 		651F380318AEE37C00449DC7 /* RMNUserPhotoNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */; };
 		651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */; };
 		6532416B18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6532416A18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib */; };
@@ -369,6 +370,8 @@
 		5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-icon@2x.png"; path = "BespokeLocationV2/menu-icon@2x.png"; sourceTree = "<group>"; };
 		5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMNManager.h; path = ../RMNManager.h; sourceTree = "<group>"; };
 		5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMNManager.m; path = ../RMNManager.m; sourceTree = "<group>"; };
+		5CA1ABE318B751C800862468 /* RMNUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInfo.h; sourceTree = "<group>"; };
+		5CA1ABE418B751C800862468 /* RMNUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserInfo.m; sourceTree = "<group>"; };
 		5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNIntroSlideContentViewController.h; sourceTree = "<group>"; };
 		5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNIntroSlideContentViewController.m; sourceTree = "<group>"; };
 		5CAF8F0418ABDA6700AF111F /* logoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoHolder.png; sourceTree = "<group>"; };
@@ -383,6 +386,7 @@
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
 		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
+		5CE2017C18B7B3B0005A6E18 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		5CEAC81C18B6187A004830D4 /* RMNEditFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNEditFiltersViewController.h; sourceTree = "<group>"; };
 		5CEAC81D18B6187A004830D4 /* RMNEditFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNEditFiltersViewController.m; sourceTree = "<group>"; };
 		5CEAC82018B61986004830D4 /* RMNEditFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNEditFilterTableViewCell.xib; sourceTree = "<group>"; };
@@ -398,7 +402,6 @@
 		651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effects.h"; sourceTree = "<group>"; };
 		651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effects.m"; sourceTree = "<group>"; };
-		651F380018AEE06000449DC7 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNUserPhotoNameView.xib; sourceTree = "<group>"; };
 		651F380418AEE3D700449DC7 /* RMNUserPhotoNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserPhotoNameView.h; sourceTree = "<group>"; };
 		651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserPhotoNameView.m; sourceTree = "<group>"; };
@@ -622,13 +625,13 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CE2017C18B7B3B0005A6E18 /* profile.png */,
 				5CEAC82618B61BF2004830D4 /* Filters */,
 				5CEAC82718B61BFD004830D4 /* Logo App */,
 				5C21D10718B37C5900D1996D /* Navigation Bar Buttons */,
 				6532417C18B2E2310061FE5C /* Favourite Locations Cell */,
 				E1B3654918B252EA0060552E /* logoAgeDeclaration.png */,
 				E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */,
-				651F380018AEE06000449DC7 /* profile.png */,
 				5C437F1918AEA46C00605A8F /* headerButtons */,
 				5C437EFC18AE939200605A8F /* side menu icons */,
 				5C4C980818AD34DF00807404 /* Slides from the begining of the app */,
@@ -675,6 +678,8 @@
 			children = (
 				5C21D0F418B2556C00D1996D /* RMNEditProfilePageViewController.h */,
 				5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */,
+				5CA1ABE318B751C800862468 /* RMNUserInfo.h */,
+				5CA1ABE418B751C800862468 /* RMNUserInfo.m */,
 				5C21D0FB18B27AA800D1996D /* RMNEditProfileCell.h */,
 				5C21D0FC18B27AA800D1996D /* RMNEditProfileCell.m */,
 				5C21D11018B3A6B000D1996D /* RMNCustomNavButton.h */,
@@ -1430,6 +1435,7 @@
 				5C21D10618B37C5500D1996D /* fwdHolderImageBg@2x.png in Resources */,
 				5C4C980018AD34D800807404 /* SkipSlideButton@2x.png in Resources */,
 				E1A82F0518AD022D00FF9661 /* twitterLogo@2x.png in Resources */,
+				5CE2017D18B7B3B0005A6E18 /* profile.png in Resources */,
 				0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */,
 				5C4C97FF18AD34D800807404 /* NextSlideButton.png in Resources */,
 				5CEAC82D18B6255D004830D4 /* deleteFilterCell.png in Resources */,
@@ -1456,7 +1462,6 @@
 				5C4C980318AD34D800807404 /* slide_1_Zurich.png in Resources */,
 				5C437F0D18AE939200605A8F /* logoutAppIcon.png in Resources */,
 				5C437F1618AE939200605A8F /* settingsAppIcon@2x.png in Resources */,
-				651F380118AEE06000449DC7 /* profile.png in Resources */,
 				651F380318AEE37C00449DC7 /* RMNUserPhotoNameView.xib in Resources */,
 				5CEAC82518B61BEE004830D4 /* filterImage@2x.png in Resources */,
 				E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */,
@@ -1549,6 +1554,7 @@
 				7C9B2D95189A684A00071357 /* AppDelegate.m in Sources */,
 				5C6CB51818AA937D008CBE2A /* RMNPrivacyPageViewController.m in Sources */,
 				7C9B309F189AAF7600071357 /* DetailsTableViewViewController.m in Sources */,
+				5CA1ABE518B751C800862468 /* RMNUserInfo.m in Sources */,
 				5C6CB52C18AB72CC008CBE2A /* CGEnhancedKeyboard.m in Sources */,
 				7C04AD29189FC15A00AAA15A /* AFPropertyListRequestOperation.m in Sources */,
 				7C9B2DDC189A691000071357 /* SBJsonTokeniser.m in Sources */,

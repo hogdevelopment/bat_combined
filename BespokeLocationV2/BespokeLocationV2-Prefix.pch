@@ -15,6 +15,8 @@
     #import <Foundation/Foundation.h>
     #import "RMNManager.h"
     #import "UIColor+HexRecognition.h"
+    #import "UIImage+Effects.h"
     #import "RMNSettings.h"
     #import "RMNCustomNavButton.h"
+    #import "RMNUserInfo.h"
 #endif

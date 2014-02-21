@@ -14,9 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameTextHolder;
 
 
-// add custom image to user basic info
-- (void)addPic:(NSString*)imageName;
 
-// add users name to menu
-- (void)addName:(NSString*)userName;
+// add users name to menu and
+// custom image to user basic info
+- (void)customizeWith:(NSString*)userName;
 @end

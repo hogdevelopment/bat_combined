@@ -51,5 +51,7 @@
 // light blue which will be used through the app
 #define CELL_LIGHT_BLUE [UIColor colorWithHexString:@"2980b9"]
 
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+
 
 #endif

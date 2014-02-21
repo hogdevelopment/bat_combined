@@ -17,4 +17,6 @@
 - (NSString*)monthYearification;
 
 
+-(NSString*)dayMonthYearification;
+
 @end

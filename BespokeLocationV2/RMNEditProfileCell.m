@@ -7,7 +7,7 @@
 //
 
 #import "RMNEditProfileCell.h"
-
+#import "NSDate+Stringifier.h"
 
 @interface RMNEditProfileCell()<CGEnhancedKeyboardDelegate, UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 {
@@ -104,6 +104,7 @@
 - (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
 {
 
+    [[self keyboardDelegate] updateSection:indexPathSection];
     if (tagType == CGEnhancedKeyboardDoneTag)
     {
 
@@ -153,12 +154,11 @@ numberOfRowsInComponent:(NSInteger)component {
 
 #pragma  UIDatePickerView method
 
-- (void)changedPickerDateValues:(UIDatePicker*) datePickerView{
+- (void)changedPickerDateValues:(UIDatePicker*) datePickerView
+{
+
     
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateStyle = NSDateFormatterMediumStyle;
-    
-    [textFieldInput setText: [df stringFromDate:datePickerView.date]];
+    [textFieldInput setText: [datePickerView.date dayMonthYearification]];
 }
 
 

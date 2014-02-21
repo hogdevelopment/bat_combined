@@ -21,6 +21,8 @@
 
 - (void)animateToInitialState;
 
+- (void)updateSection:(int)section;
+
 
 @end
 
