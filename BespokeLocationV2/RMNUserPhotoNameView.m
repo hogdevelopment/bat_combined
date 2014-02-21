@@ -18,7 +18,6 @@
     // set the users name
     [self.nameTextHolder setText:userName];
     
-    
     // change bg color to match design
     [self setBackgroundColor:[UIColor colorWithHexString:@"6f6f6f"]];
     
@@ -30,15 +29,29 @@
     self.layer.shadowOpacity    = .4f;
     self.layer.shadowColor      = [UIColor grayColor].CGColor;
     self.layer.shadowPath       = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
-
-    // apply custom effect to image and add it
-    // to its holder
-    UIImage *image = [RMNUserInfo profileImage];;
-    [self.imageViewHolder setImage:[image roundedImage]];
     
+    [self.activityIndicator setHidesWhenStopped:YES];
     
+    [self addImage];
 
 }
 
+- (void)addImage
+{
+    [self.activityIndicator startAnimating];
+    dispatch_async(kBgQueue, ^{
+        
+        // get the profile image
+        UIImage *image = [RMNUserInfo profileImage];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.activityIndicator stopAnimating];
+            // set the profile image
+            [self.imageViewHolder setImage:[image roundedImage]];
+        });
+        
+    });
 
+}
 @end

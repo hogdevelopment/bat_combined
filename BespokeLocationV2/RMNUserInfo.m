@@ -29,7 +29,7 @@
     
     if (!allWasGoodAndWeHaveAPicture)
     {
-        profileImage = [UIImage imageNamed:@"profile"];
+        profileImage = [UIImage imageNamed:@"profilePic"];
     }
     
     [profileImage saveImageToPhone];
@@ -42,10 +42,12 @@
 + (UIImage*)profileImage
 {
     
-    NSString *pathToSave = [NSString stringWithFormat:@"/Documents/myProfileImageFor%@.png",
+    NSString *pathToLoad = [NSString stringWithFormat:@"/Documents/myProfileImageFor%@.png",
                             [[RMNManager sharedManager]currentUserEmail]];
     
-    NSString* path = [NSHomeDirectory() stringByAppendingString:pathToSave];
+    NSLog(@"aJUNGE CU Userul %@",[[RMNManager sharedManager]currentUserEmail]);
+    
+    NSString* path = [NSHomeDirectory() stringByAppendingString:pathToLoad];
     
     NSFileHandle* myFileHandle = [NSFileHandle fileHandleForReadingAtPath:path];
     UIImage     * loadedImage = [UIImage imageWithData:[myFileHandle readDataToEndOfFile]];

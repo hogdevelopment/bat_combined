@@ -44,7 +44,7 @@
         
         // to be changed
 #warning Must load name and image from data base
-        profileImageLocation        =   @"profile";
+        profileImageLocation        =   @"profilePic";
         userNameText                =   @"Chiosa Gabi";
         usersJoiningDate            =   [NSDate date];
         menuShouldBeOpened          =   NO;

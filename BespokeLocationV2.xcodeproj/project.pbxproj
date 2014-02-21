@@ -109,7 +109,7 @@
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
-		5CE2017D18B7B3B0005A6E18 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE2017C18B7B3B0005A6E18 /* profile.png */; };
+		5CE2017F18B7C0E5005A6E18 /* profilePic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE2017E18B7C0E5005A6E18 /* profilePic.png */; };
 		5CEAC81E18B6187A004830D4 /* RMNEditFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAC81D18B6187A004830D4 /* RMNEditFiltersViewController.m */; };
 		5CEAC82118B61986004830D4 /* RMNEditFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82018B61986004830D4 /* RMNEditFilterTableViewCell.xib */; };
 		5CEAC82418B61BEE004830D4 /* filterImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82218B61BEE004830D4 /* filterImage.png */; };
@@ -386,7 +386,7 @@
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
 		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
-		5CE2017C18B7B3B0005A6E18 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		5CE2017E18B7C0E5005A6E18 /* profilePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilePic.png; sourceTree = "<group>"; };
 		5CEAC81C18B6187A004830D4 /* RMNEditFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNEditFiltersViewController.h; sourceTree = "<group>"; };
 		5CEAC81D18B6187A004830D4 /* RMNEditFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNEditFiltersViewController.m; sourceTree = "<group>"; };
 		5CEAC82018B61986004830D4 /* RMNEditFilterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNEditFilterTableViewCell.xib; sourceTree = "<group>"; };
@@ -625,7 +625,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				5CE2017C18B7B3B0005A6E18 /* profile.png */,
+				5CE2017E18B7C0E5005A6E18 /* profilePic.png */,
 				5CEAC82618B61BF2004830D4 /* Filters */,
 				5CEAC82718B61BFD004830D4 /* Logo App */,
 				5C21D10718B37C5900D1996D /* Navigation Bar Buttons */,
@@ -1435,7 +1435,6 @@
 				5C21D10618B37C5500D1996D /* fwdHolderImageBg@2x.png in Resources */,
 				5C4C980018AD34D800807404 /* SkipSlideButton@2x.png in Resources */,
 				E1A82F0518AD022D00FF9661 /* twitterLogo@2x.png in Resources */,
-				5CE2017D18B7B3B0005A6E18 /* profile.png in Resources */,
 				0E64B31818A51D6C00E0E513 /* LinkedIn_logo.png in Resources */,
 				5C4C97FF18AD34D800807404 /* NextSlideButton.png in Resources */,
 				5CEAC82D18B6255D004830D4 /* deleteFilterCell.png in Resources */,
@@ -1481,6 +1480,7 @@
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
 				65A217B818B56B3D00113F27 /* faqsAppIcon.png in Resources */,
 				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
+				5CE2017F18B7C0E5005A6E18 /* profilePic.png in Resources */,
 				6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */,
 				5C21D11918B3B86600D1996D /* searchButtonMagnifier@2x.png in Resources */,
 				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
