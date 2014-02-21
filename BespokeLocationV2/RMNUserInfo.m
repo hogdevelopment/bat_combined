@@ -8,7 +8,7 @@
 
 #import "RMNUserInfo.h"
 #import "TSTCoreData.h"
-
+#import "NSDate+Stringifier.h"
 
 @implementation RMNUserInfo
 
@@ -54,19 +54,23 @@
 }
 
 
+
 + (NSArray*)profileData
 {
     // get the info from Core Data
     NSDictionary *sectionsTitles =    (NSDictionary*)[[TSTCoreData fetchedUserData]lastObject];
 
+    NSDate *dob = [sectionsTitles valueForKey:@"dateOfBirth"];
+    
     
     // make the array for the table view
     NSArray *sections = @[[sectionsTitles valueForKey:@"username"],
                           [sectionsTitles valueForKey:@"username"],
                           [[sectionsTitles valueForKey:@"gender"]capitalizedString],
-                          [sectionsTitles valueForKey:@"dateOfBirth"],
+                          [dob dayMonthYearification],
                           [sectionsTitles valueForKey:@"email"],
-                          [sectionsTitles valueForKey:@"password"]];
+                          [sectionsTitles valueForKey:@"password"],
+                          [sectionsTitles valueForKey:@"registrationDate"]];
 
     
     

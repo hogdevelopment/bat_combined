@@ -18,6 +18,7 @@
 
 
 
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)changePicture:(id)sender;

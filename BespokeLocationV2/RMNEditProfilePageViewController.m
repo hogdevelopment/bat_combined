@@ -116,6 +116,8 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self.activityIndicator setHidden:NO];
     [self.activityIndicator startAnimating];
     
+    // update users name, date of registration and pic
+    
     dispatch_async(kBgQueue, ^{
         
         // get the profile image
@@ -123,13 +125,10 @@ static NSString *CellIdentifier = @"CellEditProfile";
         
         // get the users name
         NSString *userNameText = [[RMNManager sharedManager]userNameText];
-        
-        
-        // get the joined date
-        NSDate *joiningDate = [[RMNManager sharedManager]usersJoiningDate];
-        NSString *joiningText = [NSString stringWithFormat:@"memeber since %@",[joiningDate monthYearification]];
-        
 
+
+         sectionsTitles = [NSMutableArray arrayWithArray:[RMNUserInfo profileData]];
+        
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
                      // set the profile image
@@ -139,8 +138,18 @@ static NSString *CellIdentifier = @"CellEditProfile";
                     // set the users name
                     [self.userName setText:userNameText];
                     
+                    
+                    NSDate *registration = [sectionsTitles lastObject];
+                    NSString *joiningText = [NSString stringWithFormat:@"memeber since %@",[registration monthYearification]];
+                    
+                    
                     // set the joininig date
                     [self.usersJoiningDate setText:joiningText];
+                    
+                    // update the rest of the info from the table view
+                    [self.tableView reloadData];
+                    
+                    
                     
                     
                     [self.activityIndicator setHidden:YES];
@@ -151,21 +160,13 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 
 
-    dispatch_async(kBgQueue, ^{
-   
-        
-        sectionsTitles = [NSMutableArray arrayWithArray:[RMNUserInfo profileData]];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-            [self.tableView reloadData];
-        });
-        
-    });
-
     
-    
-   
+   if (!IS_IPHONE_5)
+   {
+       CGRect frame     = self.tableView.frame;
+       frame.origin.y   = 9;
+       [self.tableView setFrame:frame];
+   }
 
     // add rouned cornes to the table
     self.tableView.layer.cornerRadius = 4;
@@ -206,14 +207,11 @@ static NSString *CellIdentifier = @"CellEditProfile";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
     RMNEditProfileCell *cell = (RMNEditProfileCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil)
     {
-        
         cell = [[RMNEditProfileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-       
     }
     
     [cell setIndexPathSection:indexPath.row];
@@ -221,13 +219,13 @@ static NSString *CellIdentifier = @"CellEditProfile";
     if (sectionsTitles)
     {
         NSString *cellText;
-        cellText = (indexPath.row == 3) ? [[sectionsTitles objectAtIndex:indexPath.row]dayMonthYearification]:
-                                            [sectionsTitles objectAtIndex:indexPath.row];
+        cellText = [sectionsTitles objectAtIndex:indexPath.row];
         
         if ([cellText length]>0)
         {
             [cell.textFieldInput setText:cellText];
         }
+        
     }
     [cell setKeyboardDelegate:self];
    
@@ -264,22 +262,24 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [sectionsTitles count];
+    return [placeHolders count];
 }
 
 - (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
 {
+    int max = [sectionsTitles count]-2;
+    
     switch (tagType) {
            
 
         case CGEnhancedKeyboardNextTag:
         {
-            currentSection  = (currentSection == [sectionsTitles count]-1) ? 0 : currentSection+1;
+            currentSection  = (currentSection == max) ? 0 : currentSection+1;
             break;
         }
         case CGEnhancedKeyboardPreviousTag:
         {
-            currentSection  = (currentSection == 0) ? [sectionsTitles count]-1 : currentSection-1;
+            currentSection  = (currentSection == 0) ? max : currentSection-1;
             break;
         }
         default:

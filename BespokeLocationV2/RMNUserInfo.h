@@ -17,6 +17,7 @@
 // loades the current users profile image stored locally
 + (UIImage*)profileImage;
 
+
 // loads the users personal info from Core Data
 + (NSArray*)profileData;
 
