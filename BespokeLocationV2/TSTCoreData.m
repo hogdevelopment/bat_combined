@@ -139,7 +139,7 @@
     }
     else
     {
-         NSLog(@"core data %@,",mutableFetchResults);
+//         NSLog(@"core data %@,",mutableFetchResults);
         
     }
     return mutableFetchResults;
