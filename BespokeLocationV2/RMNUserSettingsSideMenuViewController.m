@@ -154,15 +154,19 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    // since we're loading another view controller
+    // the side menu must animate to its closed state
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    
+    
     //Change the selected background view of the cell. since we will
     // load a different view controller
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     // tell the side menu controller what row was touched
     [[self sideMenuDelegate] userDidTouchDown:indexPath.row];
     
-    // since we're loading another view controller
-    // the side menu must animate to its closed state
-    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
     
 }
 
@@ -187,8 +191,7 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
                                             owner:self
                                         options:nil]objectAtIndex:0];
     
-    [userHeaderView addPic:@"profile"];
-    [userHeaderView addName:@"Chiosa Gabi"];
+    [userHeaderView customizeWith:@"Chiosa Gabi"];
     
 
     return userHeaderView;
@@ -198,11 +201,13 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 #pragma mark Header View Delegate
 - (void)userTouched:(RMNSideMenuHeaderButtonType)buttonType
 {
-    [[self sideMenuDelegate]userDidTouchDown:buttonType + [imagesForCells count]-1];
-    
     // since we're loading another view controller
     // the side menu must animate to its closed state
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    
+    [[self sideMenuDelegate]userDidTouchDown:buttonType + [imagesForCells count]-1];
+    
+
 }
 
 

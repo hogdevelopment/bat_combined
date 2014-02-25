@@ -146,6 +146,8 @@ static NSString *CellIdentifier = @"Cell";
     if ([txfSearchField.text length] == 0)
     {
         self.navigationItem.rightBarButtonItem  =   [self rightMenuBarButtonItem];
+        self.navigationItem.title = NSLocalizedString(@"Favourites",nil);
+
     }
     
 }
@@ -185,6 +187,9 @@ static NSString *CellIdentifier = @"Cell";
     // return the new bar button item with the search bar attached to it
     UIBarButtonItem *searchBarItem = [[UIBarButtonItem alloc] initWithCustomView:navigationSearchBar];
     self.navigationItem.rightBarButtonItem = searchBarItem;
+    
+    self.navigationItem.title = @"";
+
     
 }
 

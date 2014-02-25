@@ -22,7 +22,7 @@ typedef enum
 + (void) addInformation:(NSDictionary *)information ofType:(TSTCoreDataEntity)entityType;
 
 
-// only sketch added
+// updates informations from dictionary to core data
 + (void) updateWithInfo:(NSDictionary*)info forEntity:(TSTCoreDataEntity)entityType;
 
 // fetch user data

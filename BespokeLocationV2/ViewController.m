@@ -193,6 +193,7 @@
         case RMNUserSettingsSideMenuFilters:
         {
             NSLog(@"time to filtres");
+            segueIdentifier = @"editFiltersPageSegue";
             break;
         }
         case RMNUserSettingsSideMenuEditProfile:
@@ -208,6 +209,7 @@
         }
         case RMNUserSettingsSideMenuUserFilters:
         {
+            NSLog(@"AJUNGE AICI, dar nu mai știu ce e cu ea");
             break;
         }
             
@@ -472,7 +474,7 @@
     
     
     
-    URL =@"http://hwwmobileapp.cloudapp.net:3000/location/get/47.37/8.54/10/0";
+    URL =@"http://hwwmobileapp.cloudapp.net:3000/location/get/47.37/8.54/100";
     //URL =@"http://hwwmobileapp.cloudapp.net:3000/all";
     NSURL *url = [NSURL URLWithString:URL];
     

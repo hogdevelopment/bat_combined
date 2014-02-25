@@ -11,7 +11,7 @@
 #import "NSDate+Stringifier.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNEditProfileCell.h"
-#import "UserDataSingleton.h"
+
 
 static NSString *CellIdentifier = @"CellEditProfile";
 
@@ -23,13 +23,15 @@ static NSString *CellIdentifier = @"CellEditProfile";
 {
     int currentSection;
     BOOL isEditable;
-    NSArray  *sectionsTitles;
+    NSMutableArray  *sectionsTitles;
+    NSArray         *placeHolders;
 
 }
 
-@property (assign)int   currentSection;
-@property NSArray       *sectionsTitles;
-@property BOOL isEditable;
+@property (assign)int           currentSection;
+@property NSMutableArray        *sectionsTitles;
+@property NSArray               *placeHolders;
+@property BOOL                  isEditable;
 
 @end
 
@@ -40,7 +42,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
 @synthesize currentSection  =   currentSection;
 @synthesize sectionsTitles  =   sectionsTitles;
 @synthesize isEditable      =   isEditable;
-
+@synthesize placeHolders    =   placeHolders;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -49,7 +51,6 @@ static NSString *CellIdentifier = @"CellEditProfile";
     
     self.navigationItem.title = NSLocalizedString(@"Edit Profile",nil);
 
-    
     [self.navigationController.navigationBar setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];
     
 }
@@ -98,28 +99,74 @@ static NSString *CellIdentifier = @"CellEditProfile";
 - (void)saveInformationAndDismissController
 {
     
+    [RMNUserInfo updateProfileDataWith:sectionsTitles];
 #warning Must save here information about the user in local database
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
     
-    NSLog(@"ajunge la did load din edit profile");
+
     
-    // set the users name
-    [[self userName]setText:[[RMNManager sharedManager]userNameText]];
+
+    // load custom profile image
+    [self.activityIndicator setHidden:NO];
+    [self.activityIndicator startAnimating];
     
-    // add the image
-    UIImage *profileImage = [[UIImage imageNamed:[[RMNManager sharedManager]profileImageLocation]] roundedImage];
-    [[self profileImageHolder]setImage:profileImage];
+    // update users name, date of registration and pic
     
-    // set the joined date
-    NSDate *joiningDate = [[RMNManager sharedManager]usersJoiningDate];
-    NSString *joiningText = [NSString stringWithFormat:@"memeber since %@",[joiningDate monthYearification]];
+    dispatch_async(kBgQueue, ^{
+        
+        // get the profile image
+       UIImage *profileImage = [[RMNUserInfo profileImage]roundedImage];
+        
+        // get the users name
+        NSString *userNameText = [[RMNManager sharedManager]userNameText];
+
+
+         sectionsTitles = [NSMutableArray arrayWithArray:[RMNUserInfo profileData]];
+        
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                     // set the profile image
+                    [[self profileImageHolder]setImage:profileImage];
+                    
+                    
+                    // set the users name
+                    [self.userName setText:userNameText];
+                    
+                    
+                    NSDate *registration = [sectionsTitles lastObject];
+                    NSString *joiningText = [NSString stringWithFormat:@"memeber since %@",[registration monthYearification]];
+                    
+                    
+                    // set the joininig date
+                    [self.usersJoiningDate setText:joiningText];
+                    
+                    // update the rest of the info from the table view
+                    [self.tableView reloadData];
+                    
+                    
+                    
+                    
+                    [self.activityIndicator setHidden:YES];
+                    [self.activityIndicator stopAnimating];
+                });
+
+    });
+
+
+
     
-    [self.usersJoiningDate setText:joiningText];
+   if (!IS_IPHONE_5)
+   {
+       CGRect frame     = self.tableView.frame;
+       frame.origin.y   = 9;
+       [self.tableView setFrame:frame];
+   }
 
     // add rouned cornes to the table
     self.tableView.layer.cornerRadius = 4;
@@ -134,7 +181,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self.tableView registerClass:[RMNEditProfileCell class] forCellReuseIdentifier:CellIdentifier];
 
     
-    sectionsTitles = @[@"Name",
+    placeHolders    = @[@"Name",
                        @"UserName",
                        @"Gender",
                        @"Date of birth",
@@ -144,7 +191,11 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self.tableView setBackgroundColor:[UIColor whiteColor]];
     self.tableView.contentInset = UIEdgeInsetsMake(-1.0f, 0.0f, 0.0f, 0.0);
 
-     [self.tableView setScrollEnabled:NO];
+    
+    // disable the tables scrolling feature
+    [self.tableView setScrollEnabled:NO];
+
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,18 +207,26 @@ static NSString *CellIdentifier = @"CellEditProfile";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
     RMNEditProfileCell *cell = (RMNEditProfileCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil)
     {
-        
         cell = [[RMNEditProfileCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-       
     }
     
     [cell setIndexPathSection:indexPath.row];
-    [cell.textFieldInput setPlaceholder:[sectionsTitles objectAtIndex:indexPath.row]];
+    [cell.textFieldInput setPlaceholder:[placeHolders objectAtIndex:indexPath.row]];
+    if (sectionsTitles)
+    {
+        NSString *cellText;
+        cellText = [sectionsTitles objectAtIndex:indexPath.row];
+        
+        if ([cellText length]>0)
+        {
+            [cell.textFieldInput setText:cellText];
+        }
+        
+    }
     [cell setKeyboardDelegate:self];
    
     if (indexPath.row == 2 ||
@@ -203,22 +262,24 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [sectionsTitles count];
+    return [placeHolders count];
 }
 
 - (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
 {
+    int max = [sectionsTitles count]-2;
+    
     switch (tagType) {
            
 
         case CGEnhancedKeyboardNextTag:
         {
-            currentSection  = (currentSection == [sectionsTitles count]-1) ? 0 : currentSection+1;
+            currentSection  = (currentSection == max) ? 0 : currentSection+1;
             break;
         }
         case CGEnhancedKeyboardPreviousTag:
         {
-            currentSection  = (currentSection == 0) ? [sectionsTitles count]-1 : currentSection-1;
+            currentSection  = (currentSection == 0) ? max : currentSection-1;
             break;
         }
         default:
@@ -228,8 +289,6 @@ static NSString *CellIdentifier = @"CellEditProfile";
     [self userTouchedSection:currentSection];
 
 }
-
-
 
 - (void)userTouchedSection:(int)section
 {
@@ -262,7 +321,19 @@ static NSString *CellIdentifier = @"CellEditProfile";
 }
 
 
+- (void)updateSection:(int)section
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:section inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionTop
+                                  animated:NO];
+    
+    //    NSLog(@"ESTE LA celula %d",section);
+    RMNEditProfileCell * cell = (RMNEditProfileCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [sectionsTitles replaceObjectAtIndex:section withObject:cell.textFieldInput.text];
 
+}
 
 - (IBAction)changePicture:(id)sender
 {
@@ -311,10 +382,40 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //put code for store image
+    [self.activityIndicator setHidden:NO];
+    [self.activityIndicator startAnimating];
+    
+    // create new dispatch queue in background
+    dispatch_queue_t queue = dispatch_queue_create("resizeImage", NULL);
+    
+    // send resizing of imge from picker controller in background
+    dispatch_async(queue, ^{
+     
+        UIImage *tempImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        tempImage = [[tempImage scaleToMaxSize:CGSizeMake(200, 200)]roundedImage];
+        
+        
+        [tempImage saveImageToPhone];
+        // when resizing finished,
+        // hide indicator and present the image on main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            [self.activityIndicator setHidden:YES];
+            [self.activityIndicator stopAnimating];
+            self.profileImageHolder.image = tempImage;
+            
+        });
+    });
+
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+  
+    
+
 }
 @end

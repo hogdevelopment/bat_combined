@@ -13,10 +13,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewHolder;
 @property (weak, nonatomic) IBOutlet UILabel *nameTextHolder;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-// add custom image to user basic info
-- (void)addPic:(NSString*)imageName;
 
-// add users name to menu
-- (void)addName:(NSString*)userName;
+// add users name to menu and
+// custom image to user basic info
+- (void)customizeWith:(NSString*)userName;
+
+// add the image to the side menu.
+// use this to re add it when necessary
+// some kind of refresher
+- (void)addImage;
 @end

@@ -1,0 +1,16 @@
+//
+//  RMNEditFilterTableViewCell.h
+//  BespokeLocationV2
+//
+//  Created by Chiosa Gabi on 20/02/14.
+//  Copyright (c) 2014 Hogarth. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface RMNEditFilterTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *filterImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *kindLabel;
+
+@end

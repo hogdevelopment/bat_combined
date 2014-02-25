@@ -40,4 +40,64 @@
     
 }
 
+- (UIImage *)scaleToSize:(CGSize)size
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+    {
+        UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
+    }
+    else
+    {
+        UIGraphicsBeginImageContext(size);
+    }
+    
+    [self drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (UIImage *)scaleToMaxSize:(CGSize)size
+{
+    
+    CGFloat oldWidth    = self.size.width;
+    CGFloat oldHeight   = self.size.height;
+    
+    CGFloat scaleFactor = (oldWidth > oldHeight) ?  size.width / oldWidth :
+                                                    size.height / oldHeight;
+    
+    CGFloat newHeight   = oldHeight * scaleFactor;
+    CGFloat newWidth    = oldWidth * scaleFactor;
+    CGSize  newSize     = CGSizeMake(newWidth, newHeight);
+    
+    return [self scaleToSize:newSize];
+}
+
+
+
+- (void)saveImageToPhone
+{
+    NSString *pathToSave = [NSString stringWithFormat:@"/Documents/myProfileImageFor%@.png",
+                            [[RMNManager sharedManager]currentUserEmail]];
+    
+    NSString* path = [NSHomeDirectory() stringByAppendingString:pathToSave];
+    
+    BOOL ok = [[NSFileManager defaultManager] createFileAtPath:path
+                                                      contents:nil attributes:nil];
+    
+    if (!ok)
+    {
+        NSLog(@"Error creating file %@", path);
+    }
+    else
+    {
+        NSFileHandle* myFileHandle = [NSFileHandle fileHandleForWritingAtPath:path];
+        [myFileHandle writeData:UIImagePNGRepresentation(self)];
+        [myFileHandle closeFile];
+    }
+}
+
+
 @end
