@@ -15,16 +15,17 @@
     CGEnhancedKeyboard *enhancedKeyboard;
     int indexPathSection;
     NSArray     *infos;
-
+    UIButton *customButton;
 }
 
 @property NSArray *infos;
-
+@property UIButton *customButton;
 
 @end
 
 @implementation RMNEditProfileCell
 
+@synthesize customButton        =   customButton;
 @synthesize infos               =   infos;
 @synthesize textFieldInput      =   textFieldInput;
 @synthesize keyboardDelegate    =   keyboardDelegate;
@@ -37,7 +38,11 @@
     {
     
         textFieldInput = [[UITextField alloc]init];
-        [textFieldInput setFrame:CGRectMake(10, 0, self.contentView.frame.size.width, 40)];
+        
+         textFieldInput.font = [UIFont fontWithName:@"Helvetica-Light" size:14];
+        [textFieldInput setTextColor:CELL_LIGHT_BLUE];
+        [textFieldInput setFrame:CGRectMake(10, 0, 260, 40)];
+
         [self.contentView addSubview:textFieldInput];
 
         enhancedKeyboard = [[CGEnhancedKeyboard alloc]init];
@@ -50,7 +55,25 @@
     return self;
 }
 
+- (void)configureExtraAccessory
+{
+    RMNTextFieldAccessory type = (indexPathSection == 2 || indexPathSection == 3) ?
+                                                        RMNTextFieldShowMoreAccessory:
+                                                        RMNTextFieldDeleteAccessory;
+    [self showButton:type];
+    [self checkAccessoryStatusWithString:textFieldInput.text];
 
+}
+
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *stringTest = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    [self checkAccessoryStatusWithString:stringTest];
+    return YES;
+}
 - (void)addPickerStuff
 {
     
@@ -99,11 +122,17 @@
     
     [[self keyboardDelegate] userTouchedSection:indexPathSection];
     
+    
+    
 }
+
+
 
 - (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
 {
 
+    [self configureExtraAccessory];
+    
     [[self keyboardDelegate] updateSection:indexPathSection];
     if (tagType == CGEnhancedKeyboardDoneTag)
     {
@@ -118,6 +147,7 @@
     
     
 }
+
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -161,6 +191,72 @@ numberOfRowsInComponent:(NSInteger)component {
     [textFieldInput setText: [datePickerView.date dayMonthYearification]];
 }
 
+
+#pragma custom private methods
+#pragma mark - Custom accessory method
+
+
+- (void)checkAccessoryStatusWithString:(NSString*)stringTest
+{
+    if ([stringTest length] == 0)
+    {
+        // do not show the custom buttons
+        [customButton setHidden:YES];
+    }
+    else
+    {
+        [customButton setHidden:NO];
+        
+    }
+}
+
+
+- (void)showButton:(RMNTextFieldAccessory)type
+{
+    
+    NSString *imageName;
+    
+    
+    CGRect imageFrame = CGRectMake(0, 0, 11, 12);
+    if (!customButton)
+    {
+        customButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [customButton setFrame:imageFrame];
+        
+        switch (type)
+        {
+            case RMNTextFieldDeleteAccessory:
+            {
+                imageName = @"clearContent";
+                [customButton addTarget:self action:@selector(clearTextField) forControlEvents:UIControlEventTouchUpInside];
+                
+                break;
+            }
+            case RMNTextFieldShowMoreAccessory:
+            {
+                imageName = @"showMoreInfoToChoseFromArrow";
+                [customButton addTarget:textFieldInput action:@selector(becomeFirstResponder) forControlEvents:UIControlEventTouchUpInside];
+                
+                break;
+            }
+            default:
+                break;
+        }
+        
+        UIImage *image = [UIImage imageNamed:imageName];
+        [customButton setImage:image forState:UIControlStateNormal];
+    }
+    
+    textFieldInput.rightViewMode = UITextFieldViewModeAlways; //can be changed to UITextFieldViewModeNever,    UITextFieldViewModeWhileEditing,   UITextFieldViewModeUnlessEditing
+    [textFieldInput setRightView:customButton];
+    
+    
+}
+- (void)clearTextField
+{
+    [textFieldInput setText:@""];
+    [customButton setHidden:YES];
+}
 
 
 @end

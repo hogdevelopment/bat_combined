@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
-#import "SecondView.h"
 #import "UserDataSingleton.h"
 #import "ViewController.h"
 #import "MFSideMenuContainerViewController.h"

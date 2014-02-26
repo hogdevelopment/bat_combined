@@ -19,4 +19,8 @@
     #import "RMNSettings.h"
     #import "RMNCustomNavButton.h"
     #import "RMNUserInfo.h"
+    #import "HPLocationsMutableArray.h"
+    #import "RMNLocationController.h"
+    #import "NSDictionary+DeepLinking.h"
+
 #endif
