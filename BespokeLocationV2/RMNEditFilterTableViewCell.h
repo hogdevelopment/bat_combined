@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMNEditFilterTableViewCell : UITableViewCell
+
+
+@interface RMNEditFilterTableViewCell : UITableViewCell<UIScrollViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *filterImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *kindLabel;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollContentView;
+@property CGFloat lastContentOffset;
+
+- (IBAction)clickOnButton:(UIButton *)sender;
+
+- (void) setScrollViewProperties;
 @end

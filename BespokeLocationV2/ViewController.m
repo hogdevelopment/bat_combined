@@ -19,6 +19,7 @@
 #import "MFSideMenuContainerViewController.h"
 #import "RMNUserSettingsSideMenuViewController.h"
 #import "UIColor+HexRecognition.h"
+#import "RMNVenueInformationViewController.h"
 
 @interface ViewController ()
 
@@ -681,7 +682,10 @@
         FourSquareResturant *dbaseItem = marker.userData;
         DetailsTableViewViewController *dv = [[DetailsTableViewViewController alloc] init];
         dv.ObjectoToshowFromFourSquare = dbaseItem;
-        [self.navigationController pushViewController:dv animated:YES];
+        
+        RMNVenueInformationViewController *contr = [[RMNVenueInformationViewController alloc] init];
+        
+        [self.navigationController pushViewController:contr animated:YES];
 
     }
     else {
@@ -695,8 +699,10 @@
     
     DetailsTableViewViewController *dv = [[DetailsTableViewViewController alloc] init];
     dv.ObjectsToShow = dbaseItem;
-    [self.navigationController pushViewController:dv animated:YES];
-    
+        
+        RMNVenueInformationViewController *contr = [[RMNVenueInformationViewController alloc] init];
+        
+        [self.navigationController pushViewController:contr animated:YES];
     }
     
 }

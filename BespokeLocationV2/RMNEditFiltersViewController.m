@@ -72,7 +72,6 @@ static NSString *CellIdentifier = @"Cell";
     
     [self.tableView setBackgroundColor:[UIColor colorWithHexString:@"eceaea"]];
     
-    
 #warning fake population
     
     filtersArray            = [[NSMutableArray alloc]init];
@@ -135,17 +134,16 @@ static NSString *CellIdentifier = @"Cell";
 {
     
     RMNEditFilterTableViewCell *cell = (RMNEditFilterTableViewCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+   
+    [cell setScrollViewProperties];
     
 #warning send the cell the info when we have all the informations
     NSDictionary *infoCell = [filtersArray objectAtIndex:indexPath.row];
     [cell.nameLabel setText:[infoCell valueForKey:@"name"]];
     [cell.kindLabel setText:[infoCell valueForKey:@"kind"]];
 
-    
     return cell;
 }
-
 
 
 // Override to support conditional editing of the table view.
@@ -153,21 +151,33 @@ static NSString *CellIdentifier = @"Cell";
 // for some items. By default, all items are editable.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return YES if you want the specified item to be editable.
-    return YES;
+    return NO;
 }
+
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return UITableViewCellEditingStyleNone;
+//}
+
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //add code here for when you hit delete
-        
-        [coreDataFiltersArray removeObjectAtIndex:indexPath.row];
-        
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationAutomatic];
-        
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        //add code here for when you hit delete
+//        
+//        [coreDataFiltersArray removeObjectAtIndex:indexPath.row];
+//        
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+//                         withRowAnimation:UITableViewRowAnimationAutomatic];
+//        
+//
+//    }
+}
 
-    }
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 #pragma mark -- Custom navigation bar buttons
