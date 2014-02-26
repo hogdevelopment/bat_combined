@@ -12,6 +12,7 @@
 
 @property  UIScrollView *galleryScrollView;
 @property  UIPageControl *pageControl;
+@property  NSMutableArray *arrayWithImages;
 
 @property  UILabel *venueTitle;
 @property  UILabel *venueAddress;
@@ -26,6 +27,8 @@
 @property  UILabel *venueSite;
 
 @property  UIView *smokeRatingView;
+
+@property  CGFloat cellHeight;
 
 - (void) setImagesArray: (NSArray *) arrayOfImages;
 - (void) setOpeningTimes: (NSString *) opening;

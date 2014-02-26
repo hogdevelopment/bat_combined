@@ -13,7 +13,7 @@
 
 #define ROW_HEIGHT_CELL_IMAGE           200
 #define ROW_HEIGHT_CELL_DETAILS         160
-#define ROW_HEIGHT_CELL_RATING          70
+#define ROW_HEIGHT_CELL_RATING          80
 
 static CGFloat dynamic_row_height_cell_Attributes = 60;
 static CGFloat dynamic_row_height_cell_Description = 200;

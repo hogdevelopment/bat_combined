@@ -16,7 +16,6 @@ static NSString *CellAttributesIdentifier       = @"AttributesCellIdentifier";
 static NSString *CellDescriptionIdentifier      = @"DescriptionCellIdentifier";
 static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 
-CGFloat cellHeight;
 
 @implementation RMNVenueInformationCell
 
@@ -30,29 +29,29 @@ CGFloat cellHeight;
        
         if ([reuseIdentifier isEqualToString:CellImageIdentifier]) {
             
-            cellHeight = 200;
+            _cellHeight = 200;
             [self createGalleryViews];
         }
         else
             if ([reuseIdentifier isEqualToString:CellDetailsIdentifier]) {
                 
-                cellHeight = 160;
+                _cellHeight = 160;
                 [self createDetailsLabels];
             }
         else if ([reuseIdentifier isEqualToString:CellAttributesIdentifier]) {
             
-                cellHeight = 60;
+                _cellHeight = 60;
                 [self createAttributesView];
         }
         else if ([reuseIdentifier isEqualToString:CellDescriptionIdentifier]) {
             
-                cellHeight = 200;
+                _cellHeight = 200;
                 [self createDescriptionLabels];
             
             }
         else if ([reuseIdentifier isEqualToString:CellRatingIdentifier]) {
             
-                cellHeight = 70;
+                _cellHeight = 80;
                 [self createRatingView];
             }
     }
@@ -73,22 +72,24 @@ CGFloat cellHeight;
 - (void) createGalleryViews
 {
     // scroll view for images
-    self.galleryScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, cellHeight)];
+    self.galleryScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, _cellHeight)];
     [self.galleryScrollView setDelegate:self];
     [self.galleryScrollView setPagingEnabled:YES];
-    [self.galleryScrollView setContentSize:CGSizeMake(320, cellHeight)];
+    [self.galleryScrollView setContentSize:CGSizeMake(320, _cellHeight)];
     [self.galleryScrollView setScrollEnabled:YES];
     self.galleryScrollView.showsHorizontalScrollIndicator = YES;
     self.galleryScrollView.showsVerticalScrollIndicator = NO;
     
     // page controller
-    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, cellHeight - 50, 320, 50)];
+    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, _cellHeight - 50, 320, 50)];
     [self.pageControl setUserInteractionEnabled:YES];
     [self.pageControl setNumberOfPages:1];
     [self.pageControl setCurrentPage:0];
     
     [self.contentView addSubview:self.galleryScrollView];
     [self.contentView addSubview:self.pageControl];
+    
+    self.arrayWithImages = [[NSMutableArray alloc] init];
 }
 
 
@@ -154,7 +155,7 @@ CGFloat cellHeight;
 
 - (void) createAttributesView
 {
-    self.attributesView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, cellHeight)];
+    self.attributesView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, _cellHeight)];
     [self.attributesView setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
     
     [self.contentView addSubview:self.attributesView];
@@ -204,8 +205,8 @@ CGFloat cellHeight;
 
 - (void) createRatingView
 {
-    self.smokeRatingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, cellHeight)];
-    ASStarRatingView *stars = [[ASStarRatingView alloc] initWithFrame:CGRectMake(0, 0, 220, 100)];
+    self.smokeRatingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, _cellHeight)];
+    ASStarRatingView *stars = [[ASStarRatingView alloc] initWithFrame:CGRectMake(0, -10, 220, 100)];
 
     
     [self.smokeRatingView setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
@@ -221,6 +222,8 @@ CGFloat cellHeight;
 {
     if ([arrayOfImages count] > 0) {
         
+        [[self.galleryScrollView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
         [self addImagesFromArray:arrayOfImages toScrollView:self.galleryScrollView];
     }
     else{
@@ -256,6 +259,7 @@ CGFloat cellHeight;
 
 }
 
+
 #pragma Local Methods
 
 - (void) addImagesFromArray: (NSArray *) arrayOfImages toScrollView: (UIScrollView *) scrollView{
@@ -275,7 +279,7 @@ CGFloat cellHeight;
                                        UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
                                        [view setBackgroundColor:[UIColor blackColor]];
                                        [view setContentMode:UIViewContentModeScaleAspectFit];
-                                       [view setFrame:CGRectMake(320 * i, 0, 320, cellHeight)];
+                                       [view setFrame:CGRectMake(320 * i, 0, 320, _cellHeight)];
                                       
                                        [scrollView addSubview:view];
 
@@ -285,7 +289,7 @@ CGFloat cellHeight;
     }
     
     // update the content size for scroll view
-    [self.galleryScrollView setContentSize:CGSizeMake(320 * [arrayOfImages count], cellHeight)];
+    [self.galleryScrollView setContentSize:CGSizeMake(320 * [arrayOfImages count], _cellHeight)];
     
     // update page control
     [self.pageControl setNumberOfPages:[arrayOfImages count]];

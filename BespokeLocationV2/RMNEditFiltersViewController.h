@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMNEditFiltersViewController : UITableViewController
+@interface RMNEditFiltersViewController : UITableViewController<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @end
