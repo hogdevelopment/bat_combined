@@ -11,13 +11,19 @@
 @interface HPLocationBuilder : NSObject
 
 
-// build an array with the NSData received from the server
-// for the location information
+// builds a dictionary with the NSData received from the server
+// for detailed information regarding a certain location
 + (NSDictionary *)locationsFromFoursquare:(NSData *)objectNotation
                                     error:(NSError **)error;
 
 
+// builds a dictionary with the NSData received from the server
+// with all the locations stored in the data base
 + (NSDictionary *)locationsFromDataBase:(NSData *)objectNotation
                                   error:(NSError **)error;
 
+// builds the answer for certain server requests such as
+// login, register, change password, update users info
++ (NSDictionary *)answerFrom:(NSData *)objectNotation
+                       error:(NSError **)error;
  @end

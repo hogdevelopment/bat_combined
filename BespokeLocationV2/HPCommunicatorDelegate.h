@@ -18,17 +18,24 @@
 
 typedef enum
 {
-    RMNLocationDataBase,
-    RMNLocationFoursquare
-}RMNLocationSource;
+    RMNRequestLocationDataBase,
+    RMNRequestLocationFoursquare,
+    RMNRequestUserLogin,
+    RMNRequestCheckUsername,
+    RMNRequestUserRegister,
+    RMNRequestUserChangePassword,
+    RMNRequestUserInfoUpdate
+}RMNRequestType;
 
 
 
 
 @protocol HPCommunicatorDelegate <NSObject>
+
+
 - (void)receivedLocationsJSONFromDataBase:(NSData *)objectNotation;
 - (void)receivedLocationsJSONFromFoursquare:(NSData *)objectNotation;
+- (void)requestAnswer:(NSData*)answer;
 - (void)fetchingGroupsFailedWithError:(NSError *)error;
 @end
-
 

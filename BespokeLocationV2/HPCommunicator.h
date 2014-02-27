@@ -18,12 +18,16 @@
 
 
 @property (nonatomic) id<HPCommunicatorDelegate> delegate;
+
+
+
 @property (strong, nonatomic) NSString*foursquareID;
 
+@property (strong, nonatomic) NSDictionary *requestInfo;
 
 
 // use this to send a http request
-- (void)doSomeHTTPRequestFor:(RMNLocationSource)type;
+- (void)doSomeHTTPRequestFor:(RMNRequestType)type;
 @end
 
 

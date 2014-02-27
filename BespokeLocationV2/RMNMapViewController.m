@@ -24,7 +24,7 @@
 #import "RMNFoursquaredLocation.h"
 
 @interface RMNMapViewController ()< HPInformationsManagerDelegate,
-                                    RMNUserSettingsLefttSideMenuDelegate, RMNFoursquaredLocationFetcher>
+                                    RMNUserSettingsLefttSideMenuDelegate>
 {
 
     NSDictionary *locationsBigAssDictionary;
@@ -44,9 +44,6 @@
     GMSMapView *mapView_;
 }
 
-// You don't need to modify the default initWithNibName:bundle: method.
-
-
 
 - (void)viewDidLoad
 {
@@ -64,16 +61,31 @@
     manager                        = [[HPInformationsManager alloc] init];
     manager.communicator           = [[HPCommunicator alloc] init];
     manager.communicator.delegate  = manager;
-    manager.delegate               = self;
+    manager.locationsDelegate      = self;
     [manager fetchLocations];
 
 
-    HPInformationsManager *locationManager;
-    locationManager                        = [[HPInformationsManager alloc] init];
-    locationManager.communicator           = [[HPCommunicator alloc] init];
-    locationManager.communicator.delegate  = locationManager;
-    locationManager.delegate               = self;
-    [locationManager fetchDetailedInfoForFoursquareID:@"430d0a00f964a5203e271fe3"];
+    // use this for custom requests for the server
+//    HPInformationsManager *locationManager;
+//    locationManager                        = [[HPInformationsManager alloc] init];
+//    locationManager.communicator           = [[HPCommunicator alloc] init];
+//    locationManager.communicator.delegate  = locationManager;
+//    locationManager.customRequestDelegate  = self;
+//    
+//    
+//    NSDictionary *requestInfo = @{@"userID"   : @"1",
+//                                  @"username" : @"chiosa.gabi",
+//                                  @"password" : @"parolamea",
+//                                  @"lastName" : @"ultimul",
+//                                  @"firstName": @"primul",
+//                                  @"email"    : @"chiosa.gabi@gmail.com",
+//                                  @"gender"   : @"male"};
+//    
+//    [locationManager.communicator setRequestInfo:requestInfo];
+//    [locationManager fetchAnswerFor:RMNRequestCheckUsername withRequestData:requestInfo];
+    
+    
+//    [locationManager fetchDetailedInfoForFoursquareID:@"43695300f964a5208c291fe3"];
     
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
      {
@@ -200,6 +212,7 @@
 - (void) didReceiveLocations:(NSDictionary *)groups
 {
 
+
     // store the received information in an local array
     locationsBigAssDictionary = groups;
     [HPMapMarker addMarkersToMap:mapView_
@@ -208,24 +221,36 @@
     
 }
 
-- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary *)detailedInfo
-{
-    // debuging purposes
-    // will move this to the detailed view controller
-//    NSLog(@"gaseste %@",[detailedInfo valueForDeepKeyLinkingCustom:@"photos.groups.items.user.photo"]);
-    
-    
-    RMNFoursquaredLocation *detailInfo = [[RMNFoursquaredLocation alloc] initFromSource:detailedInfo];
-    detailInfo.delegate = self;
-    
-    
-}
-#pragma mark - Detail info fetcher
-- (void)finishedWithInfo:(id)locationInfo
-{
-    RMNFoursquaredLocation *detailInfo = locationInfo;
-    NSLog(@"A gasit info %@",detailInfo.photos);
-}
+//- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary *)detailedInfo
+//{
+//    // debuging purposes
+//    // will move this to the detailed view controller
+////    NSLog(@"gaseste %@",detailedInfo);
+//    
+//    
+//    RMNFoursquaredLocation *detailInfo = [[RMNFoursquaredLocation alloc] initFromSource:detailedInfo];
+//    detailInfo.delegate = self;
+//    
+//    
+//}
+//
+////
+////- (void)didReceiveAnswer:(NSDictionary *)answer
+////{
+////    NSLog(@"gaseste %@",answer);
+////}
+////
+////- (void)requestingFailedWithError:(NSError *)error
+////{
+////    NSLog(@"EROAARE %@",error);
+////}
+////
+////#pragma mark - Detail info fetcher
+////- (void)finishedWithInfo:(id)locationInfo
+////{
+//////    RMNFoursquaredLocation *detailInfo = locationInfo;
+////
+////}
 
 
 - (void)fetchingLocationsFailedWithError:(NSError *)error

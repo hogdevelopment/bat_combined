@@ -13,19 +13,27 @@
 @implementation HPCommunicator
 @synthesize foursquareID;
 
-- (void) doSomeHTTPRequestFor:(RMNLocationSource)type
+- (void) doSomeHTTPRequestFor:(RMNRequestType)type
 {
     NSString *searchType;
+    NSString *post=@"";
     
     switch (type)
     {
-        case RMNLocationDataBase:
+            // it requiers the longitude, latitude and radius to retrieve locations found in that area
+        case RMNRequestLocationDataBase:
         {
-            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/location/get/47.37/8.54/1000000";
+            
+            NSString *latitude      = @"47.37";
+            NSString *longitude     = @"8.54";
+            NSString *radius        = @"1000000";
+            NSString *urlBody       = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/location/get/";
+            searchType              = [NSString stringWithFormat:@"%@%@/%@/%@",urlBody,latitude,longitude,radius];
+            NSLog(@"search type %@",searchType);
             break;
         }
-            
-        case RMNLocationFoursquare:
+            // it requiers onlty the foursquare ID
+        case RMNRequestLocationFoursquare:
         {
 
             NSString *URL                   = @"https://api.foursquare.com/v2/venues/";
@@ -38,45 +46,167 @@
             
             break;
         }
+            // it requiers the email and password
+        case RMNRequestUserLogin:
+        {
+            
+            NSString*email      = [self.requestInfo valueForKey:@"email"];
+            NSString*password   = [self.requestInfo valueForKey:@"password"];
+            
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/login";
+            post = [NSString stringWithFormat:@"email=%@&password=%@",email,password];
+            break;
+        }
+            // it requiers only the username
+        case RMNRequestCheckUsername:
+        {
+
+            NSString*username       = [self.requestInfo valueForKey:@"username"];
+            NSLog(@"USERUL %@",username);
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/usernamecheck";
+            post = [NSString stringWithFormat:@"username=%@",username];
+            NSLog(@"username check");
+            break;
+        }
+            // it requiers the username, password, email, first name, last name and the gender
+        case RMNRequestUserRegister:
+        {
+
+            
+            
+            NSString*username   = [self.requestInfo valueForKey:@"username"];
+            NSString*password   = [self.requestInfo valueForKey:@"password"];
+            NSString*email      = [self.requestInfo valueForKey:@"email"];
+            NSString*firstName  = [self.requestInfo valueForKey:@"firstName"];
+            NSString*lastName   = [self.requestInfo valueForKey:@"lastName"];
+            NSString*gender     = [self.requestInfo valueForKey:@"gender"];
+            
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
+            post = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&first_name=%@&last_name=%@&gender=%@",username,password,email,firstName,lastName,gender];
+            
+            break;
+        }
+            // it requiers the users id and the password
+        case RMNRequestUserChangePassword:
+        {
+
+            NSString*userID     = [self.requestInfo valueForKey:@"user_id"];
+            NSString*password   = [self.requestInfo valueForKey:@"password"];
+            
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/passwordchange";
+            post = [NSString stringWithFormat:@"user_id=%@&password=%@",userID,password];
+            break;
+        }
+            // it requiers the users ID, email, first name, last name and the gender
+        case RMNRequestUserInfoUpdate:
+        {
+
+            NSString*userID     = [self.requestInfo valueForKey:@"userID"];
+            NSString*email      = [self.requestInfo valueForKey:@"email"];
+            NSString*firstName  = [self.requestInfo valueForKey:@"firstName"];
+            NSString*lastName   = [self.requestInfo valueForKey:@"lastName"];
+            NSString*gender     = [self.requestInfo valueForKey:@"gender"];
+            
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
+            post = [NSString stringWithFormat:@"user_id=%@&email=%@&first_name=%@&last_name=%@&gender=%@",userID,email,firstName,lastName,gender];
+            break;
+        }
+
+            
         default:
             break;
     }
 
-    
     NSString *urlAsString = searchType;
     
+    // build the url from the gathered information
     NSURL *url = [NSURL URLWithString:urlAsString];
     
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:url];
     
-    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    if (type != RMNRequestLocationDataBase &&
+        type != RMNRequestLocationFoursquare)
+    {
+        NSLog(@"este pentru usercheck");
         
-        if (error) {
-            [self.delegate fetchingGroupsFailedWithError:error];
-        }
-        else
-        {
-            switch (type)
-            {
-                case RMNLocationDataBase:
-                {
-                    [self.delegate receivedLocationsJSONFromDataBase:data];
-                    break;
-                }
-                case RMNLocationFoursquare:
-                {
-                    [self.delegate receivedLocationsJSONFromFoursquare:data];
-                    break;
-                }
-                default:
-                    break;
-            }
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        
+        // build the request
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
 
-            
-        }
-        
-        
-    }];
-     
+    }
+  
+    
+    
+
+    
+    
+    [self httpForRequest:request withType:type];
+    
+
 }
+
+- (void)httpForRequest:(NSMutableURLRequest*)request withType:(RMNRequestType)type
+{
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:
+     ^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         
+         if (error) {
+             
+             // tell tell the delegate an error appeared
+             // and the request couldn't complete
+              [self.delegate fetchingGroupsFailedWithError:error];
+         
+         } else {
+             
+             
+            
+             switch (type)
+             {
+                // parse the data depending on the request
+                     
+                     // build a dictionary with locations from the database
+                 case RMNRequestLocationDataBase:
+                 {
+                     [self.delegate receivedLocationsJSONFromDataBase:data];
+                     break;
+                 }
+                     // build a dictionary with detailed info for a location using foursquare
+                 case RMNRequestLocationFoursquare:
+                 {
+                     [self.delegate receivedLocationsJSONFromFoursquare:data];
+                     break;
+                 }
+                     // builds answer for certain requests
+                 case RMNRequestUserLogin:
+                 case RMNRequestCheckUsername:
+                 case RMNRequestUserChangePassword:
+                 case RMNRequestUserInfoUpdate:
+                 case RMNRequestUserRegister:
+                 {
+                      NSLog(@"za result %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                     [self.delegate requestAnswer:data];
+                     break;
+                 }
+                 default:
+                     break;
+             }
+
+             
+         }
+     }];
+}
+
+
 
 @end

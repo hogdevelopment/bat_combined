@@ -21,19 +21,51 @@
 @property (nonatomic) id<RMNFoursquaredLocationFetcher> delegate;
 
 
-// size for the photos
-@property (assign) CGSize photoSize;
+// the name of the location
+@property (strong, nonatomic) NSString *name;
 
+// the description of the location
+@property (strong, nonatomic) NSString *description;
 
-// stores an array of photos of a pre set size
-// the size is set in photoSize variable
-// if it's not set a defaul value of 320x200 will be set
-@property (strong, nonatomic) NSArray*photos;
+// the complete address for the location
+@property (strong, nonatomic) NSString *address;
+
+// the postal code of the location
+@property (strong, nonatomic) NSString *postalCode;
+
+// locations city
+@property (strong, nonatomic) NSString *city;
+
+// locations state
+@property (strong, nonatomic) NSString *state;
+
+// locations country
+@property (strong, nonatomic) NSString *country;
+
+// opening hours
+@property (strong, nonatomic) NSString *hoursOpen;
+
+// days open
+@property (strong, nonatomic) NSString *daysOpen;
+
+// stores an array of photos
+@property (strong, nonatomic) NSArray *photos;
 
 // the locations contact phone number
-@property (strong, nonatomic) NSString*phoneNumber;
+@property (strong, nonatomic) NSString *phoneNumber;
 
 // the locations contact twitter username
-@property (strong, nonatomic) NSString*twitterUserName;
+@property (strong, nonatomic) NSString *twitterUserName;
+
+// the location url
+@property (strong, nonatomic) NSString *locationUrl;
+
+// locations price rating
+@property (strong, nonatomic) NSString *price;
+
+
+// locations attributes
+@property (strong, nonatomic) NSArray *attributes;
+
 
 @end

@@ -10,9 +10,18 @@
 
 @protocol HPInformationsManagerDelegate <NSObject>
 
-@optional
+//- (void)fetchingLocationsFailedWithError:(NSError *)error;
+//- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary*)detailedInfo;
+
 - (void)didReceiveLocations:(NSDictionary *)groups;
-- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary*)detailedInfo;
 - (void)fetchingLocationsFailedWithError:(NSError *)error;
+
+
+
+
+
+
+//- (void)requestingFailedWithError:(NSError *)error;
+//- (void)didReceiveAnswer:(NSDictionary*)answer;
 
 @end

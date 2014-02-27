@@ -135,11 +135,10 @@
 		5CF9DAC918BE072E0094B264 /* clearContent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC518BE072E0094B264 /* clearContent@2x.png */; };
 		5CF9DACA18BE072E0094B264 /* showMoreInfoToChoseFromArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC618BE072E0094B264 /* showMoreInfoToChoseFromArrow.png */; };
 		5CF9DACB18BE072E0094B264 /* showMoreInfoToChoseFromArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC718BE072E0094B264 /* showMoreInfoToChoseFromArrow@2x.png */; };
-		5CF9DACF18BE1F040094B264 /* RMNFoursquareRequests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF9DACE18BE1F040094B264 /* RMNFoursquareRequests.m */; };
 		5CF9DAD218BE278E0094B264 /* NSDictionary+DeepLinking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF9DAD118BE278E0094B264 /* NSDictionary+DeepLinking.m */; };
 		5CF9DAD518BE2AD80094B264 /* RMNFoursquaredLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF9DAD418BE2AD80094B264 /* RMNFoursquaredLocation.m */; };
-		651F37FA18AED58F00449DC7 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 651F37F918AED58F00449DC7 /* GoogleMaps.framework */; };
-		651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */; };
+		5CF9DAD818BE33FC0094B264 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF9DAD718BE33FC0094B264 /* GoogleMaps.framework */; };
+		5CF9DADA18BE34100094B264 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAD918BE34100094B264 /* GoogleMaps.bundle */; };
 		651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */; };
 		651F380318AEE37C00449DC7 /* RMNUserPhotoNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */; };
 		651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 651F380518AEE3D700449DC7 /* RMNUserPhotoNameView.m */; };
@@ -418,6 +417,9 @@
 		5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMNManager.m; path = ../RMNManager.m; sourceTree = "<group>"; };
 		5CA1ABE318B751C800862468 /* RMNUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInfo.h; sourceTree = "<group>"; };
 		5CA1ABE418B751C800862468 /* RMNUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserInfo.m; sourceTree = "<group>"; };
+		5CA3A32C18BF9CD5005DFF01 /* RMNCustomRequestsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNCustomRequestsDelegate.h; sourceTree = "<group>"; };
+		5CA3A32D18BF9D0E005DFF01 /* RMNRequestsTypeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNRequestsTypeInfo.h; sourceTree = "<group>"; };
+		5CA3A32E18BF9D67005DFF01 /* RMNFoursquareInterrogatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNFoursquareInterrogatorDelegate.h; sourceTree = "<group>"; };
 		5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNIntroSlideContentViewController.h; sourceTree = "<group>"; };
 		5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNIntroSlideContentViewController.m; sourceTree = "<group>"; };
 		5CAF8F0418ABDA6700AF111F /* logoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoHolder.png; sourceTree = "<group>"; };
@@ -448,15 +450,13 @@
 		5CF9DAC518BE072E0094B264 /* clearContent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clearContent@2x.png"; sourceTree = "<group>"; };
 		5CF9DAC618BE072E0094B264 /* showMoreInfoToChoseFromArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showMoreInfoToChoseFromArrow.png; sourceTree = "<group>"; };
 		5CF9DAC718BE072E0094B264 /* showMoreInfoToChoseFromArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "showMoreInfoToChoseFromArrow@2x.png"; sourceTree = "<group>"; };
-		5CF9DACD18BE1F040094B264 /* RMNFoursquareRequests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFoursquareRequests.h; sourceTree = "<group>"; };
-		5CF9DACE18BE1F040094B264 /* RMNFoursquareRequests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFoursquareRequests.m; sourceTree = "<group>"; };
 		5CF9DAD018BE278E0094B264 /* NSDictionary+DeepLinking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DeepLinking.h"; sourceTree = "<group>"; };
 		5CF9DAD118BE278E0094B264 /* NSDictionary+DeepLinking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+DeepLinking.m"; sourceTree = "<group>"; };
 		5CF9DAD318BE2AD80094B264 /* RMNFoursquaredLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFoursquaredLocation.h; sourceTree = "<group>"; };
 		5CF9DAD418BE2AD80094B264 /* RMNFoursquaredLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFoursquaredLocation.m; sourceTree = "<group>"; };
 		5CF9DAD618BE2CB80094B264 /* RMNFoursquaredLocationFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNFoursquaredLocationFetcher.h; sourceTree = "<group>"; };
-		651F37F918AED58F00449DC7 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		5CF9DAD718BE33FC0094B264 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		5CF9DAD918BE34100094B264 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		651F37FD18AEDF1D00449DC7 /* UIImage+Effects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effects.h"; sourceTree = "<group>"; };
 		651F37FE18AEDF1D00449DC7 /* UIImage+Effects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effects.m"; sourceTree = "<group>"; };
 		651F380218AEE37C00449DC7 /* RMNUserPhotoNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNUserPhotoNameView.xib; sourceTree = "<group>"; };
@@ -650,10 +650,10 @@
 				7C9B2DE8189A696400071357 /* libicucore.dylib in Frameworks */,
 				7C9B2DE6189A695700071357 /* libz.dylib in Frameworks */,
 				7C9B2DE4189A694C00071357 /* OpenGLES.framework in Frameworks */,
-				651F37FA18AED58F00449DC7 /* GoogleMaps.framework in Frameworks */,
 				7C9B2DE0189A693C00071357 /* SystemConfiguration.framework in Frameworks */,
 				7C9B2D87189A684A00071357 /* CoreGraphics.framework in Frameworks */,
 				7C9B2D89189A684A00071357 /* UIKit.framework in Frameworks */,
+				5CF9DAD818BE33FC0094B264 /* GoogleMaps.framework in Frameworks */,
 				7C9B2D85189A684A00071357 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,11 +735,14 @@
 			isa = PBXGroup;
 			children = (
 				5C0B2BA318BC9CDA00986792 /* HPCommunicatorDelegate.h */,
+				5CA3A32D18BF9D0E005DFF01 /* RMNRequestsTypeInfo.h */,
 				5C0B2BA418BC9CDA00986792 /* HPCommunicator.h */,
 				5C0B2BA518BC9CDA00986792 /* HPCommunicator.m */,
 				5C0B2BA618BC9CDA00986792 /* HPLocationBuilder.h */,
 				5C0B2BA718BC9CDA00986792 /* HPLocationBuilder.m */,
 				5C0B2BA818BC9CDA00986792 /* HPInformationsManagerDelegate.h */,
+				5CA3A32E18BF9D67005DFF01 /* RMNFoursquareInterrogatorDelegate.h */,
+				5CA3A32C18BF9CD5005DFF01 /* RMNCustomRequestsDelegate.h */,
 				5C0B2BA918BC9CDA00986792 /* HPInformationsManager.h */,
 				5C0B2BAA18BC9CDA00986792 /* HPInformationsManager.m */,
 			);
@@ -961,8 +964,6 @@
 				5CF9DAD318BE2AD80094B264 /* RMNFoursquaredLocation.h */,
 				5CF9DAD418BE2AD80094B264 /* RMNFoursquaredLocation.m */,
 				5CF9DAD618BE2CB80094B264 /* RMNFoursquaredLocationFetcher.h */,
-				5CF9DACD18BE1F040094B264 /* RMNFoursquareRequests.h */,
-				5CF9DACE18BE1F040094B264 /* RMNFoursquareRequests.m */,
 				5CF9DAD018BE278E0094B264 /* NSDictionary+DeepLinking.h */,
 				5CF9DAD118BE278E0094B264 /* NSDictionary+DeepLinking.m */,
 				5C0B2BCB18BCFCCB00986792 /* RMNLoader.xib */,
@@ -1292,8 +1293,8 @@
 		7C9B2D83189A684A00071357 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				651F37FB18AED59A00449DC7 /* GoogleMaps.bundle */,
-				651F37F918AED58F00449DC7 /* GoogleMaps.framework */,
+				5CF9DAD918BE34100094B264 /* GoogleMaps.bundle */,
+				5CF9DAD718BE33FC0094B264 /* GoogleMaps.framework */,
 				E1A9BCFC18ABA77200944EAD /* StoreKit.framework */,
 				E1A9BCFA18AB9F2700944EAD /* MessageUI.framework */,
 				0E64B30418A517BA00E0E513 /* FacebookSDK.framework */,
@@ -1593,7 +1594,6 @@
 				7C9B30AF189AC4EC00071357 /* selected_star.png in Resources */,
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
 				65A217B818B56B3D00113F27 /* faqsAppIcon.png in Resources */,
-				651F37FC18AED59A00449DC7 /* GoogleMaps.bundle in Resources */,
 				5CE2017F18B7C0E5005A6E18 /* profilePic.png in Resources */,
 				6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */,
 				5C21D11918B3B86600D1996D /* searchButtonMagnifier@2x.png in Resources */,
@@ -1623,6 +1623,7 @@
 				5C4C980518AD34D800807404 /* slide_3_Zurich@2x.png in Resources */,
 				5C6CB52018AA98FC008CBE2A /* settingsDummy.png in Resources */,
 				0E64B31918A51D6C00E0E513 /* google-Plus-icon.png in Resources */,
+				5CF9DADA18BE34100094B264 /* GoogleMaps.bundle in Resources */,
 				6532417918B2E22A0061FE5C /* locationDummyImage.png in Resources */,
 				5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */,
 				5C4C97FC18AD34D800807404 /* slide_0_Zurich@2x.png in Resources */,
@@ -1744,7 +1745,6 @@
 				651F380618AEE3D700449DC7 /* RMNUserPhotoNameView.m in Sources */,
 				7C04AD0C189FBC0600AAA15A /* TRGoogleMapsAutocompletionCellFactory.m in Sources */,
 				7C9B2E09189A70F100071357 /* DirectionsViewController.m in Sources */,
-				5CF9DACF18BE1F040094B264 /* RMNFoursquareRequests.m in Sources */,
 				5CAF8F0D18ACC8BF00AF111F /* RMNHelpAndImproveViewController.m in Sources */,
 				7CB20F79189BD5D400F74E4B /* CallGetThereView.m in Sources */,
 				7C9B309C189A985100071357 /* CollectionViewCe.m in Sources */,
@@ -1912,6 +1912,7 @@
 					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
 					/Users/infodesign/Documents/ios/BAT_project/bat_combined,
 					"/Users/chiosagabi/Documents/iOS/Bat\\ Project/bat_combined",
+					"/Users/stefanvladut/Documents/projects/iOS/Bat\\ Project/bat_combined",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";
@@ -1938,6 +1939,7 @@
 					"/Users/stefanvladut/Documents/projects/iOS/BAT\\ github/bat_combined",
 					/Users/infodesign/Documents/ios/BAT_project/bat_combined,
 					"/Users/chiosagabi/Documents/iOS/Bat\\ Project/bat_combined",
+					"/Users/stefanvladut/Documents/projects/iOS/Bat\\ Project/bat_combined",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BespokeLocationV2/BespokeLocationV2-Prefix.pch";
