@@ -49,7 +49,7 @@
         }
         else
         {
-            NSLog(@"You forgot to bring the delegate method fetchingLocationsFailedWithError");
+            NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method fetchingLocationsFailedWithError>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
         }
         
     } else
@@ -60,7 +60,7 @@
         }
         else
         {
-            NSLog(@"You forgot to bring the delegate method didReceiveLocations");
+            NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method didReceiveLocations>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
         }
     }
 }
@@ -82,7 +82,7 @@
         }
         else
         {
-            NSLog(@"You forgot to bring the delegate method fetchingDetailsForLocationFailedWithError");
+            NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method fetchingDetailsForLocationFailedWithError>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
         }
         
     } else
@@ -93,7 +93,7 @@
         }
         else
         {
-            NSLog(@"You forgot to bring the delegate method didReceiveDetailsForFourSquareLocation");
+            NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method didReceiveDetailsForFourSquareLocation>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
         }
     }
 }
@@ -117,7 +117,7 @@
         }
         else
         {
-            NSLog(@"You forgot to bring the delegate method requestingFailedWithError");
+            NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method requestingFailedWithError>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
         }
         
     } else
@@ -128,7 +128,7 @@
         }
         else
         {
-            NSLog(@"You forgot to bring the delegate method didReceiveAnswer");
+            NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method didReceiveAnswer>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
         }
     }
 }
@@ -141,7 +141,7 @@
     }
     else
     {
-        NSLog(@"You forgot to bring the delegate method fetchingLocationsFailedWithError");
+        NSLog(@">>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>You forgot to bring the delegate method fetchingLocationsFailedWithError>>>>>>>>>>>>>>!!!!!!!!>>>>>>>>>>>");
     }
 }
 

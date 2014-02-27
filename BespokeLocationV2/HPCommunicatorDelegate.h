@@ -1,5 +1,5 @@
 //
-//  HPMeetupCommunicatorDelegate.h
+//  HPCommunicatorDelegate.h
 //  HartaDePescar
 //
 //  Created by Chiosa Gabi on 10/26/13.
@@ -7,11 +7,11 @@
 //
 // fancy explination
 
-// The MeetupCommunicator class is responsible for the communication with the
-// Meetup APIs and fetching the JSON data. It relies on the delegate of
-// MeetupCommunicatorDelegate to handle the parsing of JSON data. The
+// The Communicator class is responsible for the communication with the
+// custom  APIs and fetching the JSON data. It relies on the delegate of
+// CommunicatorDelegate to handle the parsing of JSON data. The
 // communicator has no idea how the JSON data is handled. Its focus is only on
-// creating connection to the Meetup APIs and fetching the raw JSON result.
+// creating connection to the custom APIs and fetching the raw JSON result.
 //
 #import <Foundation/Foundation.h>
 

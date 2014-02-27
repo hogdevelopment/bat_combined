@@ -418,7 +418,6 @@
 		5CA1ABE318B751C800862468 /* RMNUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInfo.h; sourceTree = "<group>"; };
 		5CA1ABE418B751C800862468 /* RMNUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserInfo.m; sourceTree = "<group>"; };
 		5CA3A32C18BF9CD5005DFF01 /* RMNCustomRequestsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNCustomRequestsDelegate.h; sourceTree = "<group>"; };
-		5CA3A32D18BF9D0E005DFF01 /* RMNRequestsTypeInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNRequestsTypeInfo.h; sourceTree = "<group>"; };
 		5CA3A32E18BF9D67005DFF01 /* RMNFoursquareInterrogatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNFoursquareInterrogatorDelegate.h; sourceTree = "<group>"; };
 		5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNIntroSlideContentViewController.h; sourceTree = "<group>"; };
 		5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNIntroSlideContentViewController.m; sourceTree = "<group>"; };
@@ -735,7 +734,6 @@
 			isa = PBXGroup;
 			children = (
 				5C0B2BA318BC9CDA00986792 /* HPCommunicatorDelegate.h */,
-				5CA3A32D18BF9D0E005DFF01 /* RMNRequestsTypeInfo.h */,
 				5C0B2BA418BC9CDA00986792 /* HPCommunicator.h */,
 				5C0B2BA518BC9CDA00986792 /* HPCommunicator.m */,
 				5C0B2BA618BC9CDA00986792 /* HPLocationBuilder.h */,
