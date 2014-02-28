@@ -220,6 +220,7 @@
 		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
+		E1AE023018C08857002DBE80 /* attributePlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */; };
 		E1B3654218B2077D0060552E /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654118B2077D0060552E /* UserInformation.m */; };
 		E1B3654518B20F480060552E /* RMNUserInformationCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */; };
 		E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */; };
@@ -556,6 +557,7 @@
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
 		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
+		E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attributePlaceHolder.png; sourceTree = "<group>"; };
 		E1B3654018B2077D0060552E /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		E1B3654118B2077D0060552E /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		E1B3654318B20F480060552E /* RMNUserInformationCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInformationCoreData.h; sourceTree = "<group>"; };
@@ -628,6 +630,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */,
 				5CE2017E18B7C0E5005A6E18 /* profilePic.png */,
 				5CEAC82618B61BF2004830D4 /* Filters */,
 				5CEAC82718B61BFD004830D4 /* Logo App */,
@@ -1499,6 +1502,7 @@
 				6532416B18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib in Resources */,
 				E1A82F0918AD022D00FF9661 /* google-Plus-icon@2x.png in Resources */,
 				5C21D0F218B245F500D1996D /* rateAppIcon.png in Resources */,
+				E1AE023018C08857002DBE80 /* attributePlaceHolder.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C4C97FD18AD34D800807404 /* slide_1_Zurich@2x.png in Resources */,
 				5C21D10318B37C5500D1996D /* bcwdHolderImageBg.png in Resources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VS8-TO-Pdc">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -202,7 +202,6 @@
                         <segue destination="BNE-lx-P9J" kind="push" identifier="helpAndImprovePageSegue" id="Vxb-f7-dPF"/>
                         <segue destination="dQv-tC-IRQ" kind="push" identifier="shareAppSegue" id="4vs-7K-kbc"/>
                         <segue destination="rRn-XY-MNB" kind="push" identifier="rateAppSegue" id="1oG-IU-8xl"/>
-                        <segue destination="bgM-B9-xtc" kind="push" identifier="attributesKeySegue" id="8OS-A4-8br"/>
                         <segue destination="KGn-Lc-ASN" kind="push" identifier="editProfilePageSegue" id="a0Q-P4-86z"/>
                         <segue destination="ceu-XT-gaN" kind="push" identifier="favouritesLocationSegue" id="5cm-ze-7LJ"/>
                         <segue destination="az8-cb-enc" kind="push" identifier="faqsSegue" id="wkI-zs-UMe"/>
@@ -1383,7 +1382,7 @@ LINE 3</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0WP-cQ-YVF">
-                                <rect key="frame" x="10" y="64" width="60" height="60"/>
+                                <rect key="frame" x="10" y="0.0" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -1415,7 +1414,7 @@ LINE 3</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWc-2F-E1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="-311"/>
+            <point key="canvasLocation" x="140" y="-358"/>
         </scene>
         <!--Edit Filters View Controller-->
         <scene sceneID="K7A-oX-NUH">
@@ -1471,14 +1470,23 @@ LINE 3</string>
         <image name="StartUsingAppFromSlide.png" width="153" height="31"/>
         <image name="distanceButtsBg.png" width="287" height="48"/>
         <image name="facebook.png" width="54" height="55"/>
+        <image name="facebook.png" width="54" height="55"/>
         <image name="foursquare.png" width="55" height="55"/>
+        <image name="foursquare.png" width="55" height="55"/>
+        <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="loginBg.png" width="320" height="503"/>
         <image name="loginScreenBg.png" width="320" height="504"/>
         <image name="logoAgeDeclaration.png" width="139" height="196"/>
         <image name="logoWhereToSmoke.png" width="79" height="79"/>
         <image name="menu-icon.png" width="22" height="17"/>
+        <image name="menu-icon.png" width="22" height="17"/>
         <image name="okMark.png" width="16" height="12"/>
+        <image name="okMark.png" width="16" height="12"/>
+        <image name="okMark.png" width="16" height="12"/>
+        <image name="okMark.png" width="16" height="12"/>
+        <image name="okMark.png" width="16" height="12"/>
+        <image name="twitterLogo.png" width="54" height="55"/>
         <image name="twitterLogo.png" width="54" height="55"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

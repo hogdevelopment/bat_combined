@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RMNVenueInformationCell.h"
 
-@interface RMNVenueInformationViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface RMNVenueInformationViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, RMNCellVenueInformationDelegate>
 {
     UITableView *infoTable;
 }

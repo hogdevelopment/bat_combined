@@ -8,6 +8,7 @@
 
 #import "RMNVenueInformationViewController.h"
 #import "RMNVenueInformationCell.h"
+#import "RMNAttributesKeyViewController.h"
 
 #define NUMBER_OF_CELLS                 5
 
@@ -15,8 +16,8 @@
 #define ROW_HEIGHT_CELL_DETAILS         160
 #define ROW_HEIGHT_CELL_RATING          80
 
-static CGFloat dynamic_row_height_cell_Attributes = 60;
-static CGFloat dynamic_row_height_cell_Description = 200;
+static CGFloat row_height_cell_Attributes = 60;
+static CGFloat row_height_cell_Description = 200;
 
 
 static NSString *CellImageIdentifier            = @"ImageCellIdentifier";
@@ -24,6 +25,10 @@ static NSString *CellDetailsIdentifier          = @"DetailsCellIdentifier";
 static NSString *CellAttributesIdentifier       = @"AttributesCellIdentifier";
 static NSString *CellDescriptionIdentifier      = @"DescriptionCellIdentifier";
 static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
+
+
+NSArray *attributesArray;
+NSString *descriptionString;
 
 @interface RMNVenueInformationViewController ()
 
@@ -44,6 +49,21 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    attributesArray = [[NSArray alloc] initWithObjects:@"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", nil];
+    
+    //calculate height for attributes cell
+    int nrOfRows = [attributesArray count]/4 + 1;
+    
+    if ([attributesArray count]%4 == 0) {
+        nrOfRows -=1;
+    }
+    
+    row_height_cell_Attributes = nrOfRows * 50;
+
+    
+    //calculate height for description cell
+    descriptionString = NSLocalizedString(@"answerFAQs_0",nil);
     
     
     // set up tableView
@@ -99,10 +119,10 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
             return ROW_HEIGHT_CELL_DETAILS;
             break;
         case 2:
-            return dynamic_row_height_cell_Attributes;
+            return row_height_cell_Attributes;
             break;
         case 3:
-            return dynamic_row_height_cell_Description;
+            return row_height_cell_Description;
             break;
         case 4:
             return ROW_HEIGHT_CELL_RATING;
@@ -152,19 +172,17 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
             break;
         case 2:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellAttributesIdentifier];
+            [cell setAttributesArray:attributesArray];
             
-#warning must change cell height to fit the attributesView
-
             break;
         case 3:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellDescriptionIdentifier];
             
             cell.venueDescriptionTitle.text = @"Description";
-            cell.venueDescriptionBody.text = NSLocalizedString(@"answerFAQs_0",nil);
+            cell.venueDescriptionBody.text = descriptionString;
             [cell setPrice:10];
 #warning must be able to tap on site
             cell.venueSite.text = @"www.google.com";
-#warning must change cell height to fit the hole description body
             
             break;
         case 4:
@@ -175,6 +193,8 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     }
     
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    [cell setCellDelegate:self];
     
     return cell;
     
@@ -204,5 +224,18 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 
 
 
+#pragma CellDelegate methods
+
+- (void) userDidPressAddAttribute{
+    
+    RMNAttributesKeyViewController *controller = [[RMNAttributesKeyViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+
+- (void) userDidPressAddRating{
+    
+    NSLog(@"you just rated this venue!");
+}
 
 @end
