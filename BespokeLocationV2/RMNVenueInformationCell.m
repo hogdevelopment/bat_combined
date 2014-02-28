@@ -334,6 +334,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     
     for (int i = 0; i<[arrayOfImages count]; i++) {
         
+        NSLog(@"ajunge si o sa trimita la%@ ",[arrayOfImages objectAtIndex:i]);
         NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[arrayOfImages objectAtIndex:i]]];
         
         [NSURLConnection sendAsynchronousRequest:request
@@ -342,7 +343,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
                                                    NSData * data,
                                                    NSError * error) {
                                    if (!error){
-                                       
+                                       NSLog(@"CICA TERMINA DE INCARCAT");
                                        // load the image and add it to the view
                                        UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
                                        [view setBackgroundColor:[UIColor blackColor]];

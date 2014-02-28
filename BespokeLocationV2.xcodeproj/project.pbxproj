@@ -114,6 +114,8 @@
 		5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */; };
 		5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */; };
 		5CA1ABE518B751C800862468 /* RMNUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1ABE418B751C800862468 /* RMNUserInfo.m */; };
+		5CA6411E18C0DD5200F242A2 /* attributePlaceHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */; };
+		5CA6411F18C0DD5200F242A2 /* attributePlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */; };
 		5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */; };
 		5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0418ABDA6700AF111F /* logoHolder.png */; };
 		5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0518ABDA6700AF111F /* logoHolder@2x.png */; };
@@ -238,7 +240,6 @@
 		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
-		E1AE023018C08857002DBE80 /* attributePlaceHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */; };
 		E1B3654218B2077D0060552E /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654118B2077D0060552E /* UserInformation.m */; };
 		E1B3654518B20F480060552E /* RMNUserInformationCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */; };
 		E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */; };
@@ -420,6 +421,8 @@
 		5CA1ABE418B751C800862468 /* RMNUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNUserInfo.m; sourceTree = "<group>"; };
 		5CA3A32C18BF9CD5005DFF01 /* RMNCustomRequestsDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNCustomRequestsDelegate.h; sourceTree = "<group>"; };
 		5CA3A32E18BF9D67005DFF01 /* RMNFoursquareInterrogatorDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMNFoursquareInterrogatorDelegate.h; sourceTree = "<group>"; };
+		5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "attributePlaceHolder@2x.png"; sourceTree = "<group>"; };
+		5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attributePlaceHolder.png; sourceTree = "<group>"; };
 		5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNIntroSlideContentViewController.h; sourceTree = "<group>"; };
 		5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNIntroSlideContentViewController.m; sourceTree = "<group>"; };
 		5CAF8F0418ABDA6700AF111F /* logoHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoHolder.png; sourceTree = "<group>"; };
@@ -610,7 +613,6 @@
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
 		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
-		E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attributePlaceHolder.png; sourceTree = "<group>"; };
 		E1B3654018B2077D0060552E /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		E1B3654118B2077D0060552E /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		E1B3654318B20F480060552E /* RMNUserInformationCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInformationCoreData.h; sourceTree = "<group>"; };
@@ -683,8 +685,9 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,
+				5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */,
 				5CF9DACC18BE07330094B264 /* Edit Profile images */,
-				E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */,
 				5CE2017E18B7C0E5005A6E18 /* profilePic.png */,
 				5CEAC82618B61BF2004830D4 /* Filters */,
 				5CEAC82718B61BFD004830D4 /* Logo App */,
@@ -911,8 +914,6 @@
 				7C9B2D93189A684A00071357 /* AppDelegate.h */,
 				7C9B2D94189A684A00071357 /* AppDelegate.m */,
 				5C50C5D718AE587F00EA169C /* RMNSettings.h */,
-				5C0B2BB718BCA26700986792 /* HPMapMarker.h */,
-				5C0B2BB818BCA26700986792 /* HPMapMarker.m */,
 				5C0B2BB018BC9CE000986792 /* Json retriever */,
 				5C50C5DD18AE643F00EA169C /* Core Data */,
 			);
@@ -930,10 +931,6 @@
 				7C30D54D18A3B4C700B2144C /* FourSquareResturant.m */,
 				7C9B309D189AAF7600071357 /* DetailsTableViewViewController.h */,
 				7C9B309E189AAF7600071357 /* DetailsTableViewViewController.m */,
-				E1A684A618B655FB002CCC15 /* RMNVenueInformationViewController.h */,
-				E1A684A718B655FB002CCC15 /* RMNVenueInformationViewController.m */,
-				E1BB7C4E18B7422400608334 /* RMNVenueInformationCell.h */,
-				E1BB7C4F18B7422400608334 /* RMNVenueInformationCell.m */,
 				7C9B2E04189A70D500071357 /* DetailsViewController.h */,
 				7C9B2E05189A70D500071357 /* DetailsViewController.m */,
 				7C9B309A189A985100071357 /* CollectionViewCe.h */,
@@ -953,35 +950,12 @@
 		5C6CB4E518AA4629008CBE2A /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5C0B2BC218BCA3ED00986792 /* HPLocationsMutableArray.h */,
-				5C0B2BC318BCA3ED00986792 /* HPLocationsMutableArray.m */,
-				5C0B2BBF18BCA3D200986792 /* HPLocationInfo.h */,
-				5C0B2BC018BCA3D200986792 /* HPLocationInfo.m */,
-				5C0B2BBA18BCA31000986792 /* HPMapDetailView.xib */,
-				5C0B2BBB18BCA31000986792 /* HPMapDetailView.h */,
-				5C0B2BBC18BCA31000986792 /* HPMapDetailView.m */,
-				5C0B2BB418BCA01300986792 /* RMNMapViewController.h */,
-				5C0B2BB518BCA01300986792 /* RMNMapViewController.m */,
-				5CF9DAD318BE2AD80094B264 /* RMNFoursquaredLocation.h */,
-				5CF9DAD418BE2AD80094B264 /* RMNFoursquaredLocation.m */,
-				5CF9DAD618BE2CB80094B264 /* RMNFoursquaredLocationFetcher.h */,
-				5CF9DAD018BE278E0094B264 /* NSDictionary+DeepLinking.h */,
-				5CF9DAD118BE278E0094B264 /* NSDictionary+DeepLinking.m */,
-				5C0B2BCB18BCFCCB00986792 /* RMNLoader.xib */,
-				5C0B2BCD18BCFD2500986792 /* RMNLoader.h */,
-				5C0B2BCE18BCFD2500986792 /* RMNLoader.m */,
-				E1B3654618B251960060552E /* RMNAgeDeclarationViewController.h */,
-				E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */,
-				E1C617FF18AE7D2A00E90E0F /* RMNLoginViewController.h */,
-				E1C6180018AE7D2A00E90E0F /* RMNLoginViewController.m */,
-				0E64B30918A5183100E0E513 /* LogInView.h */,
-				0E64B30A18A5183100E0E513 /* LogInView.m */,
-				7C9B2D99189A684A00071357 /* ViewController.h */,
-				7C9B2D9A189A684A00071357 /* ViewController.m */,
-				5C4C980918AD362F00807404 /* RMNIntroSlidesViewController.h */,
-				5C4C980A18AD362F00807404 /* RMNIntroSlidesViewController.m */,
-				5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */,
-				5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */,
+				5CA6412018C0DE1900F242A2 /* Map Views */,
+				5CA6412218C0DE4F00F242A2 /* Custom Loader */,
+				5CA6412318C0DE5C00F242A2 /* Age Declaration View */,
+				5CA6412418C0DE6600F242A2 /* Login View */,
+				5CA6412618C0DE7D00F242A2 /* Old Main View Controller - to be deleted -  */,
+				5CA6412518C0DE7400F242A2 /* Intro Sliders */,
 			);
 			name = "Main View Controllers";
 			sourceTree = "<group>";
@@ -1015,6 +989,8 @@
 		5C6CB4EC18AA492F008CBE2A /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5CF9DAD018BE278E0094B264 /* NSDictionary+DeepLinking.h */,
+				5CF9DAD118BE278E0094B264 /* NSDictionary+DeepLinking.m */,
 				5C0B2BB118BC9FD200986792 /* NSString+MD5.h */,
 				5C0B2BB218BC9FD200986792 /* NSString+MD5.m */,
 				5C21D11318B3AF9900D1996D /* UIView+Convert.m */,
@@ -1043,6 +1019,105 @@
 				5C6CB52B18AB72CC008CBE2A /* CGEnhancedKeyboard.m */,
 			);
 			name = "We may use this. Will see on further information";
+			sourceTree = "<group>";
+		};
+		5CA6412018C0DE1900F242A2 /* Map Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CA6412718C0DE9D00F242A2 /* Location information */,
+				5C0B2BBA18BCA31000986792 /* HPMapDetailView.xib */,
+				5C0B2BBB18BCA31000986792 /* HPMapDetailView.h */,
+				5C0B2BBC18BCA31000986792 /* HPMapDetailView.m */,
+				5C0B2BB718BCA26700986792 /* HPMapMarker.h */,
+				5C0B2BB818BCA26700986792 /* HPMapMarker.m */,
+				5C0B2BB418BCA01300986792 /* RMNMapViewController.h */,
+				5C0B2BB518BCA01300986792 /* RMNMapViewController.m */,
+				5CA6412818C0DEEE00F242A2 /* Venue Information */,
+			);
+			name = "Map Views";
+			sourceTree = "<group>";
+		};
+		5CA6412118C0DE3A00F242A2 /* Location Detail Info From Foursquare */ = {
+			isa = PBXGroup;
+			children = (
+				5CF9DAD318BE2AD80094B264 /* RMNFoursquaredLocation.h */,
+				5CF9DAD418BE2AD80094B264 /* RMNFoursquaredLocation.m */,
+				5CF9DAD618BE2CB80094B264 /* RMNFoursquaredLocationFetcher.h */,
+			);
+			name = "Location Detail Info From Foursquare";
+			sourceTree = "<group>";
+		};
+		5CA6412218C0DE4F00F242A2 /* Custom Loader */ = {
+			isa = PBXGroup;
+			children = (
+				5C0B2BCB18BCFCCB00986792 /* RMNLoader.xib */,
+				5C0B2BCD18BCFD2500986792 /* RMNLoader.h */,
+				5C0B2BCE18BCFD2500986792 /* RMNLoader.m */,
+			);
+			name = "Custom Loader";
+			sourceTree = "<group>";
+		};
+		5CA6412318C0DE5C00F242A2 /* Age Declaration View */ = {
+			isa = PBXGroup;
+			children = (
+				E1B3654618B251960060552E /* RMNAgeDeclarationViewController.h */,
+				E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */,
+			);
+			name = "Age Declaration View";
+			sourceTree = "<group>";
+		};
+		5CA6412418C0DE6600F242A2 /* Login View */ = {
+			isa = PBXGroup;
+			children = (
+				0E64B30918A5183100E0E513 /* LogInView.h */,
+				0E64B30A18A5183100E0E513 /* LogInView.m */,
+				E1C617FF18AE7D2A00E90E0F /* RMNLoginViewController.h */,
+				E1C6180018AE7D2A00E90E0F /* RMNLoginViewController.m */,
+			);
+			name = "Login View";
+			sourceTree = "<group>";
+		};
+		5CA6412518C0DE7400F242A2 /* Intro Sliders */ = {
+			isa = PBXGroup;
+			children = (
+				5C4C980918AD362F00807404 /* RMNIntroSlidesViewController.h */,
+				5C4C980A18AD362F00807404 /* RMNIntroSlidesViewController.m */,
+				5CA6ED9118AE16CF003BC90C /* RMNIntroSlideContentViewController.h */,
+				5CA6ED9218AE16CF003BC90C /* RMNIntroSlideContentViewController.m */,
+			);
+			name = "Intro Sliders";
+			sourceTree = "<group>";
+		};
+		5CA6412618C0DE7D00F242A2 /* Old Main View Controller - to be deleted -  */ = {
+			isa = PBXGroup;
+			children = (
+				7C9B2D99189A684A00071357 /* ViewController.h */,
+				7C9B2D9A189A684A00071357 /* ViewController.m */,
+			);
+			name = "Old Main View Controller - to be deleted - ";
+			sourceTree = "<group>";
+		};
+		5CA6412718C0DE9D00F242A2 /* Location information */ = {
+			isa = PBXGroup;
+			children = (
+				5C0B2BC218BCA3ED00986792 /* HPLocationsMutableArray.h */,
+				5C0B2BC318BCA3ED00986792 /* HPLocationsMutableArray.m */,
+				5C0B2BBF18BCA3D200986792 /* HPLocationInfo.h */,
+				5C0B2BC018BCA3D200986792 /* HPLocationInfo.m */,
+			);
+			name = "Location information";
+			sourceTree = "<group>";
+		};
+		5CA6412818C0DEEE00F242A2 /* Venue Information */ = {
+			isa = PBXGroup;
+			children = (
+				5CA6412118C0DE3A00F242A2 /* Location Detail Info From Foursquare */,
+				E1A684A618B655FB002CCC15 /* RMNVenueInformationViewController.h */,
+				E1A684A718B655FB002CCC15 /* RMNVenueInformationViewController.m */,
+				E1BB7C4E18B7422400608334 /* RMNVenueInformationCell.h */,
+				E1BB7C4F18B7422400608334 /* RMNVenueInformationCell.m */,
+			);
+			name = "Venue Information";
 			sourceTree = "<group>";
 		};
 		5CAF8F1418ACF7ED00AF111F /* Side Menu Pages */ = {
@@ -1536,6 +1611,7 @@
 				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
 				5C0B2BBD18BCA31000986792 /* HPMapDetailView.xib in Resources */,
 				5C437F1018AE939200605A8F /* privacyIcon@2x.png in Resources */,
+				5CA6411F18C0DD5200F242A2 /* attributePlaceHolder.png in Resources */,
 				5C21D10518B37C5500D1996D /* fwdHolderImageBg.png in Resources */,
 				5C4C980218AD34D800807404 /* StartUsingAppFromSlide.png in Resources */,
 				5C0B2BCC18BCFCCB00986792 /* RMNLoader.xib in Resources */,
@@ -1589,6 +1665,7 @@
 				E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
 				5C21D11818B3B86600D1996D /* searchButtonMagnifier.png in Resources */,
+				5CA6411E18C0DD5200F242A2 /* attributePlaceHolder@2x.png in Resources */,
 				5C437F1718AE939200605A8F /* shareAppIcon.png in Resources */,
 				E1B3654C18B252EA0060552E /* logoAgeDeclaration@2x.png in Resources */,
 				6532417B18B2E22A0061FE5C /* ratingLocationStar@2x.png in Resources */,
@@ -1608,7 +1685,6 @@
 				6532416B18B2E0AA0061FE5C /* RMNFavouriteLocationView.xib in Resources */,
 				E1A82F0918AD022D00FF9661 /* google-Plus-icon@2x.png in Resources */,
 				5C21D0F218B245F500D1996D /* rateAppIcon.png in Resources */,
-				E1AE023018C08857002DBE80 /* attributePlaceHolder.png in Resources */,
 				5C8EF3A118A9345700FFF0D0 /* back-arrow.png in Resources */,
 				5C4C97FD18AD34D800807404 /* slide_1_Zurich@2x.png in Resources */,
 				5C21D10318B37C5500D1996D /* bcwdHolderImageBg.png in Resources */,
