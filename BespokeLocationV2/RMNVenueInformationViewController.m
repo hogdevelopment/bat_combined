@@ -50,7 +50,7 @@ NSString *descriptionString;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    attributesArray = [[NSArray alloc] initWithObjects:@"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", nil];
+    attributesArray = [[NSArray alloc] initWithObjects:@"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", nil];
     
     //calculate height for attributes cell
     int nrOfRows = [attributesArray count]/4 + 1;
@@ -64,6 +64,19 @@ NSString *descriptionString;
     
     //calculate height for description cell
     descriptionString = NSLocalizedString(@"answerFAQs_0",nil);
+    CGSize maximumLabelSize = CGSizeMake(310,9999);
+    
+    CGSize expectedLabelSize = [descriptionString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
+                                      constrainedToSize:maximumLabelSize
+                                          lineBreakMode:NSLineBreakByWordWrapping];
+    
+    //get the new height needed for label.
+    CGFloat newHeight = expectedLabelSize.height;
+    
+    // calculate height for all the cell
+    row_height_cell_Description = newHeight + 110;
+
+    NSLog(@"calculated height for string is : %f", row_height_cell_Description);
     
     
     // set up tableView
@@ -178,9 +191,11 @@ NSString *descriptionString;
         case 3:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellDescriptionIdentifier];
             
+            [cell setNewCalculatedHeight:row_height_cell_Description];
             cell.venueDescriptionTitle.text = @"Description";
             cell.venueDescriptionBody.text = descriptionString;
             [cell setPrice:10];
+
 #warning must be able to tap on site
             cell.venueSite.text = @"www.google.com";
             
@@ -228,14 +243,13 @@ NSString *descriptionString;
 
 - (void) userDidPressAddAttribute{
     
-    RMNAttributesKeyViewController *controller = [[RMNAttributesKeyViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self performSegueWithIdentifier:@"attributesPageSegue" sender:self];
 }
 
 
-- (void) userDidPressAddRating{
+- (void) userDidPressAddRating:(CGFloat)rating{
     
-    NSLog(@"you just rated this venue!");
+    NSLog(@"your rating is %f", rating);
 }
 
 @end

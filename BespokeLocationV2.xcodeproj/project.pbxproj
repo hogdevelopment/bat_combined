@@ -683,6 +683,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CF9DACC18BE07330094B264 /* Edit Profile images */,
 				E1AE022F18C08857002DBE80 /* attributePlaceHolder.png */,
 				5CE2017E18B7C0E5005A6E18 /* profilePic.png */,
 				5CEAC82618B61BF2004830D4 /* Filters */,

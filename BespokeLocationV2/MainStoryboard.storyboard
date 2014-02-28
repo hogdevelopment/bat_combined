@@ -206,6 +206,7 @@
                         <segue destination="ceu-XT-gaN" kind="push" identifier="favouritesLocationSegue" id="5cm-ze-7LJ"/>
                         <segue destination="az8-cb-enc" kind="push" identifier="faqsSegue" id="wkI-zs-UMe"/>
                         <segue destination="zbc-DC-td5" kind="push" identifier="editFiltersPageSegue" id="V0G-Et-1Sr"/>
+                        <segue destination="49h-9y-pdL" kind="push" identifier="venueInformationPageSegue" id="88p-gi-x4M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aer-QJ-dsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -905,6 +906,24 @@ LINE 3</string>
             </objects>
             <point key="canvasLocation" x="668" y="-802"/>
         </scene>
+        <!--Venue Information View Controller-->
+        <scene sceneID="yBv-dM-Ot0">
+            <objects>
+                <viewController id="49h-9y-pdL" customClass="RMNVenueInformationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0uv-1y-Eg4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JNL-OX-v9e"/>
+                    <connections>
+                        <segue destination="bgM-B9-xtc" kind="push" identifier="attributesPageSegue" id="w1O-Hl-zYD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m3X-5W-0Vq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="609" y="-179"/>
+        </scene>
         <!--Privacy Page View Controller-->
         <scene sceneID="WOh-0U-6on">
             <objects>
@@ -1390,7 +1409,7 @@ LINE 3</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0WP-cQ-YVF">
-                                <rect key="frame" x="10" y="0.0" width="60" height="60"/>
+                                <rect key="frame" x="10" y="64" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -1422,7 +1441,7 @@ LINE 3</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWc-2F-E1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-358"/>
+            <point key="canvasLocation" x="1428" y="-118"/>
         </scene>
         <!--Edit Filters View Controller-->
         <scene sceneID="K7A-oX-NUH">
@@ -1491,23 +1510,14 @@ LINE 3</string>
         <image name="StartUsingAppFromSlide.png" width="153" height="31"/>
         <image name="distanceButtsBg.png" width="287" height="48"/>
         <image name="facebook.png" width="54" height="55"/>
-        <image name="facebook.png" width="54" height="55"/>
         <image name="foursquare.png" width="55" height="55"/>
-        <image name="foursquare.png" width="55" height="55"/>
-        <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="loginBg.png" width="320" height="503"/>
         <image name="loginScreenBg.png" width="320" height="504"/>
         <image name="logoAgeDeclaration.png" width="139" height="196"/>
         <image name="logoWhereToSmoke.png" width="79" height="79"/>
         <image name="menu-icon.png" width="22" height="17"/>
-        <image name="menu-icon.png" width="22" height="17"/>
         <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="twitterLogo.png" width="54" height="55"/>
         <image name="twitterLogo.png" width="54" height="55"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
