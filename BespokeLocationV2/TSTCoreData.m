@@ -34,10 +34,11 @@
                                                    inManagedObjectContext:context];
     
     
-
+//    NSLog(@"INFORMATIA %@",information);
     for(id key in information)
     {
 
+//        NSLog(@"ESTE CU CHEIA %@ la informatia %@",key,[information objectForKey:key]);
         [informationManagedObject setValue:NULL_TO_NIL([information objectForKey:key])
                                   forKey:key];
     }
@@ -54,6 +55,87 @@
     }
     
     
+
+}
+
++ (void)actionType:(TSTCoreDataActionType)actionType
+         forEntity:(TSTCoreDataEntity)entityType
+          withKeys:(NSDictionary*)info
+{
+    // bring za app delegate instance
+    AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    
+    NSString *entityName = [self entityNameFor:entityType];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:context]];
+    
+
+    
+
+    // build custom id to search for in entity
+    NSString *valueKey  = [info valueForKey:@"valueKey"];
+    NSString *idKey     = [info valueForKey:@"idKey"];
+
+    // build dynamic predicate for request
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",
+                              idKey, valueKey];
+
+    
+    [request setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+
+    // retrieve the desired object
+    NSManagedObject* userData = [results lastObject];
+
+    
+    // do custom action
+    switch (actionType) {
+        case TSTCoreDataActionDelete:
+        {
+            [context deleteObject:userData];
+            break;
+        }
+        case TSTCoreDataActionUpdate:
+        {
+            
+            NSArray *keys = [info allKeys];
+            
+            // parse the dictionary to update the given values
+            for (NSString *key in keys)
+            {
+                if ([key isEqualToString:@"idKey"] ||
+                    [key isEqualToString:@"valueKey"])
+                    return;
+                
+                [userData setValue:[info objectForKey:key]
+                            forKey:key];
+            }
+            
+        break;
+        }
+        default:
+            break;
+    }
+    
+ 
+    // update and check for errros
+    if(![context save:&error])
+    {
+        //This is a serious error saying the record
+        //could not be saved. Advise the user to
+        //try again or restart the application.
+        NSLog(@"Eroare la update in Core Data");
+        /// TODO - throw an alert, and make the
+        /// user to save it again
+    }
+    else{
+        //        NSLog(@"update for photos is done! WITH %@",[self fetchedUserData]);
+        
+    }
 
 }
 
@@ -79,7 +161,6 @@
     NSArray *results = [context executeFetchRequest:request error:&error];
     
     NSManagedObject* userData = [results lastObject];
-
     
     NSArray *keys = [info allKeys];
 
@@ -90,7 +171,7 @@
         [userData setValue:[info objectForKey:key]
                            forKey:key];
     }
-    
+
     // update and check for errros
     if(![context save:&error])
     {
@@ -111,19 +192,25 @@
 
 
 
-+(NSMutableArray *)fetchedUserData;
++(NSMutableArray *)fetchedUserDataFor:(TSTCoreDataEntity)entityType
 {
     AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
     
+    
+    NSString *entityName = [self entityNameFor:entityType];
+
     // Define our table/entity to use
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"UserInformation" inManagedObjectContext:managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
     // Setup the fetch request
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
     
-    NSString *userEmail = [[RMNManager sharedManager] currentUserEmail];
-    request.predicate   = [NSPredicate predicateWithFormat:@"email == %@",userEmail];
+    if (entityType == TSTCoreDataUser)
+    {
+        NSString *userEmail = [[RMNManager sharedManager] currentUserEmail];
+        request.predicate   = [NSPredicate predicateWithFormat:@"email == %@",userEmail];
+    }
     request.resultType  = NSDictionaryResultType;
     
     
@@ -357,6 +444,11 @@
         case TSTCoreDataFilters:
         {
             entityName = @"Filters";
+            break;
+        }
+        case TSTCoreDataFavourites:
+        {
+            entityName = @"Favourites";
             break;
         }
 

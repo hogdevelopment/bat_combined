@@ -274,6 +274,8 @@ static NSString *CellIdentifier = @"CellEditProfile";
     return [placeHolders count];
 }
 
+
+#pragma mark - keyboard toolbar delegate methods
 - (void)userDidTouchDown:(CGEnhancedKeyboardTags)tagType
 {
     int max = [sectionsTitles count]-2;
@@ -344,6 +346,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 }
 
+#pragma mark - interface builder methods
 - (IBAction)changePicture:(id)sender
 {
     UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select source for profile photo:"

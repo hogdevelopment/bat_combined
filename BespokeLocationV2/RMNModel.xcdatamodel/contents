@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Favourites" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contactPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contactTwitter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="foursquare_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foursquare_verified" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="localAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="new" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="postcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating_count" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="smokingRatingAverage" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="smokingRatingCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="smokingRatingTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
     <entity name="Filters" syncable="YES"/>
     <entity name="UserInformation" representedClassName="UserInformation" syncable="YES">
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
@@ -18,5 +37,6 @@
     <elements>
         <element name="Filters" positionX="0" positionY="0" width="0" height="0"/>
         <element name="UserInformation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Favourites" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

@@ -12,9 +12,18 @@
 typedef enum
 {
     TSTCoreDataUser,
-    TSTCoreDataFilters
+    TSTCoreDataFilters,
+    TSTCoreDataFavourites
     
 }TSTCoreDataEntity;
+
+
+typedef enum
+{
+    TSTCoreDataActionDelete,
+    TSTCoreDataActionUpdate
+}
+TSTCoreDataActionType;
 
 @interface TSTCoreData : NSObject
 
@@ -26,7 +35,16 @@ typedef enum
 + (void) updateWithInfo:(NSDictionary*)info forEntity:(TSTCoreDataEntity)entityType;
 
 // fetch user data
-+(NSMutableArray *)fetchedUserData;
++(NSMutableArray *)fetchedUserDataFor:(TSTCoreDataEntity)entityType;
+
+// cusotm action type for entities
+// update, delete
+// requiers an id in the dictionary with
+// the key "idKey" and the value "valueKey"
+// which will be used to fetch the object
++ (void)actionType:(TSTCoreDataActionType)actionType
+         forEntity:(TSTCoreDataEntity)entityType
+          withKeys:(NSDictionary*)info;
 
 // check if the user with username was registered with social service in Core Data
 + (BOOL) checkIfIsSavedInCoreDataUserWithUsername: (NSString *) username andIsRegisteredWithSocialService: (UserInformationKeyValues ) socialService;
@@ -45,6 +63,7 @@ typedef enum
 
 // returns url for profile photo (thumbnail) if available, if not - returns Nil
 + (NSString *) returnPhotoURLForUserWithEmail: (NSString *) userEmail ;
+
 
 
 @end

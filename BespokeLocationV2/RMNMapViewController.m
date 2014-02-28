@@ -212,7 +212,12 @@
 - (void) didReceiveLocations:(NSDictionary *)groups
 {
 
-
+   // populate fake favourites locations
+//    for (NSDictionary *dict in groups)
+//    {
+//         [RMNUserInfo saveLocationToFavourites:dict];
+//    }
+    
     // store the received information in an local array
     locationsBigAssDictionary = groups;
     [HPMapMarker addMarkersToMap:mapView_

@@ -23,4 +23,14 @@
 
 // updates the users personal info in Core data
 + (void)updateProfileDataWith:(NSArray*)infoToUpdate;
+
+
+// saves favourite location to core data
++ (void)saveLocationToFavourites:(NSDictionary*)location;
+
+// fetches the favourites locations
++ (NSMutableArray*)fetchFavouriteLocations;
+
+// deletes favourite location from core data
++ (void)removeFavouriteLocation:(NSDictionary*)location;
 @end

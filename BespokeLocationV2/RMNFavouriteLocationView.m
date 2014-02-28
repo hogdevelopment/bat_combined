@@ -12,6 +12,9 @@
 
 @implementation RMNFavouriteLocationView
 
+@synthesize delegate;
+@synthesize indexPathSection;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -34,9 +37,26 @@
 }
 
 
+- (void)populateWithInformationFrom:(NSDictionary*)locationInfo
+{
+    
+    NSString *name          = [locationInfo valueForKey:@"name"];
+    NSString *address       = [locationInfo valueForKey:@"localAddress"];
+    NSString *smokingStars  = [[locationInfo valueForKey:@"smokingRatingTotal"]stringValue];
+    
+    
+    [self.locationDescriptionLabel setText:name];
+    [self.locationAddressLabel setText:address];
+    [self.locationStars setText:smokingStars];
+}
+
 
 - (void)removeLocationAction:(UIButton *)sender
 {
     NSLog(@"STERGE LOCATIA");
+    
+    [[self delegate]removeFavouriteLocationFromSection:self.indexPathSection];
+
+    
 }
 @end

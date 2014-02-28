@@ -60,7 +60,7 @@
 + (NSArray*)profileData
 {
     // get the info from Core Data
-    NSDictionary *sectionsTitles =    (NSDictionary*)[[TSTCoreData fetchedUserData]lastObject];
+    NSDictionary *sectionsTitles =    (NSDictionary*)[[TSTCoreData fetchedUserDataFor:TSTCoreDataUser]lastObject];
 
     NSDate *dob = [sectionsTitles valueForKey:@"dateOfBirth"];
     
@@ -100,5 +100,23 @@
                                     };
     
     [TSTCoreData updateWithInfo:dictionaryCD forEntity:TSTCoreDataUser];
+}
+
++ (void)saveLocationToFavourites:(NSDictionary*)location;
+{
+    [TSTCoreData addInformation:location ofType:TSTCoreDataFavourites];
+}
+
++ (NSMutableArray*)fetchFavouriteLocations
+{
+    NSMutableArray *favourites = [TSTCoreData fetchedUserDataFor:TSTCoreDataFavourites];
+    return favourites;
+}
+
++ (void)removeFavouriteLocation:(NSDictionary*)location
+{
+    [TSTCoreData actionType:TSTCoreDataActionDelete
+                  forEntity:TSTCoreDataFavourites
+                   withKeys:location];
 }
 @end
