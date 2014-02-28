@@ -155,9 +155,22 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 
 - (void) createAttributesView
 {
-    self.attributesView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, _cellHeight)];
+    [self.contentView setBackgroundColor:[UIColor whiteColor]];
+    
+    self.attributesView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320 - 50, _cellHeight)];
     [self.attributesView setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
     
+    UIButton *addAttributesButt = [[UIButton alloc] initWithFrame:CGRectMake(320-50, _cellHeight - 50, 50, 50)];
+    [addAttributesButt setTitle:@"+" forState:UIControlStateNormal];
+    [addAttributesButt.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:50]];
+    [addAttributesButt.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [addAttributesButt.layer setBorderWidth:1.0];
+    [addAttributesButt setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
+    [addAttributesButt setTag:11];
+    
+    [addAttributesButt addTarget:self action:@selector(addMoreAttributes) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.contentView addSubview:addAttributesButt];
     [self.contentView addSubview:self.attributesView];
     
 }
@@ -176,7 +189,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     self.venueDescriptionBody = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 310, 100)];
     [self.venueDescriptionBody setTextAlignment:NSTextAlignmentLeft];
     [self.venueDescriptionBody setLineBreakMode:NSLineBreakByWordWrapping];
-    [self.venueDescriptionBody setNumberOfLines:10];
+    [self.venueDescriptionBody setNumberOfLines:1000];
     [self.venueDescriptionBody setTextColor:[UIColor colorWithHexString:@"818181"]];
     [self.venueDescriptionBody setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]];
     
@@ -206,13 +219,26 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 - (void) createRatingView
 {
     self.smokeRatingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, _cellHeight)];
-    ASStarRatingView *stars = [[ASStarRatingView alloc] initWithFrame:CGRectMake(0, -10, 220, 100)];
-
-    
     [self.smokeRatingView setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
+
+    self.ratingStars = [[ASStarRatingView alloc] initWithFrame:CGRectMake(0, -10, 220, 100)];
+    
+    UIButton *rateButt = [[UIButton alloc] initWithFrame:CGRectMake(320-80, (_cellHeight - 36)/2, 70, 36)];
+    [rateButt setTitle:@"Rate it" forState:UIControlStateNormal];
+    [rateButt.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
+    [rateButt.titleLabel setTextColor:[UIColor whiteColor]];
+    [rateButt.layer setCornerRadius:5];
+    [rateButt setBackgroundColor:[UIColor colorWithHexString:@"cf5117"]];
+    [rateButt setTag:13];
+    
+    [rateButt addTarget:self action:@selector(addRating) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.contentView addSubview:rateButt];
     
     [self.contentView addSubview:self.smokeRatingView];
-    [self.contentView addSubview:stars];
+    [self.contentView addSubview:self.ratingStars];
+    [self.contentView addSubview:rateButt];
+
 
 }
 
@@ -251,17 +277,59 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 }
 
 
-- (void) setPrice: (int) price
-{
-    [self.venuePrice setText:[NSString stringWithFormat:@"Price: %u", price]];
+- (void) setAttributesArray: (NSArray *) arrayOfAttributes{
     
-#warning Update liras!
+    int nrOfRows = [arrayOfAttributes count]/4 + 1;
+    
+    if ([arrayOfAttributes count]%4 == 0) {
+        nrOfRows -=1;
+    }
+    
+    _cellHeight = nrOfRows * 50;
+    
+    [self.attributesView setFrame:CGRectMake(0, 0, 320 - 50, _cellHeight)];
+    
+    [[self.attributesView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
+    for (int i = 0; i < [arrayOfAttributes count]; i++) {
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[arrayOfAttributes objectAtIndex:i]]];
+        [imgView setContentMode:UIViewContentModeScaleAspectFit];
+        
+        CGFloat yValue = i/4;
+
+        yValue *= 50;
+        
+        CGFloat xValue = 50 * (i%4) + 15 * (i%4 + 1);
+        [imgView setFrame:CGRectMake(xValue, yValue, 50, 50)];
+
+        [self.attributesView addSubview:imgView];
+    }
+    
+    UIButton *addMore = (UIButton *)[self.contentView viewWithTag:11];
+    [addMore setFrame:CGRectMake(320-50, _cellHeight - 50, 50, 50)];
+    
 }
 
 
-#pragma Local Methods
+- (void) setPrice: (int) price
+{
+    [self.venuePrice setText:[NSString stringWithFormat:@"Price: %u", price]];
+#warning Update liras!
+}
 
+- (void) setNewCalculatedHeight: (CGFloat) newHeight
+{
+    _cellHeight = newHeight;
+    
+    // arrange labels after desccription body
+    self.venueDescriptionBody.frame = CGRectMake(10, 30, 310, _cellHeight - 90);
+    self.venuePrice.frame = CGRectMake(10, _cellHeight - 60, 320, 30);
+    self.venueSite.frame = CGRectMake(10, _cellHeight - 40, 320, 30);
+ 
+}
+
+#pragma Local Methods
 - (void) addImagesFromArray: (NSArray *) arrayOfImages toScrollView: (UIScrollView *) scrollView{
     
     for (int i = 0; i<[arrayOfImages count]; i++) {
@@ -293,6 +361,23 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     
     // update page control
     [self.pageControl setNumberOfPages:[arrayOfImages count]];
+}
+
+
+
+
+
+#pragma UIButtons methods
+
+- (void) addMoreAttributes{
+    
+    [[self cellDelegate] userDidPressAddAttribute];
+}
+
+- (void) addRating{
+    
+    [[self cellDelegate] userDidPressAddRating: self.ratingStars.rating];
+
 }
 
 

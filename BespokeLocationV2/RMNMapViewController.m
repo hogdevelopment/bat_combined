@@ -19,7 +19,7 @@
 #import "UIColor+HexRecognition.h"
 #import "DetailsTableViewViewController.h"
 #import "RMNLoader.h"
-
+#import "RMNVenueInformationViewController.h"
 
 #import "RMNFoursquaredLocation.h"
 
@@ -200,10 +200,10 @@
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *) 	marker
 {
 
-        DetailsTableViewViewController *detailsViewController = [[DetailsTableViewViewController alloc] init];
+//        RMNVenueInformationViewController *detailsViewController = [[RMNVenueInformationViewController alloc] init];
 //        detailsViewController.ObjectsToShow = dbaseItem;
-        [self.navigationController pushViewController:detailsViewController animated:YES];
-        
+    [self performSegueWithIdentifier:@"venueInformationPageSegue" sender:self];
+    
     
 }
 
