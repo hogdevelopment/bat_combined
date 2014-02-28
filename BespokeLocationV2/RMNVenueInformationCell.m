@@ -334,6 +334,11 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     
     for (int i = 0; i<[arrayOfImages count]; i++) {
         
+        UIActivityIndicatorView *indicatorActiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [indicatorActiv startAnimating];
+        [indicatorActiv setFrame:CGRectMake(320 * i, 0, 320, _cellHeight)];
+        [scrollView addSubview:indicatorActiv];
+        
         NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[arrayOfImages objectAtIndex:i]]];
         
         [NSURLConnection sendAsynchronousRequest:request
@@ -350,7 +355,8 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
                                        [view setFrame:CGRectMake(320 * i, 0, 320, _cellHeight)];
                                       
                                        [scrollView addSubview:view];
-
+                                       
+                                       [indicatorActiv removeFromSuperview];
                                    }
                                }];
         

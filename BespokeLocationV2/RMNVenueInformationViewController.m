@@ -75,8 +75,6 @@ NSString *descriptionString;
     
     // calculate height for all the cell
     row_height_cell_Description = newHeight + 110;
-
-    NSLog(@"calculated height for string is : %f", row_height_cell_Description);
     
     
     // set up tableView
