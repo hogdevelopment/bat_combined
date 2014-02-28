@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "SBJson.h"
 #import "databaseItem.h"
-#import "SecondView.h"
 #import "DetailsViewController.h"
 #import "DetailsTableViewViewController.h"
 #import "AppDelegate.h"
@@ -114,7 +113,7 @@
     else{
         yForFilsters = self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - 50;
     }
-    
+    NSLog(@"AICI Y ESTE%f",yForFilsters);
     // init filtersList
     filtersList = [[RMNFiltersScrollView alloc] initWithFrame:CGRectMake(0, yForFilsters, 320, 50)];
     [self.view addSubview:filtersList];
@@ -373,7 +372,9 @@
                     NSString *name = [[venue objectForKey: @"venue"]objectForKey: @"name"];
                     NSString *ContactPhone = [[[venue objectForKey:@"venue"] objectForKey:@"contact"] objectForKey: @"phone"];
                     NSString *ContactTwitter = [[[venue objectForKey:@"venue"] objectForKey:@"contact"] objectForKey: @"twitter"];
+                    
                     NSString *LocationAddress = [[[venue objectForKey:@"venue"] objectForKey:@"location"] objectForKey: @"address"];
+                   
                     NSString *CrossStreet = [[[venue objectForKey:@"venue"] objectForKey:@"location"] objectForKey: @"crossStreet"];
                     
                     NSString *City = [[[venue objectForKey:@"venue"] objectForKey:@"location"] objectForKey: @"city"];
@@ -730,17 +731,17 @@
 }
 
 
--(void)OpenDraw:(id)sender{
-    
-    SecondView *SecondVC = [[SecondView alloc] init];
-    
-    
-    NSMutableArray *vcs =  [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-    [vcs insertObject:SecondVC atIndex:[vcs count]-1];
-    [self.navigationController setViewControllers:vcs animated:NO];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
+//-(void)OpenDraw:(id)sender{
+//    
+//    SecondView *SecondVC = [[SecondView alloc] init];
+//    
+//    
+//    NSMutableArray *vcs =  [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+//    [vcs insertObject:SecondVC atIndex:[vcs count]-1];
+//    [self.navigationController setViewControllers:vcs animated:NO];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
+//
 
 
 

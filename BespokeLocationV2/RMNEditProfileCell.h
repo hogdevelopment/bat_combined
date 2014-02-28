@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "CGEnhancedKeyboard.h"
 
+typedef enum
+{
+    RMNTextFieldDeleteAccessory,
+    RMNTextFieldShowMoreAccessory
+}RMNTextFieldAccessory;
+
 // za delegate
 @protocol RMNEditProfileCellDelegate
 
@@ -39,7 +45,11 @@
 @property UITextField *textFieldInput;
 @property (assign) int indexPathSection;
 
-
+// adds a picker view for the current text field
 - (void)addPickerStuff;
 
+// shows custom button for changing the info in the text field through
+// a picker view or
+// shows a custom clear content button
+- (void)configureExtraAccessory;
 @end

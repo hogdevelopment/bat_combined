@@ -110,6 +110,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
     
 
+    [self.profileHeaderLabel setText:NSLocalizedString(@"Profile", nil)];
     
 
     // load custom profile image
@@ -233,6 +234,14 @@ static NSString *CellIdentifier = @"CellEditProfile";
         indexPath.row == 3)
     {
         [cell addPickerStuff];
+        
+    }
+
+    [cell configureExtraAccessory];
+    
+    if (indexPath.row == 5)
+    {
+        [cell.textFieldInput setSecureTextEntry:YES];
     }
     
     return cell;

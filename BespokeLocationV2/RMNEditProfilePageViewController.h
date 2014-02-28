@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel        *userName;
 @property (weak, nonatomic) IBOutlet UILabel        *usersJoiningDate;
 @property (weak, nonatomic) IBOutlet UITableView    *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *profileHeaderLabel;
 
 
 

@@ -17,11 +17,7 @@
 
 
 @interface ViewController : UIViewController<CLLocationManagerDelegate,GMSMapViewDelegate,MBProgressHUDDelegate,RMNUserSettingsLefttSideMenuDelegate, SKStoreProductViewControllerDelegate>{
-    
-    
 
-    
-    
 }
 
 @property (nonatomic, strong)  UICollectionView *CollectionDetails;
@@ -32,12 +28,12 @@
 @property (nonatomic, retain)  UIButton *GetData;
 @property (nonatomic, retain)  NSString *URL;
 @property (nonatomic, retain)  NSData *jsonData;
-@property (nonatomic, retain) NSString *strData;
-@property (nonatomic, retain) NSMutableArray *LocationObjects;
+@property (nonatomic, retain)  NSString *strData;
+@property (nonatomic, retain)  NSMutableArray *LocationObjects;
 @property (nonatomic, assign)  double CurrentLocationlat;
-@property (nonatomic, assign) double CurrentLocationlng;
+@property (nonatomic, assign)  double CurrentLocationlng;
 @property (nonatomic, strong)  MBProgressHUD *HUD;
-@property (nonatomic, retain) UISearchBar *SearchBar;
+@property (nonatomic, retain)  UISearchBar *SearchBar;
 @property (nonatomic, retain)  UIButton *MenuButton;
 
 

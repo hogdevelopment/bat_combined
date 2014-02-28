@@ -10,7 +10,6 @@
 #import "ASStarRatingView.h"
 #import "CallGetThereView.h"
 #import "ImagesCell.h"
-#import "SecondView.h"
 #import "AppDelegate.h"
 #import "DirectionsViewController.h"
 
@@ -413,16 +412,16 @@
  }
 
 
--(void)OpenDraw:(id)sender{
-    
-    SecondView *SecondVC = [[SecondView alloc] init];
-    
-    
-    NSMutableArray *vcs =  [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-    [vcs insertObject:SecondVC atIndex:[vcs count]-1];
-    [self.navigationController setViewControllers:vcs animated:NO];
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//-(void)OpenDraw:(id)sender{
+//    
+//    SecondView *SecondVC = [[SecondView alloc] init];
+//    
+//    
+//    NSMutableArray *vcs =  [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+//    [vcs insertObject:SecondVC atIndex:[vcs count]-1];
+//    [self.navigationController setViewControllers:vcs animated:NO];
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 /*- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
         return view;
