@@ -17,7 +17,7 @@
     
     NSArray* keysArray = [location componentsSeparatedByString:@"."];
     
-    NSLog(@"ZA KEYS %@",keysArray);
+//    NSLog(@"ZA KEYS %@",keysArray);
     result = [self valueForKey:[keysArray objectAtIndex:0]];
     
     for (int i = 1; i<[keysArray count]; i++)
@@ -34,7 +34,7 @@
             }
             else
             {
-                NSLog(@"No value for key %@",[keysArray objectAtIndex:i]);
+//                NSLog(@"No value for key %@",[keysArray objectAtIndex:i]);
             }
         }
     }

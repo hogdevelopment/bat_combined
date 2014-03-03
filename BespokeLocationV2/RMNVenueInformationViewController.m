@@ -87,15 +87,7 @@ NSString *descriptionString;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
-    
-    //    NSLog(@"ZA VENUE info is %@",venueInfo);
-    
-    //foursquare_id
-    
-    
-    
+
     // use this for custom requests for the server
     HPInformationsManager *locationManager;
     locationManager                        = [[HPInformationsManager alloc] init];

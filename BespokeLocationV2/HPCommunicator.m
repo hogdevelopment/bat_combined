@@ -50,11 +50,11 @@
         case RMNRequestUserLogin:
         {
             
-            NSString*email      = [self.requestInfo valueForKey:@"email"];
             NSString*password   = [self.requestInfo valueForKey:@"password"];
+            NSString*username   = [self.requestInfo valueForKey:@"username"];
             
             searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/login";
-            post = [NSString stringWithFormat:@"email=%@&password=%@",email,password];
+            post = [NSString stringWithFormat:@"username=%@&password=%@",username,password];
             break;
         }
             // it requiers only the username
@@ -72,7 +72,8 @@
         case RMNRequestUserRegister:
         {
 
-            
+         
+
             
             NSString*username   = [self.requestInfo valueForKey:@"username"];
             NSString*password   = [self.requestInfo valueForKey:@"password"];
@@ -80,6 +81,9 @@
             NSString*firstName  = [self.requestInfo valueForKey:@"firstName"];
             NSString*lastName   = [self.requestInfo valueForKey:@"lastName"];
             NSString*gender     = [self.requestInfo valueForKey:@"gender"];
+            
+            
+               NSLog(@"ESTE CU %@ si %@  - %@ -   %@ - %@ -  %@",username,password,email,firstName,lastName,gender);
             
             searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
             post = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&first_name=%@&last_name=%@&gender=%@",username,password,email,firstName,lastName,gender];
@@ -107,8 +111,22 @@
             NSString*lastName   = [self.requestInfo valueForKey:@"lastName"];
             NSString*gender     = [self.requestInfo valueForKey:@"gender"];
             
+            NSLog(@"ESTE CU %@ si %@  - %@ -   %@ - %@ -  %@",userID,email,email,firstName,lastName,gender);
+
+            
             searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
             post = [NSString stringWithFormat:@"user_id=%@&email=%@&first_name=%@&last_name=%@&gender=%@",userID,email,firstName,lastName,gender];
+            break;
+        }
+        case RMNRequestUserRatingAction:
+        {
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/locations/addrating";
+            NSString*userID         = [self.requestInfo valueForKey:@"userID"];
+            NSString*locationID     = [self.requestInfo valueForKey:@"locationID"];
+            NSString*rating         = [self.requestInfo valueForKey:@"rating"];
+            
+            post = [NSString stringWithFormat:@"user_id=%@&location_id=%@&rating=%@",userID,locationID,rating];
+            
             break;
         }
 

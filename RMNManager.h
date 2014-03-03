@@ -14,9 +14,18 @@
     BOOL menuShouldBeOpened;
     BOOL alreadyShownIntro;
     
-    NSString *profileImageLocation;
     NSString *userNameText;
-    NSDate   *usersJoiningDate;
+    
+    
+    
+    NSString *userUniqueId;
+    NSString *userFirstName;
+    NSString *userLastName;
+    NSString *userGender;
+    NSString *userAgeVerification;
+    
+    
+    NSDate *usersJoiningDate;
     
     NSString *currentUserEmail;
 }
@@ -25,14 +34,26 @@
 @property  BOOL menuShouldBeOpened;
 @property  BOOL alreadyShownIntro;
 
-@property   NSString *profileImageLocation;
+@property NSDate *usersJoiningDate;
+
+@property NSString *userUniqueId;
+@property NSString *userFirstName;
+@property NSString *userLastName;
+@property NSString *userGender;
+@property NSString *userAgeVerification;
+
+
 @property   NSString *userNameText;
-@property   NSDate   *usersJoiningDate;
+
 
 @property   NSString *currentUserEmail;
 
 
 + (id)sharedManager;
 
+
+// change users info
++ (void)updateUsersWith:(NSDictionary*)userInfo;
+
+
 @end
- 

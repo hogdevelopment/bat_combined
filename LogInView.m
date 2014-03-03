@@ -13,8 +13,11 @@
 #import "RMNUserInformationCoreData.h"
 #import "RMNLoginViewController.h"
 #import "TSTCoreData.h"
+#import "HPInformationsManager.h"
+#import "HPCommunicator.h"
 
-@interface LogInView ()
+
+@interface LogInView ()<RMNCustomRequestsDelegate>
 {
     BOOL isUsingSocialService;
     CGEnhancedKeyboard *enhancedKeyboard;
@@ -25,11 +28,16 @@
     UIDatePicker *datePicker;
     
     NSMutableArray *availableTFs;
+
+    HPInformationsManager *manager;
 }
 
+@property  HPInformationsManager *manager;
 @end
 
 @implementation LogInView
+
+@synthesize manager =   manager;
 
 //checks whether the user is already in or not. using Gigya session memory.
 
@@ -107,6 +115,13 @@
     [self.txtUsername setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
     [self.txtAge      setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
     [self.txtPassword setInputAccessoryView:[enhancedKeyboard getExtendedToolbar]];
+    
+    
+    
+    manager                        = [[HPInformationsManager alloc] init];
+    manager.communicator           = [[HPCommunicator alloc] init];
+    manager.communicator.delegate  = manager;
+    manager.customRequestDelegate  = self;
     
 }
 
@@ -495,8 +510,32 @@
             [UserDataSingleton userSingleton].password = _txtPassword.text;
         }
         
+        
+        NSString *gender            = [UserDataSingleton userSingleton].gender;
+
+        NSString *email             = [UserDataSingleton userSingleton].email;
+        NSString *username          = [UserDataSingleton userSingleton].userName;
+        NSString *password          = [UserDataSingleton userSingleton].password;
+        
+        /// send server request with the username and password
+        NSDictionary *requestInfo = @{
+                                      @"username" : username,
+                                      @"password" : password,
+                                      @"lastName" : @" ",
+                                      @"firstName": @" ",
+                                      @"email"    : email,
+                                      @"gender"   : gender};
+        
+        [manager.communicator setRequestInfo:requestInfo];
+        [manager fetchAnswerFor:RMNRequestUserRegister withRequestData:requestInfo];
+        
         //[self showMessageTitle:@"Succes" withMessage:@"Registration successful"];
-        [self nextView];
+      
+        // send registration request
+        
+        
+        
+//        [self nextView];
         // code here to persist data in userInfo dictionary and push to next page
         // [self nextView] can be used to push to next page.
     }
@@ -506,6 +545,48 @@
         [self.btnRegistrater setBackgroundColor:[UIColor whiteColor]];
         
     }
+}
+
+- (void)didReceiveAnswer:(NSDictionary *)answer
+{
+    NSString *status = [answer valueForKey:@"status"];
+    if ([status isEqualToString:@"ok"])
+    {
+        NSLog(@"Este pe server, și-l putem autentifica!");
+        
+        // must save users information
+        
+//        
+        NSString *gender            = [UserDataSingleton userSingleton].gender;
+        NSString *email             = [UserDataSingleton userSingleton].email;
+        NSString *username          = [UserDataSingleton userSingleton].userName;
+        
+        NSDate *dateOfRegistration = [NSDate date];
+        
+        NSDictionary *userInfo = @{
+                                   @"userGender" : gender,
+                                   @"userNameText" : username,
+                                   @"registrationDate" : dateOfRegistration};
+        
+        [RMNManager  updateUsersWith:userInfo];
+        [[RMNManager sharedManager] setUsersJoiningDate:dateOfRegistration];
+        [[RMNManager sharedManager] setUserGender:gender];
+
+        
+        
+        [self nextView];
+    }
+    else
+    {
+//        // couldn't find user in database
+//        [self showMessageTitle:NSLocalizedString(@"Error",nil)
+//                   withMessage:NSLocalizedString(@"There is no user registered with this informations.",nil) ];
+    }
+}
+
+- (void)requestingFailedWithError:(NSError *)error
+{
+    NSLog(@"error %@",error);
 }
 
 
@@ -746,7 +827,12 @@
     [infoUser setValue:[UserDataSingleton userSingleton].photoUrl
                 forKey:[RMNUserInformationCoreData keyForListValue:UserPhotoURL]];
     
-    // if we have everything in place we can save the photo as well
+    [infoUser setValue:[UserDataSingleton userSingleton].firstName
+                forKey:[RMNUserInformationCoreData keyForListValue:UserFirstName]];
+    [infoUser setValue:[UserDataSingleton userSingleton].lastName
+                forKey:[RMNUserInformationCoreData keyForListValue:UserLastName]];
+    
+      // if we have everything in place we can save the photo as well
     // to the phone
     [RMNUserInfo saveProfileImageWithURL:[UserDataSingleton userSingleton].photoUrl];
     

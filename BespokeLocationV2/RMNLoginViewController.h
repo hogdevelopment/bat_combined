@@ -29,3 +29,19 @@
 - (IBAction)registerWithSocialService   :(id)sender;
 
 @end
+
+/*
+ 
+ 
+ //    NSDictionary *requestInfo = @{@"userID"   : @"1",
+ //                                  @"username" : @"chiosa.gabi",
+ //                                  @"password" : @"parolamea",
+ //                                  @"lastName" : @"ultimul",
+ //                                  @"firstName": @"primul",
+ //                                  @"email"    : @"chiosa.gabi@gmail.com",
+ //                                  @"gender"   : @"male"};
+ //
+ //    [locationManager.communicator setRequestInfo:requestInfo];
+ //    [locationManager fetchAnswerFor:RMNRequestCheckUsername withRequestData:requestInfo];
+ 
+ */

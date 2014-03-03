@@ -9,16 +9,22 @@
 #import "RMNLoginViewController.h"
 #import "UserDataSingleton.h"
 #import "TSTCoreData.h"
+#import "HPInformationsManager.h"
+#import "HPCommunicator.h"
 
 UserInformationKeyValues selectedService;
 
-@interface RMNLoginViewController ()
+@interface RMNLoginViewController ()<RMNCustomRequestsDelegate>
 {
+     HPInformationsManager *manager;
 }
 
+@property  HPInformationsManager *manager;
 @end
 
 @implementation RMNLoginViewController
+
+@synthesize manager =   manager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -54,6 +60,19 @@ UserInformationKeyValues selectedService;
         
         [self.socialView setFrame:frameView];
     }
+    
+    
+   
+    
+    manager                        = [[HPInformationsManager alloc] init];
+    manager.communicator           = [[HPCommunicator alloc] init];
+    manager.communicator.delegate  = manager;
+    manager.customRequestDelegate  = self;
+
+    
+
+
+
     
 }
 
@@ -101,10 +120,9 @@ UserInformationKeyValues selectedService;
 {
     BOOL foundUser = NO;
     
-    if ([self.emailTF.text isEqualToString:@""] && [self.passwordTF.text isEqualToString:@""]) {
-        
+    if ([self.emailTF.text isEqualToString:@""] && [self.passwordTF.text isEqualToString:@""])
+    {
         // check in database user registered with social service
-        
         foundUser = [TSTCoreData checkIfIsSavedInCoreDataUserWithUsername:[UserDataSingleton userSingleton].userName andIsRegisteredWithSocialService:selectedService];
     }
     else{
@@ -114,10 +132,76 @@ UserInformationKeyValues selectedService;
     }
     
     
+    
     return foundUser;
 }
 
+- (void)didReceiveAnswer:(NSDictionary *)answer
+{
+    NSString *status = [answer valueForKey:@"status"];
+    if ([status isEqualToString:@"ok"])
+    {
+        NSLog(@"Este pe server, și-l putem autentifica!");
+        
+        // must save users information
+        
+        
+        NSString *ageVerification   = [answer valueForDeepKeyLinkingCustom:@"userData.ageVerification"];
+        NSString *gender            = [answer valueForDeepKeyLinkingCustom:@"userData.gender"];
+        NSString *firstName         = [answer valueForDeepKeyLinkingCustom:@"userData.first_name"];;
+        NSString *lastName          = [answer valueForDeepKeyLinkingCustom:@"userData.last_name"];;
+        NSString *userId            = [answer valueForDeepKeyLinkingCustom:@"user_id"];;
+        
+        NSDate *dateOfRegistration = [NSDate date];
+        
+        NSDictionary *userInfo = @{@"userAgeVerification" : ageVerification,
+                                   @"userGender" : gender,
+                                   @"userFirstName" : firstName,
+                                   @"userLastName" : lastName,
+                                   @"userId" : userId,
+                                   @"userNameText" : self.emailTF.text,
+                                   @"registrationDate" : dateOfRegistration};
+        
+        NSLog(@"info %@",userInfo);
+        [RMNManager  updateUsersWith:userInfo];
+        
+        
+        [[RMNManager sharedManager] setCurrentUserEmail:self.emailTF.text];
+        [[RMNManager sharedManager] setUserNameText:self.emailTF.text];
+        
+        [[RMNManager sharedManager] setUsersJoiningDate:dateOfRegistration];
+        [[RMNManager sharedManager] setUserAgeVerification:ageVerification];
+        [[RMNManager sharedManager] setUserFirstName:firstName];
+        [[RMNManager sharedManager] setUserGender:gender];
+        [[RMNManager sharedManager] setUserLastName:lastName];
+        [[RMNManager sharedManager] setUserUniqueId:userId];
+        
+        
+        NSDictionary *infoUser = @{@"email"  : @" ",
+                                   @"gender" : gender,
+                                   @"firstName" : firstName,
+                                   @"lastName" : lastName,
+                                   @"username" : self.emailTF.text,
+                                   @"password" : self.passwordTF.text,
+                                   @"registrationDate" : dateOfRegistration,
+                                   @"dateOfBirth" : dateOfRegistration};
 
+        [TSTCoreData addInformation:infoUser ofType:TSTCoreDataUser];
+        
+        [self loadNextScreen];
+    }
+    else
+    {
+        // couldn't find user in database
+        [self showMessageTitle:NSLocalizedString(@"Error",nil)
+                   withMessage:NSLocalizedString(@"There is no user registered with this informations.",nil) ];
+    }
+}
+
+- (void)requestingFailedWithError:(NSError *)error
+{
+    NSLog(@"error %@",error);
+}
 - (void) loadNextScreen
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -199,7 +283,10 @@ UserInformationKeyValues selectedService;
              self.emailTF.text      = @"";
              self.passwordTF.text   = @"";
              
-            if (![self checkIfLoginIsOk])
+            
+             
+             
+             if (![self checkIfLoginIsOk])
              {
                  // couldn't find user in database
                  [self showMessageTitle:NSLocalizedString(@"Error",nil)
@@ -223,18 +310,30 @@ UserInformationKeyValues selectedService;
 #pragma UIButtons methods
 
 - (IBAction)loginAction:(id)sender {
-    
-    if ([self checkIfLoginIsOk]) {
-        
-        [self loadNextScreen];
-    }
-    else{
-        
-        self.passwordTF.text = @"";
-        
+
+    if ([self.emailTF text].length == 0 &&
+        [self.passwordTF text].length == 0)
+    {
         [self showMessageTitle:NSLocalizedString(@"Error",nil)
-                   withMessage:NSLocalizedString(@"Email or password incorrect.",nil) ];
+                   withMessage:NSLocalizedString(@"All fields are mandatory",nil) ];
+        return;
+
     }
+
+    
+    /// send server request with the username and password
+    NSDictionary *requestInfo = @{@"userID"   : @"1",
+                                  @"username" : self.emailTF.text,
+                                  @"password" : self.passwordTF.text,
+                                  @"lastName" : @"ultimul",
+                                  @"firstName": @"primul",
+                                  @"email"    : @"chiosa0@gmail.com",
+                                  @"gender"   : @"male"};
+    
+    [manager.communicator setRequestInfo:requestInfo];
+    [manager fetchAnswerFor:RMNRequestUserLogin withRequestData:requestInfo];
+
+
 }
 
 

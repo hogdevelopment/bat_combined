@@ -24,7 +24,8 @@ typedef enum
     RMNRequestCheckUsername,
     RMNRequestUserRegister,
     RMNRequestUserChangePassword,
-    RMNRequestUserInfoUpdate
+    RMNRequestUserInfoUpdate,
+    RMNRequestUserRatingAction
 }RMNRequestType;
 
 

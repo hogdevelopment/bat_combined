@@ -209,7 +209,9 @@
     if (entityType == TSTCoreDataUser)
     {
         NSString *userEmail = [[RMNManager sharedManager] currentUserEmail];
-        request.predicate   = [NSPredicate predicateWithFormat:@"email == %@",userEmail];
+        NSString *username  = [[RMNManager sharedManager] userNameText];
+        NSLog(@"cauta ori cu %@ ori cu %@",userEmail,username);
+        request.predicate   = [NSPredicate predicateWithFormat:@"email == %@ or username == %@",userEmail,username];
     }
     request.resultType  = NSDictionaryResultType;
     

@@ -77,6 +77,16 @@
             keyString = @"photoURL";
             break;
         }
+        case UserFirstName:
+        {
+            keyString = @"firstName";
+            break;
+        }
+        case UserLastName:
+        {
+            keyString = @"lastName";
+            break;
+        }
         default:
             break;
     }

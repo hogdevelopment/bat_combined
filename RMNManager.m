@@ -13,11 +13,15 @@
 @synthesize isLoggedIn              =   isLoggedIn;
 @synthesize menuShouldBeOpened      =   menuShouldBeOpened;
 @synthesize userNameText            =   userNameText;
-@synthesize profileImageLocation    =   profileImageLocation;
-@synthesize usersJoiningDate        =   usersJoiningDate;
 @synthesize alreadyShownIntro       =   alreadyShownIntro;
 @synthesize currentUserEmail        =   currentUserEmail;
 
+@synthesize userAgeVerification     =   userAgeVerification;
+@synthesize userFirstName           =   userFirstName;
+@synthesize userLastName            =   userLastName;
+@synthesize userGender              =   userGender;
+@synthesize userUniqueId            =   userUniqueId;
+@synthesize usersJoiningDate        =   usersJoiningDate;
 #pragma mark Singleton Methods
 
 + (id)sharedManager {
@@ -40,18 +44,39 @@
         alreadyShownIntro           =   [defaults boolForKey:@"alreadyShownIntro"];
         
         currentUserEmail            =   [defaults objectForKey:@"currentLoggedInUserEmail"];
-
         
-        // to be changed
-#warning Must load name and image from data base
-        profileImageLocation        =   @"profilePic";
-        userNameText                =   @"Chiosa Gabi";
-        usersJoiningDate            =   [NSDate date];
+        
+        
+        userUniqueId        = [defaults valueForKey:@"userId"];
+        userLastName        = [defaults valueForKey:@"userLastName"];
+        userFirstName       = [defaults valueForKey:@"userFirstName"];
+        userGender          = [defaults valueForKey:@"userGender"];
+        userAgeVerification = [defaults valueForKey:@"userAgeVerification"];
+        userNameText        = [defaults valueForKey:@"userNameText"];
+        
+        usersJoiningDate    = [defaults objectForKey:@"registrationDate"];
+        
         menuShouldBeOpened          =   NO;
     }
     return self;
 }
 
-
++ (void)updateUsersWith:(NSDictionary*)userInfo
+{
+    NSLog(@"UDPATE FA");
+    // logout user
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSArray *keys = [userInfo allKeys];
+    for (NSString *key in keys)
+    {
+        NSLog(@"SINcronizeaza %@ cu %@",key, [userInfo valueForKey:key]);
+        [defaults setObject:[userInfo valueForKey:key]
+                     forKey:key];
+        
+    }
+    
+    [defaults synchronize];
+}
 
 @end
