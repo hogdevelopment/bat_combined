@@ -13,13 +13,17 @@
 #import "RMNEditProfileCell.h"
 
 
+#import "HPInformationsManager.h"
+#import "HPCommunicator.h"
+
 static NSString *CellIdentifier = @"CellEditProfile";
 
 
 @interface RMNEditProfilePageViewController ()  <RMNEditProfileCellDelegate,
                                                 UIActionSheetDelegate,
                                                 UIImagePickerControllerDelegate,
-                                                UINavigationControllerDelegate>
+                                                UINavigationControllerDelegate,
+                                                RMNCustomRequestsDelegate>
 {
     int currentSection;
     BOOL isEditable;
@@ -99,9 +103,57 @@ static NSString *CellIdentifier = @"CellEditProfile";
 - (void)saveInformationAndDismissController
 {
     
+
+    // update server stuff
+    HPInformationsManager *manager;
+    manager                        = [[HPInformationsManager alloc] init];
+    manager.communicator           = [[HPCommunicator alloc] init];
+    manager.communicator.delegate  = manager;
+    manager.customRequestDelegate  = self;
+    
+    
+    HPInformationsManager *managerPassword;
+    managerPassword                        = [[HPInformationsManager alloc] init];
+    managerPassword.communicator           = [[HPCommunicator alloc] init];
+    managerPassword.communicator.delegate  = managerPassword;
+    managerPassword.customRequestDelegate  = self;
+    
+    
+//    sectionsTitles
+    
+    
+    /// send server request with the username and password
+    NSDictionary *requestInfo = @{@"userID"   : [[RMNManager sharedManager]userUniqueId],
+                                  @"username" : [sectionsTitles objectAtIndex:1],
+                                  @"password" : [sectionsTitles objectAtIndex:5],
+                                  @"lastName" : @" ",
+                                  @"firstName": [sectionsTitles objectAtIndex:0],
+                                  @"email"    : [sectionsTitles objectAtIndex:4],
+                                  @"gender"   : [sectionsTitles objectAtIndex:2] };
+    
+    [managerPassword fetchAnswerFor:RMNRequestUserChangePassword
+                    withRequestData:requestInfo];
+    [manager fetchAnswerFor:RMNRequestUserInfoUpdate
+            withRequestData:requestInfo];
+    
+    
     [RMNUserInfo updateProfileDataWith:sectionsTitles];
-#warning Must save here information about the user in local database
-    [self.navigationController popViewControllerAnimated:YES];
+
+//    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didReceiveAnswer:(NSDictionary *)answer
+{
+    NSLog(@"a primit %@",answer);
+    if ([[answer valueForKey:@"status"] isEqualToString:@"ok"])
+    {
+        NSLog(@"update ok");
+//         [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+- (void)requestingFailedWithError:(NSError *)error
+{
+    NSLog(@"EROARE CU %@",error);
 }
 
 - (void)viewDidLoad
@@ -141,6 +193,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
                     
                     
                     NSDate *registration = [sectionsTitles lastObject];
+                  
                     NSString *joiningText = [NSString stringWithFormat:@"memeber since %@",[registration monthYearification]];
                     
                     

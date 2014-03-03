@@ -10,7 +10,11 @@
 #import "TSTCoreData.h"
 #import "NSDate+Stringifier.h"
 
+UserInformationKeyValues selectedService;
+
+
 @implementation RMNUserInfo
+
 
 + (void)saveProfileImageWithURL:(NSString*)profilePicLocation
 {
@@ -61,21 +65,38 @@
 {
     // get the info from Core Data
     NSDictionary *sectionsTitles =    (NSDictionary*)[[TSTCoreData fetchedUserDataFor:TSTCoreDataUser]lastObject];
-
+    
+    
+    NSLog(@"aduce %@",sectionsTitles);
+    if (!sectionsTitles)
+    {
+        // make the array for the table view
+        NSArray *dummySections = @[@"",
+                                   @"",
+                                   @"",
+                                   @"",
+                                   @"",
+                                   @"",
+                                   [NSDate date]];
+        
+        return dummySections;
+    }
+    NSLog(@"sectionsTitles are %@",sectionsTitles);
     NSDate *dob = [sectionsTitles valueForKey:@"dateOfBirth"];
+    
+    NSDate *registrationDate = [sectionsTitles valueForKey:@"registrationDate"];
+    if (!registrationDate) registrationDate = [NSDate date];
     
     
     // make the array for the table view
-    NSArray *sections = @[[sectionsTitles valueForKey:@"username"],
+    NSArray *sections = @[[sectionsTitles valueForKey:@"firstName"],
                           [sectionsTitles valueForKey:@"username"],
                           [[sectionsTitles valueForKey:@"gender"]capitalizedString],
                           [dob dayMonthYearification],
                           [sectionsTitles valueForKey:@"email"],
                           [sectionsTitles valueForKey:@"password"],
-                          [sectionsTitles valueForKey:@"registrationDate"]];
+                          registrationDate];
 
-    
-    
     
     return sections;
 }
@@ -91,7 +112,7 @@
     NSDate *dateFromStr = [dateFormatterForGettingDate dateFromString:[infoToUpdate objectAtIndex:3]];
     
     
-    NSDictionary *dictionaryCD = @{//TO ADD NAME HERE
+    NSDictionary *dictionaryCD = @{@"firstName"     :   [infoToUpdate objectAtIndex:0],
                                     @"username"     :   [infoToUpdate objectAtIndex:1],
                                     @"gender"       :   [infoToUpdate objectAtIndex:2] ,
                                     @"dateOfBirth"  :   dateFromStr,
@@ -100,6 +121,7 @@
                                     };
     
     [TSTCoreData updateWithInfo:dictionaryCD forEntity:TSTCoreDataUser];
+    
 }
 
 + (void)saveLocationToFavourites:(NSDictionary*)location;

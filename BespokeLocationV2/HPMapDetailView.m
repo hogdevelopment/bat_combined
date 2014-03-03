@@ -26,7 +26,6 @@
 
 - (IBAction)seeMoreDetails:(id)sender
 {
-    NSLog(@"ajunge la detail stuff din butonel");
     [[self detailViewDelegate] showDetailViewToALocation];
 }
 

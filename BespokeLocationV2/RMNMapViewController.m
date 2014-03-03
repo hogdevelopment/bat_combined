@@ -21,6 +21,8 @@
 #import "RMNLoader.h"
 #import "RMNVenueInformationViewController.h"
 
+//#import "RMNFoursquaredLocationFetcher.h"
+
 
 
 @interface RMNMapViewController ()< HPInformationsManagerDelegate,
@@ -208,17 +210,15 @@
     locationsBigAssDictionary = groups;
     [HPMapMarker addMarkersToMap:mapView_
                         withInfo:locationsBigAssDictionary];
-
-    
-}
-
-
+  }
 
 
 - (void)fetchingLocationsFailedWithError:(NSError *)error
 {
     NSLog(@"Error %@; %@", error, [error localizedDescription]);
 }
+
+
 
 #pragma mark -
 #pragma mark - UIBarButtonItem Callbacks

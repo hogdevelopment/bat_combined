@@ -21,7 +21,9 @@ typedef enum
     UserIsUsingGoogle                    = 8,
     UserIsUsingFoursquare                = 9,
     UserRegistrationDate                 = 10,
-    UserPhotoURL                         = 11
+    UserPhotoURL                         = 11,
+    UserFirstName                        = 12,
+    UserLastName                         = 13
 }
 UserInformationKeyValues;
 

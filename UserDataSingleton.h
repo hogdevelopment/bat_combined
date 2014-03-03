@@ -14,6 +14,8 @@
 @property (nonatomic,strong) NSString * userName;
 @property (nonatomic,strong) NSString * password;
 @property (nonatomic,strong) NSString * gender;
+@property (nonatomic,strong) NSString * firstName;
+@property (nonatomic,strong) NSString * lastName;
 @property (nonatomic,strong) NSDate   * dateOfBirth;
 @property (nonatomic) BOOL              isUsingFacebook;
 @property (nonatomic) BOOL              isUsingTwitter;
