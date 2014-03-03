@@ -83,6 +83,15 @@
 
 
 
+// Detail Venue
+"Details"                                       =       "Detalii";
+"This venue has been added to your favourites"  =       "Ai adaugat deja aceasta locatie la favorite.";
+"Dismiss"                                       =       "Anuleaza";
+"Currently no photos available"                 =       "Nu exista poze.";
+"Upload photo"                                  =       "Urca poza";
+"Get there"                                     =       "Arata ruta";
+"Call"                                          =       "Suna";
+
 // FAQs questions
 "questionFAQs_0"        =   "Sed ut perspiciatis unde omnis iste?";
 "questionFAQs_1"        =   "Sed ut perspiciatis unde omnis iste?";

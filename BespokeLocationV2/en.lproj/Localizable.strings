@@ -52,6 +52,7 @@
 "Help/Improve smoking app"      =      "Help/Improve smoking app" ;
 
 
+// login & register
 "Sign up"           =       "Sign up";
 "Get started"       =       "Get started";
 "subtitle text"     =       "subtitle text";
@@ -72,8 +73,8 @@
 "Done"              =       "Done";
 "Register"          =       "Register";
 
-"Kilometers"          =       "Kilometers";
-"Miles"               =       "Miles";
+"Kilometers"        =       "Kilometers";
+"Miles"             =       "Miles";
 
 
 "I am 18 years old"                         =       "I am 18 years old";
@@ -92,7 +93,14 @@
 "Attributes"                =       "Attributes";
 
 
-
+// Detail Venue
+"Details"                                       =       "Details";
+"This venue has been added to your favourites"  =       "This venue has been added to your favourites";
+"Dismiss"                                       =       "Dismiss";
+"Currently no photos available"                 =       "Currently no photos available";
+"Upload photo"                                  =       "Upload photo";
+"Get there"                                     =       "Get there";
+"Call"                                          =       "Call";
 
 
 // FAQs questions

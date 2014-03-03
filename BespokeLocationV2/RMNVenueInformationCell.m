@@ -18,6 +18,11 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 
 
 @implementation RMNVenueInformationCell
+{
+    UIButton         *uploadPhoto;
+}
+@synthesize cellDelegate, uploadPhoto = uploadPhoto;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -89,6 +94,30 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     [self.contentView addSubview:self.galleryScrollView];
     [self.contentView addSubview:self.pageControl];
     
+    
+    uploadPhoto  = [[UIButton alloc] initWithFrame:CGRectMake(105, (_cellHeight - 70), 110, 30)];
+    [uploadPhoto setTitle:NSLocalizedString(@"Upload photo",nil) forState:UIControlStateNormal];
+    [uploadPhoto.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
+    [uploadPhoto setTitleColor:[UIColor colorWithHexString:@"cf5117"] forState:UIControlStateNormal];
+    [uploadPhoto.layer setCornerRadius:5];
+    [uploadPhoto setBackgroundColor:[UIColor whiteColor]];
+    
+    [uploadPhoto addTarget:self action:@selector(uploadPhotoAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.noPhotoYetLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 95, 300, 30)];
+    [self.noPhotoYetLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.noPhotoYetLabel setTextColor:[UIColor whiteColor]];
+    [self.noPhotoYetLabel setText:NSLocalizedString(@"Currently no photos available",nil)];
+    [self.noPhotoYetLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:12.0f]];
+    
+    
+    [self.contentView addSubview:self.noPhotoYetLabel];
+    [self.contentView addSubview:uploadPhoto];
+    
+    //hide upload stuff
+    uploadPhoto.hidden = YES;
+    self.noPhotoYetLabel.hidden = YES;
+
     self.arrayWithImages = [[NSMutableArray alloc] init];
 }
 
@@ -159,6 +188,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     
     self.attributesView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320 - 50, _cellHeight)];
     [self.attributesView setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
+   
     
     UIButton *addAttributesButt = [[UIButton alloc] initWithFrame:CGRectMake(320-50, _cellHeight - 50, 50, 50)];
     [addAttributesButt setTitle:@"+" forState:UIControlStateNormal];
@@ -202,16 +232,18 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     
     
     // website
-    self.venueSite = [[UILabel alloc] initWithFrame:CGRectMake(10, 160, 320, 30)];
-    [self.venueSite setTextAlignment:NSTextAlignmentLeft];
-    [self.venueSite setTextColor:[UIColor colorWithHexString:@"d65019"]];
-    [self.venueSite setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]];
- 
+    self.venueSiteButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 160, 310, 30)];  //[[UILabel alloc] initWithFrame:CGRectMake(10, 160, 320, 30)];
+    [self.venueSiteButton setTitleColor:[UIColor colorWithHexString:@"d65019"] forState:UIControlStateNormal];
+    [self.venueSiteButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]]; //colorWithHexString:@"d65019"
+    [self.venueSiteButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+
+    [self.venueSiteButton addTarget:self action:@selector(clickOnSiteURL) forControlEvents:UIControlEventTouchUpInside];
+
     // add views to cell
     [self.contentView addSubview:self.venueDescriptionTitle];
     [self.contentView addSubview:self.venueDescriptionBody];
     [self.contentView addSubview:self.venuePrice];
-    [self.contentView addSubview:self.venueSite];
+    [self.contentView addSubview:self.venueSiteButton];
 
 }
 
@@ -220,7 +252,9 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 {
     self.smokeRatingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, _cellHeight)];
     [self.smokeRatingView setBackgroundColor:[UIColor colorWithHexString:@"f2f2f2"]];
-
+    [self.smokeRatingView.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.smokeRatingView.layer setBorderWidth:1.0];
+    
     self.ratingStars = [[ASStarRatingView alloc] initWithFrame:CGRectMake(0, -10, 220, 100)];
     
     UIButton *rateButt = [[UIButton alloc] initWithFrame:CGRectMake(320-80, (_cellHeight - 36)/2, 70, 36)];
@@ -253,18 +287,26 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
         [self addImagesFromArray:arrayOfImages toScrollView:self.galleryScrollView];
     }
     else{
-        // no photos yet, we need to show the upload button
+        // no photos yet, we need to show the upload stuff
+        uploadPhoto.hidden = NO;
+        self.noPhotoYetLabel.hidden = NO;
+        
         [self.galleryScrollView setAlpha:0];
         [self.pageControl setAlpha:0];
-    }
+        
+        [self.contentView setBackgroundColor:[UIColor grayColor]];
     
-
+    }
 }
 
 
 - (void) setOpeningTimes: (NSString *) opening{
     
     self.venueOpeningTimes.text = [NSString stringWithFormat:@"Opening Times: %@", opening];
+    
+    if ([opening rangeOfString:@"null"].location != NSNotFound) {
+        self.venueOpeningTimes.alpha = 0;
+    }
 }
 
 - (void) setVenueSmokeRating: (int) rating
@@ -293,16 +335,16 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 
     for (int i = 0; i < [arrayOfAttributes count]; i++) {
         
-        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[arrayOfAttributes objectAtIndex:i]]];
+        UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"attributePlaceHolder"]]; //[arrayOfAttributes objectAtIndex:i]
         [imgView setContentMode:UIViewContentModeScaleAspectFit];
         
-        CGFloat yValue = i/4;
-
-        yValue *= 50;
+        CGFloat yValue = i/4 * 35 + 10 * (i/4 + 1);
         
         CGFloat xValue = 50 * (i%4) + 15 * (i%4 + 1);
-        [imgView setFrame:CGRectMake(xValue, yValue, 50, 50)];
+        [imgView setFrame:CGRectMake(xValue, yValue, 30, 30)];
 
+//        NSLog(@"y = %f", yValue);
+        
         [self.attributesView addSubview:imgView];
     }
     
@@ -315,25 +357,51 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 - (void) setPrice: (int) price
 {
     [self.venuePrice setText:[NSString stringWithFormat:@"Price: %u", price]];
+    
+    if (price == 0) {
+        self.venuePrice.alpha = 0;
+    }
+    
 #warning Update liras!
+}
+
+
+- (void) setVenueURL: (NSString *) urlString
+{
+    if (urlString.length != 0) {
+        
+        CGSize maximumLabelSize = CGSizeMake(310,30);
+        
+        CGSize expectedLabelSize = [urlString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
+                                                 constrainedToSize:maximumLabelSize
+                                                     lineBreakMode:NSLineBreakByWordWrapping];
+        //set the new width needed for title label of the button.
+        self.venueSiteButton.frame = CGRectMake(10, _cellHeight - 35, expectedLabelSize.width, 30);
+        
+        [self.venueSiteButton setTitle:urlString forState:UIControlStateNormal];
+        self.venueSiteButton.alpha = 1;
+    }
+    else
+        self.venueSiteButton.alpha = 0;
 }
 
 - (void) setNewCalculatedHeight: (CGFloat) newHeight
 {
     _cellHeight = newHeight;
     
-    // arrange labels after desccription body
-    self.venueDescriptionBody.frame = CGRectMake(10, 30, 310, _cellHeight - 90);
-    self.venuePrice.frame = CGRectMake(10, _cellHeight - 60, 320, 30);
-    self.venueSite.frame = CGRectMake(10, _cellHeight - 40, 320, 30);
- 
+    // arrange labels
+    self.venueDescriptionBody.frame     = CGRectMake(10, 30, 310, _cellHeight - 90);
+    self.venuePrice.frame               = CGRectMake(10, _cellHeight - 60, 320, 30);
+    self.venueSiteButton.frame          = CGRectMake(10, _cellHeight - 35, 300, 30);
 }
+
 
 #pragma Local Methods
 - (void) addImagesFromArray: (NSArray *) arrayOfImages toScrollView: (UIScrollView *) scrollView{
     
     for (int i = 0; i<[arrayOfImages count]; i++) {
         
+//        NSLog(@"ajunge si o sa trimita la%@ ",[arrayOfImages objectAtIndex:i]);
         UIActivityIndicatorView *indicatorActiv = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [indicatorActiv startAnimating];
         [indicatorActiv setFrame:CGRectMake(320 * i, 0, 320, _cellHeight)];
@@ -347,7 +415,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
                                                    NSData * data,
                                                    NSError * error) {
                                    if (!error){
-                                       NSLog(@"CICA TERMINA DE INCARCAT");
+//                                       NSLog(@"CICA TERMINA DE INCARCAT");
                                        // load the image and add it to the view
                                        UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
                                        [view setBackgroundColor:[UIColor blackColor]];
@@ -383,10 +451,17 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 - (void) addRating{
     
     [[self cellDelegate] userDidPressAddRating: self.ratingStars.rating];
-
 }
 
+- (void) uploadPhotoAction{
+    
+    [[self cellDelegate] userDidPressUploadPhoto];
+}
 
+- (void) clickOnSiteURL
+{
+    [[self cellDelegate] userDidPressUOnSiteURL];
+}
 
 #pragma UIScrollView delegate methods
 

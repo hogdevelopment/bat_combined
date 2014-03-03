@@ -16,6 +16,8 @@
 // so we know when a button was pressed
 - (void)userDidPressAddAttribute;
 - (void)userDidPressAddRating: (CGFloat) rating;
+- (void)userDidPressUploadPhoto;
+- (void)userDidPressUOnSiteURL;
 
 @end
 
@@ -29,9 +31,11 @@
 
 
 
-@property  UIScrollView *galleryScrollView;
-@property  UIPageControl *pageControl;
-@property  NSMutableArray *arrayWithImages;
+@property  UIScrollView     *galleryScrollView;
+@property  UIPageControl    *pageControl;
+@property  NSMutableArray   *arrayWithImages;
+@property  UIButton         *uploadPhoto;
+@property  UILabel          *noPhotoYetLabel;
 
 @property  UILabel *venueTitle;
 @property  UILabel *venueAddress;
@@ -40,10 +44,10 @@
 
 @property  UIView  *attributesView;
 
-@property  UILabel *venueDescriptionTitle;
-@property  UILabel *venueDescriptionBody;
-@property  UILabel *venuePrice;
-@property  UILabel *venueSite;
+@property  UILabel  *venueDescriptionTitle;
+@property  UILabel  *venueDescriptionBody;
+@property  UILabel  *venuePrice;
+@property  UIButton *venueSiteButton;
 
 @property  UIView           *smokeRatingView;
 @property  ASStarRatingView *ratingStars;
@@ -55,6 +59,7 @@
 - (void) setOpeningTimes: (NSString *) opening;
 - (void) setVenueSmokeRating: (int) rating;
 - (void) setPrice: (int) price;
+- (void) setVenueURL: (NSString *) urlString;
 - (void) setNewCalculatedHeight: (CGFloat) newHeight;
 
 

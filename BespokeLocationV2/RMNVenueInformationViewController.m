@@ -12,17 +12,18 @@
 #import "RMNFoursquaredLocation.h"
 #import "HPInformationsManager.h"
 #import "HPCommunicator.h"
-
+#import "RMNUserInfo.h"
+#import "TSTCoreData.h"
+#import "DirectionsViewController.h"
 
 #define NUMBER_OF_CELLS                 5
 
 #define ROW_HEIGHT_CELL_IMAGE           200
-#define ROW_HEIGHT_CELL_DETAILS         160
 #define ROW_HEIGHT_CELL_RATING          80
 
-static CGFloat row_height_cell_Attributes = 60;
-static CGFloat row_height_cell_Description = 200;
-
+static CGFloat row_height_cell_Details      = 160;
+static CGFloat row_height_cell_Attributes   = 60;
+static CGFloat row_height_cell_Description  = 200;
 
 static NSString *CellImageIdentifier            = @"ImageCellIdentifier";
 static NSString *CellDetailsIdentifier          = @"DetailsCellIdentifier";
@@ -89,10 +90,13 @@ NSString *descriptionString;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.navigationItem.title       =   NSLocalizedString(@"Details",nil);
+    UIBarButtonItem *anotherButton  =   [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"favouriteButton"]
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(favouriteButtonAction:)];
     
-    //    NSLog(@"ZA VENUE info is %@",venueInfo);
-    
-    //foursquare_id
+    self.navigationItem.rightBarButtonItem = anotherButton;
     
     
     
@@ -114,33 +118,11 @@ NSString *descriptionString;
     locationURL         =   NSLocalizedString(@"Loading url ...",nil);
     
     attributesArray = @[];
-    
-    
-    //calculate height for attributes cell
-    int nrOfRows = [attributesArray count]/4 + 1;
-    
-    if ([attributesArray count]%4 == 0) {
-        nrOfRows -=1;
-    }
-    
-    row_height_cell_Attributes = nrOfRows * 50;
-    
-    
     images = @[@""];
+
     
-    
-    CGSize maximumLabelSize = CGSizeMake(310,9999);
-    
-    CGSize expectedLabelSize = [descriptionString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
-                                             constrainedToSize:maximumLabelSize
-                                                 lineBreakMode:NSLineBreakByWordWrapping];
-    
-    //get the new height needed for label.
-    CGFloat newHeight = expectedLabelSize.height;
-    
-    // calculate height for all the cell
-    row_height_cell_Description = newHeight + 110;
-    
+    // Calculate height for all cells
+    [self calculateHeightForAllCells];
     
     // set up tableView
     infoTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
@@ -159,7 +141,44 @@ NSString *descriptionString;
     
     [self.view addSubview:infoTable];
     
-    infoTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
+    infoTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60)];
+    
+    
+    // arrange buttons
+    
+    self.callButt.layer.cornerRadius = 6.0;
+    self.callButt.layer.borderColor = [UIColor grayColor].CGColor;
+    self.callButt.layer.borderWidth = 2.0;
+    [self.callButt setTitle:NSLocalizedString(@"Call",nil) forState:UIControlStateNormal];
+    [self.callButt setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    
+    self.getThereButt.layer.cornerRadius = 6.0;
+    self.getThereButt.layer.borderColor = [UIColor colorWithHexString:@"cf5117"].CGColor;
+    self.getThereButt.layer.borderWidth = 2.0;
+    [self.getThereButt setTitle:NSLocalizedString(@"Get there",nil) forState:UIControlStateNormal];
+    [self.getThereButt setTitleColor:[UIColor colorWithHexString:@"cf5117"] forState:UIControlStateNormal];
+    
+    self.bgUnderButtons.layer.borderColor = [UIColor grayColor].CGColor;
+    self.bgUnderButtons.layer.borderWidth = 1.0;
+    
+    [self.view bringSubviewToFront:self.bgUnderButtons];
+    [self.view bringSubviewToFront:self.callButt];
+    [self.view bringSubviewToFront:self.getThereButt];
+
+    if (!IS_IPHONE_5) {
+        
+        CGRect frame = self.bgUnderButtons.frame;
+        frame.origin.y -= 86;
+        [self.bgUnderButtons setFrame:frame];
+        
+        frame = self.callButt.frame;
+        frame.origin.y -=86;
+        [self.callButt setFrame:frame];
+        
+        frame = self.getThereButt.frame;
+        frame.origin.y -=86;
+        [self.getThereButt setFrame:frame];
+    }
     
 }
 
@@ -169,6 +188,61 @@ NSString *descriptionString;
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void) calculateHeightForAllCells
+{
+    // details cell
+    if ([foursquareLocation.openTime rangeOfString:@"null"].location != NSNotFound) {
+        
+        row_height_cell_Details = 107;
+    }
+    
+    
+    // height for attributes cell
+    if ([attributes count] > 0) {
+        
+        int nrOfRows = [attributes count]/4 + 1;
+        
+        if ([attributes count]%4 == 0) {
+            nrOfRows -=1;
+        }
+        
+        row_height_cell_Attributes = nrOfRows * 50;
+    }
+    else{
+        row_height_cell_Attributes = 0;
+    }
+    
+//    NSLog(@"attributes  = %@", attributes);
+    
+    // height for description cell
+    if (descriptionString.length > 0) {
+        
+        CGSize maximumLabelSize = CGSizeMake(310,9999);
+        
+        CGSize expectedLabelSize = [descriptionString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
+                                                 constrainedToSize:maximumLabelSize
+                                                     lineBreakMode:NSLineBreakByWordWrapping];
+        
+        //get the new height needed for label.
+        CGFloat newHeight = expectedLabelSize.height;
+        
+        // calculate height for all the cell
+        row_height_cell_Description = newHeight + 110;
+    }
+    else{
+        row_height_cell_Description = 80;
+    }
+    
+    if (price.length == 0) {
+        row_height_cell_Description -= 40;
+    }
+    
+    if (locationURL.length == 0) {
+        row_height_cell_Description -= 40;
+    }
+    
+}
 
 #pragma mark - Table view data source
 
@@ -192,7 +266,7 @@ NSString *descriptionString;
             return ROW_HEIGHT_CELL_IMAGE;
             break;
         case 1:
-            return ROW_HEIGHT_CELL_DETAILS;
+            return row_height_cell_Details;
             break;
         case 2:
             return row_height_cell_Attributes;
@@ -244,19 +318,25 @@ NSString *descriptionString;
             break;
         case 2:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellAttributesIdentifier];
-            [cell setAttributesArray:attributesArray];
+            [cell setAttributesArray:attributes];
             
             break;
         case 3:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellDescriptionIdentifier];
             
             [cell setNewCalculatedHeight:row_height_cell_Description];
-            cell.venueDescriptionTitle.text = @"Description";
-            cell.venueDescriptionBody.text = descriptionString;
-            [cell setPrice:price.intValue];
             
-#warning must be able to tap on site
-            cell.venueSite.text = locationURL;
+            if (cell.venueDescriptionBody.text.length != 0) {
+                cell.venueDescriptionTitle.text = @"Description";
+                cell.venueDescriptionBody.text = descriptionString;
+            }
+            else{
+                cell.venueDescriptionTitle.alpha = 0;
+                cell.venueDescriptionBody.alpha = 0;
+            }
+            
+            [cell setPrice:price.intValue];
+            [cell setVenueURL:locationURL];
             
             break;
         case 4:
@@ -296,7 +376,40 @@ NSString *descriptionString;
     
 }
 
+#pragma mark UIButtons action
+- (void) favouriteButtonAction:(id)sender
+{
+    if ([TSTCoreData checkIfVenueIsAlreadySavedInFavouritesWithName:[venueInfo valueForKey:@"name"] andLocalAddress:[venueInfo valueForKey:@"localAddress"]]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
+                                                        message:NSLocalizedString(@"This venue has been added to your favourites",nil)
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"Dismiss",nil) 
+                                              otherButtonTitles:Nil, nil
+                              ];
+        [alert show];
+        
+    }
+    else{
+        NSLog(@"- saving venue to favourites");
+        [RMNUserInfo saveLocationToFavourites:venueInfo];
+    }
 
+}
+
+- (IBAction)callAction:(id)sender {
+    
+    NSString *telNumber = [NSString stringWithFormat:@"tel:%@", phoneNumber];
+    
+    NSLog(@"phone nr should be like tel:130-032-2837  and yours is: %@", telNumber);
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:telNumber]];
+
+}
+
+- (IBAction)getThereAction:(id)sender {
+ 
+}
 
 #pragma CellDelegate methods
 
@@ -311,6 +424,24 @@ NSString *descriptionString;
     NSLog(@"your rating is %f", rating);
 }
 
+- (void) userDidPressUploadPhoto{
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:@"Select source for profile photo:"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:
+                            @"Take a new photo",
+                            @"Load photo from Camera Roll",
+                            nil];
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void) userDidPressUOnSiteURL
+{
+    // navigate to locationURL
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:locationURL]];
+}
 
 #pragma mark - Foursquare request delegate methods
 - (void)fetchingDetailsForLocationFailedWithError:(NSError *)error
@@ -341,11 +472,97 @@ NSString *descriptionString;
     images              =   foursquareLocation.imagesArray;
     attributes          =   foursquareLocation.attributes;
     
+    phoneNumber = [venueInfo objectForKey:@"contactPhone"];
     
-    NSLog(@"DESCRIEREA ESTE %@",images);
+    NSLog(@"phoneNumber ESTE %@",phoneNumber);
+
+    if ([phoneNumber isEqualToString:@""]) {
+        
+        // hide call button
+        self.callButt.hidden = YES;
+        
+        // move button to center
+        CGRect frame = self.getThereButt.frame;
+        frame.origin.x = (SCREEN_WIDTH - self.getThereButt.frame.size.width)/2;
+        [self.getThereButt setFrame:frame];
+    }
+    
+    [self calculateHeightForAllCells];
     
     [infoTable reloadData];
 }
+
+
+
+#pragma Mark -  UIActionSheet delegate methods
+
+- (void)actionSheet:(UIActionSheet *)popup clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    
+    switch (buttonIndex) {
+        case 0:
+        {
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            break;
+        }
+        case 1:
+        {
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            break;
+        }
+        default:
+            break;
+    }
+    
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+
+#pragma Mark - UIImagePickerController delegate methods
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];;
+    
+    [activityIndicator setFrame:CGRectMake(0, 100, 320, 100)];
+    [activityIndicator setHidden:NO];
+    [activityIndicator startAnimating];
+    
+    // create new dispatch queue in background
+    dispatch_queue_t queue = dispatch_queue_create("resizeImage", NULL);
+    
+    // send resizing of imge from picker controller in background
+    dispatch_async(queue, ^{
+        
+# warning Do something with the image!
+        
+        UIImage *tempImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        tempImage = [[tempImage scaleToMaxSize:CGSizeMake(200, 200)]roundedImage];
+        
+        // when resizing finished,
+        // hide indicator and present the image on main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [activityIndicator setHidden:YES];
+            [activityIndicator stopAnimating];
+            
+            NSLog(@"thank you for the photo.");
+            
+        });
+    });
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 @end
 

@@ -431,6 +431,42 @@
 }
 
 
+
++ (BOOL) checkIfVenueIsAlreadySavedInFavouritesWithName: (NSString *) venueName andLocalAddress: (NSString *) localAddress
+{
+    BOOL foundVenue = NO;
+    
+    AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *managedObjectContext = [appDelegate managedObjectContext];
+    
+    // Define our table/entity to use
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favourites" inManagedObjectContext:managedObjectContext];
+    // Setup the fetch request
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"name == %@",venueName];
+    request.resultType = NSDictionaryResultType;
+    
+    NSArray *fetchedObjects;
+    NSError *error;
+    
+    fetchedObjects = [managedObjectContext executeFetchRequest:request error:&error];
+    
+    for (id elem in fetchedObjects) {
+        
+        NSString *address = [elem valueForKey:@"localAddress"];
+        
+        if ([address isEqualToString:localAddress]) {
+            foundVenue = YES;
+        }
+    }
+    
+    return foundVenue;
+}
+
+
+
 + (NSString*)entityNameFor:(TSTCoreDataEntity)entityType
 {
     NSString *entityName;
@@ -459,7 +495,10 @@
     return entityName;
 }
 
+
+
+
 @end
 
-    
+
 

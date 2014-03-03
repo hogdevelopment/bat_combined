@@ -913,10 +913,44 @@ LINE 3</string>
                     <view key="view" contentMode="scaleToFill" id="0uv-1y-Eg4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LeJ-W6-mpD">
+                                <rect key="frame" x="-1" y="508" width="322" height="61"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lq4-ja-H9y">
+                                <rect key="frame" x="29" y="520" width="120" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.26006457270408168" green="0.26006457270408168" blue="0.26006457270408168" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="callAction:" destination="49h-9y-pdL" eventType="touchUpInside" id="WWm-ld-Imn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="z53-Mb-HhO">
+                                <rect key="frame" x="171" y="520" width="120" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.2600645727" green="0.2600645727" blue="0.2600645727" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getThereAction:" destination="49h-9y-pdL" eventType="touchUpInside" id="8CI-sp-1T3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="JNL-OX-v9e"/>
                     <connections>
+                        <outlet property="bgUnderButtons" destination="LeJ-W6-mpD" id="mkp-Cy-bpz"/>
+                        <outlet property="callButt" destination="lq4-ja-H9y" id="rS9-Ic-jcn"/>
+                        <outlet property="getThereButt" destination="z53-Mb-HhO" id="WVV-Vs-kr4"/>
                         <segue destination="bgM-B9-xtc" kind="push" identifier="attributesPageSegue" id="w1O-Hl-zYD"/>
                     </connections>
                 </viewController>

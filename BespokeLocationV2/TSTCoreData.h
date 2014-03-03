@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RMNUserInformationCoreData.h"
+#import "RMNFoursquaredLocation.h"
 
 typedef enum
 {
@@ -65,5 +66,7 @@ TSTCoreDataActionType;
 + (NSString *) returnPhotoURLForUserWithEmail: (NSString *) userEmail ;
 
 
+// check if venue is already saved in favourites
++ (BOOL) checkIfVenueIsAlreadySavedInFavouritesWithName: (NSString *) venueName andLocalAddress: (NSString *) localAddress;
 
 @end
