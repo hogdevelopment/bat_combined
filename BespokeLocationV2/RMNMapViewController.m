@@ -21,7 +21,7 @@
 #import "RMNLoader.h"
 #import "RMNVenueInformationViewController.h"
 
-#import "RMNFoursquaredLocation.h"
+
 
 @interface RMNMapViewController ()< HPInformationsManagerDelegate,
                                     RMNUserSettingsLefttSideMenuDelegate>
@@ -32,9 +32,12 @@
     RMNCustomSearchBar *customSearchBar;
     RMNFiltersScrollView *filtersList;
     RMNLoader *loader;
+    
+    NSDictionary *currentInfoLocation;
 
 }
 
+@property NSDictionary *currentInfoLocation;
 @property CLLocationCoordinate2D infoViewCoordinate;
 @property NSDictionary *justALittleBitOfInfo;
 @end
@@ -44,6 +47,7 @@
     GMSMapView *mapView_;
 }
 
+@synthesize currentInfoLocation =   currentInfoLocation;
 
 - (void)viewDidLoad
 {
@@ -65,27 +69,7 @@
     [manager fetchLocations];
 
 
-    // use this for custom requests for the server
-//    HPInformationsManager *locationManager;
-//    locationManager                        = [[HPInformationsManager alloc] init];
-//    locationManager.communicator           = [[HPCommunicator alloc] init];
-//    locationManager.communicator.delegate  = locationManager;
-//    locationManager.customRequestDelegate  = self;
-//    
-//    
-//    NSDictionary *requestInfo = @{@"userID"   : @"1",
-//                                  @"username" : @"chiosa.gabi",
-//                                  @"password" : @"parolamea",
-//                                  @"lastName" : @"ultimul",
-//                                  @"firstName": @"primul",
-//                                  @"email"    : @"chiosa.gabi@gmail.com",
-//                                  @"gender"   : @"male"};
-//    
-//    [locationManager.communicator setRequestInfo:requestInfo];
-//    [locationManager fetchAnswerFor:RMNRequestCheckUsername withRequestData:requestInfo];
     
-    
-//    [locationManager fetchDetailedInfoForFoursquareID:@"43695300f964a5208c291fe3"];
     
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
      {
@@ -197,11 +181,13 @@
 //}
 
 
-- (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *) 	marker
+- (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
 
 //        RMNVenueInformationViewController *detailsViewController = [[RMNVenueInformationViewController alloc] init];
 //        detailsViewController.ObjectsToShow = dbaseItem;
+    
+    currentInfoLocation =   marker.userData;
     [self performSegueWithIdentifier:@"venueInformationPageSegue" sender:self];
     
     
@@ -212,7 +198,12 @@
 - (void) didReceiveLocations:(NSDictionary *)groups
 {
 
-
+   // populate fake favourites locations
+//    for (NSDictionary *dict in groups)
+//    {
+//         [RMNUserInfo saveLocationToFavourites:dict];
+//    }
+    
     // store the received information in an local array
     locationsBigAssDictionary = groups;
     [HPMapMarker addMarkersToMap:mapView_
@@ -221,36 +212,7 @@
     
 }
 
-//- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary *)detailedInfo
-//{
-//    // debuging purposes
-//    // will move this to the detailed view controller
-////    NSLog(@"gaseste %@",detailedInfo);
-//    
-//    
-//    RMNFoursquaredLocation *detailInfo = [[RMNFoursquaredLocation alloc] initFromSource:detailedInfo];
-//    detailInfo.delegate = self;
-//    
-//    
-//}
-//
-////
-////- (void)didReceiveAnswer:(NSDictionary *)answer
-////{
-////    NSLog(@"gaseste %@",answer);
-////}
-////
-////- (void)requestingFailedWithError:(NSError *)error
-////{
-////    NSLog(@"EROAARE %@",error);
-////}
-////
-////#pragma mark - Detail info fetcher
-////- (void)finishedWithInfo:(id)locationInfo
-////{
-//////    RMNFoursquaredLocation *detailInfo = locationInfo;
-////
-////}
+
 
 
 - (void)fetchingLocationsFailedWithError:(NSError *)error
@@ -364,5 +326,13 @@
     }
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([[segue identifier] isEqualToString:@"venueInformationPageSegue"]) {
+        RMNVenueInformationViewController* detailVenue = [segue destinationViewController];
+        detailVenue.venueInfo                          =  currentInfoLocation;
+    }
+}
 
 @end

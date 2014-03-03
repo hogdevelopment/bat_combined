@@ -48,8 +48,12 @@
 // days open
 @property (strong, nonatomic) NSString *daysOpen;
 
+// custom open time
+@property (strong, nonatomic) NSString *openTime;
+
 // stores an array of photos
-@property (strong, nonatomic) NSArray *photos;
+@property (strong, nonatomic) NSArray        *photos;
+@property (strong, nonatomic) NSMutableArray *imagesArray;
 
 // the locations contact phone number
 @property (strong, nonatomic) NSString *phoneNumber;

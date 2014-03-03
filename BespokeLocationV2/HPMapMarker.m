@@ -57,19 +57,19 @@
 
 
 
-                    longitude           =   [[info valueForKey:@"longitude"]floatValue];
-                    latitude            =   [[info valueForKey:@"latitude"]floatValue];
-                    locationAddress     =   [info valueForKey:@"localAddress"];
-                    name                =   [info valueForKey:@"name"];
-                    
-                CLLocationCoordinate2D location =   CLLocationCoordinate2DMake(latitude, longitude);
-                marker.position                 =   location;
-                marker.appearAnimation          =   YES;
-                //                    marker.icon                     =   [UIImage imageNamed:pngLocation];
-                marker.map                      =   mapView;
-                marker.userData                 =   info;
-                marker.title                    =   name;
-                marker.snippet                  =   locationAddress;
+            longitude           =   [[info valueForKey:@"longitude"]floatValue];
+            latitude            =   [[info valueForKey:@"latitude"]floatValue];
+            locationAddress     =   [info valueForKey:@"localAddress"];
+            name                =   [info valueForKey:@"name"];
+                
+            CLLocationCoordinate2D location =   CLLocationCoordinate2DMake(latitude, longitude);
+            marker.position                 =   location;
+            marker.appearAnimation          =   YES;
+            //                    marker.icon                     =   [UIImage imageNamed:pngLocation];
+            marker.map                      =   mapView;
+            marker.userData                 =   info;
+            marker.title                    =   name;
+            marker.snippet                  =   locationAddress;
             
         }
 

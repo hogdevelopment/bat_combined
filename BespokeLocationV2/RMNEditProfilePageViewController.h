@@ -11,6 +11,8 @@
 @interface RMNEditProfilePageViewController : UIViewController<UITableViewDataSource,
                                                                UITableViewDelegate>
 
+
+
 @property (strong, nonatomic) IBOutlet UIImageView    *profileImageHolder;
 @property (weak, nonatomic) IBOutlet UILabel        *userName;
 @property (weak, nonatomic) IBOutlet UILabel        *usersJoiningDate;

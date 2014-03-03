@@ -9,6 +9,10 @@
 #import "RMNVenueInformationViewController.h"
 #import "RMNVenueInformationCell.h"
 #import "RMNAttributesKeyViewController.h"
+#import "RMNFoursquaredLocation.h"
+#import "HPInformationsManager.h"
+#import "HPCommunicator.h"
+
 
 #define NUMBER_OF_CELLS                 5
 
@@ -30,11 +34,46 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 NSArray *attributesArray;
 NSString *descriptionString;
 
-@interface RMNVenueInformationViewController ()
+@interface RMNVenueInformationViewController ()<RMNFoursquaredLocationFetcher,RMNFoursquareInterrogatorDelegate>
+{
+    NSDictionary *venueInfo;
+    RMNFoursquaredLocation *foursquareLocation;
+    
+    NSArray *attributes;
+    NSArray  *images;
+    NSString *openingTime;
+    NSString *price;
+    NSString *phoneNumber;
+    
+    NSString *locationURL;
+    
+}
 
+@property NSString  *locationURL;
+@property NSArray   *attributes;
+@property NSArray   *images;
+@property NSString  *openingTime;
+@property NSString  *price;
+@property NSString  *phoneNumber;
+@property NSString  *openTime;
+
+
+@property RMNFoursquaredLocation *foursquareLocation;
 @end
 
+
 @implementation RMNVenueInformationViewController
+
+
+@synthesize infoTable           =   infoTable;
+@synthesize locationURL         =   locationURL;
+@synthesize images              =   images;
+@synthesize attributes          =   attributes;
+@synthesize phoneNumber         =   phoneNumber;
+@synthesize price               =   price;
+@synthesize openingTime         =   openingTime;
+@synthesize foursquareLocation  =   foursquareLocation;
+@synthesize venueInfo           =   venueInfo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,7 +89,32 @@ NSString *descriptionString;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    attributesArray = [[NSArray alloc] initWithObjects:@"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", @"attributePlaceHolder", nil];
+    
+    //    NSLog(@"ZA VENUE info is %@",venueInfo);
+    
+    //foursquare_id
+    
+    
+    
+    // use this for custom requests for the server
+    HPInformationsManager *locationManager;
+    locationManager                        = [[HPInformationsManager alloc] init];
+    locationManager.communicator           = [[HPCommunicator alloc] init];
+    locationManager.communicator.delegate  = locationManager;
+    locationManager.locationDetailDelegate = self;
+    
+    NSString *foursquareID = [venueInfo valueForKey:@"foursquare_id"];
+    [locationManager fetchDetailedInfoForFoursquareID:foursquareID];
+    
+    
+    descriptionString   =   NSLocalizedString(@"Loading description ...",nil);
+    phoneNumber         =   NSLocalizedString(@"Loading phone number ...",nil);
+    price               =   NSLocalizedString(@"Loading price ...",nil);
+    openingTime         =   NSLocalizedString(@"Loading opening time ...",nil);
+    locationURL         =   NSLocalizedString(@"Loading url ...",nil);
+    
+    attributesArray = @[];
+    
     
     //calculate height for attributes cell
     int nrOfRows = [attributesArray count]/4 + 1;
@@ -60,15 +124,16 @@ NSString *descriptionString;
     }
     
     row_height_cell_Attributes = nrOfRows * 50;
-
     
-    //calculate height for description cell
-    descriptionString = NSLocalizedString(@"answerFAQs_0",nil);
+    
+    images = @[@""];
+    
+    
     CGSize maximumLabelSize = CGSizeMake(310,9999);
     
     CGSize expectedLabelSize = [descriptionString sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15.0f]
-                                      constrainedToSize:maximumLabelSize
-                                          lineBreakMode:NSLineBreakByWordWrapping];
+                                             constrainedToSize:maximumLabelSize
+                                                 lineBreakMode:NSLineBreakByWordWrapping];
     
     //get the new height needed for label.
     CGFloat newHeight = expectedLabelSize.height;
@@ -83,7 +148,7 @@ NSString *descriptionString;
     [infoTable setDataSource:self];
     [infoTable setBackgroundColor:[UIColor whiteColor]];
     [infoTable setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
+    
     
     // register identifiers
     [infoTable registerClass:[RMNVenueInformationCell class] forCellReuseIdentifier:CellImageIdentifier];
@@ -91,7 +156,7 @@ NSString *descriptionString;
     [infoTable registerClass:[RMNVenueInformationCell class] forCellReuseIdentifier:CellAttributesIdentifier];
     [infoTable registerClass:[RMNVenueInformationCell class] forCellReuseIdentifier:CellDescriptionIdentifier];
     [infoTable registerClass:[RMNVenueInformationCell class] forCellReuseIdentifier:CellRatingIdentifier];
-
+    
     [self.view addSubview:infoTable];
     
     infoTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
@@ -141,7 +206,7 @@ NSString *descriptionString;
         default:
             break;
     }
-
+    
     return 0;
 }
 
@@ -160,25 +225,21 @@ NSString *descriptionString;
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RMNVenueInformationCell *cell;
-        
+    
     switch (indexPath.row) {
         case 0:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellImageIdentifier];
             
-            [cell setImagesArray:[NSArray arrayWithObjects:
-                                  @"http://static.comicvine.com/uploads/original/14/145849/2814973-robert_majkut_design_cinema_multikino_velvet_bar.jpg",
-                                  @"http://activate.metroactive.com/files/2013/06/silicon-valley-bar-crawl-620x459.jpg",
-                                  @"http://www.jeffkorhan.com/images/2012/05/2012.5.3-Crowded-Bar.jpg",
-                                  nil]];
+            [cell setImagesArray:images];
             
             break;
         case 1:
             cell = (RMNVenueInformationCell *)[tableView dequeueReusableCellWithIdentifier:CellDetailsIdentifier];
             
-            cell.venueTitle.text = @"This is the name of the bar";
-            cell.venueAddress.text = @"Str Mare, Nr 4, Bucuresti, Romania";
-            [cell setOpeningTimes:@"L - V  10:00 to 02:00"];
-            [cell setVenueSmokeRating:39];
+            cell.venueTitle.text    = [venueInfo valueForKey:@"name"];
+            cell.venueAddress.text  = [venueInfo valueForKey:@"localAddress"];
+            [cell setOpeningTimes:openingTime];
+            [cell setVenueSmokeRating:[[venueInfo valueForKey:@"smokingRatingTotal"]intValue]];
             
             break;
         case 2:
@@ -192,10 +253,10 @@ NSString *descriptionString;
             [cell setNewCalculatedHeight:row_height_cell_Description];
             cell.venueDescriptionTitle.text = @"Description";
             cell.venueDescriptionBody.text = descriptionString;
-            [cell setPrice:10];
-
+            [cell setPrice:price.intValue];
+            
 #warning must be able to tap on site
-            cell.venueSite.text = @"www.google.com";
+            cell.venueSite.text = locationURL;
             
             break;
         case 4:
@@ -215,12 +276,12 @@ NSString *descriptionString;
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-//    if (section < 3)
-//    {
-//        CGRect frame = [self frame];
-//        PALAddPhotosSideMenuFooterView *footerView = [[PALAddPhotosSideMenuFooterView alloc]initWithFrame:frame];
-//        return footerView;
-//    }
+    //    if (section < 3)
+    //    {
+    //        CGRect frame = [self frame];
+    //        PALAddPhotosSideMenuFooterView *footerView = [[PALAddPhotosSideMenuFooterView alloc]initWithFrame:frame];
+    //        return footerView;
+    //    }
     return nil;
     
 }
@@ -250,4 +311,42 @@ NSString *descriptionString;
     NSLog(@"your rating is %f", rating);
 }
 
+
+#pragma mark - Foursquare request delegate methods
+- (void)fetchingDetailsForLocationFailedWithError:(NSError *)error
+{
+    NSLog(@"Error receivein information from foursquare");
+}
+
+- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary *)detailedInfo
+{
+    
+    foursquareLocation = [[RMNFoursquaredLocation alloc]initFromSource:detailedInfo];
+    [foursquareLocation setDelegate:self];
+}
+
+
+#pragma mark - Foursquared Location delegate methods
+- (void)finishedWithInfo:(id)locationInfo
+{
+    
+    //    descriptionString = foursquareLocation.;
+    
+    descriptionString   =   foursquareLocation.description;
+    phoneNumber         =   foursquareLocation.phoneNumber;
+    price               =   foursquareLocation.price;
+    
+    locationURL         =   foursquareLocation.locationUrl;
+    openingTime         =   foursquareLocation.openTime;
+    images              =   foursquareLocation.imagesArray;
+    attributes          =   foursquareLocation.attributes;
+    
+    
+    NSLog(@"DESCRIEREA ESTE %@",images);
+    
+    [infoTable reloadData];
+}
+
 @end
+
+

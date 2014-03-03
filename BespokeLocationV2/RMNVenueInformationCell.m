@@ -347,7 +347,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
                                                    NSData * data,
                                                    NSError * error) {
                                    if (!error){
-                                       
+                                       NSLog(@"CICA TERMINA DE INCARCAT");
                                        // load the image and add it to the view
                                        UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
                                        [view setBackgroundColor:[UIColor blackColor]];

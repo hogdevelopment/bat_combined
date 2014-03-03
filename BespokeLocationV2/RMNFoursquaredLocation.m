@@ -16,6 +16,8 @@
 @synthesize photos;
 @synthesize description;
 @synthesize name;
+@synthesize openTime;
+@synthesize imagesArray;
 
 - (id)initFromSource:(NSDictionary*)source
 {
@@ -27,22 +29,53 @@
         dispatch_async(kBgQueue, ^{
 
             
-            self.photos             = [source valueForDeepKeyLinkingCustom:@"photos.groups.items.user.photo"];
+            self.photos             = [source valueForDeepKeyLinkingCustom:@"photos.groups.items"];
             self.phoneNumber        = [source valueForDeepKeyLinkingCustom:@"contact.formattedPhone"];
             self.twitterUserName    = [source valueForDeepKeyLinkingCustom:@"contact.twitter"];
             self.name               = [source valueForDeepKeyLinkingCustom:@"name"];
-            self.description        = [source valueForDeepKeyLinkingCustom:@"description"];
+            self.description        = [source valueForDeepKeyLinkingCustom:@"page.pageInfo.description"];
+            //description
             self.address            = [source valueForDeepKeyLinkingCustom:@"location.address"];
             self.postalCode         = [source valueForDeepKeyLinkingCustom:@"location.postalCode"];
             self.city               = [source valueForDeepKeyLinkingCustom:@"location.city"];
             self.state              = [source valueForDeepKeyLinkingCustom:@"location.state"];
             self.country            = [source valueForDeepKeyLinkingCustom:@"location.country"];
-            self.hoursOpen          = [source valueForDeepKeyLinkingCustom:@"hours.timeframes.open.renderedTime"];
-            self.daysOpen           = [source valueForDeepKeyLinkingCustom:@"hours.timeframes.days"];
+            self.hoursOpen          = [[[source valueForDeepKeyLinkingCustom:@"hours.timeframes.open.renderedTime"]lastObject]lastObject];
+            self.daysOpen           = [[source valueForDeepKeyLinkingCustom:@"hours.timeframes.days"]lastObject];
             self.locationUrl        = [source valueForDeepKeyLinkingCustom:@"url"];
-            self.price              = [source valueForDeepKeyLinkingCustom:@"price"];
+            self.price              = [source valueForDeepKeyLinkingCustom:@"price.tier"];
             self.attributes         = [source valueForDeepKeyLinkingCustom:@"attributes.groups"];
 
+            
+            self.openTime = [NSString stringWithFormat:@"%@ - %@",self.daysOpen,self.hoursOpen];
+            
+            self.imagesArray = [[NSMutableArray alloc]init];
+            
+            NSLog(@"gaseste %@",self.daysOpen);
+            NSLog(@"gaseste %@",self.hoursOpen);
+            
+            
+            for (NSDictionary *info in self.photos)
+            {
+                NSArray *infoSuffix = [info valueForKey:@"suffix"];
+                NSArray *infoPreffix = [info valueForKey:@"prefix"];
+                for (int i = 0; i<[infoSuffix count];i++)
+                {
+                    
+                
+                
+                NSString *prefix    = [infoPreffix objectAtIndex:i];
+                NSString *suffix    = [infoSuffix   objectAtIndex:i];
+                
+                NSString *imageUrl  = [NSString stringWithFormat:@"%@480x400%@",prefix,suffix];
+                
+                [self.imagesArray addObject:imageUrl];
+                
+                    
+                }
+            }
+            
+            
             //update the delegate view controller the data is filtered
             dispatch_async(dispatch_get_main_queue(), ^{
                 

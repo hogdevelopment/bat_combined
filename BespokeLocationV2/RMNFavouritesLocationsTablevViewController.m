@@ -11,14 +11,20 @@
 #import "CGEnhancedKeyboard.h"
 
 
-@interface RMNFavouritesLocationsTablevViewController()<CGEnhancedKeyboardDelegate,UISearchBarDelegate>
+@interface RMNFavouritesLocationsTablevViewController()<CGEnhancedKeyboardDelegate,UISearchBarDelegate,RMNFavouriteLocationDelegate>
 {
-    CGEnhancedKeyboard *enhancedToolBar;
-    UISearchBar *navigationSearchBar;
+    CGEnhancedKeyboard  *enhancedToolBar;
+    UISearchBar         *navigationSearchBar;
+    NSMutableArray      *favouritesLocations;
+    NSMutableArray      *favouritesLocationsCoreData;
 }
+
+@property NSMutableArray *favouritesLocations;
 @end
 
 @implementation RMNFavouritesLocationsTablevViewController
+
+@synthesize favouritesLocations =   favouritesLocations;
 
 static NSString *CellIdentifier = @"Cell";
 
@@ -46,6 +52,29 @@ static NSString *CellIdentifier = @"Cell";
     
     
     [self.tableView setBackgroundColor:[UIColor colorWithHexString:@"eceaea"]];
+    
+    [self loadContentInfo];
+   
+    
+}
+
+- (void)loadContentInfo
+{
+    
+    favouritesLocations = [[NSMutableArray alloc]init];
+    dispatch_async(kBgQueue, ^{
+        
+        favouritesLocationsCoreData = [RMNUserInfo fetchFavouriteLocations];
+        
+        //update table after the data is processed
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            favouritesLocations = favouritesLocationsCoreData;
+            [self updateContent];
+            
+        });
+        
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +93,7 @@ static NSString *CellIdentifier = @"Cell";
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 200;
+    return [favouritesLocations count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -79,7 +108,6 @@ static NSString *CellIdentifier = @"Cell";
 }
 
 
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return [[UIView alloc]init];
@@ -89,6 +117,9 @@ static NSString *CellIdentifier = @"Cell";
 
     RMNFavouriteLocationView *cell = (RMNFavouriteLocationView*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    [cell populateWithInformationFrom:[favouritesLocations objectAtIndex:indexPath.section]];
+    [cell setDelegate:self];
+    [cell setIndexPathSection:indexPath.section];
     [cell makeItRound];
     return cell;
 }
@@ -193,10 +224,100 @@ static NSString *CellIdentifier = @"Cell";
     
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    UITextField *txfSearchField = [searchBar valueForKey:@"_searchField"];
-    NSLog(@"za dude is searching for %@",[txfSearchField text]);
+    // if the user hasn't typed any character or
+    // he deleted everything we must load
+    // all the info back again
+    if ([searchText length]==0)
+    {
+        [self reloadInfoAndDisplayIt];
+    }
+    // search info containing the searched text from
+    // the searchbar
+    else
+    {
+        [self searchForString:searchText];
+    }
+}
+
+- (void) searchForString:(NSString*)stringToSearch
+{
+    
+    
+    // create new dispatch queue in background
+    dispatch_queue_t queue = dispatch_queue_create("searchFavourites", NULL);
+    
+    // send initialization of UIActivityViewController in background
+    dispatch_async(queue, ^{
+        
+        
+#warning modify here to suit app best
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name CONTAINS[cd] %@) OR (localAddress CONTAINS[cd] %@)", stringToSearch,stringToSearch];
+        
+        NSArray *result         = [NSMutableArray arrayWithArray:
+                                   [favouritesLocationsCoreData  filteredArrayUsingPredicate:filterPredicate]];
+
+        favouritesLocations = [NSMutableArray arrayWithArray:result];
+
+        
+        // when UIActivityViewController is finally initialized,
+        // hide indicator and present it on main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    });
+    
+}
+
+#pragma mark - Private helpers
+// use this to bring table view back to initial state
+// with no searced text
+- (void) reloadInfoAndDisplayIt
+{
+    [self loadContentInfo];
+}
+
+
+
+// this is called after loading locations from Core Data
+// or any other content action related
+- (void)updateContent
+{
+//    NSLog(@"FINISHED bg calculations with %@",favouritesLocations);
+    [self.tableView reloadData];
+}
+
+#pragma mark- Favourite Location Cell Delegate
+- (void)removeFavouriteLocationFromSection:(int)indexPathSection
+{
+    dispatch_async(kBgQueue, ^{
+        
+        NSString *key = @"foursquare_id";
+        NSDictionary *deletedLocation =
+        @{@"idKey"      : key,
+          @"valueKey"   : [[favouritesLocations objectAtIndex:indexPathSection]
+                           valueForKey:key]};
+        
+        [RMNUserInfo removeFavouriteLocation:deletedLocation];
+        [favouritesLocations removeObjectAtIndex:indexPathSection];
+        
+        // update table view once the deletion is completed
+        // from all sources
+        dispatch_async(dispatch_get_main_queue(), ^{
+
+#warning Maybe add animation for deletion of locations
+            [self.tableView reloadData];
+         
+        });
+        
+    });
+    
+  
+    
+    
+    
+    
 }
 
 @end
