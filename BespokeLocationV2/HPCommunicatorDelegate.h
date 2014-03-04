@@ -18,14 +18,14 @@
 
 typedef enum
 {
-    RMNRequestLocationDataBase,
-    RMNRequestLocationFoursquare,
-    RMNRequestUserLogin,
-    RMNRequestCheckUsername,
-    RMNRequestUserRegister,
-    RMNRequestUserChangePassword,
-    RMNRequestUserInfoUpdate,
-    RMNRequestUserRatingAction
+    RMNRequestLocationDataBase      = 0,
+    RMNRequestLocationFoursquare    = 1,
+    RMNRequestUserLogin             = 2,
+    RMNRequestCheckUsername         = 3,
+    RMNRequestUserRegister          = 4,
+    RMNRequestUserChangePassword    = 5,
+    RMNRequestUserInfoUpdate        = 6,
+    RMNRequestUserRatingAction      = 7
 }RMNRequestType;
 
 

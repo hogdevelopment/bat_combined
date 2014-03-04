@@ -124,6 +124,12 @@
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
+		5CDEF9B018C6013D00DDEAAE /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AC18C6013D00DDEAAE /* appIcon@2x.png */; };
+		5CDEF9B118C6013D00DDEAAE /* appSpotlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AD18C6013D00DDEAAE /* appSpotlightIcon.png */; };
+		5CDEF9B218C6013D00DDEAAE /* appSpotlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AE18C6013D00DDEAAE /* appSpotlightIcon@2x.png */; };
+		5CDEF9B318C6013D00DDEAAE /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AF18C6013D00DDEAAE /* appIcon.png */; };
+		5CDEF9B618C6019900DDEAAE /* appSpotlightSettingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9B418C6019900DDEAAE /* appSpotlightSettingsIcon.png */; };
+		5CDEF9B718C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9B518C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png */; };
 		5CE2017F18B7C0E5005A6E18 /* profilePic.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE2017E18B7C0E5005A6E18 /* profilePic.png */; };
 		5CEAC81E18B6187A004830D4 /* RMNEditFiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAC81D18B6187A004830D4 /* RMNEditFiltersViewController.m */; };
 		5CEAC82118B61986004830D4 /* RMNEditFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82018B61986004830D4 /* RMNEditFilterTableViewCell.xib */; };
@@ -437,6 +443,12 @@
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
 		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
+		5CDEF9AC18C6013D00DDEAAE /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
+		5CDEF9AD18C6013D00DDEAAE /* appSpotlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appSpotlightIcon.png; sourceTree = "<group>"; };
+		5CDEF9AE18C6013D00DDEAAE /* appSpotlightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appSpotlightIcon@2x.png"; sourceTree = "<group>"; };
+		5CDEF9AF18C6013D00DDEAAE /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		5CDEF9B418C6019900DDEAAE /* appSpotlightSettingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appSpotlightSettingsIcon.png; sourceTree = "<group>"; };
+		5CDEF9B518C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appSpotlightSettingsIcon@2x.png"; sourceTree = "<group>"; };
 		5CE2017E18B7C0E5005A6E18 /* profilePic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilePic.png; sourceTree = "<group>"; };
 		5CEAC81C18B6187A004830D4 /* RMNEditFiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNEditFiltersViewController.h; sourceTree = "<group>"; };
 		5CEAC81D18B6187A004830D4 /* RMNEditFiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNEditFiltersViewController.m; sourceTree = "<group>"; };
@@ -685,6 +697,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CDEF9B818C6023C00DDEAAE /* app icons */,
 				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,
 				5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */,
 				5CF9DACC18BE07330094B264 /* Edit Profile images */,
@@ -1256,6 +1269,19 @@
 			name = "Attributes Key";
 			sourceTree = "<group>";
 		};
+		5CDEF9B818C6023C00DDEAAE /* app icons */ = {
+			isa = PBXGroup;
+			children = (
+				5CDEF9B418C6019900DDEAAE /* appSpotlightSettingsIcon.png */,
+				5CDEF9B518C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png */,
+				5CDEF9AC18C6013D00DDEAAE /* appIcon@2x.png */,
+				5CDEF9AD18C6013D00DDEAAE /* appSpotlightIcon.png */,
+				5CDEF9AE18C6013D00DDEAAE /* appSpotlightIcon@2x.png */,
+				5CDEF9AF18C6013D00DDEAAE /* appIcon.png */,
+			);
+			name = "app icons";
+			sourceTree = "<group>";
+		};
 		5CEAC81F18B6187E004830D4 /* Edit Filters */ = {
 			isa = PBXGroup;
 			children = (
@@ -1609,12 +1635,15 @@
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
 				E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */,
 				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
+				5CDEF9B718C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png in Resources */,
 				5C0B2BBD18BCA31000986792 /* HPMapDetailView.xib in Resources */,
 				5C437F1018AE939200605A8F /* privacyIcon@2x.png in Resources */,
 				5CA6411F18C0DD5200F242A2 /* attributePlaceHolder.png in Resources */,
 				5C21D10518B37C5500D1996D /* fwdHolderImageBg.png in Resources */,
 				5C4C980218AD34D800807404 /* StartUsingAppFromSlide.png in Resources */,
 				5C0B2BCC18BCFCCB00986792 /* RMNLoader.xib in Resources */,
+				5CDEF9B618C6019900DDEAAE /* appSpotlightSettingsIcon.png in Resources */,
+				5CDEF9B318C6013D00DDEAAE /* appIcon.png in Resources */,
 				5C437F1418AE939200605A8F /* sendFeedbackIcon@2x.png in Resources */,
 				5CF9DAC918BE072E0094B264 /* clearContent@2x.png in Resources */,
 				5C437F1318AE939200605A8F /* sendFeedbackIcon.png in Resources */,
@@ -1622,6 +1651,7 @@
 				5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */,
 				5C4C980718AD34D800807404 /* SkipSlideButton.png in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
+				5CDEF9B018C6013D00DDEAAE /* appIcon@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
 				5C8EF3A418A9345700FFF0D0 /* menu-icon.png in Resources */,
 				5C21D10618B37C5500D1996D /* fwdHolderImageBg@2x.png in Resources */,
@@ -1640,8 +1670,10 @@
 				E1C617FA18AE72CD00E90E0F /* okMark.png in Resources */,
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
+				5CDEF9B218C6013D00DDEAAE /* appSpotlightIcon@2x.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
 				6532417A18B2E22A0061FE5C /* ratingLocationStar.png in Resources */,
+				5CDEF9B118C6013D00DDEAAE /* appSpotlightIcon.png in Resources */,
 				E1B3654B18B252EA0060552E /* logoAgeDeclaration.png in Resources */,
 				5CEAC82118B61986004830D4 /* RMNEditFilterTableViewCell.xib in Resources */,
 				5C21D10418B37C5500D1996D /* bcwdHolderImageBg@2x.png in Resources */,

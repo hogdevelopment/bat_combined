@@ -67,7 +67,6 @@ UserInformationKeyValues selectedService;
     NSDictionary *sectionsTitles =    (NSDictionary*)[[TSTCoreData fetchedUserDataFor:TSTCoreDataUser]lastObject];
     
     
-    NSLog(@"aduce %@",sectionsTitles);
     if (!sectionsTitles)
     {
         // make the array for the table view
@@ -81,7 +80,6 @@ UserInformationKeyValues selectedService;
         
         return dummySections;
     }
-    NSLog(@"sectionsTitles are %@",sectionsTitles);
     NSDate *dob = [sectionsTitles valueForKey:@"dateOfBirth"];
     
     NSDate *registrationDate = [sectionsTitles valueForKey:@"registrationDate"];
