@@ -517,6 +517,7 @@
         NSString *username          = [UserDataSingleton userSingleton].userName;
         NSString *password          = [UserDataSingleton userSingleton].password;
         
+        if ([password length] == 0) password  = @"social";
         /// send server request with the username and password
         NSDictionary *requestInfo = @{
                                       @"username" : username,
@@ -525,6 +526,7 @@
                                       @"firstName": @" ",
                                       @"email"    : email,
                                       @"gender"   : gender};
+        
         
         [manager.communicator setRequestInfo:requestInfo];
         [manager fetchAnswerFor:RMNRequestUserRegister withRequestData:requestInfo];
@@ -549,6 +551,7 @@
 
 - (void)didReceiveAnswer:(NSDictionary *)answer
 {
+    NSLog(@"primeste %@",answer);
     NSString *status = [answer valueForKey:@"status"];
     if ([status isEqualToString:@"ok"])
     {

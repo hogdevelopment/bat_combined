@@ -51,8 +51,7 @@
             
             self.imagesArray = [[NSMutableArray alloc]init];
             
-            NSLog(@"gaseste %@",self.daysOpen);
-            NSLog(@"gaseste %@",self.hoursOpen);
+            NSLog(@"gaseste %@",self.description);
             
             
             for (NSDictionary *info in self.photos)

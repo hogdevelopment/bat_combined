@@ -83,10 +83,12 @@
             NSString*gender     = [self.requestInfo valueForKey:@"gender"];
             
             
-               NSLog(@"ESTE CU %@ si %@  - %@ -   %@ - %@ -  %@",username,password,email,firstName,lastName,gender);
             
             searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
             post = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&first_name=%@&last_name=%@&gender=%@",username,password,email,firstName,lastName,gender];
+            
+            
+            NSLog(@"post cu %@",post);
             
             break;
         }

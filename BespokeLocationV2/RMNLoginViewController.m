@@ -330,6 +330,8 @@ UserInformationKeyValues selectedService;
                                   @"email"    : @"chiosa0@gmail.com",
                                   @"gender"   : @"male"};
     
+    
+    
     [manager.communicator setRequestInfo:requestInfo];
     [manager fetchAnswerFor:RMNRequestUserLogin withRequestData:requestInfo];
 
