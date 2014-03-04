@@ -48,8 +48,11 @@ NSString *descriptionString;
     
     NSString *locationURL;
     
+    BOOL venueIsFavourite;
+    
 }
 
+@property BOOL      venueIsFavourite;
 @property NSString  *locationURL;
 @property NSArray   *attributes;
 @property NSArray   *images;
@@ -65,7 +68,7 @@ NSString *descriptionString;
 
 @implementation RMNVenueInformationViewController
 
-
+@synthesize venueIsFavourite    =   venueIsFavourite;
 @synthesize infoTable           =   infoTable;
 @synthesize locationURL         =   locationURL;
 @synthesize images              =   images;
@@ -96,9 +99,15 @@ NSString *descriptionString;
                                                                        target:self
                                                                        action:@selector(favouriteButtonAction:)];
     
+
     self.navigationItem.rightBarButtonItem = anotherButton;
     
     
+    // customize fav button if the venue is already favourite
+    venueIsFavourite = [TSTCoreData checkIfVenueIsAlreadySavedInFavouritesWithName:[venueInfo valueForKey:@"name"]
+                                                andLocalAddress:[venueInfo valueForKey:@"localAddress"]];
+    [self isVenueAlreadyFavourite:venueIsFavourite];
+
     
     // use this for custom requests for the server
     HPInformationsManager *locationManager;
@@ -379,21 +388,42 @@ NSString *descriptionString;
 #pragma mark UIButtons action
 - (void) favouriteButtonAction:(id)sender
 {
-    if ([TSTCoreData checkIfVenueIsAlreadySavedInFavouritesWithName:[venueInfo valueForKey:@"name"] andLocalAddress:[venueInfo valueForKey:@"localAddress"]]) {
+    
+    NSString *message;
+    
+     [self isVenueAlreadyFavourite:venueIsFavourite];
+    if (venueIsFavourite)
+    {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
-                                                        message:NSLocalizedString(@"This venue has been added to your favourites",nil)
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"Dismiss",nil) 
-                                              otherButtonTitles:Nil, nil
-                              ];
-        [alert show];
+        NSString *key = @"foursquare_id";
+        NSDictionary *deletedLocation =
+        @{@"idKey"      : key,
+          @"valueKey"   : [venueInfo valueForKey:key]};
+        
+        [RMNUserInfo removeFavouriteLocation:deletedLocation];
+
+         message = NSLocalizedString(@"This venue has been removed from your favourites",nil);
         
     }
-    else{
-        NSLog(@"- saving venue to favourites");
+    else
+    {
         [RMNUserInfo saveLocationToFavourites:venueInfo];
+         message = NSLocalizedString(@"This venue has been added to your favourites",nil);
     }
+    
+    
+    
+    venueIsFavourite = !venueIsFavourite;
+    [self isVenueAlreadyFavourite:venueIsFavourite];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"Dismiss",nil)
+                                          otherButtonTitles:Nil, nil
+                          ];
+    [alert show];
+
 
 }
 
@@ -563,6 +593,25 @@ NSString *descriptionString;
     
 }
 
+
+
+#pragma mark - custom private methods
+#warning works for ios 7 only
+- (void)isVenueAlreadyFavourite:(BOOL)isFavourite
+{
+    
+    UIColor *favouriteNavigationButton = (isFavourite) ? [UIColor orangeColor] : [UIColor whiteColor];
+    
+    if (IS_IOS7)
+    {
+        [self.navigationItem.rightBarButtonItem setTintColor:favouriteNavigationButton];
+    }
+    else
+    {
+        NSLog(@"Different ios type. Must change buttons color another way");
+    }
+
+}
 
 @end
 

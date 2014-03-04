@@ -25,7 +25,6 @@
     AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
     
-    //
     
     NSString *entityName = [self entityNameFor:entityType];
 
