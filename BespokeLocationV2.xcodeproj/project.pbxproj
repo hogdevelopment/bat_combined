@@ -704,6 +704,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CDEF9B818C6023C00DDEAAE /* app icons */,
 				E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */,
 				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
 				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,

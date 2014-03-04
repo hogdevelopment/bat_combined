@@ -49,6 +49,9 @@ NSString *descriptionString;
     NSString *phoneNumber;
     
     NSString *locationURL;
+    
+    BOOL venueIsFavourite;
+    
 }
 
 @property BOOL      venueIsFavourite;
@@ -613,6 +616,25 @@ NSString *descriptionString;
         directions.destinationLocation    =  venueCoordinate;
         directions.destinationName        =  [venueInfo objectForKey:@"name"];
     }
+}
+
+
+#pragma mark - custom private methods
+#warning works for ios 7 only
+- (void)isVenueAlreadyFavourite:(BOOL)isFavourite
+{
+    
+    UIColor *favouriteNavigationButton = (isFavourite) ? [UIColor orangeColor] : [UIColor whiteColor];
+    
+    if (IS_IOS7)
+    {
+        [self.navigationItem.rightBarButtonItem setTintColor:favouriteNavigationButton];
+    }
+    else
+    {
+        NSLog(@"Different ios type. Must change buttons color another way");
+    }
+    
 }
 
 @end
