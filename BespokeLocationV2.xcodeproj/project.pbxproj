@@ -246,6 +246,11 @@
 		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
+		E1B2006718C5E2F00018C8D3 /* RMNDirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */; };
+		E1B2009318C6317F0018C8D3 /* startLocationMapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */; };
+		E1B2009418C6317F0018C8D3 /* destinationLocationMapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */; };
+		E1B2009718C637540018C8D3 /* destinationLocationMapMarker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */; };
+		E1B2009818C637540018C8D3 /* startLocationMapMarker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */; };
 		E1B3654218B2077D0060552E /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654118B2077D0060552E /* UserInformation.m */; };
 		E1B3654518B20F480060552E /* RMNUserInformationCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */; };
 		E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */; };
@@ -625,6 +630,12 @@
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
 		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
+		E1B2006518C5E2F00018C8D3 /* RMNDirectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNDirectionsViewController.h; sourceTree = "<group>"; };
+		E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNDirectionsViewController.m; sourceTree = "<group>"; };
+		E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startLocationMapMarker.png; sourceTree = "<group>"; };
+		E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destinationLocationMapMarker.png; sourceTree = "<group>"; };
+		E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "destinationLocationMapMarker@2x.png"; sourceTree = "<group>"; };
+		E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startLocationMapMarker@2x.png"; sourceTree = "<group>"; };
 		E1B3654018B2077D0060552E /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		E1B3654118B2077D0060552E /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		E1B3654318B20F480060552E /* RMNUserInformationCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInformationCoreData.h; sourceTree = "<group>"; };
@@ -698,6 +709,10 @@
 			isa = PBXGroup;
 			children = (
 				5CDEF9B818C6023C00DDEAAE /* app icons */,
+				E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */,
+				E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */,
+				E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */,
+				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
 				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,
 				5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */,
 				5CF9DACC18BE07330094B264 /* Edit Profile images */,
@@ -1129,6 +1144,8 @@
 				E1A684A718B655FB002CCC15 /* RMNVenueInformationViewController.m */,
 				E1BB7C4E18B7422400608334 /* RMNVenueInformationCell.h */,
 				E1BB7C4F18B7422400608334 /* RMNVenueInformationCell.m */,
+				E1B2006518C5E2F00018C8D3 /* RMNDirectionsViewController.h */,
+				E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */,
 			);
 			name = "Venue Information";
 			sourceTree = "<group>";
@@ -1669,6 +1686,7 @@
 				E1A82F0818AD022D00FF9661 /* LinkedIn_logo@2x.png in Resources */,
 				E1C617FA18AE72CD00E90E0F /* okMark.png in Resources */,
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
+				E1B2009418C6317F0018C8D3 /* destinationLocationMapMarker.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				5CDEF9B218C6013D00DDEAAE /* appSpotlightIcon@2x.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
@@ -1689,6 +1707,7 @@
 				5CEAC82518B61BEE004830D4 /* filterImage@2x.png in Resources */,
 				E1A9BD0218ABC7B300944EAD /* distanceChosenUnit.png in Resources */,
 				5C437F0B18AE939200605A8F /* aboutAppIcon.png in Resources */,
+				E1B2009318C6317F0018C8D3 /* startLocationMapMarker.png in Resources */,
 				E1A9BD0318ABC7B300944EAD /* distanceChosenUnit@2x.png in Resources */,
 				5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */,
 				5C4C980418AD34D800807404 /* slide_2_Zurich@2x.png in Resources */,
@@ -1738,9 +1757,11 @@
 				5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */,
 				5C4C97FC18AD34D800807404 /* slide_0_Zurich@2x.png in Resources */,
 				5C4C97FB18AD34D800807404 /* slide_3_Zurich.png in Resources */,
+				E1B2009718C637540018C8D3 /* destinationLocationMapMarker@2x.png in Resources */,
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				65A217B918B56B3D00113F27 /* faqsAppIcon@2x.png in Resources */,
+				E1B2009818C637540018C8D3 /* startLocationMapMarker@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				5CF9DAC818BE072E0094B264 /* clearContent.png in Resources */,
 				5CEAC82418B61BEE004830D4 /* filterImage.png in Resources */,
@@ -1865,6 +1886,7 @@
 				E1B3654218B2077D0060552E /* UserInformation.m in Sources */,
 				651F37FF18AEDF1D00449DC7 /* UIImage+Effects.m in Sources */,
 				5C0B2BAE18BC9CDA00986792 /* HPLocationBuilder.m in Sources */,
+				E1B2006718C5E2F00018C8D3 /* RMNDirectionsViewController.m in Sources */,
 				E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */,
 				7C04AD2B189FC15A00AAA15A /* AFXMLRequestOperation.m in Sources */,
 				5C6CB4DF18AA452D008CBE2A /* RMNUserSettingsSideMenuViewController.m in Sources */,
