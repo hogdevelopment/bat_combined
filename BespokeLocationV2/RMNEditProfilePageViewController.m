@@ -29,6 +29,8 @@ static NSString *CellIdentifier = @"CellEditProfile";
     BOOL isEditable;
     NSMutableArray  *sectionsTitles;
     NSArray         *placeHolders;
+    
+    int requestStatusCount;
 
 }
 
@@ -36,17 +38,18 @@ static NSString *CellIdentifier = @"CellEditProfile";
 @property NSMutableArray        *sectionsTitles;
 @property NSArray               *placeHolders;
 @property BOOL                  isEditable;
-
+@property int                   requestStatusCount;
 @end
 
 
 
 @implementation RMNEditProfilePageViewController
 
-@synthesize currentSection  =   currentSection;
-@synthesize sectionsTitles  =   sectionsTitles;
-@synthesize isEditable      =   isEditable;
-@synthesize placeHolders    =   placeHolders;
+@synthesize requestStatusCount  =   requestStatusCount;
+@synthesize currentSection      =   currentSection;
+@synthesize sectionsTitles      =   sectionsTitles;
+@synthesize isEditable          =   isEditable;
+@synthesize placeHolders        =   placeHolders;
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -133,13 +136,15 @@ static NSString *CellIdentifier = @"CellEditProfile";
     
     [managerPassword fetchAnswerFor:RMNRequestUserChangePassword
                     withRequestData:requestInfo];
+    
+  
     [manager fetchAnswerFor:RMNRequestUserInfoUpdate
             withRequestData:requestInfo];
     
     
     [RMNUserInfo updateProfileDataWith:sectionsTitles];
 
-//    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)didReceiveAnswer:(NSDictionary *)answer
@@ -148,7 +153,15 @@ static NSString *CellIdentifier = @"CellEditProfile";
     if ([[answer valueForKey:@"status"] isEqualToString:@"ok"])
     {
         NSLog(@"update ok");
-//         [self.navigationController popViewControllerAnimated:YES];
+        requestStatusCount ++;
+        if (requestStatusCount == 2)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+    else
+    {
+        NSLog(@"EROARE ! CU RĂspunsul %@",[answer valueForKey:@"status"]);
     }
 }
 - (void)requestingFailedWithError:(NSError *)error
@@ -275,7 +288,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
         NSString *cellText;
         cellText = [sectionsTitles objectAtIndex:indexPath.row];
         
-        if ([cellText length]>0)
+        if ([cellText length]>0 && ![cellText isEqualToString:@" "])
         {
             [cell.textFieldInput setText:cellText];
         }

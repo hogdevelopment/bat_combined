@@ -31,6 +31,8 @@
 // test if the curred device is orientated to a landscape format
 #define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
+// test if app is runing on ios 7
+#define IS_IOS7 [[UIDevice currentDevice].systemVersion hasPrefix:@"7"]
 
 
 // side menu pages navigation bar color

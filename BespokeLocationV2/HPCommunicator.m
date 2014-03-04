@@ -94,11 +94,12 @@
         case RMNRequestUserChangePassword:
         {
 
-            NSString*userID     = [self.requestInfo valueForKey:@"user_id"];
+            NSString*userID     = [self.requestInfo valueForKey:@"userID"];
             NSString*password   = [self.requestInfo valueForKey:@"password"];
             
             searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/passwordchange";
             post = [NSString stringWithFormat:@"user_id=%@&password=%@",userID,password];
+
             break;
         }
             // it requiers the users ID, email, first name, last name and the gender
@@ -106,16 +107,16 @@
         {
 
             NSString*userID     = [self.requestInfo valueForKey:@"userID"];
+            NSString*username   = [self.requestInfo valueForKey:@"username"];
             NSString*email      = [self.requestInfo valueForKey:@"email"];
             NSString*firstName  = [self.requestInfo valueForKey:@"firstName"];
             NSString*lastName   = [self.requestInfo valueForKey:@"lastName"];
             NSString*gender     = [self.requestInfo valueForKey:@"gender"];
-            
-            NSLog(@"ESTE CU %@ si %@  - %@ -   %@ - %@ -  %@",userID,email,email,firstName,lastName,gender);
+            NSString*password   = [self.requestInfo valueForKey:@"password"];
 
+            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/detailsChange";
+            post = [NSString stringWithFormat:@"user_id=%@&username=%@&password=%@&email=%@&first_name=%@&last_name=%@&gender=%@",userID,username,password,email,firstName,lastName,gender];
             
-            searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
-            post = [NSString stringWithFormat:@"user_id=%@&email=%@&first_name=%@&last_name=%@&gender=%@",userID,email,firstName,lastName,gender];
             break;
         }
         case RMNRequestUserRatingAction:
@@ -212,7 +213,6 @@
                  case RMNRequestUserInfoUpdate:
                  case RMNRequestUserRegister:
                  {
-                      NSLog(@"za result %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                      [self.delegate requestAnswer:data];
                      break;
                  }
