@@ -147,6 +147,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
     
 }
 
+#pragma mark - Custom Request delegate methods
 - (void)didReceiveAnswer:(NSDictionary *)answer
 {
     NSLog(@"a primit %@",answer);

@@ -18,6 +18,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 
+
 #define NUMBER_OF_CELLS                 5
 
 #define ROW_HEIGHT_CELL_IMAGE           200
@@ -37,7 +38,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 NSArray *attributesArray;
 NSString *descriptionString;
 
-@interface RMNVenueInformationViewController ()<RMNFoursquaredLocationFetcher,RMNFoursquareInterrogatorDelegate>
+@interface RMNVenueInformationViewController ()<RMNFoursquaredLocationFetcher,RMNFoursquareInterrogatorDelegate,RMNCustomRequestsDelegate>
 {
     NSDictionary *venueInfo;
     RMNFoursquaredLocation *foursquareLocation;
@@ -52,6 +53,8 @@ NSString *descriptionString;
     
     BOOL venueIsFavourite;
     
+    HPInformationsManager *manager;
+    
 }
 
 @property BOOL      venueIsFavourite;
@@ -62,7 +65,7 @@ NSString *descriptionString;
 @property NSString  *price;
 @property NSString  *phoneNumber;
 @property NSString  *openTime;
-
+@property HPInformationsManager *manager;
 
 @property RMNFoursquaredLocation *foursquareLocation;
 @end
@@ -70,6 +73,7 @@ NSString *descriptionString;
 
 @implementation RMNVenueInformationViewController
 
+@synthesize manager             =   manager;
 @synthesize venueIsFavourite    =   venueIsFavourite;
 @synthesize infoTable           =   infoTable;
 @synthesize locationURL         =   locationURL;
@@ -104,6 +108,18 @@ NSString *descriptionString;
     
 
     self.navigationItem.rightBarButtonItem = anotherButton;
+    
+    if (IS_IOS7)
+    {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    }
+    
+    // prepare the rating sync manager
+    
+    manager                        = [[HPInformationsManager alloc] init];
+    manager.communicator           = [[HPCommunicator alloc] init];
+    manager.communicator.delegate  = manager;
+    manager.customRequestDelegate  = self;
     
     
     // customize fav button if the venue is already favourite
@@ -419,14 +435,7 @@ NSString *descriptionString;
     venueIsFavourite = !venueIsFavourite;
     [self isVenueAlreadyFavourite:venueIsFavourite];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
-                                                    message:message
-                                                   delegate:self
-                                          cancelButtonTitle:NSLocalizedString(@"Dismiss",nil)
-                                          otherButtonTitles:Nil, nil
-                          ];
-    [alert show];
-
+    [self customAlertViewWithMessage:message];
 
 }
 
@@ -460,6 +469,16 @@ NSString *descriptionString;
 - (void) userDidPressAddRating:(CGFloat)rating{
     
     NSLog(@"your rating is %f", rating);
+    
+    NSString *locationID = @"13";
+    int ratingInt = rating;
+    /// send server request with the username and password
+    NSDictionary *requestInfo = @{@"userID"     : [[RMNManager sharedManager]userUniqueId],
+                                  @"locationID" : locationID,
+                                  @"rating"     : [NSString stringWithFormat:@"%d",ratingInt]};
+    
+    [manager fetchAnswerFor:RMNRequestUserRatingAction
+            withRequestData:requestInfo];
 }
 
 - (void) userDidPressUploadPhoto{
@@ -584,7 +603,7 @@ NSString *descriptionString;
 # warning Do something with the image!
         
         UIImage *tempImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        tempImage = [[tempImage scaleToMaxSize:CGSizeMake(200, 200)]roundedImage];
+        tempImage = [[tempImage scaleToMaxSize:CGSizeMake(640, 400)]roundedImage];
         
         // when resizing finished,
         // hide indicator and present the image on main thread
@@ -593,6 +612,8 @@ NSString *descriptionString;
             [activityIndicator setHidden:YES];
             [activityIndicator stopAnimating];
             
+            
+            [self customAlertViewWithMessage:@"Thany you for uploading pic. Debug mode."];
             NSLog(@"thank you for the photo.");
             
         });
@@ -634,6 +655,44 @@ NSString *descriptionString;
     {
         NSLog(@"Different ios type. Must change buttons color another way");
     }
+    
+}
+
+
+#pragma mark - Custom Request delegate methods
+
+- (void)didReceiveAnswer:(NSDictionary *)answer
+{
+    NSLog(@"a primit %@",answer);
+    if ([[answer valueForKey:@"status"] isEqualToString:@"ok"])
+    {
+        NSLog(@"update ok");
+     }
+    else
+    {
+        NSLog(@"EROARE ! CU RĂspunsul %@",[answer valueForKey:@"status"]);
+    }
+    
+}
+- (void)requestingFailedWithError:(NSError *)error
+{
+    [self customAlertViewWithMessage:error.domain];
+    
+    NSLog(@"EROARE CU %@",error);
+}
+
+
+
+#pragma mark - custom private helpers
+- (void)customAlertViewWithMessage:(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"Dismiss",nil)
+                                          otherButtonTitles:Nil, nil
+                          ];
+    [alert show];
     
 }
 

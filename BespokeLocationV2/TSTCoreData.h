@@ -22,7 +22,8 @@ typedef enum
 typedef enum
 {
     TSTCoreDataActionDelete,
-    TSTCoreDataActionUpdate
+    TSTCoreDataActionUpdate,
+    TSTCoreDataActionSearchFavourite
 }
 TSTCoreDataActionType;
 
@@ -43,7 +44,7 @@ TSTCoreDataActionType;
 // requiers an id in the dictionary with
 // the key "idKey" and the value "valueKey"
 // which will be used to fetch the object
-+ (void)actionType:(TSTCoreDataActionType)actionType
++ (id)actionType:(TSTCoreDataActionType)actionType
          forEntity:(TSTCoreDataEntity)entityType
           withKeys:(NSDictionary*)info;
 

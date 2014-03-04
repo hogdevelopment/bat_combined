@@ -127,7 +127,7 @@
             NSString*rating         = [self.requestInfo valueForKey:@"rating"];
             
             post = [NSString stringWithFormat:@"user_id=%@&location_id=%@&rating=%@",userID,locationID,rating];
-            
+            NSLog(@"POST %@",post);
             break;
         }
 
@@ -147,8 +147,7 @@
     if (type != RMNRequestLocationDataBase &&
         type != RMNRequestLocationFoursquare)
     {
-        NSLog(@"este pentru usercheck");
-        
+
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
         
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -212,6 +211,7 @@
                  case RMNRequestUserChangePassword:
                  case RMNRequestUserInfoUpdate:
                  case RMNRequestUserRegister:
+                 case RMNRequestUserRatingAction:
                  {
                      [self.delegate requestAnswer:data];
                      break;
