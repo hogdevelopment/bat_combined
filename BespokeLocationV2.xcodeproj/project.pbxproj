@@ -249,6 +249,8 @@
 		E1B2006718C5E2F00018C8D3 /* RMNDirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */; };
 		E1B2009318C6317F0018C8D3 /* startLocationMapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */; };
 		E1B2009418C6317F0018C8D3 /* destinationLocationMapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */; };
+		E1B2009718C637540018C8D3 /* destinationLocationMapMarker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */; };
+		E1B2009818C637540018C8D3 /* startLocationMapMarker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */; };
 		E1B3654218B2077D0060552E /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654118B2077D0060552E /* UserInformation.m */; };
 		E1B3654518B20F480060552E /* RMNUserInformationCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654418B20F480060552E /* RMNUserInformationCoreData.m */; };
 		E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */; };
@@ -632,6 +634,8 @@
 		E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNDirectionsViewController.m; sourceTree = "<group>"; };
 		E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startLocationMapMarker.png; sourceTree = "<group>"; };
 		E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = destinationLocationMapMarker.png; sourceTree = "<group>"; };
+		E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "destinationLocationMapMarker@2x.png"; sourceTree = "<group>"; };
+		E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startLocationMapMarker@2x.png"; sourceTree = "<group>"; };
 		E1B3654018B2077D0060552E /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		E1B3654118B2077D0060552E /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		E1B3654318B20F480060552E /* RMNUserInformationCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNUserInformationCoreData.h; sourceTree = "<group>"; };
@@ -705,6 +709,8 @@
 			isa = PBXGroup;
 			children = (
 				5CDEF9B818C6023C00DDEAAE /* app icons */,
+				E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */,
+				E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */,
 				E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */,
 				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
 				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,
@@ -1751,9 +1757,11 @@
 				5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */,
 				5C4C97FC18AD34D800807404 /* slide_0_Zurich@2x.png in Resources */,
 				5C4C97FB18AD34D800807404 /* slide_3_Zurich.png in Resources */,
+				E1B2009718C637540018C8D3 /* destinationLocationMapMarker@2x.png in Resources */,
 				5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */,
 				5C8EF3A218A9345700FFF0D0 /* back-arrow@2x.png in Resources */,
 				65A217B918B56B3D00113F27 /* faqsAppIcon@2x.png in Resources */,
+				E1B2009818C637540018C8D3 /* startLocationMapMarker@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				5CF9DAC818BE072E0094B264 /* clearContent.png in Resources */,
 				5CEAC82418B61BEE004830D4 /* filterImage.png in Resources */,
