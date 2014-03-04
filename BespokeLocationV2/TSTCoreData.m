@@ -57,7 +57,7 @@
 
 }
 
-+ (void)actionType:(TSTCoreDataActionType)actionType
++ (id)actionType:(TSTCoreDataActionType)actionType
          forEntity:(TSTCoreDataEntity)entityType
           withKeys:(NSDictionary*)info
 {
@@ -108,7 +108,7 @@
             {
                 if ([key isEqualToString:@"idKey"] ||
                     [key isEqualToString:@"valueKey"])
-                    return;
+                    return 0;
                 
                 [userData setValue:[info objectForKey:key]
                             forKey:key];
@@ -135,6 +135,8 @@
         //        NSLog(@"update for photos is done! WITH %@",[self fetchedUserData]);
         
     }
+    
+    return 0;
 
 }
 

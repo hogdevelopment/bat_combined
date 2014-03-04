@@ -332,7 +332,6 @@
     if ([[segue identifier] isEqualToString:@"venueInformationPageSegue"]) {
         RMNVenueInformationViewController* detailVenue = [segue destinationViewController];
         
-        NSLog(@"currentInfoLocation is %@", currentInfoLocation);
         
         detailVenue.venueInfo                          =  currentInfoLocation;
     }

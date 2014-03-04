@@ -450,7 +450,12 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
 
 - (void) addRating{
     
+
     [[self cellDelegate] userDidPressAddRating: self.ratingStars.rating];
+    
+    
+    
+    
 }
 
 - (void) uploadPhotoAction{
