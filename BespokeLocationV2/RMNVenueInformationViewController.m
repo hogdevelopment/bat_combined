@@ -108,7 +108,7 @@ NSString *descriptionString;
     
     if (IS_IOS7)
     {
-        [self.navigationItem.leftBarButtonItem setTintColor:[UIColor whiteColor]];
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     }
     
     // prepare the rating sync manager
@@ -432,14 +432,7 @@ NSString *descriptionString;
     venueIsFavourite = !venueIsFavourite;
     [self isVenueAlreadyFavourite:venueIsFavourite];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
-                                                    message:message
-                                                   delegate:self
-                                          cancelButtonTitle:NSLocalizedString(@"Dismiss",nil)
-                                          otherButtonTitles:Nil, nil
-                          ];
-    [alert show];
-
+    [self customAlertViewWithMessage:message];
 
 }
 
@@ -601,7 +594,7 @@ NSString *descriptionString;
 # warning Do something with the image!
         
         UIImage *tempImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        tempImage = [[tempImage scaleToMaxSize:CGSizeMake(200, 200)]roundedImage];
+        tempImage = [[tempImage scaleToMaxSize:CGSizeMake(640, 400)]roundedImage];
         
         // when resizing finished,
         // hide indicator and present the image on main thread
@@ -610,6 +603,8 @@ NSString *descriptionString;
             [activityIndicator setHidden:YES];
             [activityIndicator stopAnimating];
             
+            
+            [self customAlertViewWithMessage:@"Thany you for uploading pic. Debug mode."];
             NSLog(@"thank you for the photo.");
             
         });
@@ -653,12 +648,29 @@ NSString *descriptionString;
     {
         NSLog(@"EROARE ! CU RĂspunsul %@",[answer valueForKey:@"status"]);
     }
+    
 }
 - (void)requestingFailedWithError:(NSError *)error
 {
+    [self customAlertViewWithMessage:error.domain];
+    
     NSLog(@"EROARE CU %@",error);
 }
 
+
+
+#pragma mark - custom private helpers
+- (void)customAlertViewWithMessage:(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"Dismiss",nil)
+                                          otherButtonTitles:Nil, nil
+                          ];
+    [alert show];
+    
+}
 
 @end
 
