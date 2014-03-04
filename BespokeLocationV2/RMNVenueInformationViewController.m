@@ -14,7 +14,9 @@
 #import "HPCommunicator.h"
 #import "RMNUserInfo.h"
 #import "TSTCoreData.h"
-#import "DirectionsViewController.h"
+#import "RMNDirectionsViewController.h"
+#import <CoreLocation/CoreLocation.h>
+
 
 #define NUMBER_OF_CELLS                 5
 
@@ -47,7 +49,6 @@ NSString *descriptionString;
     NSString *phoneNumber;
     
     NSString *locationURL;
-    
 }
 
 @property NSString  *locationURL;
@@ -75,6 +76,7 @@ NSString *descriptionString;
 @synthesize openingTime         =   openingTime;
 @synthesize foursquareLocation  =   foursquareLocation;
 @synthesize venueInfo           =   venueInfo;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -409,7 +411,12 @@ NSString *descriptionString;
 
 - (IBAction)getThereAction:(id)sender {
  
+    // go to direction screen
+    [self performSegueWithIdentifier:@"directionsPageSegue" sender:self];
+
 }
+
+
 
 #pragma CellDelegate methods
 
@@ -442,6 +449,7 @@ NSString *descriptionString;
     // navigate to locationURL
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:locationURL]];
 }
+
 
 #pragma mark - Foursquare request delegate methods
 - (void)fetchingDetailsForLocationFailedWithError:(NSError *)error
@@ -563,6 +571,21 @@ NSString *descriptionString;
     
 }
 
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"directionsPageSegue"]) {
+        
+        RMNDirectionsViewController* directions = [segue destinationViewController];
+        
+        // get venue coordinates
+        CLLocation *venueCoordinate = [[CLLocation alloc] initWithLatitude:[[venueInfo objectForKey:@"latitude"] floatValue] longitude:[[venueInfo objectForKey:@"longitude"] floatValue]];
+        
+        // set venue info
+        directions.destinationLocation    =  venueCoordinate;
+        directions.destinationName        =  [venueInfo objectForKey:@"name"];
+    }
+}
 
 @end
 

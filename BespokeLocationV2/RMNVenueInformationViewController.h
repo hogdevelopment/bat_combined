@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RMNVenueInformationCell.h"
 
-@interface RMNVenueInformationViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, RMNCellVenueInformationDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface RMNVenueInformationViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, RMNCellVenueInformationDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
 {
     UITableView *infoTable;
 }
@@ -17,6 +17,7 @@
 
 @property NSDictionary *venueInfo;
 @property UITableView *infoTable;
+
 @property (weak, nonatomic) IBOutlet UIButton *callButt;
 @property (weak, nonatomic) IBOutlet UIButton *getThereButt;
 @property (weak, nonatomic) IBOutlet UIImageView *bgUnderButtons;
