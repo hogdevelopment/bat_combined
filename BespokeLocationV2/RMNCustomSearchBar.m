@@ -10,6 +10,9 @@
 
 @implementation RMNCustomSearchBar
 
+@synthesize delegate        =   delegate;
+@synthesize searchBarView   =   searchBarView;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -52,6 +55,15 @@
     
     searchBarView.inputAccessoryView = cancelToolBar;
     
+    if (IS_IOS7)
+    {
+        searchBarView.tintColor = CELL_LIGHT_BLUE;
+    }
+    else
+    {
+        NSLog(@"Must change here to work on other ios");
+    }
+    
     
 }
 
@@ -66,6 +78,9 @@
     
     UITextField *txtSearchField = [searchBarView valueForKey:@"_searchField"];
 
+    // create weak reference to avoid retain cycles
+    __weak RMNCustomSearchBar *self_ = self;
+    
     autocompleteView = [TRAutocompleteView autocompleteViewBindedTo:txtSearchField usingSource:
                         [[TRGoogleMapsAutocompleteItemsSource alloc]
                                 initWithMinimumCharactersToTrigger:1
@@ -81,8 +96,8 @@
     
     autocompleteView.didAutocompleteWith = ^(id<TRSuggestionItem> item)
     {
-        NSLog(@"Autocompleted with: %@", item.completionText);
         
+        [[self_ delegate]userSearched:item.completionText];
     };
     
 }

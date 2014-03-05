@@ -34,6 +34,11 @@
 // test if app is runing on ios 7
 #define IS_IOS7 [[UIDevice currentDevice].systemVersion hasPrefix:@"7"]
 
+// check earlier versions from 6.1
+#define isIOS6 floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1
+
+// check for newer versions from 6.1
+#define isIOS7 floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1
 
 // side menu pages navigation bar color
 #define SIDE_MENU_PAGES_NAVBAR_COLOR [UIColor colorWithHexString:@"616161"]

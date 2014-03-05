@@ -26,10 +26,12 @@
 
 
 @interface RMNMapViewController ()< HPInformationsManagerDelegate,
-                                    RMNUserSettingsLefttSideMenuDelegate>
+                                    RMNUserSettingsLefttSideMenuDelegate,
+                                    RMNAutocompleteSearchBarTextDelegate>
 {
 
     NSDictionary *locationsBigAssDictionary;
+    NSDictionary *customFilteredLocationsDictionary;
     
     RMNCustomSearchBar *customSearchBar;
     RMNFiltersScrollView *filtersList;
@@ -42,6 +44,9 @@
 @property NSDictionary *currentInfoLocation;
 @property CLLocationCoordinate2D infoViewCoordinate;
 @property NSDictionary *justALittleBitOfInfo;
+@property NSDictionary *customFilteredLocationsDictionary;
+@property NSDictionary *locationsBigAssDictionary;
+
 @end
 
 @implementation RMNMapViewController
@@ -49,7 +54,9 @@
     GMSMapView *mapView_;
 }
 
-@synthesize currentInfoLocation =   currentInfoLocation;
+@synthesize currentInfoLocation                 =   currentInfoLocation;
+@synthesize customFilteredLocationsDictionary   =   customFilteredLocationsDictionary;
+@synthesize locationsBigAssDictionary           =   locationsBigAssDictionary;
 
 - (void)viewDidLoad
 {
@@ -59,6 +66,8 @@
     
     // init custom search bar
     customSearchBar = [[RMNCustomSearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
+    [customSearchBar setDelegate:self];
+    
     self.navigationItem.titleView = customSearchBar;
     
     
@@ -107,12 +116,18 @@
     [(RMNUserSettingsSideMenuViewController*)[[self menuContainerViewController]leftMenuViewController] setSideMenuDelegate:self];
     
     
-    
+     CLLocationCoordinate2D tempLoc = [RMNLocationController sharedInstance].locationManager.location.coordinate;
     
     // settings needed for autocomplete feature
     [customSearchBar setViewController:self];
-    [customSearchBar setLocationCoordinate:[RMNLocationController sharedInstance].locationManager.location.coordinate];
+    [customSearchBar setLocationCoordinate:tempLoc];
+
     
+   
+    
+//    NSLog(@"CERE CU %f si %f",[RMNLocationController sharedInstance].locationManager.location.coordinate.latitude,
+//          [RMNLocationController sharedInstance].locationManager.location.coordinate.longitude);
+//    
     CGFloat heightForMap = filtersList.frame.origin.y - 65;
 
     
@@ -172,7 +187,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 //- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
 //{
 //    HPMapDetailView *view = [[[NSBundle mainBundle] loadNibNamed:@"HPMapDetailView"
@@ -186,9 +200,6 @@
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
 
-//        RMNVenueInformationViewController *detailsViewController = [[RMNVenueInformationViewController alloc] init];
-//        detailsViewController.ObjectsToShow = dbaseItem;
-    
     currentInfoLocation =   marker.userData;
     [self performSegueWithIdentifier:@"venueInformationPageSegue" sender:self];
     
@@ -196,20 +207,23 @@
 }
 
 
+#pragma mark - Google Maps delegate methods
+- (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
+{
+
+    // resign the textfield from the search bar if moving the map
+    [customSearchBar.searchBarView resignFirstResponder];
+}
+
 #pragma mark- JSON parser
 - (void) didReceiveLocations:(NSDictionary *)groups
 {
 
-   // populate fake favourites locations
-//    for (NSDictionary *dict in groups)
-//    {
-//         [RMNUserInfo saveLocationToFavourites:dict];
-//    }
-    
     // store the received information in an local array
-    locationsBigAssDictionary = groups;
+    locationsBigAssDictionary           =   groups;
+    customFilteredLocationsDictionary   =   groups;
     [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:locationsBigAssDictionary];
+                        withInfo:customFilteredLocationsDictionary];
   }
 
 
@@ -335,6 +349,20 @@
         
         detailVenue.venueInfo                          =  currentInfoLocation;
     }
+}
+
+
+#pragma mark Autocomplete delegate method
+- (void)userSearched:(NSString *)searchedString
+{
+    NSLog(@"Searching %@",searchedString);
+    // remove markers/locations that don't contain that string
+//    
+//    [HPMapMarker removeMarkersFrom:mapView_
+//                        withString:searchedString
+//                       currentInfo:customFilteredLocationsDictionary];
+    
+   
 }
 
 @end

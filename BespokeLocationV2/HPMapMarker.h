@@ -19,9 +19,14 @@
 
 // use this to parse the locations array
 // for the needed locations
-// (the needed locations are the ones which
-// are nested in the visible region of the map)
-
 + (void)addMarkersToMap:(GMSMapView*)mapView
                withInfo:(NSDictionary*)resultArray;
+
+
+// use this to filter location using
+// a dictionary of keys
++ (void)removeMarkersFrom:(GMSMapView*)mapView
+               withString:(NSString*)filterString
+              currentInfo:(NSArray*)filtersDictionary;
 @end
+
