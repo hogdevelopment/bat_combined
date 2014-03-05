@@ -246,6 +246,11 @@
 		E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A9BD0118ABC7B300944EAD /* distanceButtsBg@2x.png */; };
 		E1AC7C0C18AA7DF30052D608 /* RMNCustomSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */; };
 		E1AC7C0D18AA7DF30052D608 /* RMNFiltersScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */; };
+		E1AF700018C76CEB00AC9454 /* RMNSmokeAbilityRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AF6FFF18C76CEB00AC9454 /* RMNSmokeAbilityRatingView.m */; };
+		E1AF700518C772D500AC9454 /* full_star.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF700118C772D500AC9454 /* full_star.png */; };
+		E1AF700618C772D500AC9454 /* full_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF700218C772D500AC9454 /* full_star@2x.png */; };
+		E1AF700718C772D500AC9454 /* empty_star.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF700318C772D500AC9454 /* empty_star.png */; };
+		E1AF700818C772D500AC9454 /* empty_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AF700418C772D500AC9454 /* empty_star@2x.png */; };
 		E1B2006718C5E2F00018C8D3 /* RMNDirectionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */; };
 		E1B2009318C6317F0018C8D3 /* startLocationMapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */; };
 		E1B2009418C6317F0018C8D3 /* destinationLocationMapMarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */; };
@@ -630,6 +635,12 @@
 		E1AC7C0918AA7DF30052D608 /* RMNCustomSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNCustomSearchBar.m; sourceTree = "<group>"; };
 		E1AC7C0A18AA7DF30052D608 /* RMNFiltersScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersScrollView.h; sourceTree = "<group>"; };
 		E1AC7C0B18AA7DF30052D608 /* RMNFiltersScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersScrollView.m; sourceTree = "<group>"; };
+		E1AF6FFE18C76CEB00AC9454 /* RMNSmokeAbilityRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNSmokeAbilityRatingView.h; sourceTree = "<group>"; };
+		E1AF6FFF18C76CEB00AC9454 /* RMNSmokeAbilityRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNSmokeAbilityRatingView.m; sourceTree = "<group>"; };
+		E1AF700118C772D500AC9454 /* full_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = full_star.png; sourceTree = "<group>"; };
+		E1AF700218C772D500AC9454 /* full_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "full_star@2x.png"; sourceTree = "<group>"; };
+		E1AF700318C772D500AC9454 /* empty_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_star.png; sourceTree = "<group>"; };
+		E1AF700418C772D500AC9454 /* empty_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty_star@2x.png"; sourceTree = "<group>"; };
 		E1B2006518C5E2F00018C8D3 /* RMNDirectionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNDirectionsViewController.h; sourceTree = "<group>"; };
 		E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNDirectionsViewController.m; sourceTree = "<group>"; };
 		E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startLocationMapMarker.png; sourceTree = "<group>"; };
@@ -715,6 +726,10 @@
 				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
 				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,
 				5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */,
+				E1AF700118C772D500AC9454 /* full_star.png */,
+				E1AF700218C772D500AC9454 /* full_star@2x.png */,
+				E1AF700318C772D500AC9454 /* empty_star.png */,
+				E1AF700418C772D500AC9454 /* empty_star@2x.png */,
 				5CF9DACC18BE07330094B264 /* Edit Profile images */,
 				5CE2017E18B7C0E5005A6E18 /* profilePic.png */,
 				5CEAC82618B61BF2004830D4 /* Filters */,
@@ -1146,6 +1161,8 @@
 				E1BB7C4F18B7422400608334 /* RMNVenueInformationCell.m */,
 				E1B2006518C5E2F00018C8D3 /* RMNDirectionsViewController.h */,
 				E1B2006618C5E2F00018C8D3 /* RMNDirectionsViewController.m */,
+				E1AF6FFE18C76CEB00AC9454 /* RMNSmokeAbilityRatingView.h */,
+				E1AF6FFF18C76CEB00AC9454 /* RMNSmokeAbilityRatingView.m */,
 			);
 			name = "Venue Information";
 			sourceTree = "<group>";
@@ -1651,6 +1668,7 @@
 				5C4C980618AD34D800807404 /* StartUsingAppFromSlide@2x.png in Resources */,
 				7C9B2D9D189A684A00071357 /* Images.xcassets in Resources */,
 				E1A9BD0518ABC7B300944EAD /* distanceButtsBg@2x.png in Resources */,
+				E1AF700718C772D500AC9454 /* empty_star.png in Resources */,
 				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
 				5CDEF9B718C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png in Resources */,
 				5C0B2BBD18BCA31000986792 /* HPMapDetailView.xib in Resources */,
@@ -1663,6 +1681,7 @@
 				5CDEF9B318C6013D00DDEAAE /* appIcon.png in Resources */,
 				5C437F1418AE939200605A8F /* sendFeedbackIcon@2x.png in Resources */,
 				5CF9DAC918BE072E0094B264 /* clearContent@2x.png in Resources */,
+				E1AF700818C772D500AC9454 /* empty_star@2x.png in Resources */,
 				5C437F1318AE939200605A8F /* sendFeedbackIcon.png in Resources */,
 				5C437F2418AEA46C00605A8F /* filtersHeaderMenuButton.png in Resources */,
 				5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */,
@@ -1688,6 +1707,7 @@
 				5C8EF3A518A9345700FFF0D0 /* menu-icon@2x.png in Resources */,
 				E1B2009418C6317F0018C8D3 /* destinationLocationMapMarker.png in Resources */,
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
+				E1AF700618C772D500AC9454 /* full_star@2x.png in Resources */,
 				5CDEF9B218C6013D00DDEAAE /* appSpotlightIcon@2x.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
 				6532417A18B2E22A0061FE5C /* ratingLocationStar.png in Resources */,
@@ -1724,6 +1744,7 @@
 				E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */,
 				65A217B818B56B3D00113F27 /* faqsAppIcon.png in Resources */,
 				5CE2017F18B7C0E5005A6E18 /* profilePic.png in Resources */,
+				E1AF700518C772D500AC9454 /* full_star.png in Resources */,
 				6532417818B2E22A0061FE5C /* deleteFromFavouritesLocations@2x.png in Resources */,
 				5C21D11918B3B86600D1996D /* searchButtonMagnifier@2x.png in Resources */,
 				5C4C97FE18AD34D800807404 /* slide_0_Zurich.png in Resources */,
@@ -1863,6 +1884,7 @@
 				5CA6ED9318AE16CF003BC90C /* RMNIntroSlideContentViewController.m in Sources */,
 				7C04AD24189FC15A00AAA15A /* AFHTTPClient.m in Sources */,
 				5C21D11C18B3D1F900D1996D /* RMNFAQsViewController.m in Sources */,
+				E1AF700018C76CEB00AC9454 /* RMNSmokeAbilityRatingView.m in Sources */,
 				6532417118B2E15B0061FE5C /* RMNFavouriteLocationView.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
 				7C9B2DDB189A691000071357 /* SBJsonStreamWriterState.m in Sources */,

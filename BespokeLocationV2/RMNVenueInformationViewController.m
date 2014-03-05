@@ -196,15 +196,15 @@ NSString *descriptionString;
     if (!IS_IPHONE_5) {
         
         CGRect frame = self.bgUnderButtons.frame;
-        frame.origin.y -= 86;
+        frame.origin.y -= 89;
         [self.bgUnderButtons setFrame:frame];
         
         frame = self.callButt.frame;
-        frame.origin.y -=86;
+        frame.origin.y -=87;
         [self.callButt setFrame:frame];
         
         frame = self.getThereButt.frame;
-        frame.origin.y -=86;
+        frame.origin.y -=87;
         [self.getThereButt setFrame:frame];
     }
     
@@ -341,7 +341,7 @@ NSString *descriptionString;
             cell.venueTitle.text    = [venueInfo valueForKey:@"name"];
             cell.venueAddress.text  = [venueInfo valueForKey:@"localAddress"];
             [cell setOpeningTimes:openingTime];
-            [cell setVenueSmokeRating:[[venueInfo valueForKey:@"smokingRatingTotal"]intValue]];
+            [cell setVenueSmokeAbilityRating:[[venueInfo valueForKey:@"smokingRatingAverage"]intValue] andCountRatings:[[venueInfo valueForKey:@"smokingRatingCount"]intValue]];
             
             break;
         case 2:
@@ -628,6 +628,8 @@ NSString *descriptionString;
 {
     if ([[segue identifier] isEqualToString:@"directionsPageSegue"]) {
         
+//        NSLog(@"%@", venueInfo);
+        
         RMNDirectionsViewController* directions = [segue destinationViewController];
         
         // get venue coordinates
@@ -636,6 +638,8 @@ NSString *descriptionString;
         // set venue info
         directions.destinationLocation    =  venueCoordinate;
         directions.destinationName        =  [venueInfo objectForKey:@"name"];
+        directions.destinationAddress     =  [venueInfo objectForKey:@"localAddress"];
+        directions.smokingRatingAverage   =  [[venueInfo objectForKey:@"smokingRatingAverage"] intValue];
     }
 }
 
