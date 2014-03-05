@@ -20,6 +20,7 @@
 #import "DetailsTableViewViewController.h"
 #import "RMNLoader.h"
 #import "RMNVenueInformationViewController.h"
+#import "RMNSmokeAbilityRatingView.h"
 
 //#import "RMNFoursquaredLocationFetcher.h"
 
@@ -206,6 +207,52 @@
     
 }
 
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
+{
+    UIView *customView;
+    
+    int contentWidth = 200;
+    int contentHeight = 70;
+    
+    int rating;
+    
+    NSDictionary *info = marker.userData;
+    rating = [[info objectForKey:@"smokingRatingAverage"] intValue];
+    
+    // calculate width of the title
+    CGSize maximumLabelSize = CGSizeMake(1000,30);
+    CGSize expectedLabelSize = [[marker title] sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:19.0f]
+                                          constrainedToSize:maximumLabelSize
+                                              lineBreakMode:NSLineBreakByWordWrapping];
+    //get the new width needed for label.
+    contentWidth = expectedLabelSize.width;
+    
+    if (contentWidth < 220) {
+        contentWidth = 220;
+    }
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, contentWidth + 10, 30)];
+    [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:19.0f]];
+    [titleLabel setTextColor:[UIColor colorWithHexString:@"d65019"]];
+    titleLabel.text = [marker title];
+    
+    RMNSmokeAbilityRatingView *ratingView = [[RMNSmokeAbilityRatingView alloc] initWithFrame:CGRectMake(0, 33, 220, 30)];
+    ratingView.countRating.hidden = YES;
+    [ratingView updateWithRating:rating andCountRatings:0];
+    
+    customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, contentWidth + 20, contentHeight)];
+    [customView setBackgroundColor:[UIColor whiteColor]];
+    customView.layer.borderColor = [UIColor colorWithHexString:@"bab9b9"].CGColor;
+    customView.layer.borderWidth = 1.0f;
+    
+    [customView addSubview:titleLabel];
+    [customView addSubview:ratingView];
+    
+    return customView;
+}
+
+
+
 
 #pragma mark - Google Maps delegate methods
 - (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
@@ -346,6 +393,7 @@
     if ([[segue identifier] isEqualToString:@"venueInformationPageSegue"]) {
         RMNVenueInformationViewController* detailVenue = [segue destinationViewController];
         
+        NSLog(@"%@", currentInfoLocation);
         
         detailVenue.venueInfo                          =  currentInfoLocation;
     }

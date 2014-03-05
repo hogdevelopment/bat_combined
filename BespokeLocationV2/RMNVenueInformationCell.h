@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ASStarRatingView.h"
+#import "RMNSmokeAbilityRatingView.h"
 
 // delegate
 @protocol RMNCellVenueInformationDelegate
@@ -37,10 +38,10 @@
 @property  UIButton         *uploadPhoto;
 @property  UILabel          *noPhotoYetLabel;
 
-@property  UILabel *venueTitle;
-@property  UILabel *venueAddress;
-@property  UIView  *venueSmokingRatingView;
-@property  UILabel *venueOpeningTimes;
+@property  UILabel                      *venueTitle;
+@property  UILabel                      *venueAddress;
+@property  RMNSmokeAbilityRatingView    *venueSmokingAbilityRatingView;
+@property  UILabel                      *venueOpeningTimes;
 
 @property  UIView  *attributesView;
 
@@ -57,7 +58,7 @@
 - (void) setImagesArray: (NSArray *) arrayOfImages;
 - (void) setAttributesArray: (NSArray *) arrayOfAttributes;
 - (void) setOpeningTimes: (NSString *) opening;
-- (void) setVenueSmokeRating: (int) rating;
+- (void) setVenueSmokeAbilityRating: (int) rating andCountRatings: (int) count;
 - (void) setPrice: (int) price;
 - (void) setVenueURL: (NSString *) urlString;
 - (void) setNewCalculatedHeight: (CGFloat) newHeight;

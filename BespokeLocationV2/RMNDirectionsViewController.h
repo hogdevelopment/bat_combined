@@ -32,12 +32,15 @@ typedef enum tagTravelMode
     CLLocationManager   *locationManager;
     
     NSString *destinationName;
+    NSString *destinationAddress;
+    int      smokingRatingAverage;
 
 }
 
 @property CLLocation *startLocation;
 @property CLLocation *destinationLocation;
 @property NSString   *destinationName;
-
+@property NSString   *destinationAddress;
+@property int        smokingRatingAverage;
 
 @end

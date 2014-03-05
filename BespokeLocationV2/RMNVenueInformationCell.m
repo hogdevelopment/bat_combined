@@ -139,25 +139,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     
     
     // smoke rating
-    self.venueSmokingRatingView = [[UIView alloc] initWithFrame:CGRectMake(0, 75, 310, 30)];
-    
-    UILabel *smokeLbl = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
-    [smokeLbl setTextAlignment:NSTextAlignmentLeft];
-    [smokeLbl setTextColor:[UIColor colorWithHexString:@"818181"]];
-    [smokeLbl setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f]];
-    [smokeLbl setText:@"Smoke Ability"];
-    [smokeLbl setTag:1];
-    
-    UILabel *ratingLbl = [[UILabel alloc] initWithFrame:CGRectMake(200, 0, 100, 30)];
-    [ratingLbl setTextAlignment:NSTextAlignmentLeft];
-    [ratingLbl setTextColor:[UIColor colorWithHexString:@"818181"]];
-    [ratingLbl setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f]];
-    [ratingLbl setText:@"(ratings)"];
-    [ratingLbl setTag:2];
-    
-    [self.venueSmokingRatingView addSubview:smokeLbl];
-    [self.venueSmokingRatingView addSubview:ratingLbl];
-    
+    self.venueSmokingAbilityRatingView = [[RMNSmokeAbilityRatingView alloc] initWithFrame:CGRectMake(0, 75, 310, 30)];
     
     // gray line
     UIImageView *lineView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 107, 300, 1)];
@@ -174,7 +156,7 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     // add views to cell
     [self.contentView addSubview:self.venueTitle];
     [self.contentView addSubview:self.venueAddress];
-    [self.contentView addSubview:self.venueSmokingRatingView];
+    [self.contentView addSubview:self.venueSmokingAbilityRatingView];
     [self.contentView addSubview:lineView];
     [self.contentView addSubview:self.venueOpeningTimes];
 
@@ -309,13 +291,9 @@ static NSString *CellRatingIdentifier           = @"RatingCellIdentifier";
     }
 }
 
-- (void) setVenueSmokeRating: (int) rating
+- (void) setVenueSmokeAbilityRating: (int) rating andCountRatings: (int) count
 {
-    UILabel *ratingLabel = (UILabel *)[self.venueSmokingRatingView viewWithTag:2];
-    [ratingLabel setText:[NSString stringWithFormat:@"(%u ratings)", rating]];
-    
-#warning Update stars!
-    
+    [self.venueSmokingAbilityRatingView updateWithRating:rating andCountRatings:count];
 }
 
 
