@@ -62,6 +62,10 @@
                                                             NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:16.0f]
                                                             }];
     
+    if (IS_IOS7)
+    {
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    }
     
 
     [[UINavigationBar appearance] setBarTintColor:SIDE_MENU_PAGES_NAVBAR_COLOR];

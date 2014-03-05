@@ -33,7 +33,7 @@
             self.phoneNumber        = [source valueForDeepKeyLinkingCustom:@"contact.formattedPhone"];
             self.twitterUserName    = [source valueForDeepKeyLinkingCustom:@"contact.twitter"];
             self.name               = [source valueForDeepKeyLinkingCustom:@"name"];
-            self.description        = [source valueForDeepKeyLinkingCustom:@"page.pageInfo.description"];
+            self.description        = [source valueForDeepKeyLinkingCustom:@"description"];
             //description
             self.address            = [source valueForDeepKeyLinkingCustom:@"location.address"];
             self.postalCode         = [source valueForDeepKeyLinkingCustom:@"location.postalCode"];

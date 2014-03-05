@@ -57,6 +57,11 @@
     
     toolbar.items = toolbarItems;
     
+    if (IS_IOS7)
+    {
+        [toolbar setTintColor:[UIColor whiteColor]];
+    }
+    
     return toolbar;
 }
 

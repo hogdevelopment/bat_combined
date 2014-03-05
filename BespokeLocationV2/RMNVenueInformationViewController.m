@@ -109,11 +109,7 @@ NSString *descriptionString;
 
     self.navigationItem.rightBarButtonItem = anotherButton;
     
-    if (IS_IOS7)
-    {
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    }
-    
+
     // prepare the rating sync manager
     
     manager                        = [[HPInformationsManager alloc] init];

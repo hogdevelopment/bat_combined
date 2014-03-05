@@ -523,7 +523,7 @@
                                       @"username" : username,
                                       @"password" : password,
                                       @"lastName" : @" ",
-                                      @"firstName": @" ",
+                                      @"firstName": username,
                                       @"email"    : email,
                                       @"gender"   : gender};
         
@@ -579,11 +579,19 @@
         
         [self nextView];
     }
+    else if ([status isEqualToString:@"error|username_taken"])
+    {
+        
+        [self showMessageTitle:NSLocalizedString(@"Error",nil)
+                   withMessage:NSLocalizedString(@"The username is already taken",nil) ];
+        [self.txtUsername setText:@""];
+        [self.txtUsername becomeFirstResponder];
+    }
     else
     {
-//        // couldn't find user in database
-//        [self showMessageTitle:NSLocalizedString(@"Error",nil)
-//                   withMessage:NSLocalizedString(@"There is no user registered with this informations.",nil) ];
+#warning use this for debug
+        [self showMessageTitle:NSLocalizedString(@"Error",nil)
+                   withMessage:status];
     }
 }
 
