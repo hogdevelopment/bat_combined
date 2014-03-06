@@ -11,69 +11,94 @@
 
 @implementation HPMapMarker
 
-+ (void)addMarkersToMap:(GMSMapView *)mapView
-             withDetail:(NSDictionary*)info
-{
-    
-    // in the dictionary we receive
-    // we have longitude/latitude/title/description
-    
-    GMSMarker *marker   =   [[GMSMarker alloc] init];
-    CGFloat longitude   =   [[info valueForKey:@"gps_long"]floatValue];
-    CGFloat latitude    =   [[info valueForKey:@"gps_lat"]floatValue];
-    
-    
-    CLLocationCoordinate2D location =   CLLocationCoordinate2DMake(latitude, longitude);
-    marker.position                 =   location;
-    marker.appearAnimation          =   YES;
-    marker.icon                     =   [UIImage imageNamed:@"pinRestaurants"];
-    marker.map                      =   mapView;
-    marker.userData                 =   [info valueForKey:@"zoom_level"];
-    
-    // offset the info window anchor
-    // so it looks nice
-    //    marker.infoWindowAnchor = CGPointMake(0.98f, 0.3f);
-    
-    // set the title/description for the view
-    //    marker.title    =   [info valueForKey:@"title"];
-    //    marker.snippet  =   [info valueForKey:@"snippet"];
-    
-}
 
-+ (void)addMarkersToMap:(GMSMapView*)mapView withInfo:(NSDictionary *)resultArray
++ (void)addMarkersToMap:(GMSMapView*)mapView withInfo:(NSArray*)resultArray
 
 {
     
+    CLLocationCoordinate2D northWest    =   mapView.projection.visibleRegion.farLeft;
+    CLLocationCoordinate2D southWest    =   mapView.projection.visibleRegion.nearRight;
+    
+    
+    // find array of pins which souldn't be on the map but are and remove references
+    dispatch_async(kBgQueue, ^{
+        
+        
+        // if the pin isn't in the visible region of the map, don't display it
+        NSPredicate *predicateWithoutCustomSearch = [NSPredicate predicateWithFormat:@"not ((longitude.floatValue >= %f) AND (longitude.floatValue <= %f) AND (latitude.floatValue <= %f) AND (latitude.floatValue >= %f))",northWest.longitude,southWest.longitude,northWest.latitude,southWest.latitude];
+        
+               NSArray *whereToSearch      = [[RMNManager sharedManager]markers];
+        NSArray *resultForMap       = [whereToSearch filteredArrayUsingPredicate:predicateWithoutCustomSearch];
+        NSArray *resultForReference = [resultArray filteredArrayUsingPredicate:predicateWithoutCustomSearch];
+        NSLog(@"ZICE CA SUNT %d pentru harta si %d pentru referinta",[resultForMap count],[resultForReference count]);
+        
+        for (NSMutableDictionary* info in resultForReference)
+        {
+            [info setValue:@"NO" forKey:@"isOnMap"];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            for (NSDictionary*markerInfo in resultForMap)
+            {
+                GMSMarker *marker = [markerInfo objectForKey:@"reference"];
+                [marker setMap:nil];
+                [[[RMNManager sharedManager]markers] removeObject:markerInfo];
+             
+            }
+            
+        });
+    });
+
+    
+    
+    
+    // find array of pins which should be on the map but aren't and add them
+    dispatch_async(kBgQueue, ^{
+
+        // display only the markers which will be on the visible
+        // part of the map
+    NSPredicate *predicateWithoutCustomSearch = [NSPredicate predicateWithFormat:@"(isOnMap LIKE %@) AND (longitude.floatValue >= %f) AND (longitude.floatValue <= %f) AND (latitude.floatValue <= %f) AND (latitude.floatValue >= %f)",@"NO",northWest.longitude,southWest.longitude,northWest.latitude,southWest.latitude];
+    
+
+    NSArray *result = [resultArray filteredArrayUsingPredicate:predicateWithoutCustomSearch];
+    
+    NSLog(@"ZICE CA SUNT %d in plus de pus",[result count]);
+        
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        for (NSDictionary *info in resultArray)
-        {
-            
-            CGFloat longitude;
-            CGFloat latitude;
-            NSString *name;
-            NSString *locationAddress;
-            GMSMarker *marker       =   [[GMSMarker alloc] init];
-
-
-
-            longitude           =   [[info valueForKey:@"longitude"]floatValue];
-            latitude            =   [[info valueForKey:@"latitude"]floatValue];
-            locationAddress     =   [info valueForKey:@"localAddress"];
-            name                =   [info valueForKey:@"name"];
+            for (NSMutableDictionary *info in result)
+            {
                 
-            CLLocationCoordinate2D location =   CLLocationCoordinate2DMake(latitude, longitude);
-            marker.position                 =   location;
-            marker.appearAnimation          =   YES;
-            //                    marker.icon                     =   [UIImage imageNamed:pngLocation];
-            marker.map                      =   mapView;
-            marker.userData                 =   info;
-            marker.title                    =   name;
-            marker.snippet                  =   locationAddress;
-            
-        }
+                CGFloat longitude           =   [[info valueForKey:@"longitude"]floatValue];;
+                CGFloat latitude            =   [[info valueForKey:@"latitude"]floatValue];;
+                
+                NSString *name              =   [info valueForKey:@"name"];;
+                NSString *locationAddress   =   [info valueForKey:@"localAddress"];;
+                GMSMarker *marker           =   [[GMSMarker alloc] init];
 
+                [info setValue:@"YES" forKey:@"isOnMap"];
+                
+                CLLocationCoordinate2D location =   CLLocationCoordinate2DMake(latitude, longitude);
+                marker.position                 =   location;
+                marker.appearAnimation          =   YES;
+                //                    marker.icon                     =   [UIImage imageNamed:pngLocation];
+                marker.map                      =   mapView;
+                marker.userData                 =   info;
+                marker.title                    =   name;
+                marker.snippet                  =   locationAddress;
+                
+                
+                NSDictionary *markerInfo = @{@"reference":marker,
+                                             @"longitude":[NSString stringWithFormat:@"%f",longitude],
+                                             @"latitude" :[NSString stringWithFormat:@"%f",latitude]};
+                [[[RMNManager sharedManager]markers] addObject:markerInfo];
+                
+            }
+
+        });
     });
+    
     
 }
 

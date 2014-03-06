@@ -55,6 +55,8 @@
     
     searchBarView.inputAccessoryView = cancelToolBar;
     
+    searchBarView.keyboardType = UIKeyboardAppearanceLight;
+    
     if (IS_IOS7)
     {
         searchBarView.tintColor = CELL_LIGHT_BLUE;

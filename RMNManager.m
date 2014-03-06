@@ -22,6 +22,8 @@
 @synthesize userGender              =   userGender;
 @synthesize userUniqueId            =   userUniqueId;
 @synthesize usersJoiningDate        =   usersJoiningDate;
+@synthesize markers                 =   markers;
+
 #pragma mark Singleton Methods
 
 + (id)sharedManager {
@@ -57,6 +59,9 @@
         usersJoiningDate    = [defaults objectForKey:@"registrationDate"];
         
         menuShouldBeOpened          =   NO;
+        
+        
+        markers             = [[NSMutableArray alloc]init];
     }
     return self;
 }

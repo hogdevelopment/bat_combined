@@ -79,29 +79,37 @@
     markerFinish.icon    = [UIImage imageNamed:@"destinationLocationMapMarker"];
     markerFinish.map     = mapView;
 
-    
-    //we need user's current location
-    if([CLLocationManager locationServicesEnabled])
-    {
-        locationManager = [[CLLocationManager alloc] init];
-        locationManager.delegate = self;
-        locationManager.distanceFilter = kCLDistanceFilterNone;
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-        
-        [locationManager startUpdatingLocation];
-    }
-    else
-    {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error"
-                                                     message:@"Enable location service"
-                                                    delegate:self
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-        [alert show];
-    }
+//    
+//    //we need user's current location
+//    if([CLLocationManager locationServicesEnabled])
+//    {
+//        locationManager = [[CLLocationManager alloc] init];
+//        locationManager.delegate = self;
+//        locationManager.distanceFilter = kCLDistanceFilterNone;
+//        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+//        
+//        [locationManager startUpdatingLocation];
+//    }
+//    else
+//    {
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Error"
+//                                                     message:@"Enable location service"
+//                                                    delegate:self
+//                                           cancelButtonTitle:@"OK"
+//                                           otherButtonTitles:nil];
+//        [alert show];
+//    }
     
     [self showRouteOnMap];
+ 
     
+    
+    
+    // create initial camera
+    GMSCameraPosition *cameraNew = [GMSCameraPosition cameraWithLatitude:startLocation.coordinate.latitude
+                                                            longitude:startLocation.coordinate.longitude
+                                                                 zoom:15];
+    [mapView animateToCameraPosition:cameraNew];
 }
 
 
@@ -256,13 +264,15 @@
         
         if (!error)
         {
-            NSArray *routesArray = [json objectForKey:@"routes"];
             
+            NSArray *routesArray = [json objectForKey:@"routes"];
+//               NSLog(@"ARE ASA %@",routesArray);
             if ([routesArray count] > 0)
             {
                 NSDictionary *routeDict = [routesArray objectAtIndex:0];
                 NSDictionary *routeOverviewPolyline = [routeDict objectForKey:@"overview_polyline"];
                 NSString *points = [routeOverviewPolyline objectForKey:@"points"];
+             
                 GMSPath *path = [GMSPath pathFromEncodedPath:points];
                 GMSPolyline *gmsPolyline = [GMSPolyline polylineWithPath:path];
 
@@ -281,6 +291,40 @@
 
 - (void) drawRouteFromPolyline: (GMSPolyline *)gmsPolyline
 {
+//    NSLog(@"gmsPolyline %@",gmsPolyline.path);
+//    
+//    GMSPath *page = gmsPolyline.path;
+//    
+//    CGFloat acceptedDistance = 40;
+//    
+//    CLLocation *oldLocation = [[CLLocation alloc]initWithLatitude: [page coordinateAtIndex:0].latitude longitude: [page coordinateAtIndex:0].longitude];
+//    
+//    for (int i = 1; i<[page count]; i++)
+//    {
+//        
+//        CLLocation *newLocation = [[CLLocation alloc]initWithLatitude: [page coordinateAtIndex:i].latitude longitude: [page coordinateAtIndex:i].longitude];
+//         CLLocationDistance meters = [newLocation distanceFromLocation:oldLocation];
+//        
+//        NSLog(@"AVEM ASA %f",meters);
+//        oldLocation = newLocation;
+//        
+//        if (meters >= acceptedDistance)
+//        {
+//            CLLocationCoordinate2D circleCenter = [page coordinateAtIndex:i];
+//            GMSCircle *circ = [GMSCircle circleWithPosition:circleCenter
+//                                                     radius:50];
+//            
+//            
+//            
+//            
+//            circ.fillColor = [UIColor blueColor];
+//            circ.strokeColor = [UIColor whiteColor];
+//            circ.strokeWidth = 1;
+//            circ.map = mapView;
+//
+//        }
+//   
+//    }
     markerStart.position = startLocation.coordinate;
     
     markerFinish.position   = destinationLocation.coordinate;
@@ -289,6 +333,8 @@
     polyline.strokeWidth = 3;
     polyline.strokeColor = [UIColor blueColor];
     polyline.map = mapView;
+    polyline.spans = @[[GMSStyleSpan spanWithColor:[UIColor purpleColor]]];
+   
 
 }
 
