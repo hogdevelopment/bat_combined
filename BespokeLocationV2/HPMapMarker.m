@@ -30,7 +30,6 @@
                NSArray *whereToSearch      = [[RMNManager sharedManager]markers];
         NSArray *resultForMap       = [whereToSearch filteredArrayUsingPredicate:predicateWithoutCustomSearch];
         NSArray *resultForReference = [resultArray filteredArrayUsingPredicate:predicateWithoutCustomSearch];
-        NSLog(@"ZICE CA SUNT %d pentru harta si %d pentru referinta",[resultForMap count],[resultForReference count]);
         
         for (NSMutableDictionary* info in resultForReference)
         {
@@ -52,7 +51,6 @@
 
     
     
-    
     // find array of pins which should be on the map but aren't and add them
     dispatch_async(kBgQueue, ^{
 
@@ -63,7 +61,6 @@
 
     NSArray *result = [resultArray filteredArrayUsingPredicate:predicateWithoutCustomSearch];
     
-    NSLog(@"ZICE CA SUNT %d in plus de pus",[result count]);
         
     dispatch_async(dispatch_get_main_queue(), ^{
         
