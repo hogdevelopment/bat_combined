@@ -19,10 +19,5 @@
                withInfo:(NSArray*)resultArray;
 
 
-// use this to filter location using
-// a dictionary of keys
-+ (void)removeMarkersFrom:(GMSMapView*)mapView
-               withString:(NSString*)filterString
-              currentInfo:(NSArray*)filtersDictionary;
 @end
 
