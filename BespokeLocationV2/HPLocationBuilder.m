@@ -35,12 +35,12 @@
 
 
 
-+ (NSDictionary *)locationsFromDataBase:(NSData *)objectNotation
++ (NSArray *)locationsFromDataBase:(NSData *)objectNotation
                               error:(NSError **)error
 {
     
     NSError *localError = nil;
-    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:NSJSONReadingAllowFragments error:&localError];
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
     
     
     if (localError != nil) {
@@ -48,9 +48,35 @@
         return nil;
     }
 
+    
+    NSArray *array = (NSArray *)parsedObject;
+    
 
     
-    return parsedObject;
+    
+    NSMutableArray *arrayOfInformation = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i<[array count]; i++)
+    {
+        
+        NSMutableDictionary *dictionariesInfo = [[NSMutableDictionary alloc] initWithDictionary:@{@"isOnMap":@"NO"}];
+        [dictionariesInfo addEntriesFromDictionary:[array objectAtIndex:i]];
+        
+        [arrayOfInformation addObject:dictionariesInfo];
+        
+        CGFloat longitude = [[dictionariesInfo valueForKey:@"longitude"]floatValue];
+        CGFloat latitude  = [[dictionariesInfo valueForKey:@"latitude"]floatValue];
+        
+        [dictionariesInfo setValue:[NSString stringWithFormat:@"%.6f",longitude] forKey:@"longitude"];
+        [dictionariesInfo setValue:[NSString stringWithFormat:@"%.6f",latitude] forKey:@"latitude"];
+        
+    }
+    
+    NSArray *theGreaterOlderDictionary = arrayOfInformation;
+    
+//    NSLog(@"GREAT ARARY %@",theGreaterOlderDictionary);
+    
+    return theGreaterOlderDictionary;
     
 }
 
@@ -59,7 +85,7 @@
 {
     
     NSError *localError = nil;
-    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:NSJSONReadingAllowFragments error:&localError];
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:objectNotation options:0 error:&localError];
     
     
     if (localError != nil) {

@@ -28,6 +28,8 @@
     NSDate *usersJoiningDate;
     
     NSString *currentUserEmail;
+    
+    NSMutableArray *markers;
 }
 
 @property  BOOL isLoggedIn;
@@ -48,6 +50,8 @@
 
 @property   NSString *currentUserEmail;
 
+
+@property NSMutableArray *markers;
 
 + (id)sharedManager;
 

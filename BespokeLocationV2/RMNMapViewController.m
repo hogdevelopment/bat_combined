@@ -24,8 +24,6 @@
 
 //#import "RMNFoursquaredLocationFetcher.h"
 
-
-
 @interface RMNMapViewController ()< HPInformationsManagerDelegate,
                                     RMNUserSettingsLefttSideMenuDelegate,
                                     RMNAutocompleteSearchBarTextDelegate>
@@ -39,6 +37,7 @@
     RMNLoader *loader;
     
     NSDictionary *currentInfoLocation;
+
 
 }
 
@@ -81,6 +80,8 @@
     [manager fetchLocations];
 
 
+
+    
     
     
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
@@ -148,6 +149,8 @@
     // rotating the map will mess up the locations array
     mapView_.settings.rotateGestures = NO;
     // set the view
+    
+
     [self.view addSubview: mapView_];
     
 
@@ -252,7 +255,11 @@
 }
 
 
-
+- (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position
+{
+    [HPMapMarker addMarkersToMap:mapView_
+                        withInfo:customFilteredLocationsDictionary];
+}
 
 #pragma mark - Google Maps delegate methods
 - (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
@@ -368,7 +375,6 @@
             break;
     }
     
-    
     // this will make the main view controller animate to open state
     // when the user presses back button from a page loaded from the
     // side menu controller buttons
@@ -392,9 +398,6 @@
     
     if ([[segue identifier] isEqualToString:@"venueInformationPageSegue"]) {
         RMNVenueInformationViewController* detailVenue = [segue destinationViewController];
-        
-        NSLog(@"%@", currentInfoLocation);
-        
         detailVenue.venueInfo                          =  currentInfoLocation;
     }
 }

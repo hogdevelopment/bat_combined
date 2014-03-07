@@ -13,20 +13,11 @@
 
 @interface HPMapMarker : NSObject
 
-+ (void)addMarkersToMap:(GMSMapView *)mapView
-             withDetail:(NSDictionary*)info;
-
-
 // use this to parse the locations array
 // for the needed locations
 + (void)addMarkersToMap:(GMSMapView*)mapView
-               withInfo:(NSDictionary*)resultArray;
+               withInfo:(NSArray*)resultArray;
 
 
-// use this to filter location using
-// a dictionary of keys
-+ (void)removeMarkersFrom:(GMSMapView*)mapView
-               withString:(NSString*)filterString
-              currentInfo:(NSArray*)filtersDictionary;
 @end
 
