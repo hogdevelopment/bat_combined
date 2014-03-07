@@ -424,40 +424,32 @@
     
     isSearching = YES;
     
+    
+    // if the search bar is empty or has white space
+    // there's no need to search
+    // just load the visible pins
     if ([searchedString isEqualToString:@" "] ||
         [searchedString length]==0)
     {
         isSearching = NO;
         
         customFilteredLocationsDictionary =  locationsBigAssDictionary;
-//        NSLog(@"intra cu %@",customFilteredLocationsDictionary);
         [HPMapMarker addMarkersToMap:mapView_
                             withInfo:customFilteredLocationsDictionary
               withSearchingActivated:isSearching];
-        
-        
-        NSLog(@"-----------------------------------------");
-        
-        NSLog(@" %@",locationsBigAssDictionary);
+
         return;
 
     }
-    NSLog(@"Nu intra si are %@ cu %d",searchedString,[searchedString length]);
-
-//    customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
-
-    
-
-
+    // fetch the information containing the searched strings
     customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString
                                                              inArray:locationsBigAssDictionary];
     
+    // refresh the map with new pins
     [HPMapMarker addMarkersToMap:mapView_
                         withInfo:customFilteredLocationsDictionary
           withSearchingActivated:isSearching];
-    NSLog(@"-----------------------------------------");
 
-    NSLog(@" %@",locationsBigAssDictionary);
 
 }
 

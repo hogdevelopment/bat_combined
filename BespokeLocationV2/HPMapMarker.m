@@ -22,7 +22,6 @@
 
     
      NSMutableArray *whereToSearch      = [[RMNManager sharedManager]markers];
-    NSLog(@"AVEM %D",[whereToSearch count]);
     
     if (isSearchingActivated)
     {
@@ -51,7 +50,6 @@
         }
     }
     
-    NSLog(@"ZA KEY %@",searchingMatcherKey);
 
     CLLocationCoordinate2D northWest    =   mapView.projection.visibleRegion.farLeft;
     CLLocationCoordinate2D southWest    =   mapView.projection.visibleRegion.nearRight;
@@ -103,7 +101,6 @@
 
        
         NSArray *result = [resultArray filteredArrayUsingPredicate:predicateWithoutCustomSearch];
-        NSLog(@"gaseste %d pe care trebuie sa le puna ",[result count]);
 
 
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -129,7 +126,7 @@
                 CLLocationCoordinate2D location =   CLLocationCoordinate2DMake(latitude, longitude);
                 marker.position                 =   location;
                 marker.appearAnimation          =   YES;
-                //                    marker.icon                     =   [UIImage imageNamed:pngLocation];
+                marker.icon                     =   [UIImage imageNamed:@"destinationLocationMapMarker"];
                 marker.map                      =   mapView;
                 marker.userData                 =   info;
                 marker.title                    =   name;
@@ -149,7 +146,6 @@
 
         });
     });
-    
     
     
 

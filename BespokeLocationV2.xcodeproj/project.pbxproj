@@ -139,6 +139,8 @@
 		5CEAC82D18B6255D004830D4 /* deleteFilterCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82B18B6255D004830D4 /* deleteFilterCell.png */; };
 		5CEAC82E18B6255D004830D4 /* deleteFilterCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82C18B6255D004830D4 /* deleteFilterCell@2x.png */; };
 		5CF31D8018B4EBE90073909B /* RMNFaqsAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */; };
+		5CF437D318C9F59B009FDA2F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */; };
+		5CF437D418C9F59B009FDA2F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */; };
 		5CF9DAC818BE072E0094B264 /* clearContent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC418BE072E0094B264 /* clearContent.png */; };
 		5CF9DAC918BE072E0094B264 /* clearContent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC518BE072E0094B264 /* clearContent@2x.png */; };
 		5CF9DACA18BE072E0094B264 /* showMoreInfoToChoseFromArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC618BE072E0094B264 /* showMoreInfoToChoseFromArrow.png */; };
@@ -472,6 +474,8 @@
 		5CEAC82C18B6255D004830D4 /* deleteFilterCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deleteFilterCell@2x.png"; sourceTree = "<group>"; };
 		5CF31D7E18B4EBE90073909B /* RMNFaqsAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFaqsAnswersViewController.h; sourceTree = "<group>"; };
 		5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFaqsAnswersViewController.m; sourceTree = "<group>"; };
+		5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		5CF9DAC418BE072E0094B264 /* clearContent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearContent.png; sourceTree = "<group>"; };
 		5CF9DAC518BE072E0094B264 /* clearContent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clearContent@2x.png"; sourceTree = "<group>"; };
 		5CF9DAC618BE072E0094B264 /* showMoreInfoToChoseFromArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showMoreInfoToChoseFromArrow.png; sourceTree = "<group>"; };
@@ -724,9 +728,9 @@
 			children = (
 				5CDEF9B818C6023C00DDEAAE /* app icons */,
 				E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */,
+				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
 				E1B2009618C637540018C8D3 /* startLocationMapMarker@2x.png */,
 				E1B2009118C6317F0018C8D3 /* startLocationMapMarker.png */,
-				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
 				5CA6411C18C0DD5200F242A2 /* attributePlaceHolder@2x.png */,
 				5CA6411D18C0DD5200F242A2 /* attributePlaceHolder.png */,
 				E1AF700118C772D500AC9454 /* full_star.png */,
@@ -1009,6 +1013,8 @@
 		5C6CB4E718AA4671008CBE2A /* App Manager */ = {
 			isa = PBXGroup;
 			children = (
+				5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */,
+				5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */,
 				0E07969118A5334800537FBC /* UserDataSingleton.h */,
 				0E07969218A5334800537FBC /* UserDataSingleton.m */,
 				5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */,
@@ -1690,6 +1696,7 @@
 				5C437F1318AE939200605A8F /* sendFeedbackIcon.png in Resources */,
 				5C437F2418AEA46C00605A8F /* filtersHeaderMenuButton.png in Resources */,
 				5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */,
+				5CF437D318C9F59B009FDA2F /* Montserrat-Bold.ttf in Resources */,
 				5C4C980718AD34D800807404 /* SkipSlideButton.png in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				5CDEF9B018C6013D00DDEAAE /* appIcon@2x.png in Resources */,
@@ -1790,6 +1797,7 @@
 				E1B2009818C637540018C8D3 /* startLocationMapMarker@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				5CF9DAC818BE072E0094B264 /* clearContent.png in Resources */,
+				5CF437D418C9F59B009FDA2F /* Montserrat-Regular.ttf in Resources */,
 				5CEAC82418B61BEE004830D4 /* filterImage.png in Resources */,
 				5CF9DACA18BE072E0094B264 /* showMoreInfoToChoseFromArrow.png in Resources */,
 				5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */,

@@ -46,6 +46,12 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
 - (void)cancelNumberPad
 {
     [self resignFirstResponder];
