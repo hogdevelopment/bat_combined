@@ -110,8 +110,16 @@
 {
     autocompleteView.hidden = true;
     
+    UITextField *txtSearchField = [searchBarView valueForKey:@"_searchField"];
+
+    [[self delegate]userSearched:txtSearchField.text];
+    
+    NSLog(@"txtSearchField.text %@",txtSearchField.text);
+
     //UITextField *txtSearchField = [SearchBar valueForKey:@"_searchField"];
     [searchBarView  resignFirstResponder];
+    
+    
 }
 
 
@@ -161,6 +169,13 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    UITextField *txtSearchField = [searchBarView valueForKey:@"_searchField"];
+    
+    [[self delegate]userSearched:txtSearchField.text];
+    
+    NSLog(@"txtSearchField.text %@",txtSearchField.text);
+    
     [searchBar resignFirstResponder];
 }
 
