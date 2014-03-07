@@ -114,7 +114,7 @@
 
     [[self delegate]userSearched:txtSearchField.text];
     
-    NSLog(@"txtSearchField.text %@",txtSearchField.text);
+//    NSLog(@"txtSearchField.text %@",txtSearchField.text);
 
     //UITextField *txtSearchField = [SearchBar valueForKey:@"_searchField"];
     [searchBarView  resignFirstResponder];
@@ -174,7 +174,7 @@
     
     [[self delegate]userSearched:txtSearchField.text];
     
-    NSLog(@"txtSearchField.text %@",txtSearchField.text);
+//    NSLog(@"txtSearchField.text %@",txtSearchField.text);
     
     [searchBar resignFirstResponder];
 }

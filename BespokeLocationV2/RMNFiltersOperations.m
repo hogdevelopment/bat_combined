@@ -13,6 +13,12 @@
 
 + (NSArray *) search:(NSString *) textToSearch inArray: (NSArray *) listOfDictionaries
 {
+    
+    for (NSMutableDictionary *info in listOfDictionaries)
+    {
+        [info setValue:@"NO" forKey:@"hasSearchedText"];
+    }
+    
     NSMutableArray *result = [[NSMutableArray alloc] init];
     NSMutableArray *allKeyss = [[NSMutableArray alloc] init];
     
@@ -57,6 +63,11 @@
             
             [result addObjectsFromArray:[self returnObjectsFromArray:filteredArray notContainedBy:result]];
         }
+    }
+    
+    for (NSMutableDictionary *info in result)
+    {
+        [info setValue:@"YES" forKey:@"hasSearchedText"];
     }
     
     return result;

@@ -23,6 +23,7 @@
 @synthesize userUniqueId            =   userUniqueId;
 @synthesize usersJoiningDate        =   usersJoiningDate;
 @synthesize markers                 =   markers;
+@synthesize locationsBigAssDictionary   =   locationsBigAssDictionary;
 
 #pragma mark Singleton Methods
 
@@ -61,7 +62,8 @@
         menuShouldBeOpened          =   NO;
         
         
-        markers             = [[NSMutableArray alloc]init];
+        markers                     = [[NSMutableArray alloc]init];
+        locationsBigAssDictionary   = [[NSMutableArray alloc]init];
     }
     return self;
 }

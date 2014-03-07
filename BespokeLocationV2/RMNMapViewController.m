@@ -39,6 +39,8 @@
     
     NSDictionary *currentInfoLocation;
 
+    
+    BOOL isSearching;
 
 }
 
@@ -47,6 +49,7 @@
 @property NSDictionary *justALittleBitOfInfo;
 @property NSArray *customFilteredLocationsDictionary;
 @property NSArray *locationsBigAssDictionary;
+@property BOOL isSearching;
 
 @end
 
@@ -55,6 +58,7 @@
     GMSMapView *mapView_;
 }
 
+@synthesize isSearching                         =   isSearching;
 @synthesize currentInfoLocation                 =   currentInfoLocation;
 @synthesize customFilteredLocationsDictionary   =   customFilteredLocationsDictionary;
 @synthesize locationsBigAssDictionary           =   locationsBigAssDictionary;
@@ -83,7 +87,7 @@
 
 
     
-    
+    isSearching = YES;
     
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
      {
@@ -259,7 +263,8 @@
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position
 {
     [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:customFilteredLocationsDictionary];
+                        withInfo:customFilteredLocationsDictionary
+          withSearchingActivated:isSearching];
 }
 
 #pragma mark - Google Maps delegate methods
@@ -273,12 +278,20 @@
 #pragma mark- JSON parser
 - (void) didReceiveLocations:(NSArray *)groups
 {
-
+    
     // store the received information in an local array
+    
+    
+    for (int i = 0; i< [groups count]; i++)
+    {
+        [[[RMNManager sharedManager]locationsBigAssDictionary] addObject:[groups objectAtIndex:i]];
+    }
+    
     locationsBigAssDictionary           =   groups;
     customFilteredLocationsDictionary   =   groups;
     [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:customFilteredLocationsDictionary];
+                        withInfo:customFilteredLocationsDictionary
+          withSearchingActivated:isSearching];
   }
 
 
@@ -409,28 +422,43 @@
 {
     NSLog(@"Searching %@",searchedString);
     
+    isSearching = YES;
+    
+    if ([searchedString isEqualToString:@" "] ||
+        [searchedString length]==0)
+    {
+        isSearching = NO;
+        
+        customFilteredLocationsDictionary =  locationsBigAssDictionary;
+//        NSLog(@"intra cu %@",customFilteredLocationsDictionary);
+        [HPMapMarker addMarkersToMap:mapView_
+                            withInfo:customFilteredLocationsDictionary
+              withSearchingActivated:isSearching];
+        
+        
+        NSLog(@"-----------------------------------------");
+        
+        NSLog(@" %@",locationsBigAssDictionary);
+        return;
+
+    }
+    NSLog(@"Nu intra si are %@ cu %d",searchedString,[searchedString length]);
+
 //    customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
-    NSArray *array = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
+
     
-    NSLog(@"%@", array);
-    
-    // remove markers/locations that don't contain that string
-    
-    
+
+
     customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString
                                                              inArray:locationsBigAssDictionary];
     
-    NSLog(@"CAUTA %@",customFilteredLocationsDictionary);
     [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:customFilteredLocationsDictionary];
-//    RMNFiltersOperations
-    
-//    
-//    [HPMapMarker removeMarkersFrom:mapView_
-//                        withString:searchedString
-//                       currentInfo:customFilteredLocationsDictionary];
-    
-   
+                        withInfo:customFilteredLocationsDictionary
+          withSearchingActivated:isSearching];
+    NSLog(@"-----------------------------------------");
+
+    NSLog(@" %@",locationsBigAssDictionary);
+
 }
 
 @end
