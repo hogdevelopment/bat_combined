@@ -22,5 +22,6 @@
     #import "HPLocationsMutableArray.h"
     #import "RMNLocationController.h"
     #import "NSDictionary+DeepLinking.h"
+    #import "RMNFiltersOperations.h"
 
 #endif

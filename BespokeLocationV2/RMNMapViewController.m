@@ -29,8 +29,8 @@
                                     RMNAutocompleteSearchBarTextDelegate>
 {
 
-    NSDictionary *locationsBigAssDictionary;
-    NSDictionary *customFilteredLocationsDictionary;
+    NSArray *locationsBigAssDictionary;
+    NSArray *customFilteredLocationsDictionary;
     
     RMNCustomSearchBar *customSearchBar;
     RMNFiltersScrollView *filtersList;
@@ -44,8 +44,8 @@
 @property NSDictionary *currentInfoLocation;
 @property CLLocationCoordinate2D infoViewCoordinate;
 @property NSDictionary *justALittleBitOfInfo;
-@property NSDictionary *customFilteredLocationsDictionary;
-@property NSDictionary *locationsBigAssDictionary;
+@property NSArray *customFilteredLocationsDictionary;
+@property NSArray *locationsBigAssDictionary;
 
 @end
 
@@ -270,7 +270,7 @@
 }
 
 #pragma mark- JSON parser
-- (void) didReceiveLocations:(NSDictionary *)groups
+- (void) didReceiveLocations:(NSArray *)groups
 {
 
     // store the received information in an local array
@@ -408,6 +408,16 @@
 {
     NSLog(@"Searching %@",searchedString);
     // remove markers/locations that don't contain that string
+    
+    
+    customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString
+                                                             inArray:locationsBigAssDictionary];
+    
+    NSLog(@"CAUTA %@",customFilteredLocationsDictionary);
+    [HPMapMarker addMarkersToMap:mapView_
+                        withInfo:customFilteredLocationsDictionary];
+//    RMNFiltersOperations
+    
 //    
 //    [HPMapMarker removeMarkersFrom:mapView_
 //                        withString:searchedString
