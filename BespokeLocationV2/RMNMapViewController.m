@@ -21,6 +21,7 @@
 #import "RMNLoader.h"
 #import "RMNVenueInformationViewController.h"
 #import "RMNSmokeAbilityRatingView.h"
+#import "RMNFiltersOperations.h"
 
 //#import "RMNFoursquaredLocationFetcher.h"
 
@@ -407,6 +408,12 @@
 - (void)userSearched:(NSString *)searchedString
 {
     NSLog(@"Searching %@",searchedString);
+    
+//    customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
+    NSArray *array = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
+    
+    NSLog(@"%@", array);
+    
     // remove markers/locations that don't contain that string
 //    
 //    [HPMapMarker removeMarkersFrom:mapView_
