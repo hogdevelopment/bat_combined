@@ -261,6 +261,7 @@
 		E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */; };
 		E1B3654B18B252EA0060552E /* logoAgeDeclaration.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B3654918B252EA0060552E /* logoAgeDeclaration.png */; };
 		E1B3654C18B252EA0060552E /* logoAgeDeclaration@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */; };
+		E1B4384218C9BAA9004B430B /* RMNFiltersOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B4384118C9BAA9004B430B /* RMNFiltersOperations.m */; };
 		E1BB7C5018B7422400608334 /* RMNVenueInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BB7C4F18B7422400608334 /* RMNVenueInformationCell.m */; };
 		E1C617F618AE2A2A00E90E0F /* loginBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F418AE2A2A00E90E0F /* loginBg.png */; };
 		E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C617F518AE2A2A00E90E0F /* loginBg@2x.png */; };
@@ -655,6 +656,8 @@
 		E1B3654718B251960060552E /* RMNAgeDeclarationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAgeDeclarationViewController.m; sourceTree = "<group>"; };
 		E1B3654918B252EA0060552E /* logoAgeDeclaration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAgeDeclaration.png; sourceTree = "<group>"; };
 		E1B3654A18B252EA0060552E /* logoAgeDeclaration@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoAgeDeclaration@2x.png"; sourceTree = "<group>"; };
+		E1B4384018C9BAA9004B430B /* RMNFiltersOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFiltersOperations.h; sourceTree = "<group>"; };
+		E1B4384118C9BAA9004B430B /* RMNFiltersOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersOperations.m; sourceTree = "<group>"; };
 		E1BB7C4E18B7422400608334 /* RMNVenueInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNVenueInformationCell.h; sourceTree = "<group>"; };
 		E1BB7C4F18B7422400608334 /* RMNVenueInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNVenueInformationCell.m; sourceTree = "<group>"; };
 		E1C617F418AE2A2A00E90E0F /* loginBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBg.png; sourceTree = "<group>"; };
@@ -1075,6 +1078,8 @@
 				5C0B2BB818BCA26700986792 /* HPMapMarker.m */,
 				5C0B2BB418BCA01300986792 /* RMNMapViewController.h */,
 				5C0B2BB518BCA01300986792 /* RMNMapViewController.m */,
+				E1B4384018C9BAA9004B430B /* RMNFiltersOperations.h */,
+				E1B4384118C9BAA9004B430B /* RMNFiltersOperations.m */,
 				5CA6412818C0DEEE00F242A2 /* Venue Information */,
 			);
 			name = "Map Views";
@@ -1916,6 +1921,7 @@
 				5C6CB4EB18AA492B008CBE2A /* UIColor+HexRecognition.m in Sources */,
 				E1C6180118AE7D2A00E90E0F /* RMNLoginViewController.m in Sources */,
 				5C0B2BBE18BCA31000986792 /* HPMapDetailView.m in Sources */,
+				E1B4384218C9BAA9004B430B /* RMNFiltersOperations.m in Sources */,
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
 				5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
