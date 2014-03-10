@@ -19,11 +19,18 @@
     int numberOfFilters;
     int numberOfAttributes;
     RMNCustomSearchBar *customSearchBar;
-}
+    
+    NSMutableArray *selectedFilters;
+ }
+
+@property  NSMutableArray *selectedFilters;
 
 @end
 
 @implementation RMNFiltersCollectionViewController
+
+@synthesize clearFiltersButton  =   clearFiltersButton;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -65,8 +72,8 @@
 
         NSMutableDictionary *info = [[NSMutableDictionary alloc] initWithDictionary:@{@"photo"   : @"attributePlaceHolder",
                                                                                       @"text"    : [NSString stringWithFormat:@"Fi%d",i],
-                                                                                      @"state"   : @"deselected"}];
-        
+                                                                                      @"state"   : @"deselected",
+                                                                                      @"keys"    : @[@"key0",@"key1",@"key3"]}];
         [filterPhotos addObject:info];
     }
     
@@ -75,15 +82,13 @@
     {
         NSMutableDictionary *info = [[NSMutableDictionary alloc] initWithDictionary:@{@"photo"   : @"attributePlaceHolder",
                                                                                       @"text"    : [NSString stringWithFormat:@"At%d",i],
-                                                                                      @"state"   : @"deselected"}];
-        
-        [attributesPhotos addObject:info];
+                                                                                      @"state"   : @"deselected",
+                                                                                      @"keys"    : @[@"key0",@"key1"]}];
+    [attributesPhotos addObject:info];
     }
     
-
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"RMNFilterSearchHeaderView"
                                                     bundle:[NSBundle mainBundle]]
@@ -101,6 +106,22 @@
     self.searchBar.layer.shadowOpacity    = .4f;
     self.searchBar.layer.shadowColor      = [UIColor grayColor].CGColor;
     self.searchBar.layer.shadowPath       = [UIBezierPath bezierPathWithRect:self.searchBar.bounds].CGPath;
+    
+    
+    selectedFilters = [[NSMutableArray alloc]init];
+    
+    
+    //customize the buttons from the bottom of the screen
+    
+    UIImage *clearImage = [RMNCustomNavButton customNavButton:RMNCustomNavButtonArrowless withTitle:@"Clear filters"];
+    [self.clearFiltersButton setImage:clearImage forState:UIControlStateNormal];
+    
+    
+    UIImage *findImage = [RMNCustomNavButton customNavButton:RMNCustomNavButtonArrowless withTitle:@"Find"];
+    [self.findVenuesButton setImage:findImage forState:UIControlStateNormal];
+    
+    
+    
     
 
 }
@@ -275,6 +296,9 @@
         
         [[sourceArray objectAtIndex:indexPath.row]setValue:@"selected" forKey:@"state"];
         
+        
+        [selectedFilters addObject:[sourceArray objectAtIndex:indexPath.row]];
+        
     }
     else
     {
@@ -318,6 +342,7 @@
         
         
         [[sourceArray objectAtIndex:indexPath.row] setValue:@"deselected" forKey:@"state"];
+        [selectedFilters removeObject:[sourceArray objectAtIndex:indexPath.row]];
 
     }
     else
@@ -339,4 +364,24 @@
     
 }
 
+- (IBAction)clearFilters:(UIButton *)sender
+{
+    NSLog(@"Clear filters");
+    // reset the state for each filter
+    for (NSMutableDictionary *info  in selectedFilters)
+    {
+        [info setValue:@"deselected" forKey:@"state"];
+        [selectedFilters removeObject:info];
+    }
+    
+    // reload the collection view
+    [self.collectionView reloadData];
+    
+}
+
+- (IBAction)findWithFilters:(id)sender
+{
+    // send the filter array to a custom search
+    NSLog(@"Searching With %@",selectedFilters);
+}
 @end

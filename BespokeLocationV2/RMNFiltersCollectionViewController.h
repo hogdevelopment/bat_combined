@@ -14,5 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property RMNCustomSearchBar *searchBar;
+- (IBAction)clearFilters:(UIButton *)sender;
+- (IBAction)findWithFilters:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *clearFiltersButton;
+@property (weak, nonatomic) IBOutlet UIButton *findVenuesButton;
 
 @end

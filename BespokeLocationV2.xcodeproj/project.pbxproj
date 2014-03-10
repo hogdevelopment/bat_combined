@@ -30,6 +30,8 @@
 		5C0B2BCA18BCA81200986792 /* RMNLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B2BC918BCA81200986792 /* RMNLocationController.m */; };
 		5C0B2BCC18BCFCCB00986792 /* RMNLoader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C0B2BCB18BCFCCB00986792 /* RMNLoader.xib */; };
 		5C0B2BCF18BCFD2500986792 /* RMNLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0B2BCE18BCFD2500986792 /* RMNLoader.m */; };
+		5C137EC618CE07B7007D1C34 /* filtersSideMenuButtonBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C137EC418CE07B7007D1C34 /* filtersSideMenuButtonBackground.png */; };
+		5C137EC718CE07B7007D1C34 /* filtersSideMenuButtonBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C137EC518CE07B7007D1C34 /* filtersSideMenuButtonBackground@2x.png */; };
 		5C21D0F218B245F500D1996D /* rateAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D0F018B245F500D1996D /* rateAppIcon.png */; };
 		5C21D0F318B245F500D1996D /* rateAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C21D0F118B245F500D1996D /* rateAppIcon@2x.png */; };
 		5C21D0F618B2556C00D1996D /* RMNEditProfilePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C21D0F518B2556C00D1996D /* RMNEditProfilePageViewController.m */; };
@@ -145,8 +147,6 @@
 		5CEE624918CDAD1100A32D3D /* filterSideMenuHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE624718CDAD1100A32D3D /* filterSideMenuHolder.png */; };
 		5CEE624A18CDAD1100A32D3D /* filterSideMenuHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE624818CDAD1100A32D3D /* filterSideMenuHolder@2x.png */; };
 		5CF31D8018B4EBE90073909B /* RMNFaqsAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */; };
-		5CF437D318C9F59B009FDA2F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */; };
-		5CF437D418C9F59B009FDA2F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */; };
 		5CF9DAC818BE072E0094B264 /* clearContent.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC418BE072E0094B264 /* clearContent.png */; };
 		5CF9DAC918BE072E0094B264 /* clearContent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC518BE072E0094B264 /* clearContent@2x.png */; };
 		5CF9DACA18BE072E0094B264 /* showMoreInfoToChoseFromArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF9DAC618BE072E0094B264 /* showMoreInfoToChoseFromArrow.png */; };
@@ -329,6 +329,8 @@
 		5C0B2BCB18BCFCCB00986792 /* RMNLoader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNLoader.xib; sourceTree = "<group>"; };
 		5C0B2BCD18BCFD2500986792 /* RMNLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNLoader.h; sourceTree = "<group>"; };
 		5C0B2BCE18BCFD2500986792 /* RMNLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNLoader.m; sourceTree = "<group>"; };
+		5C137EC418CE07B7007D1C34 /* filtersSideMenuButtonBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filtersSideMenuButtonBackground.png; sourceTree = "<group>"; };
+		5C137EC518CE07B7007D1C34 /* filtersSideMenuButtonBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filtersSideMenuButtonBackground@2x.png"; sourceTree = "<group>"; };
 		5C21D0F018B245F500D1996D /* rateAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rateAppIcon.png; sourceTree = "<group>"; };
 		5C21D0F118B245F500D1996D /* rateAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rateAppIcon@2x.png"; sourceTree = "<group>"; };
 		5C21D0F418B2556C00D1996D /* RMNEditProfilePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNEditProfilePageViewController.h; sourceTree = "<group>"; };
@@ -488,8 +490,6 @@
 		5CEE624818CDAD1100A32D3D /* filterSideMenuHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filterSideMenuHolder@2x.png"; sourceTree = "<group>"; };
 		5CF31D7E18B4EBE90073909B /* RMNFaqsAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFaqsAnswersViewController.h; sourceTree = "<group>"; };
 		5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFaqsAnswersViewController.m; sourceTree = "<group>"; };
-		5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
-		5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		5CF9DAC418BE072E0094B264 /* clearContent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearContent.png; sourceTree = "<group>"; };
 		5CF9DAC518BE072E0094B264 /* clearContent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clearContent@2x.png"; sourceTree = "<group>"; };
 		5CF9DAC618BE072E0094B264 /* showMoreInfoToChoseFromArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = showMoreInfoToChoseFromArrow.png; sourceTree = "<group>"; };
@@ -740,6 +740,7 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5C137EC818CE07BB007D1C34 /* Right Side Menu images */,
 				5CEE624718CDAD1100A32D3D /* filterSideMenuHolder.png */,
 				5CEE624818CDAD1100A32D3D /* filterSideMenuHolder@2x.png */,
 				5CDEF9B818C6023C00DDEAAE /* app icons */,
@@ -764,6 +765,32 @@
 				5C437F1918AEA46C00605A8F /* headerButtons */,
 				5C437EFC18AE939200605A8F /* side menu icons */,
 				5C4C980818AD34DF00807404 /* Slides from the begining of the app */,
+				5C137EC318CE07A5007D1C34 /* forgotten */,
+			);
+			name = images;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5C0B2BB018BC9CE000986792 /* Json retriever */ = {
+			isa = PBXGroup;
+			children = (
+				5C0B2BA318BC9CDA00986792 /* HPCommunicatorDelegate.h */,
+				5C0B2BA418BC9CDA00986792 /* HPCommunicator.h */,
+				5C0B2BA518BC9CDA00986792 /* HPCommunicator.m */,
+				5C0B2BA618BC9CDA00986792 /* HPLocationBuilder.h */,
+				5C0B2BA718BC9CDA00986792 /* HPLocationBuilder.m */,
+				5C0B2BA818BC9CDA00986792 /* HPInformationsManagerDelegate.h */,
+				5CA3A32E18BF9D67005DFF01 /* RMNFoursquareInterrogatorDelegate.h */,
+				5CA3A32C18BF9CD5005DFF01 /* RMNCustomRequestsDelegate.h */,
+				5C0B2BA918BC9CDA00986792 /* HPInformationsManager.h */,
+				5C0B2BAA18BC9CDA00986792 /* HPInformationsManager.m */,
+			);
+			name = "Json retriever";
+			sourceTree = "<group>";
+		};
+		5C137EC318CE07A5007D1C34 /* forgotten */ = {
+			isa = PBXGroup;
+			children = (
 				5C4C97E818AD21E200807404 /* favouriteButton@2x.png */,
 				5C4C97E918AD21E200807404 /* favouriteButton.png */,
 				E1C6180218AE806500E90E0F /* loginScreenBg.png */,
@@ -798,25 +825,16 @@
 				5C8EF39F18A9345700FFF0D0 /* menu-icon.png */,
 				5C8EF3A018A9345700FFF0D0 /* menu-icon@2x.png */,
 			);
-			name = images;
-			path = ..;
+			name = forgotten;
 			sourceTree = "<group>";
 		};
-		5C0B2BB018BC9CE000986792 /* Json retriever */ = {
+		5C137EC818CE07BB007D1C34 /* Right Side Menu images */ = {
 			isa = PBXGroup;
 			children = (
-				5C0B2BA318BC9CDA00986792 /* HPCommunicatorDelegate.h */,
-				5C0B2BA418BC9CDA00986792 /* HPCommunicator.h */,
-				5C0B2BA518BC9CDA00986792 /* HPCommunicator.m */,
-				5C0B2BA618BC9CDA00986792 /* HPLocationBuilder.h */,
-				5C0B2BA718BC9CDA00986792 /* HPLocationBuilder.m */,
-				5C0B2BA818BC9CDA00986792 /* HPInformationsManagerDelegate.h */,
-				5CA3A32E18BF9D67005DFF01 /* RMNFoursquareInterrogatorDelegate.h */,
-				5CA3A32C18BF9CD5005DFF01 /* RMNCustomRequestsDelegate.h */,
-				5C0B2BA918BC9CDA00986792 /* HPInformationsManager.h */,
-				5C0B2BAA18BC9CDA00986792 /* HPInformationsManager.m */,
+				5C137EC418CE07B7007D1C34 /* filtersSideMenuButtonBackground.png */,
+				5C137EC518CE07B7007D1C34 /* filtersSideMenuButtonBackground@2x.png */,
 			);
-			name = "Json retriever";
+			name = "Right Side Menu images";
 			sourceTree = "<group>";
 		};
 		5C21D0F718B2557700D1996D /* Edit Profile */ = {
@@ -1029,8 +1047,6 @@
 		5C6CB4E718AA4671008CBE2A /* App Manager */ = {
 			isa = PBXGroup;
 			children = (
-				5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */,
-				5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */,
 				0E07969118A5334800537FBC /* UserDataSingleton.h */,
 				0E07969218A5334800537FBC /* UserDataSingleton.m */,
 				5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */,
@@ -1719,8 +1735,8 @@
 				5C437F1318AE939200605A8F /* sendFeedbackIcon.png in Resources */,
 				5C437F2418AEA46C00605A8F /* filtersHeaderMenuButton.png in Resources */,
 				5C437F2518AEA46C00605A8F /* filtersHeaderMenuButton@2x.png in Resources */,
-				5CF437D318C9F59B009FDA2F /* Montserrat-Bold.ttf in Resources */,
 				5C4C980718AD34D800807404 /* SkipSlideButton.png in Resources */,
+				5C137EC618CE07B7007D1C34 /* filtersSideMenuButtonBackground.png in Resources */,
 				7C9B30B0189AC4EC00071357 /* selected_star@2x.png in Resources */,
 				5CDEF9B018C6013D00DDEAAE /* appIcon@2x.png in Resources */,
 				7C9B2D8F189A684A00071357 /* InfoPlist.strings in Resources */,
@@ -1744,6 +1760,7 @@
 				7C9B30AB189AC4EC00071357 /* half_selected_star.png in Resources */,
 				E1AF700618C772D500AC9454 /* full_star@2x.png in Resources */,
 				5CDEF9B218C6013D00DDEAAE /* appSpotlightIcon@2x.png in Resources */,
+				5C137EC718CE07B7007D1C34 /* filtersSideMenuButtonBackground@2x.png in Resources */,
 				E1A82F0A18AD022D00FF9661 /* twitterLogo.png in Resources */,
 				6532417A18B2E22A0061FE5C /* ratingLocationStar.png in Resources */,
 				5CDEF9B118C6013D00DDEAAE /* appSpotlightIcon.png in Resources */,
@@ -1822,7 +1839,6 @@
 				E1B2009818C637540018C8D3 /* startLocationMapMarker@2x.png in Resources */,
 				5CAF8F0718ABDA6700AF111F /* logoHolder@2x.png in Resources */,
 				5CF9DAC818BE072E0094B264 /* clearContent.png in Resources */,
-				5CF437D418C9F59B009FDA2F /* Montserrat-Regular.ttf in Resources */,
 				5CEAC82418B61BEE004830D4 /* filterImage.png in Resources */,
 				5CF9DACA18BE072E0094B264 /* showMoreInfoToChoseFromArrow.png in Resources */,
 				5C4C97EA18AD21E200807404 /* favouriteButton@2x.png in Resources */,

@@ -22,7 +22,7 @@
     
     CGRect labelFrame = CGRectMake(20, 0, 35, 30);
     
-   
+    UIColor *labelColor = [UIColor whiteColor];
     // custom cases
     
     NSString *imageLocation;
@@ -38,12 +38,21 @@
             imageLocation = @"bcwdHolderImageBg";
             break;
         }
+        case RMNCustomNavButtonArrowless:
+        {
+            imageLocation   = @"filtersSideMenuButtonBackground";
+            buttonFrame     = CGRectMake(0, 0, 106, 32);
+            labelFrame      = CGRectMake(0, 0, 106, 32);
+            labelColor      = CELL_DARK_GRAY;
+
+            break;
+        }
         default:
             break;
     }
     
     
-    
+
     // set the background image view holder
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:buttonFrame];
     [imageView setImage:[UIImage imageNamed:imageLocation]];
@@ -52,7 +61,7 @@
     UILabel *label = [[UILabel alloc]init];
     [label setFrame:labelFrame];
     [label setText:title];
-    [label setTextColor:[UIColor whiteColor]];
+    [label setTextColor:labelColor];
     [label setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
     
   
