@@ -333,11 +333,11 @@
                                 <color key="backgroundColor" red="0.81960784310000001" green="0.82352941180000006" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BrQ-0g-xFy">
-                                <rect key="frame" x="8" y="525" width="106" height="32"/>
+                                <rect key="frame" x="30" y="525" width="106" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" backgroundImage="filtersSideMenuButtonBackground.png">
                                     <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -345,11 +345,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zXO-2D-DUG">
-                                <rect key="frame" x="122" y="525" width="106" height="32"/>
+                                <rect key="frame" x="144" y="525" width="106" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal">
+                                <state key="normal" backgroundImage="filtersSideMenuButtonBackground.png">
                                     <color key="titleColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1610,6 +1610,7 @@ LINE 3</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bob-3d-vOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2039" y="128"/>
         </scene>
     </scenes>
     <resources>
@@ -1619,23 +1620,14 @@ LINE 3</string>
         <image name="attributePlaceHolder.png" width="37" height="40"/>
         <image name="distanceButtsBg.png" width="287" height="48"/>
         <image name="facebook.png" width="54" height="55"/>
-        <image name="facebook.png" width="54" height="55"/>
+        <image name="filtersSideMenuButtonBackground.png" width="106" height="32"/>
         <image name="foursquare.png" width="55" height="55"/>
-        <image name="foursquare.png" width="55" height="55"/>
-        <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="google-Plus-icon.png" width="54" height="55"/>
         <image name="loginBg.png" width="320" height="503"/>
         <image name="loginScreenBg.png" width="320" height="504"/>
         <image name="logoWhereToSmoke.png" width="79" height="79"/>
-        <image name="logoWhereToSmoke.png" width="79" height="79"/>
-        <image name="menu-icon.png" width="22" height="17"/>
         <image name="menu-icon.png" width="22" height="17"/>
         <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="okMark.png" width="16" height="12"/>
-        <image name="twitterLogo.png" width="54" height="55"/>
         <image name="twitterLogo.png" width="54" height="55"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
