@@ -11,7 +11,8 @@
 typedef enum
 {
     RMNCustomNavButtonForward,
-    RMNCustomNavButtonBackward
+    RMNCustomNavButtonBackward,
+    RMNCustomNavButtonArrowless
 }RMNCustomNavigationBarType;
 
 @interface RMNCustomNavButton : NSObject
