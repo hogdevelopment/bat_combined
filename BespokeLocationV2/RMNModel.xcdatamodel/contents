@@ -8,9 +8,12 @@
         <attribute name="distance" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="foursquare_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="foursquare_verified" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="latitude" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="hasSearchedText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isOnMap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localAddress" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mustBeRemoved" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="new" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="postcode" optional="YES" attributeType="String" syncable="YES"/>
