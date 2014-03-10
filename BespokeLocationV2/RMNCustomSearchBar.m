@@ -44,7 +44,7 @@
 
     }
     
-    UIBarButtonItem *buttCancel = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Cancel",nil)
+    UIBarButtonItem *buttCancel = [[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"Done",nil)
                                                                   style:UIBarButtonItemStyleDone
                                                                  target:self
                                                                  action:@selector(doneWithKeyboard:)];

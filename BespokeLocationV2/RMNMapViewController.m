@@ -73,6 +73,13 @@
     customSearchBar = [[RMNCustomSearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
     [customSearchBar setDelegate:self];
     
+    
+    CLLocationCoordinate2D tempLoc = [RMNLocationController sharedInstance].locationManager.location.coordinate;
+    
+    // settings needed for autocomplete feature
+    [customSearchBar setViewController:self];
+    [customSearchBar setLocationCoordinate:tempLoc];
+    
     self.navigationItem.titleView = customSearchBar;
     
     
@@ -122,12 +129,7 @@
 	
     [(RMNUserSettingsSideMenuViewController*)[[self menuContainerViewController]leftMenuViewController] setSideMenuDelegate:self];
     
-    
-     CLLocationCoordinate2D tempLoc = [RMNLocationController sharedInstance].locationManager.location.coordinate;
-    
-    // settings needed for autocomplete feature
-    [customSearchBar setViewController:self];
-    [customSearchBar setLocationCoordinate:tempLoc];
+
 
     
    

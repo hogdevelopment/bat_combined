@@ -124,6 +124,8 @@
 		5CAF8F1018ACD8B800AF111F /* RMNRateAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F0F18ACD8B800AF111F /* RMNRateAppViewController.m */; };
 		5CAF8F1318ACD8C200AF111F /* RMNShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */; };
 		5CAF8F2218AD054300AF111F /* RMNAttributesKeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */; };
+		5CBCB6EB18CDBBF500AB677A /* RMNFilterHeaderCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBCB6EA18CDBBF500AB677A /* RMNFilterHeaderCellView.xib */; };
+		5CBCB6EE18CDBC1300AB677A /* RMNFilterHeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CBCB6ED18CDBC1300AB677A /* RMNFilterHeaderCellView.m */; };
 		5CDEF9B018C6013D00DDEAAE /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AC18C6013D00DDEAAE /* appIcon@2x.png */; };
 		5CDEF9B118C6013D00DDEAAE /* appSpotlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AD18C6013D00DDEAAE /* appSpotlightIcon.png */; };
 		5CDEF9B218C6013D00DDEAAE /* appSpotlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDEF9AE18C6013D00DDEAAE /* appSpotlightIcon@2x.png */; };
@@ -138,6 +140,10 @@
 		5CEAC82A18B61C3C004830D4 /* RMNEditFilterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEAC82918B61C3C004830D4 /* RMNEditFilterTableViewCell.m */; };
 		5CEAC82D18B6255D004830D4 /* deleteFilterCell.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82B18B6255D004830D4 /* deleteFilterCell.png */; };
 		5CEAC82E18B6255D004830D4 /* deleteFilterCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEAC82C18B6255D004830D4 /* deleteFilterCell@2x.png */; };
+		5CEE624318CDA13000A32D3D /* RMNFilterSearchHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE624218CDA13000A32D3D /* RMNFilterSearchHeaderView.xib */; };
+		5CEE624618CDA15A00A32D3D /* RMNFilterSearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEE624518CDA15A00A32D3D /* RMNFilterSearchHeaderView.m */; };
+		5CEE624918CDAD1100A32D3D /* filterSideMenuHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE624718CDAD1100A32D3D /* filterSideMenuHolder.png */; };
+		5CEE624A18CDAD1100A32D3D /* filterSideMenuHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CEE624818CDAD1100A32D3D /* filterSideMenuHolder@2x.png */; };
 		5CF31D8018B4EBE90073909B /* RMNFaqsAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */; };
 		5CF437D318C9F59B009FDA2F /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */; };
 		5CF437D418C9F59B009FDA2F /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437D218C9F59B009FDA2F /* Montserrat-Regular.ttf */; };
@@ -456,6 +462,9 @@
 		5CAF8F1218ACD8C200AF111F /* RMNShareAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNShareAppViewController.m; sourceTree = "<group>"; };
 		5CAF8F2018AD054300AF111F /* RMNAttributesKeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAttributesKeyViewController.h; sourceTree = "<group>"; };
 		5CAF8F2118AD054300AF111F /* RMNAttributesKeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAttributesKeyViewController.m; sourceTree = "<group>"; };
+		5CBCB6EA18CDBBF500AB677A /* RMNFilterHeaderCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNFilterHeaderCellView.xib; sourceTree = "<group>"; };
+		5CBCB6EC18CDBC1300AB677A /* RMNFilterHeaderCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFilterHeaderCellView.h; sourceTree = "<group>"; };
+		5CBCB6ED18CDBC1300AB677A /* RMNFilterHeaderCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFilterHeaderCellView.m; sourceTree = "<group>"; };
 		5CDEF9AC18C6013D00DDEAAE /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		5CDEF9AD18C6013D00DDEAAE /* appSpotlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appSpotlightIcon.png; sourceTree = "<group>"; };
 		5CDEF9AE18C6013D00DDEAAE /* appSpotlightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appSpotlightIcon@2x.png"; sourceTree = "<group>"; };
@@ -472,6 +481,11 @@
 		5CEAC82918B61C3C004830D4 /* RMNEditFilterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNEditFilterTableViewCell.m; sourceTree = "<group>"; };
 		5CEAC82B18B6255D004830D4 /* deleteFilterCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteFilterCell.png; sourceTree = "<group>"; };
 		5CEAC82C18B6255D004830D4 /* deleteFilterCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deleteFilterCell@2x.png"; sourceTree = "<group>"; };
+		5CEE624218CDA13000A32D3D /* RMNFilterSearchHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMNFilterSearchHeaderView.xib; sourceTree = "<group>"; };
+		5CEE624418CDA15A00A32D3D /* RMNFilterSearchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFilterSearchHeaderView.h; sourceTree = "<group>"; };
+		5CEE624518CDA15A00A32D3D /* RMNFilterSearchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFilterSearchHeaderView.m; sourceTree = "<group>"; };
+		5CEE624718CDAD1100A32D3D /* filterSideMenuHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filterSideMenuHolder.png; sourceTree = "<group>"; };
+		5CEE624818CDAD1100A32D3D /* filterSideMenuHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filterSideMenuHolder@2x.png"; sourceTree = "<group>"; };
 		5CF31D7E18B4EBE90073909B /* RMNFaqsAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNFaqsAnswersViewController.h; sourceTree = "<group>"; };
 		5CF31D7F18B4EBE90073909B /* RMNFaqsAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFaqsAnswersViewController.m; sourceTree = "<group>"; };
 		5CF437D118C9F59B009FDA2F /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -726,6 +740,8 @@
 		0E64B31018A51D5100E0E513 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CEE624718CDAD1100A32D3D /* filterSideMenuHolder.png */,
+				5CEE624818CDAD1100A32D3D /* filterSideMenuHolder@2x.png */,
 				5CDEF9B818C6023C00DDEAAE /* app icons */,
 				E1B2009518C637540018C8D3 /* destinationLocationMapMarker@2x.png */,
 				E1B2009218C6317F0018C8D3 /* destinationLocationMapMarker.png */,
@@ -1229,6 +1245,12 @@
 			children = (
 				5C6CB53A18AB8207008CBE2A /* RMNFiltersCollectionViewController.h */,
 				5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */,
+				5CBCB6EA18CDBBF500AB677A /* RMNFilterHeaderCellView.xib */,
+				5CBCB6EC18CDBC1300AB677A /* RMNFilterHeaderCellView.h */,
+				5CBCB6ED18CDBC1300AB677A /* RMNFilterHeaderCellView.m */,
+				5CEE624218CDA13000A32D3D /* RMNFilterSearchHeaderView.xib */,
+				5CEE624418CDA15A00A32D3D /* RMNFilterSearchHeaderView.h */,
+				5CEE624518CDA15A00A32D3D /* RMNFilterSearchHeaderView.m */,
 			);
 			name = "Right Side Menu";
 			sourceTree = "<group>";
@@ -1682,6 +1704,7 @@
 				E1AF700718C772D500AC9454 /* empty_star.png in Resources */,
 				5C6CB51F18AA98FC008CBE2A /* settingsDummy@2x.png in Resources */,
 				5CDEF9B718C6019900DDEAAE /* appSpotlightSettingsIcon@2x.png in Resources */,
+				5CEE624A18CDAD1100A32D3D /* filterSideMenuHolder@2x.png in Resources */,
 				5C0B2BBD18BCA31000986792 /* HPMapDetailView.xib in Resources */,
 				5C437F1018AE939200605A8F /* privacyIcon@2x.png in Resources */,
 				5CA6411F18C0DD5200F242A2 /* attributePlaceHolder.png in Resources */,
@@ -1731,6 +1754,7 @@
 				5C437F0C18AE939200605A8F /* aboutAppIcon@2x.png in Resources */,
 				0E64B31A18A51D6C00E0E513 /* facebook.png in Resources */,
 				E1C617F618AE2A2A00E90E0F /* loginBg.png in Resources */,
+				5CEE624318CDA13000A32D3D /* RMNFilterSearchHeaderView.xib in Resources */,
 				E1A9BD0418ABC7B300944EAD /* distanceButtsBg.png in Resources */,
 				5C4C980318AD34D800807404 /* slide_1_Zurich.png in Resources */,
 				5C437F0D18AE939200605A8F /* logoutAppIcon.png in Resources */,
@@ -1744,6 +1768,7 @@
 				5CAF8F0618ABDA6700AF111F /* logoHolder.png in Resources */,
 				5C4C980418AD34D800807404 /* slide_2_Zurich@2x.png in Resources */,
 				5C437F2A18AEA71E00605A8F /* RMNSideMenuHeaderView.xib in Resources */,
+				5CEE624918CDAD1100A32D3D /* filterSideMenuHolder.png in Resources */,
 				E1C617FB18AE72CD00E90E0F /* okMark@2x.png in Resources */,
 				E1C617F718AE2A2A00E90E0F /* loginBg@2x.png in Resources */,
 				7C9B30AD189AC4EC00071357 /* not_selected_star.png in Resources */,
@@ -1808,6 +1833,7 @@
 				5CEAC82E18B6255D004830D4 /* deleteFilterCell@2x.png in Resources */,
 				E1C6180418AE806500E90E0F /* loginScreenBg.png in Resources */,
 				5C6CB4F118AA5134008CBE2A /* Localizable.strings in Resources */,
+				5CBCB6EB18CDBBF500AB677A /* RMNFilterHeaderCellView.xib in Resources */,
 				5C4C97FA18AD34D800807404 /* slide_2_Zurich.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1857,6 +1883,7 @@
 				7C9B2DD3189A691000071357 /* NSObject+SBJson.m in Sources */,
 				7C04AD0B189FBC0600AAA15A /* TRGoogleMapsAutocompleteItemsSource.m in Sources */,
 				5C6CB53218AB78CD008CBE2A /* RMNFilterSideMenuCell.m in Sources */,
+				5CBCB6EE18CDBC1300AB677A /* RMNFilterHeaderCellView.m in Sources */,
 				7C9B2DD9189A691000071357 /* SBJsonStreamWriter.m in Sources */,
 				5C6CB51918AA937D008CBE2A /* RMNTermsOfServiceViewController.m in Sources */,
 				5C4C980B18AD362F00807404 /* RMNIntroSlidesViewController.m in Sources */,
@@ -1886,6 +1913,7 @@
 				7C9B2DDA189A691000071357 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				5C21D0F618B2556C00D1996D /* RMNEditProfilePageViewController.m in Sources */,
 				5C21D0FA18B25DD300D1996D /* NSDate+Stringifier.m in Sources */,
+				5CEE624618CDA15A00A32D3D /* RMNFilterSearchHeaderView.m in Sources */,
 				5C0B2BCA18BCA81200986792 /* RMNLocationController.m in Sources */,
 				5C0B2BAF18BC9CDA00986792 /* HPInformationsManager.m in Sources */,
 				5C6CB51618AA937D008CBE2A /* RMNAboutPageViewController.m in Sources */,

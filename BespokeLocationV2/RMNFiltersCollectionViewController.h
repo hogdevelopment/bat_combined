@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMNFiltersCollectionViewController : UICollectionViewController
+@class RMNCustomSearchBar;
 
+@interface RMNFiltersCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property RMNCustomSearchBar *searchBar;
 
 @end
