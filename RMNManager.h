@@ -30,6 +30,7 @@
     NSString *currentUserEmail;
     
     NSMutableArray *markers;
+    NSMutableArray *locationsBigAssDictionary;
     
     NSArray *locationsArray;
 }

@@ -14,6 +14,13 @@
 
 + (NSArray *) search:(NSString *) textToSearch inArray: (NSArray *) listOfDictionaries
 {
+    
+    for (NSMutableDictionary *info in listOfDictionaries)
+    {
+        [info setValue:@"NO" forKey:@"hasSearchedText"];
+    }
+    
+    
     NSMutableArray *resultArray = [[NSMutableArray alloc] init];
     NSMutableArray *allKeyss = [[NSMutableArray alloc] init];
     
@@ -140,6 +147,11 @@
     //Bahnhofstr // and // Winterthur
 //    NSLog(@"allResults %@", arrayWithNumbersOfMatchingResults);
 
+    for (NSMutableDictionary *info in arrangedResultArray)
+    {
+        [info setValue:@"YES" forKey:@"hasSearchedText"];
+    }
+    
     return arrangedResultArray;
 }
 

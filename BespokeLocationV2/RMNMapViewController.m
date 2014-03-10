@@ -291,7 +291,8 @@
     locationsBigAssDictionary           =   groups;
     customFilteredLocationsDictionary   =   groups;
     [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:customFilteredLocationsDictionary];
+                        withInfo:customFilteredLocationsDictionary
+          withSearchingActivated:isSearching];
     
     [[RMNManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
 }
