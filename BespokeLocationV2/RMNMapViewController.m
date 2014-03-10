@@ -126,7 +126,6 @@
     [customSearchBar setLocationCoordinate:tempLoc];
 
     
-   
     
 //    NSLog(@"CERE CU %f si %f",[RMNLocationController sharedInstance].locationManager.location.coordinate.latitude,
 //          [RMNLocationController sharedInstance].locationManager.location.coordinate.longitude);
@@ -279,7 +278,9 @@
     customFilteredLocationsDictionary   =   groups;
     [HPMapMarker addMarkersToMap:mapView_
                         withInfo:customFilteredLocationsDictionary];
-  }
+    
+    [[RMNManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
+}
 
 
 - (void)fetchingLocationsFailedWithError:(NSError *)error

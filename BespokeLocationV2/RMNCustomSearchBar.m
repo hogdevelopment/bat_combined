@@ -85,7 +85,7 @@
     
     autocompleteView = [TRAutocompleteView autocompleteViewBindedTo:txtSearchField usingSource:
                         [[TRGoogleMapsAutocompleteItemsSource alloc]
-                                initWithMinimumCharactersToTrigger:1
+                                initWithMinimumCharactersToTrigger:3
                                                             apiKey:@"AIzaSyAMkoHHFPdaA3ocQmQtWm0LAaIze-V-NUk"
                                                           location:location]
                                                         cellFactory:[[TRGoogleMapsAutocompletionCellFactory alloc]
@@ -148,7 +148,7 @@
 
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    
+        
     return true;
 }
 

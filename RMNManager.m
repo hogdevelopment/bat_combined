@@ -23,6 +23,7 @@
 @synthesize userUniqueId            =   userUniqueId;
 @synthesize usersJoiningDate        =   usersJoiningDate;
 @synthesize markers                 =   markers;
+@synthesize locationsArray          =   locationsArray;
 
 #pragma mark Singleton Methods
 
@@ -62,6 +63,8 @@
         
         
         markers             = [[NSMutableArray alloc]init];
+        locationsArray      = [[NSArray alloc] init];
+        
     }
     return self;
 }

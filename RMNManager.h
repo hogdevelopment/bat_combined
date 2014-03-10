@@ -30,6 +30,8 @@
     NSString *currentUserEmail;
     
     NSMutableArray *markers;
+    
+    NSArray *locationsArray;
 }
 
 @property  BOOL isLoggedIn;
@@ -52,6 +54,7 @@
 
 
 @property NSMutableArray *markers;
+@property NSArray *locationsArray;
 
 + (id)sharedManager;
 
