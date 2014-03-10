@@ -14,9 +14,14 @@
 @interface HPMapMarker : NSObject
 
 // use this to parse the locations array
-// for the needed locations
+// markers from the given array will be
+// added to the map. If some markers are already
+// on the map, they will be kept
+// other markers that aren't in this array
+// but are on the map will be removed
 + (void)addMarkersToMap:(GMSMapView*)mapView
-               withInfo:(NSArray*)resultArray;
+               withInfo:(NSArray*)resultArray
+ withSearchingActivated:(BOOL)isSearchingActivated;
 
 
 @end

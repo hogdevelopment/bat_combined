@@ -95,7 +95,7 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     [headerView addInfo];
     [headerView setHeaderViewDelegate:self];
     
-    
+  
 }
 
 - (void)didReceiveMemoryWarning

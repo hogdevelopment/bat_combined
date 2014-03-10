@@ -39,7 +39,7 @@
     NSError* error;
 
     
-    NSDictionary *groups = [HPLocationBuilder locationsFromDataBase:objectNotation error:&error  ];
+    NSArray *groups = [HPLocationBuilder locationsFromDataBase:objectNotation error:&error  ];
     
     if (error != nil)
     {

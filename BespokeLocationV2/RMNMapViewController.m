@@ -30,8 +30,8 @@
                                     RMNAutocompleteSearchBarTextDelegate>
 {
 
-    NSDictionary *locationsBigAssDictionary;
-    NSDictionary *customFilteredLocationsDictionary;
+    NSArray *locationsBigAssDictionary;
+    NSArray *customFilteredLocationsDictionary;
     
     RMNCustomSearchBar *customSearchBar;
     RMNFiltersScrollView *filtersList;
@@ -39,14 +39,17 @@
     
     NSDictionary *currentInfoLocation;
 
+    
+    BOOL isSearching;
 
 }
 
 @property NSDictionary *currentInfoLocation;
 @property CLLocationCoordinate2D infoViewCoordinate;
 @property NSDictionary *justALittleBitOfInfo;
-@property NSDictionary *customFilteredLocationsDictionary;
-@property NSDictionary *locationsBigAssDictionary;
+@property NSArray *customFilteredLocationsDictionary;
+@property NSArray *locationsBigAssDictionary;
+@property BOOL isSearching;
 
 @end
 
@@ -55,6 +58,7 @@
     GMSMapView *mapView_;
 }
 
+@synthesize isSearching                         =   isSearching;
 @synthesize currentInfoLocation                 =   currentInfoLocation;
 @synthesize customFilteredLocationsDictionary   =   customFilteredLocationsDictionary;
 @synthesize locationsBigAssDictionary           =   locationsBigAssDictionary;
@@ -68,6 +72,13 @@
     // init custom search bar
     customSearchBar = [[RMNCustomSearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
     [customSearchBar setDelegate:self];
+    
+    
+    CLLocationCoordinate2D tempLoc = [RMNLocationController sharedInstance].locationManager.location.coordinate;
+    
+    // settings needed for autocomplete feature
+    [customSearchBar setViewController:self];
+    [customSearchBar setLocationCoordinate:tempLoc];
     
     self.navigationItem.titleView = customSearchBar;
     
@@ -83,7 +94,7 @@
 
 
     
-    
+    isSearching = YES;
     
     [Gigya logoutWithCompletionHandler:^(GSResponse *response, NSError *error)
      {
@@ -118,12 +129,7 @@
 	
     [(RMNUserSettingsSideMenuViewController*)[[self menuContainerViewController]leftMenuViewController] setSideMenuDelegate:self];
     
-    
-     CLLocationCoordinate2D tempLoc = [RMNLocationController sharedInstance].locationManager.location.coordinate;
-    
-    // settings needed for autocomplete feature
-    [customSearchBar setViewController:self];
-    [customSearchBar setLocationCoordinate:tempLoc];
+
 
     
     
@@ -258,7 +264,8 @@
 - (void)mapView:(GMSMapView *)mapView idleAtCameraPosition:(GMSCameraPosition *)position
 {
     [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:customFilteredLocationsDictionary];
+                        withInfo:customFilteredLocationsDictionary
+          withSearchingActivated:isSearching];
 }
 
 #pragma mark - Google Maps delegate methods
@@ -270,10 +277,17 @@
 }
 
 #pragma mark- JSON parser
-- (void) didReceiveLocations:(NSDictionary *)groups
+- (void) didReceiveLocations:(NSArray *)groups
 {
-
+    
     // store the received information in an local array
+    
+    
+    for (int i = 0; i< [groups count]; i++)
+    {
+        [[[RMNManager sharedManager]locationsBigAssDictionary] addObject:[groups objectAtIndex:i]];
+    }
+    
     locationsBigAssDictionary           =   groups;
     customFilteredLocationsDictionary   =   groups;
     [HPMapMarker addMarkersToMap:mapView_
@@ -410,18 +424,35 @@
 {
     NSLog(@"Searching %@",searchedString);
     
-//    customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
-    NSArray *array = [RMNFiltersOperations search:searchedString inArray:(NSArray *)locationsBigAssDictionary];
+    isSearching = YES;
     
-    NSLog(@"%@", array);
     
-    // remove markers/locations that don't contain that string
-//    
-//    [HPMapMarker removeMarkersFrom:mapView_
-//                        withString:searchedString
-//                       currentInfo:customFilteredLocationsDictionary];
+    // if the search bar is empty or has white space
+    // there's no need to search
+    // just load the visible pins
+    if ([searchedString isEqualToString:@" "] ||
+        [searchedString length]==0)
+    {
+        isSearching = NO;
+        
+        customFilteredLocationsDictionary =  locationsBigAssDictionary;
+        [HPMapMarker addMarkersToMap:mapView_
+                            withInfo:customFilteredLocationsDictionary
+              withSearchingActivated:isSearching];
+
+        return;
+
+    }
+    // fetch the information containing the searched strings
+    customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString
+                                                             inArray:locationsBigAssDictionary];
     
-   
+    // refresh the map with new pins
+    [HPMapMarker addMarkersToMap:mapView_
+                        withInfo:customFilteredLocationsDictionary
+          withSearchingActivated:isSearching];
+
+
 }
 
 @end

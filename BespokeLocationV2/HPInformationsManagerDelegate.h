@@ -13,7 +13,7 @@
 //- (void)fetchingLocationsFailedWithError:(NSError *)error;
 //- (void)didReceiveDetailsForFourSquareLocation:(NSDictionary*)detailedInfo;
 
-- (void)didReceiveLocations:(NSDictionary *)groups;
+- (void)didReceiveLocations:(NSArray *)groups;
 - (void)fetchingLocationsFailedWithError:(NSError *)error;
 
 

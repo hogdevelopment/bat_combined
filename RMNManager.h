@@ -45,7 +45,7 @@
 @property NSString *userLastName;
 @property NSString *userGender;
 @property NSString *userAgeVerification;
-
+@property NSMutableArray *locationsBigAssDictionary;
 
 @property   NSString *userNameText;
 

@@ -59,7 +59,13 @@
     for (int i = 0; i<[array count]; i++)
     {
         
-        NSMutableDictionary *dictionariesInfo = [[NSMutableDictionary alloc] initWithDictionary:@{@"isOnMap":@"NO"}];
+        NSMutableDictionary *dictionariesInfo = [[NSMutableDictionary alloc] initWithDictionary:
+                                                  @{@"isOnMap":@"NO",
+                                                    @"hasSearchedText":@"YES",
+                                                    @"mustBeRemoved":@"NO"
+                                                    }];
+        
+        
         [dictionariesInfo addEntriesFromDictionary:[array objectAtIndex:i]];
         
         [arrayOfInformation addObject:dictionariesInfo];
@@ -69,6 +75,8 @@
         
         [dictionariesInfo setValue:[NSString stringWithFormat:@"%.6f",longitude] forKey:@"longitude"];
         [dictionariesInfo setValue:[NSString stringWithFormat:@"%.6f",latitude] forKey:@"latitude"];
+        
+        
         
     }
     
