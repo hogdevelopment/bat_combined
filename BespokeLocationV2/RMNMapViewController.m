@@ -22,6 +22,7 @@
 #import "RMNVenueInformationViewController.h"
 #import "RMNSmokeAbilityRatingView.h"
 #import "RMNFiltersOperations.h"
+#import "RMNAutocompleteManager.h"
 
 //#import "RMNFoursquaredLocationFetcher.h"
 
@@ -294,7 +295,8 @@
                         withInfo:customFilteredLocationsDictionary
           withSearchingActivated:isSearching];
     
-    [[RMNManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
+    [[RMNAutocompleteManager sharedManager] setIsSearchingForLocations:YES];
+    [[RMNAutocompleteManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
 }
 
 
