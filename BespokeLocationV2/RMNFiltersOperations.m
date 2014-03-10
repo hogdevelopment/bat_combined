@@ -8,6 +8,7 @@
 
 #import "RMNFiltersOperations.h"
 
+
 @implementation RMNFiltersOperations
 
 
@@ -19,13 +20,26 @@
         [info setValue:@"NO" forKey:@"hasSearchedText"];
     }
     
-    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    NSMutableArray *resultArray = [[NSMutableArray alloc] init];
     NSMutableArray *allKeyss = [[NSMutableArray alloc] init];
     
     // get all the words
+    textToSearch = [textToSearch lowercaseString];
     NSArray *myFilters = [textToSearch componentsSeparatedByCharactersInSet:
                           [NSCharacterSet characterSetWithCharactersInString:@"-/., "]
                           ];
+    
+    NSMutableArray *arrayOfWordsToSearch = [[NSMutableArray alloc] initWithArray:myFilters];
+    
+    for (NSString *word in myFilters) {
+        
+        if ([word isEqualToString:@""]) {
+            
+            [arrayOfWordsToSearch removeObject:word];
+        }
+    }
+    
     
     // extract from the dictionaries keys only the keys that have string values
     for (id akey in [[listOfDictionaries objectAtIndex:0] allKeys]) {
@@ -40,15 +54,15 @@
     // for each key, create predicate and then apply it to array
     for (id myKey in allKeyss) {
         
-        NSMutableArray *arrayOfArguments = [[NSMutableArray alloc] initWithObjects:myKey, [myFilters objectAtIndex:0], nil];
+        NSMutableArray *arrayOfArguments = [[NSMutableArray alloc] initWithObjects:myKey, [arrayOfWordsToSearch objectAtIndex:0], nil];
         
         NSString *formatForPredicate = @"%K CONTAINS[cd] %@";
         
         // create format and array of arguments for predicate
-        for (int i = 1; i<[myFilters count]; i++) {
+        for (int i = 1; i<[arrayOfWordsToSearch count]; i++) {
             
             [arrayOfArguments addObject:myKey];
-            [arrayOfArguments addObject:[myFilters objectAtIndex:i]];
+            [arrayOfArguments addObject:[arrayOfWordsToSearch objectAtIndex:i]];
             formatForPredicate = [formatForPredicate stringByAppendingString:@" OR %K CONTAINS[cd] %@"];
             
         }
@@ -61,16 +75,84 @@
         // if any string was found , add dictionaries to result, only if they were not already added
         if ([filteredArray count] ) {
             
-            [result addObjectsFromArray:[self returnObjectsFromArray:filteredArray notContainedBy:result]];
+            [resultArray addObjectsFromArray:[self returnObjectsFromArray:filteredArray notContainedBy:resultArray]];
         }
     }
     
-    for (NSMutableDictionary *info in result)
+    
+    // optimization - move to the beginning results that have words exactly like the words sent
+    // check if words from text to search are matching with words from result array, not just contained by them
+    NSMutableArray *arrayWithNumbersOfMatchingResults = [[NSMutableArray alloc] init];
+
+    NSPredicate *matchingWordsPredicate = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        
+        int countWords = 0;
+        
+        for (id myKey in allKeyss)
+        {
+            // get all the words from the value of the key
+            NSString *stringValue = [[evaluatedObject objectForKey:myKey] lowercaseString];
+            NSArray *words = [stringValue componentsSeparatedByCharactersInSet:
+                              [NSCharacterSet characterSetWithCharactersInString:@"-/., "]
+                              ];
+            
+            // check each word
+            for (int i = 0; i<[arrayOfWordsToSearch count]; i++) {
+
+                if ([words containsObject:[arrayOfWordsToSearch objectAtIndex:i]]) {
+                    countWords ++;
+                }
+            }
+        }
+        
+        BOOL found = NO;
+        
+        if (countWords > 0) {
+            
+            [arrayWithNumbersOfMatchingResults addObject:[NSNumber numberWithInt:countWords]];
+            found = YES;
+        }
+        
+        return found;
+    }];
+    
+
+    
+    // array that contains only the dictionaries that have matching words
+    NSMutableArray *resultWithMatchingWords = [[NSMutableArray alloc] initWithArray:[resultArray filteredArrayUsingPredicate:matchingWordsPredicate]];
+    
+    // array that will hold all the results, but with the matching results at the beginning
+    NSMutableArray *arrangedResultArray = [[NSMutableArray alloc] initWithArray:resultArray];
+    
+    // max value for matching results - the dictionary with the most matching words found
+    int maxMatches = [[arrayWithNumbersOfMatchingResults valueForKeyPath:@"@max.self"] intValue];
+    
+    
+    // from 1 to maxMatches we move the objects at the beginning
+    // when it's done, the dictionaries that have the most words, will be at the beginning
+    for (int i = 1; i <= maxMatches; i++) {
+        
+        for (int j = 0; j< [arrayWithNumbersOfMatchingResults count]; j++) {
+            
+            if ([[arrayWithNumbersOfMatchingResults objectAtIndex:j] intValue] == i) {
+                
+                NSDictionary *dictToBeMoved = [resultWithMatchingWords objectAtIndex:j];
+                
+                [arrangedResultArray removeObject:dictToBeMoved];
+                [arrangedResultArray insertObject:dictToBeMoved atIndex:0];
+            }
+        }
+    }
+
+    //Bahnhofstr // and // Winterthur
+//    NSLog(@"allResults %@", arrayWithNumbersOfMatchingResults);
+
+    for (NSMutableDictionary *info in arrangedResultArray)
     {
         [info setValue:@"YES" forKey:@"hasSearchedText"];
     }
     
-    return result;
+    return arrangedResultArray;
 }
 
 

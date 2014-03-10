@@ -31,6 +31,8 @@
 #import "AFJSONRequestOperation.h"
 #import "TRStringExtensions.h"
 #import "TRGoogleMapsSuggestion.h"
+#import "RMNFiltersOperations.h"
+#import "RMNManager.h"
 
 @implementation TRGoogleMapsAutocompleteItemsSource
 {
@@ -90,13 +92,21 @@
                                                                 NSMutableArray *suggestions = [[NSMutableArray alloc] init];
                                                                 NSArray *predictions = [JSON objectForKey:@"predictions"];
 
+                                                                
+                                                                // results from local database
+                                                                NSArray *resultsFromDatabase = [RMNFiltersOperations search:query inArray:[[RMNManager sharedManager] locationsArray]];
+                                                                [suggestions addObjectsFromArray:resultsFromDatabase];
+                                                                
+                                                                
+                                                                // results from google
                                                                 for (NSDictionary *place in predictions)
                                                                 {
                                                                     TRGoogleMapsSuggestion
                                                                             *suggestion = [[TRGoogleMapsSuggestion alloc] initWith:[place objectForKey:@"description"]];
                                                                     [suggestions addObject:suggestion];
                                                                 }
-
+                                                                
+                                                                
                                                                 if (suggestionsReady)
                                                                     suggestionsReady(suggestions);
 
@@ -126,6 +136,8 @@
 - (NSString*) autocompleteUrlFor:(NSString*)query
 {
 #warning change restrictions for autocomplete
+    // codes for countries here: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+    
     NSMutableString *urlString = [NSMutableString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input=%@&components=country:ch",
                                                   [query urlEncode]];
 

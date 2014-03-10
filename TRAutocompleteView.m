@@ -50,6 +50,7 @@
     id <TRAutocompletionCellFactory> _cellFactory;
 }
 
+
 + (TRAutocompleteView *)autocompleteViewBindedTo:(UITextField *)textField
                                      usingSource:(id <TRAutocompleteItemsSource>)itemsSource
                                      cellFactory:(id <TRAutocompletionCellFactory>)factory
@@ -206,10 +207,21 @@
     UITableViewCell <TRAutocompletionCell> *completionCell = (UITableViewCell <TRAutocompletionCell> *) cell;
 
     id suggestion = self.suggestions[(NSUInteger) indexPath.row];
-    NSAssert([suggestion conformsToProtocol:@protocol(TRSuggestionItem)], @"Suggestion item must conform TRSuggestionItem");
-    id <TRSuggestionItem> suggestionItem = (id <TRSuggestionItem>) suggestion;
-
-    [completionCell updateWith:suggestionItem];
+    
+    if ([suggestion conformsToProtocol:@protocol(TRSuggestionItem)]) {
+        
+        NSAssert([suggestion conformsToProtocol:@protocol(TRSuggestionItem)], @"Suggestion item must conform TRSuggestionItem");
+        id <TRSuggestionItem> suggestionItem = (id <TRSuggestionItem>) suggestion;
+        
+        [completionCell updateWith:suggestionItem];
+    }
+    else{
+        
+//        NSLog(@"something else at row %u", indexPath.row);
+        NSDictionary *info = [self.suggestions objectAtIndex:indexPath.row];
+        
+        completionCell.textLabel.text = [NSString stringWithFormat:@"%@, %@", [info objectForKey:@"name"], [info objectForKey:@"localAddress"]];
+    }
 
     return cell;
 }
@@ -217,15 +229,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id suggestion = self.suggestions[(NSUInteger) indexPath.row];
-    NSAssert([suggestion conformsToProtocol:@protocol(TRSuggestionItem)], @"Suggestion item must conform TRSuggestionItem");
-
-    self.selectedSuggestion = (id <TRSuggestionItem>) suggestion;
-
-    _queryTextField.text = self.selectedSuggestion.completionText;
-    [_queryTextField resignFirstResponder];
-
-    if (self.didAutocompleteWith)
-        self.didAutocompleteWith(self.selectedSuggestion);
+    
+    if ([suggestion conformsToProtocol:@protocol(TRSuggestionItem)]) {
+        
+        
+        // selected result from google
+        NSAssert([suggestion conformsToProtocol:@protocol(TRSuggestionItem)], @"Suggestion item must conform TRSuggestionItem");
+        
+        self.selectedSuggestion = (id <TRSuggestionItem>) suggestion;
+        
+        _queryTextField.text = self.selectedSuggestion.completionText;
+        [_queryTextField resignFirstResponder];
+        
+        if (self.didAutocompleteWith)
+            self.didAutocompleteWith(self.selectedSuggestion);
+    }
+    else{
+        
+        // selected result from daatbase
+        
+    }
 }
 
 - (void)dealloc

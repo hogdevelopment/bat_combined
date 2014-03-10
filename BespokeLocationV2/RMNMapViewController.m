@@ -132,7 +132,6 @@
 
 
     
-   
     
 //    NSLog(@"CERE CU %f si %f",[RMNLocationController sharedInstance].locationManager.location.coordinate.latitude,
 //          [RMNLocationController sharedInstance].locationManager.location.coordinate.longitude);
@@ -294,7 +293,9 @@
     [HPMapMarker addMarkersToMap:mapView_
                         withInfo:customFilteredLocationsDictionary
           withSearchingActivated:isSearching];
-  }
+    
+    [[RMNManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
+}
 
 
 - (void)fetchingLocationsFailedWithError:(NSError *)error

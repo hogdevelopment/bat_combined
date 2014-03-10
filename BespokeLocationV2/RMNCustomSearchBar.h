@@ -26,6 +26,7 @@
     UIViewController    *viewController;
     
     id <RMNAutocompleteSearchBarTextDelegate> delegate;
+    
 }
 
 @property (nonatomic, strong) id <RMNAutocompleteSearchBarTextDelegate> delegate;
