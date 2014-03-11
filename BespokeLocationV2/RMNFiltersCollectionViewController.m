@@ -11,6 +11,7 @@
 #import "RMNFilterSearchHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNCustomSearchBar.h"
+#import "RMNAutocompleteManager.h"
 
 @interface RMNFiltersCollectionViewController ()<RMNAutocompleteSearchBarTextDelegate>
 {
@@ -120,15 +121,22 @@
     UIImage *findImage = [RMNCustomNavButton customNavButton:RMNCustomNavButtonArrowless withTitle:@"Find"];
     [self.findVenuesButton setImage:findImage forState:UIControlStateNormal];
     
-    
-    
-    
-
+ 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // set stuff for autocomplete
+#warning needs to be moved in a method called when right menu is pressed!
+    [[RMNAutocompleteManager sharedManager] setIsSearchingForFilters:NO];
+    
+    NSLog(@"settings off for setFiltersArray ");
 }
 
 - (void)cancelNumberPad
@@ -199,8 +207,6 @@
     
     UIImageView *imageView              = (UIImageView *)[cell viewWithTag:100];
     UILabel     *labelText              = (UILabel *)[cell viewWithTag:200];
-    
-    
     
     
     
@@ -359,10 +365,25 @@
 }
 
 #pragma RMNCustomSearchBar methods
-- (void)userSearched:(NSString *)searchedString
+
+- (void)userIsStartingToSearch
 {
+    // set stuff for autocomplete
+#warning needs to be changed!
+    [[RMNAutocompleteManager sharedManager] setIsSearchingForFilters:YES];
+    [[RMNAutocompleteManager sharedManager] setFiltersArray:filterPhotos];
+    
+    NSLog(@"settings on for setFiltersArray ");
     
 }
+
+
+- (void)userSearched:(NSString *)searchedString
+{
+    NSLog(@"userSearched in filters: %@", searchedString);
+}
+
+
 
 - (IBAction)clearFilters:(UIButton *)sender
 {

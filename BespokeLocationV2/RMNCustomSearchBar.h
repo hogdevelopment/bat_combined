@@ -16,6 +16,7 @@
 @protocol RMNAutocompleteSearchBarTextDelegate <NSObject>
 
 - (void)userSearched:(NSString*)searchedString;
+- (void)userIsStartingToSearch;
 
 @end
 

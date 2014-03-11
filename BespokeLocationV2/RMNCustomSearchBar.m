@@ -7,6 +7,7 @@
 //
 
 #import "RMNCustomSearchBar.h"
+#import "RMNAutocompleteManager.h"
 
 @implementation RMNCustomSearchBar
 
@@ -55,7 +56,7 @@
     
     searchBarView.inputAccessoryView = cancelToolBar;
     
-    searchBarView.keyboardType = UIKeyboardAppearanceLight;
+    searchBarView.keyboardType = UIKeyboardTypeAlphabet;
     
     if (IS_IOS7)
     {
@@ -96,10 +97,35 @@
     autocompleteView.topMargin = -5;
     autocompleteView.backgroundColor = [UIColor colorWithRed:209.0/255.0 green:82.0/255.0 blue:23.0/255.0 alpha:0.9];
     
+#warning change here what you want to send when a cell was selected!
     autocompleteView.didAutocompleteWith = ^(id<TRSuggestionItem> item)
     {
+        NSString *selectedCellText = @"";
         
-        [[self_ delegate]userSearched:item.completionText];
+         if ([item conformsToProtocol:@protocol(TRSuggestionItem)]) {
+         
+             // selected cell from google
+             selectedCellText = item.completionText;
+         }
+         else{
+             NSDictionary *info = (NSDictionary *)item;
+
+             if ([[RMNAutocompleteManager sharedManager] isSearchingForFilters]) {
+                 
+                 // selected cell when searching for filters
+                 selectedCellText = [info objectForKey:@"text"];
+             }
+             else
+                 if ([[RMNAutocompleteManager sharedManager] isSearchingForLocations]) {
+                     
+                     // selected cell when searching for locations
+                     selectedCellText = [NSString stringWithFormat:@"%@, %@", [info objectForKey:@"name"], [info objectForKey:@"localAddress"]];
+                 }
+         }
+        
+        
+        [[self_ delegate]userSearched:selectedCellText];
+
     };
     
 }
@@ -148,7 +174,8 @@
 
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-        
+
+    [[self delegate] userIsStartingToSearch];
     return true;
 }
 
