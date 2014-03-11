@@ -30,6 +30,7 @@
 #import "TRAutocompleteView.h"
 #import "TRAutocompleteItemsSource.h"
 #import "TRAutocompletionCellFactory.h"
+#import "RMNAutocompleteManager.h"
 
 @interface TRAutocompleteView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -217,10 +218,20 @@
     }
     else{
         
-//        NSLog(@"something else at row %u", indexPath.row);
         NSDictionary *info = [self.suggestions objectAtIndex:indexPath.row];
         
-        completionCell.textLabel.text = [NSString stringWithFormat:@"%@, %@", [info objectForKey:@"name"], [info objectForKey:@"localAddress"]];
+        if ([[RMNAutocompleteManager sharedManager] isSearchingForFilters]) {
+        
+            // show needed text when searching for filters
+            completionCell.textLabel.text = [info objectForKey:@"text"];
+        }
+        else
+            if ([[RMNAutocompleteManager sharedManager] isSearchingForLocations]) {
+
+                // show needed text when searching for locations
+                completionCell.textLabel.text = [NSString stringWithFormat:@"%@, %@", [info objectForKey:@"name"], [info objectForKey:@"localAddress"]];
+            }
+        
     }
 
     return cell;
@@ -239,17 +250,36 @@
         self.selectedSuggestion = (id <TRSuggestionItem>) suggestion;
         
         _queryTextField.text = self.selectedSuggestion.completionText;
-        [_queryTextField resignFirstResponder];
         
-        if (self.didAutocompleteWith)
-            self.didAutocompleteWith(self.selectedSuggestion);
     }
     else{
         
-        // selected result from daatbase
+        // selected result from database
+        NSDictionary *info = [self.suggestions objectAtIndex:indexPath.row];
+        
+        self.selectedSuggestion = (id) info;
+        
+        if ([[RMNAutocompleteManager sharedManager] isSearchingForFilters]) {
+            
+            // show selected text when searching for filters
+            _queryTextField.text = [info objectForKey:@"text"];
+        }
+        else
+            if ([[RMNAutocompleteManager sharedManager] isSearchingForLocations]) {
+                
+                // show selected text when searching for locations
+                _queryTextField.text = [NSString stringWithFormat:@"%@, %@", [info objectForKey:@"name"], [info objectForKey:@"localAddress"]];
+            }
         
     }
+    
+    [_queryTextField resignFirstResponder];
+    
+    if (self.didAutocompleteWith)
+        self.didAutocompleteWith(self.selectedSuggestion);
+    
 }
+
 
 - (void)dealloc
 {

@@ -16,6 +16,7 @@
 @protocol RMNAutocompleteSearchBarTextDelegate <NSObject>
 
 - (void)userSearched:(NSString*)searchedString;
+- (void)userIsStartingToSearch;
 
 @end
 
@@ -36,6 +37,6 @@
 - (void) setLocationCoordinate: (CLLocationCoordinate2D) location;
 - (void) setViewController: (UIViewController *)vController;
 
-
+- (void) createStringToSearchFromFilters: (NSArray *) arrayWithFilters;
 
 @end

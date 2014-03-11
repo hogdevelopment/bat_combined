@@ -241,6 +241,7 @@
 		7CB20F76189BCBB500F74E4B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CB20F75189BCBB500F74E4B /* MapKit.framework */; };
 		7CB20F79189BD5D400F74E4B /* CallGetThereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB20F78189BD5D400F74E4B /* CallGetThereView.m */; };
 		7CB20F7C189BE83800F74E4B /* ImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB20F7B189BE83800F74E4B /* ImagesCell.m */; };
+		E1111E6818CE03EB009B2CC8 /* RMNAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1111E6718CE03EB009B2CC8 /* RMNAutocompleteManager.m */; };
 		E1A684A818B655FB002CCC15 /* RMNVenueInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A684A718B655FB002CCC15 /* RMNVenueInformationViewController.m */; };
 		E1A82F0518AD022D00FF9661 /* twitterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A82EFF18AD022D00FF9661 /* twitterLogo@2x.png */; };
 		E1A82F0618AD022D00FF9661 /* foursquare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A82F0018AD022D00FF9661 /* foursquare@2x.png */; };
@@ -642,6 +643,8 @@
 		7CB20F78189BD5D400F74E4B /* CallGetThereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallGetThereView.m; sourceTree = "<group>"; };
 		7CB20F7A189BE83800F74E4B /* ImagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagesCell.h; sourceTree = "<group>"; };
 		7CB20F7B189BE83800F74E4B /* ImagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagesCell.m; sourceTree = "<group>"; };
+		E1111E6618CE03EB009B2CC8 /* RMNAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNAutocompleteManager.h; sourceTree = "<group>"; };
+		E1111E6718CE03EB009B2CC8 /* RMNAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNAutocompleteManager.m; sourceTree = "<group>"; };
 		E1A684A618B655FB002CCC15 /* RMNVenueInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNVenueInformationViewController.h; sourceTree = "<group>"; };
 		E1A684A718B655FB002CCC15 /* RMNVenueInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNVenueInformationViewController.m; sourceTree = "<group>"; };
 		E1A82EFF18AD022D00FF9661 /* twitterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterLogo@2x.png"; sourceTree = "<group>"; };
@@ -1059,6 +1062,8 @@
 				0E07969218A5334800537FBC /* UserDataSingleton.m */,
 				5C8EF3A618AA19E500FFF0D0 /* RMNManager.h */,
 				5C8EF3A718AA19E500FFF0D0 /* RMNManager.m */,
+				E1111E6618CE03EB009B2CC8 /* RMNAutocompleteManager.h */,
+				E1111E6718CE03EB009B2CC8 /* RMNAutocompleteManager.m */,
 				5C0B2BC818BCA81200986792 /* RMNLocationController.h */,
 				5C0B2BC918BCA81200986792 /* RMNLocationController.m */,
 			);
@@ -1988,6 +1993,7 @@
 				E1B4384218C9BAA9004B430B /* RMNFiltersOperations.m in Sources */,
 				7C04AD25189FC15A00AAA15A /* AFHTTPRequestOperation.m in Sources */,
 				5C50C5DB18AE643C00EA169C /* RMNModel.xcdatamodel in Sources */,
+				E1111E6818CE03EB009B2CC8 /* RMNAutocompleteManager.m in Sources */,
 				7C04AD0E189FBC0600AAA15A /* TRStringExtensions.m in Sources */,
 				E1B3654818B251960060552E /* RMNAgeDeclarationViewController.m in Sources */,
 			);

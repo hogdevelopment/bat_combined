@@ -32,7 +32,7 @@
 #import "TRStringExtensions.h"
 #import "TRGoogleMapsSuggestion.h"
 #import "RMNFiltersOperations.h"
-#import "RMNManager.h"
+#import "RMNAutocompleteManager.h"
 
 @implementation TRGoogleMapsAutocompleteItemsSource
 {
@@ -92,11 +92,22 @@
                                                                 NSMutableArray *suggestions = [[NSMutableArray alloc] init];
                                                                 NSArray *predictions = [JSON objectForKey:@"predictions"];
 
+                                                                NSArray *resultsFromDatabase;
                                                                 
-                                                                // results from local database
-                                                                NSArray *resultsFromDatabase = [RMNFiltersOperations search:query inArray:[[RMNManager sharedManager] locationsArray]];
+                                                                if ([[RMNAutocompleteManager sharedManager] isSearchingForFilters]) {
+                                                                    
+                                                                    // results for filters
+                                                                    resultsFromDatabase = [RMNFiltersOperations search:query inArray:[[RMNAutocompleteManager sharedManager] filtersArray]];
+                                                                }
+                                                                else
+                                                                    if ([[RMNAutocompleteManager sharedManager] isSearchingForLocations]) {
+                                                                        
+                                                                        // results from local database
+                                                                        resultsFromDatabase = [RMNFiltersOperations search:query inArray:[[RMNAutocompleteManager sharedManager] locationsArray]];
+                                                                    }
+                                                                
                                                                 [suggestions addObjectsFromArray:resultsFromDatabase];
-                                                                
+
                                                                 
                                                                 // results from google
                                                                 for (NSDictionary *place in predictions)

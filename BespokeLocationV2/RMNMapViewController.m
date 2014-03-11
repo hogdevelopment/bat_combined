@@ -309,8 +309,6 @@
     [HPMapMarker addMarkersToMap:mapView_
                         withInfo:customFilteredLocationsDictionary
           withSearchingActivated:isSearching];
-    
-    [[RMNManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
 }
 
 
@@ -334,6 +332,9 @@
 
 - (IBAction)showRightMenuPressed:(id)sender {
     [self.menuContainerViewController toggleRightSideMenuCompletion:nil];
+    
+    [[RMNAutocompleteManager sharedManager] setIsSearchingForFilters:NO];
+    NSLog(@"settings off for setFiltersArray ");
 }
 
 - (void) userDidTouchDown:(RMNUserSettingsSideMenuCellType)menuType
@@ -437,6 +438,13 @@
 
 
 #pragma mark Autocomplete delegate method
+
+- (void)userIsStartingToSearch{
+    
+    [[RMNAutocompleteManager sharedManager] setIsSearchingForLocations:YES];
+    [[RMNAutocompleteManager sharedManager] setLocationsArray:(NSArray *)customFilteredLocationsDictionary];
+}
+
 - (void)userSearched:(NSString *)searchedString
 {
     isSearching = YES;
