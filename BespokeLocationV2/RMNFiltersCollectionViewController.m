@@ -302,7 +302,7 @@
         
         [[sourceArray objectAtIndex:indexPath.row]setValue:@"selected" forKey:@"state"];
         
-        
+        NSLog(@"baga filtru");
         [selectedFilters addObject:[sourceArray objectAtIndex:indexPath.row]];
         
     }
@@ -346,7 +346,7 @@
                 break;
         }
         
-        
+        NSLog(@"scoate filtru");
         [[sourceArray objectAtIndex:indexPath.row] setValue:@"deselected" forKey:@"state"];
         [selectedFilters removeObject:[sourceArray objectAtIndex:indexPath.row]];
 
@@ -387,16 +387,36 @@
 
 - (IBAction)clearFilters:(UIButton *)sender
 {
-    NSLog(@"Clear filters");
-    // reset the state for each filter
-    for (NSMutableDictionary *info  in selectedFilters)
-    {
-        [info setValue:@"deselected" forKey:@"state"];
-        [selectedFilters removeObject:info];
-    }
+    NSLog(@"Clear filters %d",[selectedFilters count]);
+
     
-    // reload the collection view
-    [self.collectionView reloadData];
+    
+    // find array of pins which souldn't be on the map but are and remove references
+    dispatch_async(kBgQueue, ^{
+        
+
+        // reset the state for each filter
+        for (int i = 0; i<[selectedFilters count];i++)
+        {
+            NSMutableDictionary *info = [selectedFilters objectAtIndex:i];
+            [info setValue:@"deselected" forKey:@"state"];
+            NSLog(@"SCOATE %@",[info valueForKey:@"text"]);
+           
+        }
+        
+        [selectedFilters removeAllObjects];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            NSLog(@"ramane cu %d elemente ",[selectedFilters count]);
+            // reload the collection view
+            [self.collectionView reloadData];
+            
+            
+        });
+    });
+    
+
     
 }
 

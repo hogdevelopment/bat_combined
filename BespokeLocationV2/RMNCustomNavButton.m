@@ -18,12 +18,18 @@
     
     CGRect buttonFrame = CGRectMake(0, 0, 60, 30);
     UIView* holder = [[UIView alloc]init];
-    [holder setFrame:buttonFrame];
+    
     
     CGRect labelFrame = CGRectMake(20, 0, 35, 30);
     
     UIColor *labelColor = [UIColor whiteColor];
+    
+    
+    int fontSize = 12;
     // custom cases
+    
+    // set the custom label
+    UILabel *label = [[UILabel alloc]init];
     
     NSString *imageLocation;
     switch (type) {
@@ -44,6 +50,9 @@
             buttonFrame     = CGRectMake(0, 0, 106, 32);
             labelFrame      = CGRectMake(0, 0, 106, 32);
             labelColor      = CELL_DARK_GRAY;
+            fontSize        = 14;
+            [label setTextAlignment:NSTextAlignmentCenter];
+
 
             break;
         }
@@ -52,15 +61,15 @@
     }
     
     
-
+    [holder setFrame:buttonFrame];
+    
     // set the background image view holder
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:buttonFrame];
     [imageView setImage:[UIImage imageNamed:imageLocation]];
     
-    // set the custom label
-    UILabel *label = [[UILabel alloc]init];
+
     [label setFrame:labelFrame];
-    [label setText:title];
+    [label setText:NSLocalizedString(title, nil)];
     [label setTextColor:labelColor];
     [label setFont:[UIFont fontWithName:@"HelveticaNeue" size:12]];
     

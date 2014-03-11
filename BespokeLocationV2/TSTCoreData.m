@@ -36,7 +36,6 @@
 //    NSLog(@"INFORMATIA %@",information);
     for(id key in information)
     {
-
 //        NSLog(@"ESTE CU CHEIA %@ la informatia %@",key,[information objectForKey:key]);
         [informationManagedObject setValue:NULL_TO_NIL([information objectForKey:key])
                                   forKey:key];
