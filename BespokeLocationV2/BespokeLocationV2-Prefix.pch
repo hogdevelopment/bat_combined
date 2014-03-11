@@ -23,5 +23,6 @@
     #import "RMNLocationController.h"
     #import "NSDictionary+DeepLinking.h"
     #import "RMNFiltersOperations.h"
+    #import "RMNAlertView.h"
 
 #endif

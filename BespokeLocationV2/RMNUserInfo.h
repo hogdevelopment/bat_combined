@@ -14,6 +14,9 @@
 // library.
 + (void)saveProfileImageWithURL:(NSString*)profilePicLocation;
 
+// saves custom filter created by the user
++ (void)saveFilter:(NSDictionary*)filterInfo;
+
 // loades the current users profile image stored locally
 + (UIImage*)profileImage;
 
@@ -30,6 +33,9 @@
 
 // fetches the favourites locations
 + (NSMutableArray*)fetchFavouriteLocations;
+
+// fetches the filters created by the user
++ (NSMutableArray*)fetchFilters;
 
 // deletes favourite location from core data
 + (void)removeFavouriteLocation:(NSDictionary*)location;

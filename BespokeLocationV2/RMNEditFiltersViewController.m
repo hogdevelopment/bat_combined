@@ -9,7 +9,7 @@
 #import "RMNEditFiltersViewController.h"
 #import "CGEnhancedKeyboard.h"
 #import "RMNEditFilterTableViewCell.h"
-
+#import "NSData+Unarchiver.h"
 
 @interface RMNEditFiltersViewController ()<CGEnhancedKeyboardDelegate,UISearchBarDelegate>
 {
@@ -77,15 +77,19 @@ static NSString *CellIdentifier = @"Cell";
     filtersArray            = [[NSMutableArray alloc]init];
     coreDataFiltersArray    = [[NSMutableArray alloc]init];
     
-    for (int i = 0; i < 100; i++)
-    {
-        NSDictionary *filters = @{
-                                      @"kind"   : [NSString stringWithFormat:@"Filter_kind_%d",i],
-                                      @"name"   : [NSString stringWithFormat:@"Filter_%d",i]
-                                      };
-        
-        [coreDataFiltersArray addObject:filters];
-    }
+//    for (int i = 0; i < 100; i++)
+//    {
+//        NSDictionary *filters = @{
+//                                      @"kind"   : [NSString stringWithFormat:@"Filter_kind_%d",i],
+//                                      @"name"   : [NSString stringWithFormat:@"Filter_%d",i]
+//                                      };
+//        
+//        [coreDataFiltersArray addObject:filters];
+//    }
+    
+    
+    
+    coreDataFiltersArray = [RMNUserInfo fetchFilters];
     
     filtersArray    =   [NSMutableArray arrayWithArray:coreDataFiltersArray];
     
@@ -139,8 +143,9 @@ static NSString *CellIdentifier = @"Cell";
     
 #warning send the cell the info when we have all the informations
     NSDictionary *infoCell = [filtersArray objectAtIndex:indexPath.row];
-    [cell.nameLabel setText:[infoCell valueForKey:@"name"]];
-    [cell.kindLabel setText:[infoCell valueForKey:@"kind"]];
+    [cell.nameLabel setText:[infoCell valueForKey:@"filterName"]];
+    [cell.kindLabel setText:[infoCell valueForKey:@"filtersDescription"]];
+    
 
     return cell;
 }
@@ -314,7 +319,7 @@ static NSString *CellIdentifier = @"Cell";
       
         
 #warning modify here to suit app best
-        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(name contains[cd] %@) OR (kind contains[cd] %@)", stringToSearch,stringToSearch];
+        NSPredicate *filterPredicate = [NSPredicate predicateWithFormat:@"(filterName contains[cd] %@) OR (filtersDescription contains[cd] %@)", stringToSearch,stringToSearch];
         
         NSArray *result         = [NSMutableArray arrayWithArray:[coreDataFiltersArray  filteredArrayUsingPredicate:filterPredicate]];
         

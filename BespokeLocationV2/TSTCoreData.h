@@ -29,8 +29,11 @@ TSTCoreDataActionType;
 
 @interface TSTCoreData : NSObject
 
-// save informations from dictionary to core data
+// save information from dictionary to core data
 + (void) addInformation:(NSDictionary *)information ofType:(TSTCoreDataEntity)entityType;
+
+// save multiple informations to core data
++ (void) addInformations:(NSMutableArray*)informationArrayOfDictionaries ofType:(TSTCoreDataEntity)entityType;
 
 
 // updates informations from dictionary to core data

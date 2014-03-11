@@ -11,5 +11,4 @@
 
 @interface RMNMapViewController : UIViewController   <GMSMapViewDelegate>
 
-
 @end

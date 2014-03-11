@@ -10,8 +10,23 @@
 
 @class RMNCustomSearchBar;
 
-@interface RMNFiltersCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
+@protocol RMNFiltersSideMenuDelegate
+
+// methods sent to delegate
+// so we know when a button was pressed
+- (void)userSearchedWithDefinedFilters;
+
+@end
+
+
+
+@interface RMNFiltersCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+{
+    id <RMNFiltersSideMenuDelegate> delegate;
+}
+
+@property (nonatomic, strong) id <RMNFiltersSideMenuDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property RMNCustomSearchBar *searchBar;
 - (IBAction)clearFilters:(UIButton *)sender;

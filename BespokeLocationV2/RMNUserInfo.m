@@ -127,6 +127,22 @@ UserInformationKeyValues selectedService;
     [TSTCoreData addInformation:location ofType:TSTCoreDataFavourites];
 }
 
++ (void)saveFilter:(NSDictionary*)filterInfo
+{
+
+   [TSTCoreData addInformation:filterInfo ofType:TSTCoreDataFilters];
+}
+
++ (NSMutableArray*)fetchFilters
+{
+    NSMutableArray *filters = [TSTCoreData fetchedUserDataFor:TSTCoreDataFilters];
+    
+    NSLog(@"CICA ARE %d elemente ",[filters count]);
+    NSLog(@"za filters %@",filters);
+    return filters;
+}
+
+
 + (NSMutableArray*)fetchFavouriteLocations
 {
     NSMutableArray *favourites = [TSTCoreData fetchedUserDataFor:TSTCoreDataFavourites];

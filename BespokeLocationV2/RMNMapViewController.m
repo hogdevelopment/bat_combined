@@ -22,16 +22,21 @@
 #import "RMNVenueInformationViewController.h"
 #import "RMNSmokeAbilityRatingView.h"
 #import "RMNFiltersOperations.h"
+#import "RMNFiltersCollectionViewController.h"
+
 
 //#import "RMNFoursquaredLocationFetcher.h"
 
 @interface RMNMapViewController ()< HPInformationsManagerDelegate,
                                     RMNUserSettingsLefttSideMenuDelegate,
-                                    RMNAutocompleteSearchBarTextDelegate>
+                                    RMNAutocompleteSearchBarTextDelegate,
+                                    RMNFiltersSideMenuDelegate>
 {
 
     NSArray *locationsBigAssDictionary;
     NSArray *customFilteredLocationsDictionary;
+    
+    NSMutableDictionary *searchInfo;
     
     RMNCustomSearchBar *customSearchBar;
     RMNFiltersScrollView *filtersList;
@@ -49,6 +54,7 @@
 @property NSDictionary *justALittleBitOfInfo;
 @property NSArray *customFilteredLocationsDictionary;
 @property NSArray *locationsBigAssDictionary;
+@property NSMutableDictionary *searchInfo;
 @property BOOL isSearching;
 
 @end
@@ -62,6 +68,7 @@
 @synthesize currentInfoLocation                 =   currentInfoLocation;
 @synthesize customFilteredLocationsDictionary   =   customFilteredLocationsDictionary;
 @synthesize locationsBigAssDictionary           =   locationsBigAssDictionary;
+@synthesize searchInfo                          =   searchInfo;
 
 - (void)viewDidLoad
 {
@@ -73,6 +80,8 @@
     customSearchBar = [[RMNCustomSearchBar alloc] initWithFrame:CGRectMake(0,0, 220, 40)];
     [customSearchBar setDelegate:self];
     
+    
+   
     
     CLLocationCoordinate2D tempLoc = [RMNLocationController sharedInstance].locationManager.location.coordinate;
     
@@ -165,8 +174,23 @@
                                           options:nil]objectAtIndex:0];
     
     [loader animate];
-}
+    
+    
+    RMNFiltersCollectionViewController *rightyController =(RMNFiltersCollectionViewController*)
+    (self.menuContainerViewController.rightMenuViewController);
+    [rightyController setDelegate:self];
+    
 
+    
+    NSDictionary *searchDict = @{@"id"      :@"searchBarID",
+                                 @"keys"    :@"",
+                                 @"photo"   :@"",
+                                 @"text"    :@"",
+                                 @"state"   :@""};
+    searchInfo = [[NSMutableDictionary alloc]initWithDictionary:searchDict];
+
+    
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -191,20 +215,12 @@
 
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-//- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker
-//{
-//    HPMapDetailView *view = [[[NSBundle mainBundle] loadNibNamed:@"HPMapDetailView"
-//                                                           owner:self
-//                                                         options:nil]objectAtIndex:0];
-//    
-//    return view;
-//}
 
 
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
@@ -423,8 +439,6 @@
 #pragma mark Autocomplete delegate method
 - (void)userSearched:(NSString *)searchedString
 {
-    NSLog(@"Searching %@",searchedString);
-    
     isSearching = YES;
     
     
@@ -435,12 +449,12 @@
         [searchedString length]==0)
     {
         isSearching = NO;
-        
         customFilteredLocationsDictionary =  locationsBigAssDictionary;
         [HPMapMarker addMarkersToMap:mapView_
                             withInfo:customFilteredLocationsDictionary
               withSearchingActivated:isSearching];
 
+        
         return;
 
     }
@@ -453,7 +467,60 @@
                         withInfo:customFilteredLocationsDictionary
           withSearchingActivated:isSearching];
 
+    
+    NSDictionary *searchDict = @{@"keys":@[searchedString]};
+    [searchInfo removeObjectForKey:@"keys"];
+    [searchInfo addEntriesFromDictionary:searchDict];
 
+
+    [RMNAlertView customAlertViewWithMessage:NSLocalizedString( @"Wanna save the filter? Give it a name.", nil)
+                                withDelegate:self];
 }
+
+
+#pragma mark UIAlertView delegate methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == [alertView firstOtherButtonIndex])
+    {
+
+        //save the keys to core data
+        NSMutableArray *whatToSaveToCoreData = [[RMNManager sharedManager]filtersArray];
+        [whatToSaveToCoreData addObject:searchInfo];
+        
+        NSArray *keys   = [whatToSaveToCoreData valueForKey:@"id"];
+        NSArray *result = [whatToSaveToCoreData valueForKey:@"keys"];
+        NSMutableSet *uniqueFilters = [[NSMutableSet alloc]init];
+     
+        // create NSSet to keep unique filters
+        for (NSArray*array in result)
+        {
+            [uniqueFilters addObjectsFromArray:array];
+        }
+        
+       // create filter preview for the Edit Filters Cell
+        NSString *myStrFilter = [[uniqueFilters allObjects] componentsJoinedByString:@"+"];
+
+        NSDictionary *infoCoreData = @{@"filterName":[alertView textFieldAtIndex:0].text,
+                                       @"filtersArray":keys,
+                                       @"filtersDescription":myStrFilter,
+                                       @"usersEmail":[[RMNManager sharedManager]currentUserEmail]};
+        
+        //update to Core Data
+        [RMNUserInfo saveFilter:infoCoreData];
+       
+    }
+    else if (buttonIndex == [alertView cancelButtonIndex])
+    {
+        
+    }
+}
+
+#pragma mark Right Side Menu Filter delegate methods
+-(void)userSearchedWithDefinedFilters
+{
+    NSLog(@"searching through delegate");
+}
+
 
 @end

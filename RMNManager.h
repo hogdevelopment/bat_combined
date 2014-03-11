@@ -15,24 +15,22 @@
     BOOL alreadyShownIntro;
     
     NSString *userNameText;
-    
-    
-    
     NSString *userUniqueId;
     NSString *userFirstName;
     NSString *userLastName;
     NSString *userGender;
     NSString *userAgeVerification;
-    
+    NSString *currentUserEmail;
     
     NSDate *usersJoiningDate;
-    
-    NSString *currentUserEmail;
     
     NSMutableArray *markers;
     NSMutableArray *locationsBigAssDictionary;
     
     NSArray *locationsArray;
+    
+    NSMutableArray*filtersArray;
+    
 }
 
 @property  BOOL isLoggedIn;
@@ -47,6 +45,7 @@
 @property NSString *userGender;
 @property NSString *userAgeVerification;
 @property NSMutableArray *locationsBigAssDictionary;
+@property NSMutableArray*filtersArray;
 
 @property   NSString *userNameText;
 

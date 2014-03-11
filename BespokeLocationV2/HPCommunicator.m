@@ -72,18 +72,13 @@
         case RMNRequestUserRegister:
         {
 
-         
-
-            
             NSString*username   = [self.requestInfo valueForKey:@"username"];
             NSString*password   = [self.requestInfo valueForKey:@"password"];
             NSString*email      = [self.requestInfo valueForKey:@"email"];
             NSString*firstName  = [self.requestInfo valueForKey:@"firstName"];
             NSString*lastName   = [self.requestInfo valueForKey:@"lastName"];
             NSString*gender     = [self.requestInfo valueForKey:@"gender"];
-            
-            
-            
+
             searchType = @"http://ec2-54-213-195-182.us-west-2.compute.amazonaws.com/user/register";
             post = [NSString stringWithFormat:@"username=%@&password=%@&email=%@&first_name=%@&last_name=%@&gender=%@",username,password,email,firstName,lastName,gender];
             
@@ -161,11 +156,6 @@
         [request setHTTPBody:postData];
 
     }
-  
-    
-    
-
-    
     
     [self httpForRequest:request withType:type];
     

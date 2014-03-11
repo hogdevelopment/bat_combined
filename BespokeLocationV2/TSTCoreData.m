@@ -32,13 +32,25 @@
                                                    insertNewObjectForEntityForName:entityName
                                                    inManagedObjectContext:context];
     
-    
-//    NSLog(@"INFORMATIA %@",information);
+
     for(id key in information)
     {
-//        NSLog(@"ESTE CU CHEIA %@ la informatia %@",key,[information objectForKey:key]);
-        [informationManagedObject setValue:NULL_TO_NIL([information objectForKey:key])
-                                  forKey:key];
+        
+        if ([[information objectForKey:key] isKindOfClass:[NSArray class]])
+        {
+            
+            NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:[information objectForKey:key]];
+            
+            [informationManagedObject setValue:newData
+                                        forKey:key];
+            
+        }
+        else
+        {
+            [informationManagedObject setValue:NULL_TO_NIL([information
+                                                            objectForKey:key])
+                                        forKey:key];
+        }
     }
     
     
@@ -49,11 +61,64 @@
     }
     else{
         
-//        NSLog(@"the info stored are: %@", [self fetchedUserData]);
+    }
+
+}
+
+
++ (void) addInformations:(NSMutableArray*)informationArrayOfDictionaries ofType:(TSTCoreDataEntity)entityType
+{
+    // bring za app delegate instance
+    AppDelegate *appDelegate        = (AppDelegate*)[[UIApplication sharedApplication]delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    
+    NSString *entityName = [self entityNameFor:entityType];
+    
+    NSManagedObject *informationManagedObject     = [NSEntityDescription
+                                                     insertNewObjectForEntityForName:entityName
+                                                     inManagedObjectContext:context];
+    
+    NSLog(@"la core data primeste %d informatii ",[informationArrayOfDictionaries count]);
+    for (int i = 0; i< [informationArrayOfDictionaries count]; i++)
+    {
+        //informationArrayOfDictionaries
+        NSDictionary *information = [informationArrayOfDictionaries objectAtIndex:i];
+       
+        NSLog(@"--------------------------%d-------",i);
+        for(id key in information)
+        {
+            NSLog(@"key %@",key);
+            if ([[information objectForKey:key] isKindOfClass:[NSArray class]])
+            {
+                
+                NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:[information objectForKey:key]];
+                
+                [informationManagedObject setValue:newData
+                                        forKey:key];
+                
+                
+                
+            }
+            else
+            {
+            
+            [informationManagedObject setValue:NULL_TO_NIL([information
+                                                            objectForKey:key])
+                                        forKey:key];
+            }
+        }
+    
+     }
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    else{
+        
     }
     
-    
-
 }
 
 + (id)actionType:(TSTCoreDataActionType)actionType

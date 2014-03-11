@@ -11,6 +11,9 @@
 #import "RMNFilterSearchHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNCustomSearchBar.h"
+#import "MFSideMenuContainerViewController.h"
+#import "RMNMapViewController.h"
+
 
 @interface RMNFiltersCollectionViewController ()<RMNAutocompleteSearchBarTextDelegate>
 {
@@ -19,18 +22,16 @@
     int numberOfFilters;
     int numberOfAttributes;
     RMNCustomSearchBar *customSearchBar;
-    
-    NSMutableArray *selectedFilters;
+
  }
 
-@property  NSMutableArray *selectedFilters;
 
 @end
 
 @implementation RMNFiltersCollectionViewController
 
 @synthesize clearFiltersButton  =   clearFiltersButton;
-
+@synthesize delegate            =   delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,7 +71,8 @@
     for (int i = 0; i < numberOfFilters; i++)
     {
 
-        NSMutableDictionary *info = [[NSMutableDictionary alloc] initWithDictionary:@{@"photo"   : @"attributePlaceHolder",
+        NSMutableDictionary *info = [[NSMutableDictionary alloc] initWithDictionary:@{@"id"      : [NSString stringWithFormat:@"idFi%d",i],
+                                                                                      @"photo"   : @"attributePlaceHolder",
                                                                                       @"text"    : [NSString stringWithFormat:@"Fi%d",i],
                                                                                       @"state"   : @"deselected",
                                                                                       @"keys"    : @[@"key0",@"key1",@"key3"]}];
@@ -80,7 +82,8 @@
     numberOfAttributes = 20;
     for (int i = 0; i < numberOfAttributes; i++)
     {
-        NSMutableDictionary *info = [[NSMutableDictionary alloc] initWithDictionary:@{@"photo"   : @"attributePlaceHolder",
+        NSMutableDictionary *info = [[NSMutableDictionary alloc] initWithDictionary:@{@"id"      : [NSString stringWithFormat:@"idAt%d",i],
+                                                                                      @"photo"   : @"attributePlaceHolder",
                                                                                       @"text"    : [NSString stringWithFormat:@"At%d",i],
                                                                                       @"state"   : @"deselected",
                                                                                       @"keys"    : @[@"key0",@"key1"]}];
@@ -107,8 +110,7 @@
     self.searchBar.layer.shadowColor      = [UIColor grayColor].CGColor;
     self.searchBar.layer.shadowPath       = [UIBezierPath bezierPathWithRect:self.searchBar.bounds].CGPath;
     
-    
-    selectedFilters = [[NSMutableArray alloc]init];
+
     
     
     //customize the buttons from the bottom of the screen
@@ -295,8 +297,8 @@
         
         [[sourceArray objectAtIndex:indexPath.row]setValue:@"selected" forKey:@"state"];
         
-        NSLog(@"baga filtru");
-        [selectedFilters addObject:[sourceArray objectAtIndex:indexPath.row]];
+        [[[RMNManager sharedManager]filtersArray]
+         addObject:[sourceArray objectAtIndex:indexPath.row]];
         
     }
     else
@@ -341,12 +343,13 @@
         
         NSLog(@"scoate filtru");
         [[sourceArray objectAtIndex:indexPath.row] setValue:@"deselected" forKey:@"state"];
-        [selectedFilters removeObject:[sourceArray objectAtIndex:indexPath.row]];
+        
+        [[[RMNManager sharedManager]filtersArray]removeObject:[sourceArray objectAtIndex:indexPath.row]];
 
     }
     else
     {
-         [cell setBackgroundColor:[UIColor clearColor]];
+        //ios 6
     }
    
 }
@@ -365,7 +368,7 @@
 
 - (IBAction)clearFilters:(UIButton *)sender
 {
-    NSLog(@"Clear filters %d",[selectedFilters count]);
+    NSLog(@"Clear filters %d",[[[RMNManager sharedManager]filtersArray] count]);
 
     
     
@@ -374,19 +377,23 @@
         
 
         // reset the state for each filter
-        for (int i = 0; i<[selectedFilters count];i++)
+        for (int i = 0; i<[[[RMNManager sharedManager]filtersArray] count];i++)
         {
-            NSMutableDictionary *info = [selectedFilters objectAtIndex:i];
+            
+            NSMutableDictionary *info = [[[RMNManager sharedManager]filtersArray]
+                                         objectAtIndex:i];
             [info setValue:@"deselected" forKey:@"state"];
             NSLog(@"SCOATE %@",[info valueForKey:@"text"]);
            
         }
         
-        [selectedFilters removeAllObjects];
+        [[[RMNManager sharedManager]filtersArray] removeAllObjects];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            NSLog(@"ramane cu %d elemente ",[selectedFilters count]);
+            NSLog(@"ramane cu %d elemente ",
+                  [[[RMNManager sharedManager]filtersArray] count]);
+            
             // reload the collection view
             [self.collectionView reloadData];
             
@@ -398,9 +405,29 @@
     
 }
 
+
+
+- (MFSideMenuContainerViewController *)menuContainerViewController
+{
+    return (MFSideMenuContainerViewController *)self.parentViewController;
+}
+
+
 - (IBAction)findWithFilters:(id)sender
 {
+    
+    // close the side menu
+    // and search for locations
+    [[self delegate]userSearchedWithDefinedFilters];
+
+    
+    
+    
+    // since we're loading another view controller
+    // the side menu must animate to its closed state
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    
     // send the filter array to a custom search
-    NSLog(@"Searching With %@",selectedFilters);
+//    NSLog(@"Searching With %@",[[RMNManager sharedManager]filtersArray]);
 }
 @end

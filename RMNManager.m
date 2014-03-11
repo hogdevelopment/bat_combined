@@ -10,21 +10,22 @@
 
 @implementation RMNManager
 
-@synthesize isLoggedIn              =   isLoggedIn;
-@synthesize menuShouldBeOpened      =   menuShouldBeOpened;
-@synthesize userNameText            =   userNameText;
-@synthesize alreadyShownIntro       =   alreadyShownIntro;
-@synthesize currentUserEmail        =   currentUserEmail;
+@synthesize isLoggedIn                  =   isLoggedIn;
+@synthesize menuShouldBeOpened          =   menuShouldBeOpened;
+@synthesize userNameText                =   userNameText;
+@synthesize alreadyShownIntro           =   alreadyShownIntro;
+@synthesize currentUserEmail            =   currentUserEmail;
 
-@synthesize userAgeVerification     =   userAgeVerification;
-@synthesize userFirstName           =   userFirstName;
-@synthesize userLastName            =   userLastName;
-@synthesize userGender              =   userGender;
-@synthesize userUniqueId            =   userUniqueId;
-@synthesize usersJoiningDate        =   usersJoiningDate;
-@synthesize markers                 =   markers;
+@synthesize userAgeVerification         =   userAgeVerification;
+@synthesize userFirstName               =   userFirstName;
+@synthesize userLastName                =   userLastName;
+@synthesize userGender                  =   userGender;
+@synthesize userUniqueId                =   userUniqueId;
+@synthesize usersJoiningDate            =   usersJoiningDate;
+@synthesize markers                     =   markers;
 @synthesize locationsBigAssDictionary   =   locationsBigAssDictionary;
-@synthesize locationsArray          =   locationsArray;
+@synthesize locationsArray              =   locationsArray;
+@synthesize filtersArray                =   filtersArray;
 
 #pragma mark Singleton Methods
 
@@ -57,17 +58,17 @@
         userGender          = [defaults valueForKey:@"userGender"];
         userAgeVerification = [defaults valueForKey:@"userAgeVerification"];
         userNameText        = [defaults valueForKey:@"userNameText"];
-        
         usersJoiningDate    = [defaults objectForKey:@"registrationDate"];
+       
+        
+        
         
         menuShouldBeOpened          =   NO;
         
-        
+        locationsArray              = [[NSArray alloc] init];
         markers                     = [[NSMutableArray alloc]init];
         locationsBigAssDictionary   = [[NSMutableArray alloc]init];
-        
-        locationsArray              = [[NSArray alloc] init];
-        
+        filtersArray                = [[NSMutableArray alloc]init];
     }
     return self;
 }
