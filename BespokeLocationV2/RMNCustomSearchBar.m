@@ -131,6 +131,26 @@
 }
 
 
+// when searching for locations with filters - must create a string that will contain all the filters sent
+- (void) createStringToSearchFromFilters: (NSArray *) arrayWithFilters
+{
+    // string with all the filters
+    NSString *allFilters = @"";
+    
+    for (NSDictionary *dict in arrayWithFilters) {
+        
+        NSArray *filters = [dict objectForKey:@"keys"];
+        
+        // add filters
+        allFilters = [NSString stringWithFormat:@"%@ %@", allFilters, [filters componentsJoinedByString:@" "]];
+    }
+    
+    
+    // tell the delegate what it needs to search
+    [[self delegate]userSearched:allFilters];
+}
+
+
 // cancel action
 -(void)doneWithKeyboard:(id)sender
 {
@@ -147,6 +167,8 @@
     
     
 }
+
+
 
 
 #pragma mark - UISearchBar Delegate Methods
