@@ -107,6 +107,7 @@
 		5C6CB53C18AB8207008CBE2A /* RMNFiltersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */; };
 		5C6CB53F18AB893B008CBE2A /* filterSideMenuHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB53D18AB893B008CBE2A /* filterSideMenuHolder.png */; };
 		5C6CB54018AB893B008CBE2A /* filterSideMenuHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6CB53E18AB893B008CBE2A /* filterSideMenuHolder@2x.png */; };
+		5C83C25518D05A9C00AEC7D3 /* RMNLanguageLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83C25418D05A9C00AEC7D3 /* RMNLanguageLocalization.m */; };
 		5C8EF39118A933F000FFF0D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */; };
 		5C8EF39218A933F000FFF0D0 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */; };
 		5C8EF39318A933F000FFF0D0 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C8EF39018A933F000FFF0D0 /* SideMenuViewController.m */; };
@@ -436,6 +437,8 @@
 		5C6CB53B18AB8207008CBE2A /* RMNFiltersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNFiltersCollectionViewController.m; sourceTree = "<group>"; };
 		5C6CB53D18AB893B008CBE2A /* filterSideMenuHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filterSideMenuHolder.png; sourceTree = "<group>"; };
 		5C6CB53E18AB893B008CBE2A /* filterSideMenuHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filterSideMenuHolder@2x.png"; sourceTree = "<group>"; };
+		5C83C25318D05A9C00AEC7D3 /* RMNLanguageLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMNLanguageLocalization.h; sourceTree = "<group>"; };
+		5C83C25418D05A9C00AEC7D3 /* RMNLanguageLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMNLanguageLocalization.m; sourceTree = "<group>"; };
 		5C8EF38C18A933F000FFF0D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C8EF38D18A933F000FFF0D0 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		5C8EF38E18A933F000FFF0D0 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
@@ -954,6 +957,16 @@
 			name = "Slides from the begining of the app";
 			sourceTree = "<group>";
 		};
+		5C4FCF1318D0680600572E66 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				5C6CB4F318AA5134008CBE2A /* Localizable.strings */,
+				5C83C25318D05A9C00AEC7D3 /* RMNLanguageLocalization.h */,
+				5C83C25418D05A9C00AEC7D3 /* RMNLanguageLocalization.m */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
 		5C50C5DD18AE643F00EA169C /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1011,6 +1024,7 @@
 				5C50C5D718AE587F00EA169C /* RMNSettings.h */,
 				5C0B2BB018BC9CE000986792 /* Json retriever */,
 				5C50C5DD18AE643F00EA169C /* Core Data */,
+				5C4FCF1318D0680600572E66 /* Language */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1098,7 +1112,6 @@
 				5C6CB4EA18AA492B008CBE2A /* UIColor+HexRecognition.m */,
 				5C21D0F818B25DD300D1996D /* NSDate+Stringifier.h */,
 				5C21D0F918B25DD300D1996D /* NSDate+Stringifier.m */,
-				5C6CB4F318AA5134008CBE2A /* Localizable.strings */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1961,6 +1974,7 @@
 				6532417118B2E15B0061FE5C /* RMNFavouriteLocationView.m in Sources */,
 				7C04AD26189FC15A00AAA15A /* AFImageRequestOperation.m in Sources */,
 				7C9B2DDB189A691000071357 /* SBJsonStreamWriterState.m in Sources */,
+				5C83C25518D05A9C00AEC7D3 /* RMNLanguageLocalization.m in Sources */,
 				7C04AD2C189FC15A00AAA15A /* UIImageView+AFNetworking.m in Sources */,
 				E1A684A818B655FB002CCC15 /* RMNVenueInformationViewController.m in Sources */,
 				5C8EF3A818AA19E500FFF0D0 /* RMNManager.m in Sources */,

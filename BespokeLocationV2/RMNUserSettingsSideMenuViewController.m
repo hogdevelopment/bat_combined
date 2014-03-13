@@ -21,6 +21,8 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     NSArray         *buttonsText;
     NSMutableArray  *imagesForCells;
     RMNSideMenuHeaderButtonsView *headerView;
+    RMNUserPhotoNameView *userHeaderView;
+    
 }
 
 @property (nonatomic, strong) NSArray           *buttonsText;
@@ -34,27 +36,30 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
 @synthesize sideMenuDelegate    =   sideMenuDelegate;
 @synthesize buttonsText         =   buttonsText;
 @synthesize imagesForCells      =   imagesForCells;
+@synthesize userHeaderView      =   userHeaderView;
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"WILL APPEAAR");
+
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     
     buttonsText     = @[ @"emptyBecauseTheFirstCellIsCustom",
-                         NSLocalizedString(@"Settings",nil),
-                         NSLocalizedString(@"Feedback",nil),
-                         NSLocalizedString(@"Rate the app",nil),
-                         NSLocalizedString(@"Share the app",nil),
-                         NSLocalizedString(@"About",nil),
-                         NSLocalizedString(@"Privacy",nil),
-                         NSLocalizedString(@"FAQs",nil),
-                         NSLocalizedString(@"Logout",nil)];
+                         [RMNLanguageLocalization translatedTextForKey:@"Settings"],
+                         [RMNLanguageLocalization translatedTextForKey:@"Feedback"],
+                         [RMNLanguageLocalization translatedTextForKey:@"Rate the app"],
+                         [RMNLanguageLocalization translatedTextForKey:@"Share the app"],
+                         [RMNLanguageLocalization translatedTextForKey:@"About"],
+                         [RMNLanguageLocalization translatedTextForKey:@"Privacy"],
+                         [RMNLanguageLocalization translatedTextForKey:@"FAQs"],
+                         [RMNLanguageLocalization translatedTextForKey:@"Logout"]];
     
     NSArray *imagesLocation;
     imagesForCells  =   [[NSMutableArray alloc]init];
@@ -186,12 +191,12 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     
     
 
-    RMNUserPhotoNameView *userHeaderView = [[[NSBundle mainBundle]
-                                      loadNibNamed:@"RMNUserPhotoNameView"
-                                            owner:self
-                                        options:nil]objectAtIndex:0];
+    userHeaderView = [[[NSBundle mainBundle]
+                       loadNibNamed:@"RMNUserPhotoNameView"
+                       owner:self
+                       options:nil]objectAtIndex:0];
     
-    [userHeaderView customizeWith:@"Chiosa Gabi"];
+    [userHeaderView customizeWith:[[RMNManager sharedManager]userNameText]];
     
 
     return userHeaderView;
@@ -215,5 +220,9 @@ static  NSString *HeaderCellIdentifier      = @"HeaderCellReuseIdentifier";
     return (MFSideMenuContainerViewController *)self.parentViewController;
 }
 
-
+#pragma mark - Edit profile delegate methods
+- (void)userUpdatedProfile
+{
+     [userHeaderView customizeWith:[[RMNManager sharedManager]userNameText]];
+}
 @end

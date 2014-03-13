@@ -8,9 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol RMNUserProfileDelegate
+// methods sent to delegate
+// so we know when the user updates his profile
+- (void)userUpdatedProfile;
+
+@end
+
+
+
+
 @interface RMNEditProfilePageViewController : UIViewController<UITableViewDataSource,
                                                                UITableViewDelegate>
-
+{
+        id <RMNUserProfileDelegate> delegate;
+}
 
 
 @property (strong, nonatomic) IBOutlet UIImageView  *profileImageHolder;
@@ -21,7 +34,7 @@
 
 
 
-
+@property (nonatomic, strong) id <RMNUserProfileDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)changePicture:(id)sender;

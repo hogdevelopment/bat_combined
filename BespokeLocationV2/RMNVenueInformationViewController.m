@@ -431,9 +431,18 @@ NSString *descriptionString;
     venueIsFavourite = !venueIsFavourite;
     [self isVenueAlreadyFavourite:venueIsFavourite];
     
-    [self customAlertViewWithMessage:message];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"Dismiss",nil)
+                                          otherButtonTitles:@"See favourites.", nil
+                          ];
+    [alert show];
+    
+
 
 }
+
 
 - (IBAction)callAction:(id)sender {
     
@@ -696,6 +705,20 @@ NSString *descriptionString;
     
 }
 
+
+
+
+#pragma mark UIAlertView delegate methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == [alertView firstOtherButtonIndex])
+    {
+        //load favourites page
+        [self performSegueWithIdentifier:@"seeFavouritesLocations" sender:self];
+        
+    }
+
+}
 @end
 
 

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RMNSideMenuHeaderButtonsView.h"
+#import "RMNEditProfilePageViewController.h"
+
+@class RMNUserPhotoNameView;
 
 // use this enumaration
 // for a better read over the
@@ -44,10 +47,13 @@ RMNUserSettingsSideMenuCellType;
 @end
 
 
-@interface RMNUserSettingsSideMenuViewController : UITableViewController<RMNSideMenuButtonsDelegate>
+@interface RMNUserSettingsSideMenuViewController : UITableViewController<RMNSideMenuButtonsDelegate,RMNUserProfileDelegate>
 {
     id <RMNUserSettingsLefttSideMenuDelegate> sideMenuDelegate;
 }
 @property (nonatomic, strong) id <RMNUserSettingsLefttSideMenuDelegate> sideMenuDelegate;
+
+
+@property (nonatomic, strong) RMNUserPhotoNameView *userHeaderView;
 
 @end

@@ -45,6 +45,7 @@ static NSString *CellIdentifier = @"CellEditProfile";
 
 @implementation RMNEditProfilePageViewController
 
+@synthesize delegate            =   delegate;
 @synthesize requestStatusCount  =   requestStatusCount;
 @synthesize currentSection      =   currentSection;
 @synthesize sectionsTitles      =   sectionsTitles;
@@ -143,6 +144,9 @@ static NSString *CellIdentifier = @"CellEditProfile";
     
     
     [RMNUserInfo updateProfileDataWith:sectionsTitles];
+    
+    // tell the delegate that the user updated his profile info
+    [self.delegate userUpdatedProfile];
 
     
 }
@@ -488,6 +492,8 @@ static NSString *CellIdentifier = @"CellEditProfile";
             [self.activityIndicator stopAnimating];
             self.profileImageHolder.image = tempImage;
             
+            [self.delegate userUpdatedProfile];
+
         });
     });
 

@@ -11,6 +11,7 @@
 #import "RMNFilterSearchHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RMNCustomSearchBar.h"
+#import "RMNAutocompleteManager.h"
 #import "MFSideMenuContainerViewController.h"
 #import "RMNMapViewController.h"
 

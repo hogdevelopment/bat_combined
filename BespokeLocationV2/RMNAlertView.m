@@ -31,4 +31,21 @@
 }
 
 
++ (void)customAlertViewWithMessage:(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:Nil
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+                                          otherButtonTitles:Nil, nil
+                          ];
+
+    
+    [alert show];
+    
+    
+    
+    
+}
+
 @end

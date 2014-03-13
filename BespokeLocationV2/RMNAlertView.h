@@ -10,6 +10,11 @@
 
 @interface RMNAlertView : NSObject
 
+// custom alert view with delegate and message
+// and a textfield input view
 + (void)customAlertViewWithMessage:(NSString*)message withDelegate:(id)delegate;
+
+// custom altert view with message
++ (void)customAlertViewWithMessage:(NSString*)message;
 
 @end

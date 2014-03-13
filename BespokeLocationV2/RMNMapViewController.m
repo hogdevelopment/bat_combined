@@ -22,8 +22,9 @@
 #import "RMNVenueInformationViewController.h"
 #import "RMNSmokeAbilityRatingView.h"
 #import "RMNFiltersOperations.h"
+#import "RMNAutocompleteManager.h"
 #import "RMNFiltersCollectionViewController.h"
-
+#import "RMNEditProfilePageViewController.h"
 
 //#import "RMNFoursquaredLocationFetcher.h"
 
@@ -137,11 +138,7 @@
     [self.view addSubview:filtersList];
 	
     [(RMNUserSettingsSideMenuViewController*)[[self menuContainerViewController]leftMenuViewController] setSideMenuDelegate:self];
-    
 
-
-    
-    
 //    NSLog(@"CERE CU %f si %f",[RMNLocationController sharedInstance].locationManager.location.coordinate.latitude,
 //          [RMNLocationController sharedInstance].locationManager.location.coordinate.longitude);
 //    
@@ -189,7 +186,7 @@
                                  @"state"   :@""};
     searchInfo = [[NSMutableDictionary alloc]initWithDictionary:searchDict];
 
-    
+
 }
 
 
@@ -434,6 +431,11 @@
         RMNVenueInformationViewController* detailVenue = [segue destinationViewController];
         detailVenue.venueInfo                          =  currentInfoLocation;
     }
+    else if ([[segue identifier] isEqualToString:@"editProfilePageSegue"])
+    {
+        RMNEditProfilePageViewController* detailVenue   = [segue destinationViewController];
+        [detailVenue setDelegate:(RMNUserSettingsSideMenuViewController*)[[self menuContainerViewController]leftMenuViewController]];
+    }
 }
 
 
@@ -466,23 +468,35 @@
         return;
 
     }
+    
+    
+
     // fetch the information containing the searched strings
     customFilteredLocationsDictionary = [RMNFiltersOperations search:searchedString
                                                              inArray:locationsBigAssDictionary];
     
-    // refresh the map with new pins
-    [HPMapMarker addMarkersToMap:mapView_
-                        withInfo:customFilteredLocationsDictionary
-          withSearchingActivated:isSearching];
-
     
-    NSDictionary *searchDict = @{@"keys":@[searchedString]};
-    [searchInfo removeObjectForKey:@"keys"];
-    [searchInfo addEntriesFromDictionary:searchDict];
+    if ([customFilteredLocationsDictionary count] == 0)
+    {
+        [RMNAlertView customAlertViewWithMessage:NSLocalizedString(@"No results.", nil)];
+        return;
+    }
+    else
+    {
+        // refresh the map with new pins
+        [HPMapMarker addMarkersToMap:mapView_
+                            withInfo:customFilteredLocationsDictionary
+              withSearchingActivated:isSearching];
+
+        
+        NSDictionary *searchDict = @{@"keys":@[searchedString]};
+        [searchInfo removeObjectForKey:@"keys"];
+        [searchInfo addEntriesFromDictionary:searchDict];
 
 
-    [RMNAlertView customAlertViewWithMessage:NSLocalizedString( @"Wanna save the filter? Give it a name.", nil)
-                                withDelegate:self];
+        [RMNAlertView customAlertViewWithMessage:NSLocalizedString( @"Wanna save the filter? Give it a name.", nil)
+                                    withDelegate:self];
+    }
 }
 
 
@@ -529,6 +543,7 @@
 {
     NSLog(@"searching through delegate");
 }
+
 
 
 @end

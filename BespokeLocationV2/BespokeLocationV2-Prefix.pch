@@ -24,5 +24,6 @@
     #import "NSDictionary+DeepLinking.h"
     #import "RMNFiltersOperations.h"
     #import "RMNAlertView.h"
+    #import "RMNLanguageLocalization.h"
 
 #endif

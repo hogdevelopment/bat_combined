@@ -136,9 +136,6 @@ UserInformationKeyValues selectedService;
 + (NSMutableArray*)fetchFilters
 {
     NSMutableArray *filters = [TSTCoreData fetchedUserDataFor:TSTCoreDataFilters];
-    
-    NSLog(@"CICA ARE %d elemente ",[filters count]);
-    NSLog(@"za filters %@",filters);
     return filters;
 }
 

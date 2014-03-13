@@ -38,6 +38,8 @@
     //FoursquareAPI = FALSE;
     
     
+    [RMNLanguageLocalization init];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]];
     MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
     
